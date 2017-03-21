@@ -1,0 +1,56 @@
+image: tetraweb/php
+
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+  before_script:
+    - npm install --silent
+    - apt-get install lftp
+
+build:
+  stage: build
+  script:
+    - gulp
+
+stage_deploy:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  script:
+    - lftp -u $SFTP_USER,$SFTP_PASS -e 'mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;' $SFTP_URL
+    - lftp -e 'mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;'
+
+    - lftp -e 'mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;'
+    - lftp -e 'mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia; exit'
+  environment:
+    name: staging
+  only:
+    - staging
+
+stage_production:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  script:
+    - ssh -p22 fbndev@aries.uberspace.de "rm -rf /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/schlicht/*"
+    - ssh -p22 fbndev@aries.uberspace.de "rm -rf /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/schlicht/*"
+    - scp -P22 -r [!.]* fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/schlicht
+    - scp -P22 -r [!.]* fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/schlicht
+  environment:
+    name: production
+  only:
+    - master
