@@ -22,7 +22,7 @@ build:
 stage_deploy:
   stage: deploy
   script:
-    - lftp -p 22 -u "$login","$pass" sftp://"$host" << EOF
+    - lftp -p 22 -u $SFTP_USER,$SFTP_PASS $SFTP_URL << EOF
       set ftp:ssl-force true
       set sftp:auto-confirm yes
       mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia
