@@ -22,11 +22,14 @@ build:
 stage_deploy:
   stage: deploy
   script:
-    - lftp -u $SFTP_USER,$SFTP_PASS -e 'mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;' $SFTP_URL
-    - lftp -e 'mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;'
-
-    - lftp -e 'mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;'
-    - lftp -e 'mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia; exit'
+    - lftp -p 22 -u "$login","$pass" sftp://"$host" << EOF
+      set ftp:ssl-force true
+      set sftp:auto-confirm yes
+      mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia
+      mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia
+      mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia
+      bye
+      EOF
   environment:
     name: staging
   only:
