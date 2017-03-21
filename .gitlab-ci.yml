@@ -11,6 +11,7 @@ cache:
 
 before_script:
   - npm install --silent
+  - npm install --global gulp-cli
   - apt-get install lftp
 
 build:
