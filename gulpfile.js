@@ -17,3 +17,4 @@ gulp.task('sass:watch', ['sass'], function () {
 });
 
 gulp.task('default', ['sass:watch']);
+gulp.task('production', ['sass']);

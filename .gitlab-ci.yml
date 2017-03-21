@@ -17,7 +17,7 @@ before_script:
 build:
   stage: build
   script:
-    - gulp
+    - gulp production
 
 stage_deploy:
   stage: deploy
