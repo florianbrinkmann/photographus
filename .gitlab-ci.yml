@@ -29,7 +29,7 @@ stage_deploy:
     - apt-get install lftp
     - apt-get install openSSH-server -y
   script:
-    - lftp -d -c "open -u $SFTP_USER, $SFTP_URL; mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia; exit"
+    - lftp -d -c "open -u $SFTP_USER, $SFTP_URL -p 22; mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia; exit"
   environment:
     name: staging
   only:
