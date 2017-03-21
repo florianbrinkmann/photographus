@@ -1,0 +1,36 @@
+/* ==========================================================================
+   #TABLES base styles
+   ========================================================================== */
+
+table {
+    border-spacing: 0;
+    margin: add-unit($space, 'em') 0;
+}
+
+td,
+th {
+    border-bottom: 1px solid;
+    padding: add-unit($space-quarter, 'em');
+}
+
+th {
+    border-bottom: 2px solid;
+    text-align: left;
+}
+
+table tr:last-of-type td {
+    border-bottom: none;
+}
+
+@media screen and (min-width: 50em) {
+    @include line-height-and-spaces(1.5);
+
+    table {
+        margin: add-unit($space, 'em') 0;
+    }
+
+    td,
+    th {
+        padding: add-unit($space-quarter, 'em');
+    }
+}

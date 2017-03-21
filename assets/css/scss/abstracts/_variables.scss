@@ -1,0 +1,76 @@
+/*------------------------------------*
+    #VARIABLES
+ *------------------------------------*/
+
+/* Colors
+   ========================================================================== */
+
+$color-white: #fff;
+$color-tundora: #444;
+$color-black: #000;
+
+$color-dim-60: rgba(0, 0, 0, 0.6);
+
+/*
+ * Text Colors
+ * 1) These are non-linked text colors, such as body copy.
+ */
+$color-text: $color-tundora;
+
+/*
+ * Heading Colors
+ * 1) These are non-linked heading colors, such as h2, h3, etc.
+ */
+$color-heading: $color-tundora;
+
+/*
+ * Text Link Colors
+ * 1) These are for linked text, such as a link found within an article,
+ *    navigation link, footer link, etc.
+ */
+
+/*
+ * Border Colors
+ * 1) Border colors are used as decoration or dividers, such as as a seperator
+ *    for navigation items, block borders, etc.
+ */
+$color-border: $color-tundora;
+
+/* Typography
+   ========================================================================== */
+
+$font-size-small: 0.889rem;
+
+/* Layout
+   ========================================================================== */
+
+$content-max-width: calc(800px + 2.8rem);
+$layout-max-width: 1200px;
+
+/**
+ * Spacing Defaults
+ */
+@mixin line-height-and-spaces($line-height) {
+    $line-height: $line-height !global;
+    $space: $line-height !global;
+    $space-three-quarters: $line-height * .75 !global;
+    $space-and-quarter: $line-height * 1.25 !global;
+    $space-and-half: $line-height * 1.5 !global;
+    $space-double: $line-height * 2 !global;
+    $space-triple: $line-height * 3 !global;
+    $space-quad: $line-height * 4 !global;
+    $space-quintuple: $line-height * 5 !global;
+    $space-half: $line-height / 2 !global;
+    $space-quarter: $line-height / 4 !global;
+}
+
+@include line-height-and-spaces(1.4);
+
+/* Borders
+   ========================================================================== */
+
+/**
+ * Border Width
+ */
+$border-med: 2px;
+$border-thick: 4px;
