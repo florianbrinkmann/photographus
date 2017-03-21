@@ -12,7 +12,6 @@ cache:
 before_script:
   - npm install --silent
   - npm install --global gulp-cli
-  - apt-get install lftp
 
 build:
   stage: build
@@ -21,6 +20,9 @@ build:
 
 stage_deploy:
   stage: deploy
+  before_script:
+    - apt-get install lftp
+    - apt-get install openSSH-server
   script:
     - lftp "set ftp:ssl-force true;set sftp:auto-confirm yes;open -u $SFTP_USER,$SFTP_PASS $SFTP_URL;mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia; exit"
   environment:
