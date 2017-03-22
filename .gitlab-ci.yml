@@ -30,7 +30,7 @@ stage_deploy:
   script:
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia"
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia"
-    - rsync -rav -e ssh --exclude '\.git.*' --exclude 'assets/css/scss/' --exclude '\.gitlab-ci.yaml' --exclude 'assets/css/photographia.css.map --delete ./ aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia'
+    - rsync -rav -e ssh --exclude=\.git.* --exclude=assets/css/scss/ --exclude=\.gitlab-ci.yaml --exclude=assets/css/photographia.css.map --delete ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia'
   environment:
     name: staging
   only:
