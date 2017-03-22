@@ -26,14 +26,11 @@ stage_deploy:
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
-    - apt-get install lftp
-    - apt-get install openSSH-server -y
+    - apt-get install rsync
   script:
-    - lftp -u $SFTP_USER, $SFTP_URL -p 22 -e "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;"
-    - lftp -u $SFTP_USER, $SFTP_URL -p 22 -e "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;"
-    - lftp -u $SFTP_USER, $SFTP_URL -p 22 -e "mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia;"
-    - lftp -u $SFTP_USER, $SFTP_URL -p 22 -e "mirror --exclude \.git.* --exclude assets/css/scss/ --exclude \.gitlab-ci.yaml --exclude assets/css/photographia.css.map --only-newer --reverse --delete ./ /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia;"
-    - lftp -u $SFTP_USER, $SFTP_URL -p 22 -e "exit;"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia"
+    - rsync -rav -e ssh --include '*/' --exclude '\.git.*' --exclude 'assets/css/scss/' --exclude '\.gitlab-ci.yaml' --exclude 'assets/css/photographia.css.map --delete / aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia'
   environment:
     name: staging
   only:
