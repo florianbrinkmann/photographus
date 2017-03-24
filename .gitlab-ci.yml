@@ -34,7 +34,7 @@ PHPunit:PHP5.3:MySQL:
     - composer global require "wp-coding-standards/wpcs"
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --configuration phpunit.xml.dist
 
 PHPunit:PHP5.6:MySQL:
@@ -63,7 +63,7 @@ PHPunit:PHP5.6:MySQL:
     - composer global require "wp-coding-standards/wpcs"
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --configuration phpunit.xml.dist
 
 PHPunit:PHP7.1:MySQL:
@@ -92,7 +92,7 @@ PHPunit:PHP7.1:MySQL:
     - composer global require "wp-coding-standards/wpcs"
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --configuration phpunit.xml.dist
 
 build:
