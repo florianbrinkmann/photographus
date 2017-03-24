@@ -126,6 +126,7 @@ PHPunit:PHP7.1:MySQL:
 
 build:
   stage: build
+  image: tetraweb/php:7.1
   before_script:
     - npm install --silent
     - npm install --global gulp-cli
@@ -162,8 +163,6 @@ stage_production:
     paths:
       - node_modules/
   before_script:
-    - npm install --silent
-    - npm install --global gulp-cli
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
