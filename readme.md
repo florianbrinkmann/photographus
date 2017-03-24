@@ -1,0 +1,1 @@
+[![build status](https://gitlab.com/florianbrinkmann/photographia/badges/staging/build.svg)](https://gitlab.com/florianbrinkmann/photographia/commits/staging) [![coverage report](https://gitlab.com/florianbrinkmann/photographia/badges/staging/coverage.svg)](https://gitlab.com/florianbrinkmann/photographia/commits/staging)
