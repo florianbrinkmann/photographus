@@ -1,4 +1,8 @@
 <?php
 /**
- * functions file
+ * Functions file
+ *
+ * @package Photographia
  */
+
+$this;
