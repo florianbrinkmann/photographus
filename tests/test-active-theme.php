@@ -23,7 +23,7 @@ class TestActiveTheme extends WP_UnitTestCase {
 	function setUp() {
 
 		parent::setUp();
-		switch_theme( 'Photographia', 'Photographia' );
+		switch_theme( 'Photographia' );
 
 	} // end setup
 
