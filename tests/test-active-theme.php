@@ -18,6 +18,16 @@ include_once( 'functions.php' );
 class TestActiveTheme extends WP_UnitTestCase {
 
 	/**
+	 * Trying to fix the error on GitLab CI
+	 */
+	function setUp() {
+
+		parent::setUp();
+		switch_theme( 'Photographia', 'Photographia' );
+
+	} // end setup
+
+	/**
 	 * Return true if the currently active theme is Photographia
 	 */
 	function test_active_theme() {

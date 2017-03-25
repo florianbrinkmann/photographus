@@ -18,7 +18,7 @@ PHPunit:PHP5.3:MySQL:
 
     # update the docker
     - apt-get clean
-    - apt-get -yqq update
+    - sudo apt-get -y update
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
@@ -47,7 +47,7 @@ PHPunit:PHP5.6:MySQL:
 
     # update the docker
     - apt-get clean
-    - apt-get -yqq update
+    - sudo apt-get -y update
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
@@ -76,7 +76,7 @@ PHPunit:PHP7.1:MySQL:
 
     # update the docker
     - apt-get clean
-    - apt-get -yqq update
+    - sudo apt-get -y update
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
