@@ -35,7 +35,7 @@ PHPunit:PHP5.3:MySQL:
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
   - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clove --colors=never
+  - phpunit
 
 PHPunit:PHP5.6:MySQL:
   stage: test
@@ -64,7 +64,7 @@ PHPunit:PHP5.6:MySQL:
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
   - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit --configuration phpunit.xml.dist
+  - phpunit
 
 PHPunit:PHP7.1:MySQL:
   stage: test
@@ -93,7 +93,7 @@ PHPunit:PHP7.1:MySQL:
     - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
   - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit --configuration phpunit.xml.dist
+  - phpunit
 
 build:
   stage: build
