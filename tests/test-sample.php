@@ -6,6 +6,11 @@
  */
 
 /**
+ * Autoload the PHPunit
+ */
+require_once 'PHPUnit/Autoload.php';
+
+/**
  * Sample test case.
  */
 class SampleTest extends WP_UnitTestCase {
