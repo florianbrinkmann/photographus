@@ -12,118 +12,35 @@
     padding-left: 0;
 }
 
-[class*="depth-"] {
-    position: relative;
-    z-index: 1;
+[class*="depth-"] > .children {
+    padding-left: add-unit($space, 'rem');
 
-    &::before {
-        background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(to bottom, #ccc, #ccc), linear-gradient(to bottom, #444, #444), svg-url('<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="-9 0 45 165.5"><style>.st0{fill:none;stroke:#444;stroke-width:2;} .st1{fill:none;stroke:#ccc;stroke-width:2;}</style><path vector-effect="non-scaling-stroke" class="st0" d="M1 0v145.5M31 145.5V51.8c0-14.3-30-35.7-30-50"/><path vector-effect="non-scaling-stroke" class="st1" d="M1 0v145.5"/></svg>');
-        background-position-y: -1rem, -1rem, -1rem, 0px;
-        background-size: 4px 100%, 2px 100%, 2px 100%, 9px auto;
-        background-repeat: no-repeat;
-        content: '';
-        display: block;
-        height: 100%;
-        left: 1.4rem;
-        top: -1rem;
-        position: absolute;
-        width: 100%;
-        z-index: 0;
+    @media screen and (min-width: 50em) {
+        @include line-height-and-spaces(1.5);
+
+        padding-left: add-unit($space, 'rem');
+
+        @include line-height-and-spaces(1.4);
     }
-
-    &:first-child::before {
-        background-position-y: -1rem, -1rem, 1.2rem, 0px;
-    }
-}
-
-.depth-1::before {
-    background: none;
-}
-
-.depth-2::before {
-    background-position-x: -1rem, -1rem, 2px, -1rem;
-}
-
-.depth-3:first-child::before {
-    background-position-x: -4px, -1rem, 8px, 1px;
-}
-
-.depth-3::before {
-    background-position-x: -4px, 2px, 8px, -1em;
-}
-
-.depth-4:first-child::before {
-    background-position-x: -4px, 2px, 14px, 7px;
-}
-
-.depth-4::before {
-    background-position-x: -4px, 2px, 14px, -1em;
-}
-
-.depth-5:first-child::before {
-    background-position-x: 2px, 8px, 20px, 13px;
-}
-
-.depth-5::before {
-    background-position-x: 2px, 8px, 20px, -1em;
-}
-
-.depth-6:first-child::before {
-    background-position-x: 8px, 14px, 26px, 19px;
-}
-
-.depth-6::before {
-    background-position-x: 8px, 14px, 26px, -1em;
-}
-
-.depth-7:first-child::before {
-    background-position-x: 14px, 20px, 32px, 25px;
-}
-
-.depth-7::before {
-    background-position-x: 14px, 20px, 32px, -1em;
-}
-
-.depth-8:first-child::before {
-    background-position-x: 20px, 26px, 38px, 31px;
-}
-
-.depth-8::before {
-    background-position-x: 20px, 26px, 38px, -1em;
-}
-
-.depth-9:first-child::before {
-    background-position-x: 26px, 32px, 44px, 37px;
-}
-
-.depth-9::before {
-    background-position-x: 26px, 32px, 44px, -1em;
-}
-
-.depth-10:first-child::before {
-    background-position-x: 32px, 38px, 50px, 43px;
-}
-
-.depth-10::before {
-    background-position-x: 32px, 38px, 50px, -1em;
-}
-
-.depth-1 > .children {
-    padding-left: 1.5rem;
 }
 
 .comment-body {
     background: #fff;
-    border: thin solid #ccc;
-    padding-bottom: 1em;
-    padding-top: 1em;
     position: relative;
 }
 
 .comment {
     list-style-type: none;
-    margin: 1em 0 0;
+    margin: add-unit($space-double, 'em') 0 0;
     position: relative;
+
+    @media screen and (min-width: 50em) {
+        @include line-height-and-spaces(1.5);
+
+        margin-top: add-unit($space-double, 'em');
+
+        @include line-height-and-spaces(1.4);
+    }
 }
 
 .comment-meta {
@@ -136,6 +53,8 @@
         @include line-height-and-spaces(1.5);
 
         margin-right: add-unit($space-half);
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -163,15 +82,22 @@
         @include line-height-and-spaces(1.5);
 
         margin-left: add-unit($space);
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
-.comment-content-wrapper {
-    margin: 0 add-unit($space-half);
+.reply {
+    font-size: $font-size-small;
+    margin-left: add-unit($space);
+    margin-top: add-unit($space-half, 'em');
 
     @media screen and (min-width: 50em) {
         @include line-height-and-spaces(1.5);
 
-        margin: 0 add-unit($space-half);
+        margin-left: add-unit($space);
+        margin-top: add-unit($space-half);
+
+        @include line-height-and-spaces(1.4);
     }
 }

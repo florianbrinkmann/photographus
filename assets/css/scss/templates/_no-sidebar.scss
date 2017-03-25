@@ -46,4 +46,6 @@
         max-width: 800px;
         padding-left: 0;
     }
+
+    @include line-height-and-spaces(1.4);
 }

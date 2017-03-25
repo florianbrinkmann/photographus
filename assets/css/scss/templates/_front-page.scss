@@ -36,6 +36,8 @@
         &::before {
             top: -#{add-unit($space, 'em')};
         }
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -60,7 +62,9 @@
     @media screen and (min-width: 50em) {
         @include line-height-and-spaces(1.5);
 
-        line-height: line-height(1.802, $space);;
+        line-height: line-height(1.802, $space);
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -81,6 +85,8 @@
         > p {
             margin-top: add-unit($space-double, 'em');
         }
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -144,5 +150,7 @@
             padding-left: add-unit($space);
             padding-right: add-unit($space-double);
         }
+
+        @include line-height-and-spaces(1.4);
     }
 }

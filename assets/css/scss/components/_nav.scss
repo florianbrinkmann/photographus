@@ -83,6 +83,8 @@
         @include line-height-and-spaces(1.5);
 
         margin-top: add-unit($space-triple, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -93,6 +95,8 @@ ul.page-numbers {
         @include line-height-and-spaces(1.5);
 
         margin-left: add-unit($space);
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -108,6 +112,8 @@ ul.page-numbers {
         @include line-height-and-spaces(1.5);
 
         margin-right: add-unit($space-half, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 

@@ -22,6 +22,8 @@
         @include line-height-and-spaces(1.5);
 
         margin-top: add-unit($space, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -36,4 +38,6 @@
     .without-post-title .gallery-grid {
         margin-top: calc(#{add-unit($space-double, 'em')} - 10px);
     }
+
+    @include line-height-and-spaces(1.4);
 }

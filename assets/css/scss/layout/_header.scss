@@ -59,6 +59,8 @@
     .site-header.-with-header-image > p {
         bottom: add-unit($space, 'em');
     }
+
+    @include line-height-and-spaces(1.4);
 }
 
 .scroll-link svg {
@@ -88,6 +90,8 @@
         .primary-header {
             padding-top: add-unit($space-double, 'em');
         }
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -103,6 +107,8 @@
         @include line-height-and-spaces(1.5);
 
         margin-top: add-unit($space-quarter, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 

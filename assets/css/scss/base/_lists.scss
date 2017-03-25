@@ -31,6 +31,8 @@ dd {
     dd {
         margin: 0 0 0 add-unit($space, 'em');
     }
+
+    @include line-height-and-spaces(1.4);
 }
 
 /* Ordered and unordered lists
@@ -80,4 +82,6 @@ ol ol {
     ol ol {
         margin: add-unit($space-quarter, 'em') 0 0;
     }
+
+    @include line-height-and-spaces(1.4);
 }

@@ -112,6 +112,8 @@ h5 + h6 {
     h5 + h6 {
         margin: add-unit($space-half, 'em') 0 0;
     }
+
+    @include line-height-and-spaces(1.4);
 }
 
 /* Paragraphs
@@ -124,6 +126,8 @@ p {
         @include line-height-and-spaces(1.5);
 
         margin: add-unit($space-half, 'em') 0 0;
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -186,4 +190,6 @@ blockquote cite {
     blockquote cite {
         margin: add-unit($space-quarter, 'em') 0 0;
     }
+
+    @include line-height-and-spaces(1.4);
 }

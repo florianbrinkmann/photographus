@@ -28,12 +28,17 @@
     .sidebar-template [class*="-large-featured-image"] .post-thumbnail {
         padding-left: add-unit($space);
     }
+
+    @include line-height-and-spaces(1.4);
 }
 
 @media screen and (min-width: 80em) {
     @include line-height-and-spaces(1.5);
+
     .sidebar-template .-large-featured-image-template .wp-post-image {
         float: right;
         width: calc(100% + ((100vw - 1200px - 2.8rem) / 4));
     }
+
+    @include line-height-and-spaces(1.4);
 }

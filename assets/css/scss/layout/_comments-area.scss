@@ -21,5 +21,7 @@
         @include line-height-and-spaces(1.5);
 
         margin-top: add-unit($space-triple, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }

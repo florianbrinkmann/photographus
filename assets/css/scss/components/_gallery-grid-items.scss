@@ -46,5 +46,7 @@
             padding: 0 add-unit($space-quarter, 'em');
             margin: add-unit($space-quarter, 'em') 0 0;
         }
+
+        @include line-height-and-spaces(1.4);
     }
 }

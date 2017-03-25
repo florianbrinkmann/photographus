@@ -20,6 +20,8 @@
 
         margin: add-unit($space-and-half, 'em') 0;
         padding: 0 add-unit($space, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -42,6 +44,8 @@
 
         margin-left: -#{add-unit($space-half)};
         margin-right: -#{add-unit($space-half)};
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -60,6 +64,8 @@
 
         margin-top: add-unit($space-and-half, 'em');
         padding: 0 add-unit($space, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -75,6 +81,8 @@
         @include line-height-and-spaces(1.5);
 
         margin: add-unit($space-and-half, 'em') 0 0;
+
+        @include line-height-and-spaces(1.4);
     }
 }
 
@@ -87,5 +95,7 @@
         @include line-height-and-spaces(1.5);
 
         margin-top: add-unit($space-double, 'em');
+
+        @include line-height-and-spaces(1.4);
     }
 }

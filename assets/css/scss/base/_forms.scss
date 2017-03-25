@@ -51,4 +51,6 @@ textarea {
         margin-top: add-unit($space-quarter, 'em');
         padding: .2em add-unit($space-quarter, 'em');
     }
+
+    @include line-height-and-spaces(1.4);
 }
