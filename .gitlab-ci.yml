@@ -57,7 +57,7 @@ PHPunit:PHP7.0:MySQL:
     - apt-get dist-upgrade -y
 
     # instll the required packages for the running CI tests
-    - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
+    - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev wget --fix-missing
 
     # Install xDebug
     - pecl install xdebug
