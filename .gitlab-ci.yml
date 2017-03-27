@@ -23,8 +23,11 @@ PHPunit:PHP5.3:MySQL:
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
 
+    # Install xDebug
+    - pecl install xdebug
+
     # PHP extensions
-    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
+    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2 xdebug
 
     # Set up WordPress tests
     - bash bin/install-wp-tests.sh wordpress_tests root mysql mysql latest true
@@ -52,8 +55,11 @@ PHPunit:PHP5.6:MySQL:
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
 
+    # Install xDebug
+    - pecl install xdebug
+
     # PHP extensions
-    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
+    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2 xdebug
 
     # Set up WordPress tests
     - bash bin/install-wp-tests.sh wordpress_tests root mysql mysql latest true
@@ -81,8 +87,11 @@ PHPunit:PHP7.1:MySQL:
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev wget --fix-missing
 
+    # Install xDebug
+    - pecl install xdebug
+
     # PHP extensions
-    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
+    - docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2 xdebug
 
     # Set up WordPress tests
     - bash bin/install-wp-tests.sh wordpress_tests root mysql mysql latest true

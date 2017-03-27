@@ -15,7 +15,7 @@ class Test_Active_Theme extends WP_UnitTestCase {
 	/**
 	 * Checks if the currently active theme is Photographia
 	 */
-	function test_active_theme() {
+	function test_current_theme() {
 
 		/**
 		 * Get stylesheet name of current theme. Should be photographia
