@@ -8,7 +8,7 @@
  */
 
 /**
- * Sample test case.
+ * Test active theme test case.
  */
 class Test_Active_Theme extends WP_UnitTestCase {
 
