@@ -19,6 +19,8 @@ PHPunit:PHP5.6:MySQL:
     # update the docker
     - apt-get clean
     - apt-get -y update
+    - apt-get upgrade -y
+    - apt-get dist-upgrade -y
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
@@ -51,6 +53,8 @@ PHPunit:PHP7.0:MySQL:
     # update the docker
     - apt-get clean
     - apt-get -y update
+    - apt-get upgrade -y
+    - apt-get dist-upgrade -y
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
@@ -63,6 +67,12 @@ PHPunit:PHP7.0:MySQL:
 
     # Set up WordPress tests
     - bash bin/install-wp-tests.sh wordpress_tests root mysql mysql latest true
+
+    # Install older PHPunit version
+    - wget https://phar.phpunit.de/phpunit-5.7.phar
+    - chmod +x phpunit-5.7.phar
+    - mv phpunit-5.7.phar /usr/local/bin/phpunit
+    - phpunit --version
 
     # Install PHPCS and WPCS
     - composer global require "squizlabs/php_codesniffer=*"
@@ -83,6 +93,8 @@ PHPunit:PHP7.1:MySQL:
     # update the docker
     - apt-get clean
     - apt-get -y update
+    - apt-get upgrade -y
+    - apt-get dist-upgrade -y
 
     # instll the required packages for the running CI tests
     - apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev wget --fix-missing
