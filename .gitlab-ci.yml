@@ -8,9 +8,9 @@ stages:
   - test
   - deploy
 
-PHPunit:PHP5.3:MySQL:
+PHPunit:PHP5.6:MySQL:
   stage: test
-  image: tetraweb/php:5.3
+  image: tetraweb/php:5.6
   services:
     - mysql:5.6
   before_script:
@@ -40,9 +40,9 @@ PHPunit:PHP5.3:MySQL:
   - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --coverage-text  --colors=never --configuration phpunit.xml.dist
 
-PHPunit:PHP5.6:MySQL:
+PHPunit:PHP7.0:MySQL:
   stage: test
-  image: tetraweb/php:5.6
+  image: tetraweb/php:7.0
   services:
     - mysql:5.6
   before_script:
