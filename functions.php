@@ -72,3 +72,23 @@ if ( ! function_exists( 'photographia_add_theme_support' ) ) {
 }
 
 add_action( 'after_setup_theme', 'photographia_add_theme_support' );
+
+if ( ! function_exists( 'photographia_register_menus' ) ) {
+	/**
+	 * Register Menus
+	 */
+	function photographia_register_menus() {
+		register_nav_menus(
+			[
+				/* translators: Name of menu position in the header */
+				'primary' => __( 'Primary Menu', 'schlicht' ),
+				/* translators: Name of menu position in the footer */
+				'footer'  => __( 'Footer Menu', 'schlicht' ),
+			]
+		);
+	}
+}
+
+add_action( 'init', 'photographia_register_menus' );
+
+require_once locate_template( 'inc/template-tags.php' );
