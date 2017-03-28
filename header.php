@@ -19,6 +19,12 @@
 	wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<header>
-	Header
-</header>
+<div class="wrapper">
+	<header class="site-header clearfix" role="banner">
+		<div class="primary-header">
+			<div class="branding">
+				<?php include locate_template( 'partials/header-branding.php' ); ?>
+			</div>
+			<?php include locate_template( 'partials/header-nav.php' ); ?>
+		</div>
+	</header>
