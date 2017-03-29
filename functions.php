@@ -97,4 +97,4 @@ if ( ! function_exists( 'photographia_register_menus' ) ) {
 
 add_action( 'init', 'photographia_register_menus' );
 
-require_once locate_template( 'inc/template-tags.php' );
+require_once locate_template( 'inc/template-tags.php' ); // @codeCoverageIgnore
