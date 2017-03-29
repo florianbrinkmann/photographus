@@ -97,4 +97,11 @@ if ( ! function_exists( 'photographia_register_menus' ) ) {
 
 add_action( 'init', 'photographia_register_menus' );
 
-require_once locate_template( 'inc/template-tags.php' ); // @codeCoverageIgnore
+/**
+ * The require_once locate_template( 'inc/template-tags.php' ); is not working in GitLab CI
+ */
+if ( file_exists( locate_template( 'inc/template-tags.php' ) ) ) {
+	require_once locate_template( 'inc/template-tags.php' );
+} else {
+	require_once 'inc/template-tags.php';
+}
