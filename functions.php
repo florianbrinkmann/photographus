@@ -8,6 +8,8 @@
 if ( ! function_exists( 'photographia_load_translation' ) ) {
 	/**
 	 * Load translation from languages directory
+	 *
+	 * @codeCoverageIgnore
 	 */
 	function photographia_load_translation() {
 		if ( ( ! defined( 'DOING_AJAX' ) && ! 'DOING_AJAX' ) || ! photographia_is_login_page() || ! photographia_is_wp_comments_post() ) {
@@ -43,6 +45,8 @@ if ( ! function_exists( 'photographia_is_wp_comments_post' ) ) {
 if ( ! function_exists( 'photographia_add_theme_support' ) ) {
 	/**
 	 * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo
+	 *
+	 * @codeCoverageIgnore
 	 */
 	function photographia_add_theme_support() {
 		add_theme_support( 'custom-header' );
@@ -76,6 +80,8 @@ add_action( 'after_setup_theme', 'photographia_add_theme_support' );
 if ( ! function_exists( 'photographia_register_menus' ) ) {
 	/**
 	 * Register Menus
+	 *
+	 * @codeCoverageIgnore
 	 */
 	function photographia_register_menus() {
 		register_nav_menus(

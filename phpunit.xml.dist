@@ -13,7 +13,8 @@
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">./</directory>
+            <directory suffix=".php">inc</directory>
+            <file>functions.php</file>
         </whitelist>
     </filter>
 </phpunit>
