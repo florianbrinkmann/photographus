@@ -43,15 +43,16 @@ if ( photographia_get_custom_logo() != '' ) {
 			 * and output a home link
 			 */
 			if ( is_paged() ) { ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php }
-				/**
-				 * Display blog title
-				 */
-				bloginfo( 'name' );
-				if ( is_paged() ) { ?>
-			</a>
-		<?php } ?></h1>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php }
+			/**
+			 * Display blog title
+			 */
+			bloginfo( 'name' );
+			if ( is_paged() ) { ?>
+				</a>
+			<?php } ?>
+		</h1>
 	<?php } else { ?>
 		<p class="site-title">
 			<?php
@@ -59,12 +60,12 @@ if ( photographia_get_custom_logo() != '' ) {
 			 * Only link title if not on front page
 			 */
 			if ( ! is_front_page() ) { ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php }
-				bloginfo( 'name' );
-				if ( ! is_front_page() ) { ?>
-			</a>
-		<?php } ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php }
+			bloginfo( 'name' );
+			if ( ! is_front_page() ) { ?>
+				</a>
+			<?php } ?>
 		</p>
 	<?php }
 
@@ -72,7 +73,7 @@ if ( photographia_get_custom_logo() != '' ) {
 	 * Get blog description and display if not empty
 	 */
 	$description = get_bloginfo( 'description', 'display' );
-	if ( $description !== '' ) { ?>
+	if ( '' !== $description ) { ?>
 		<p class="site-description"><?php echo $description; ?></p>
 	<?php }
 }

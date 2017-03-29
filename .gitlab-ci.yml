@@ -32,11 +32,11 @@ PHPunit:PHP5.6:MySQL:
     - bash bin/install-wp-tests.sh wordpress_tests root mysql mysql latest true
 
     # Install PHPCS and WPCS
-    - composer global require "squizlabs/php_codesniffer=*"
-    - composer global require "wp-coding-standards/wpcs"
-    - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+    # - composer global require "squizlabs/php_codesniffer=*"
+    # - composer global require "wp-coding-standards/wpcs"
+    # - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  # - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --coverage-text  --colors=never --configuration phpunit.xml.dist
 
 PHPunit:PHP7.0:MySQL:
@@ -69,11 +69,11 @@ PHPunit:PHP7.0:MySQL:
     - phpunit --version
 
     # Install PHPCS and WPCS
-    - composer global require "squizlabs/php_codesniffer=*"
-    - composer global require "wp-coding-standards/wpcs"
-    - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+    # - composer global require "squizlabs/php_codesniffer=*"
+    # - composer global require "wp-coding-standards/wpcs"
+    # - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  # - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --coverage-text  --colors=never --configuration phpunit.xml.dist
 
 PHPunit:PHP7.1:MySQL:
@@ -106,11 +106,11 @@ PHPunit:PHP7.1:MySQL:
     - phpunit --version
 
     # Install PHPCS and WPCS
-    - composer global require "squizlabs/php_codesniffer=*"
-    - composer global require "wp-coding-standards/wpcs"
-    - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+    # - composer global require "squizlabs/php_codesniffer=*"
+    # - composer global require "wp-coding-standards/wpcs"
+    # - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   script:
-  - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  # - phpcs --ignore=*/tests/* --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit --coverage-text  --colors=never --configuration phpunit.xml.dist
 
 build:
