@@ -95,12 +95,64 @@ if ( ! function_exists( 'photographia_register_menus' ) ) {
 
 add_action( 'init', 'photographia_register_menus' );
 
-/**
- * The locate_template( 'inc/template-tags.php' ); is not working in GitLab CI,
- * so this fallback is needed to get the unit tests passing
- */
-if ( file_exists( locate_template( 'inc/template-tags.php' ) ) ) {
-	require_once locate_template( 'inc/template-tags.php' );
-} else {
-	require_once 'inc/template-tags.php';
+if ( ! function_exists( 'photographia_register_sidebars' ) ) {
+	/**
+	 * Register sidebars
+	 *
+	 * @codeCoverageIgnore
+	 */
+	function photographia_register_sidebars() {
+		/**
+		 * Registering the main sidebar which is displayed next to the content on larger viewports
+		 */
+		register_sidebar( [
+			'name'          => __( 'Main Sidebar', 'photographia' ),
+			'id'            => 'sidebar-1',
+			'description'   => __( 'Widgets in this area will be displayed on all posts and pages by default.', 'photographia' ),
+			'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+
+		/**
+		 * Registering the widget area for the footer
+		 */
+		register_sidebar( [
+			'name'          => __( 'Footer Sidebar', 'photographia' ),
+			'id'            => 'sidebar-footer',
+			'description'   => __( 'Widgets will be displayed in the footer.', 'photographia' ),
+			'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+	}
 }
+
+add_action( 'widgets_init', 'photographia_register_sidebars' );
+
+if ( ! function_exists( 'photographia_scripts_styles' ) ) {
+	/**
+	 * Adds the scripts and styles to the header
+	 */
+	function photographia_scripts_styles() {
+		/**
+		 * Enqueue script so if a answer to a comment is written, the comment form appears
+		 * directly below this comment.
+		 * Only enqueue it if in single view with open comments and threaded comments enabled.
+		 */
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+
+		/**
+		 * Enqueue the Photographia stylesheet.
+		 */
+		wp_enqueue_style( 'photographia-style', get_theme_file_uri( 'assets/css/photographia.css' ), [], null );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'photographia_scripts_styles' );
+
+require_once locate_template( 'inc/template-tags.php' );
