@@ -21,11 +21,24 @@
 <body <?php body_class(); ?>>
 <div class="wrapper">
 	<header class="site-header clearfix
-		<?php echo apply_filters( 'photographia_additional_header_classes', $classes = '' ); ?>" role="banner">
+		<?php
+		/**
+		 * Adding possibility to add additional classes to the header via filter.
+		 */
+		echo apply_filters( 'photographia_additional_header_classes', $classes = '' ); ?>"
+	        role="banner">
 		<div class="primary-header">
 			<div class="branding">
-				<?php include locate_template( 'partials/header/branding.php' ); ?>
+				<?php
+				/**
+				 * Include file which displays site title and discription or logo.
+				 */
+				include locate_template( 'partials/header/branding.php' ); ?>
 			</div>
-			<?php include locate_template( 'partials/header/nav.php' ); ?>
+			<?php
+			/**
+			 * Include file for displaying the main navigation.
+			 */
+			include locate_template( 'partials/header/nav.php' ); ?>
 		</div>
 	</header>
