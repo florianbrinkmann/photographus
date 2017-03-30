@@ -1,0 +1,42 @@
+/* ==========================================================================
+   #GLOBAL CLASSES base styles
+   ========================================================================== */
+
+/**
+ * Clearfix
+ */
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+/**
+ * Visually hidden but visible for screen readers
+ */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    /* many screen reader and browser combinations
+    announce broken words as they would appear visually */
+    word-wrap: normal !important;
+}
+
+.skip-link:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    height: auto;
+    left: 5px;
+    padding: .5em .8em;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+}

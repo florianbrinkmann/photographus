@@ -1,0 +1,51 @@
+/* ==========================================================================
+  #NO-SIDEBAR TEMPLATE
+  ========================================================================== */
+
+@media screen and (min-width: 80em) {
+    @include line-height-and-spaces(1.5);
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template .entry-header figure {
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute !important;
+        width: 1px;
+        /* many screen reader and browser combinations
+        announce broken words as they would appear visually */
+        word-wrap: normal !important;
+    }
+
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template {
+        display: flex;
+        align-items: center;
+    }
+
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template > figure {
+        display: block;
+    }
+
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template > div {
+        float: right;
+        padding-left: add-unit($space);
+        width: 50%;
+    }
+
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template .post-thumbnail {
+        float: left;
+        margin-top: .6em;
+        max-width: 50%;
+        @include padding-left-and-right($space);
+        text-align: right;
+        width: 50%;
+    }
+
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template .entry-header > div,
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template .entry-content,
+    .wrapper.-no-sidebar .-large-featured-image-vertical-template .entry-footer {
+        margin-left: 0;
+        max-width: 800px;
+        padding-left: 0;
+    }
+
+    @include line-height-and-spaces(1.4);
+}

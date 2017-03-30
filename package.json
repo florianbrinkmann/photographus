@@ -1,0 +1,21 @@
+{
+  "name": "photographia",
+  "version": "1.0.0",
+  "description": "Photographia WordPress theme",
+  "repository": {
+    "type": "git",
+    "url": "https://florianbrinkmann@gitlab.com/florianbrinkmann/photographia.git"
+  },
+  "author": "Florian Brinkmann",
+  "license": "GPLv2 or later",
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-sass": "~3.1.0",
+    "gulp-autoprefixer": "~3.1.1",
+    "gulp-clean-css": "~3.0.4",
+    "gulp-cssmin": "~0.1.7",
+    "jshint": "~2.9.4",
+    "gulp-jshint": "~2.0.4",
+    "gulp-sourcemaps": "~2.4.1"
+  }
+}

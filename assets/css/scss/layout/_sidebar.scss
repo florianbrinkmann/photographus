@@ -1,0 +1,46 @@
+/* ==========================================================================
+  #SIDEBAR
+  ========================================================================== */
+
+.sidebar {
+    font-size: $font-size-small;
+    margin-top: add-unit($space-triple, 'em');
+
+    .widget {
+        margin-top: add-unit($space-and-half, 'em');
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        @media screen and (min-width: 50em) {
+            @include line-height-and-spaces(1.5);
+
+            margin: add-unit($space-and-half, 'em') 0 0;
+
+            @include line-height-and-spaces(1.4);
+        }
+    }
+
+    .widget-title {
+        margin-top: 0;
+    }
+
+    @include padding-left-and-right($space);
+
+    @media screen and (min-width: 40em) {
+        @include padding-left-and-right($space-and-half);
+    }
+
+    @media screen and (min-width: 45em) {
+        @include padding-left-and-right($space-double);
+    }
+
+    @media screen and (min-width: 60em) {
+        float: left;
+        margin-left: 0;
+        margin-top: 5.4em;
+        padding-left: 1.5rem;
+        width: 30%;
+    }
+}

@@ -1,0 +1,97 @@
+/* ==========================================================================
+   #MEDIA base styles
+   ========================================================================== */
+
+/* Styles for figure and img tag
+   ========================================================================== */
+
+figure {
+    margin: add-unit($space-half, 'em') 0 0;
+
+    @media screen and (min-width: 50em) {
+        @include line-height-and-spaces(1.5);
+
+        margin: add-unit($space-half, 'em') 0 0;
+
+        @include line-height-and-spaces(1.4);
+    }
+}
+
+figure,
+img {
+    max-width: 100%;;
+    height: auto;
+}
+
+/* Image alignment
+   ========================================================================== */
+
+.alignleft,
+.alignright {
+    margin-bottom: add-unit($space-half, 'em');
+    margin-top: 1.2em;
+}
+
+figure .alignleft,
+figure .alignright {
+    margin-top: .5em;
+}
+
+.alignleft {
+    float: left;
+    margin-right: add-unit($space-half, 'em');
+}
+
+.alignright {
+    float: right;
+    margin-left: add-unit($space-half, 'em');
+}
+
+.aligncenter {
+    display: block;
+    margin: add-unit($space, 'em') auto;
+}
+
+@media screen and (min-width: 50em) {
+    @include line-height-and-spaces(1.5);
+
+    .alignleft,
+    .alignright {
+        margin-bottom: add-unit($space-half, 'em');
+        margin-top: 1.2em;
+    }
+
+    .alignleft {
+        margin-right: add-unit($space-half, 'em');
+    }
+
+    .alignright {
+        margin-left: add-unit($space-half, 'em');
+    }
+
+    .aligncenter {
+        margin: add-unit($space, 'em') auto;
+    }
+
+    @include line-height-and-spaces(1.4);
+}
+
+/* Image caption
+   ========================================================================== */
+
+.wp-caption-text {
+    font-size: $font-size-small;
+}
+
+/* Image links
+   ========================================================================== */
+.linked-img {
+    box-shadow: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: none;
+        box-shadow: none;
+    }
+}

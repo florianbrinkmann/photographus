@@ -1,0 +1,61 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: tetraweb/php:7.1
+  before_script:
+    - npm install --silent
+    - npm install --global gulp-cli
+  script:
+    - gulp production
+
+deploy_staging:
+  stage: deploy
+  image: tetraweb/php:7.1
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - apt-get install rsync
+  script:
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia"
+    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographia.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia
+    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographia.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia
+  environment:
+    name: staging
+  only:
+    - staging
+
+deploy_production:
+  stage: deploy
+  image: tetraweb/php:7.1
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - apt-get install rsync zip
+  script:
+    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographia"
+    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/photographia"
+    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographia.css.map --delete-excluded ./ fbn@horologium.uberspace.de:/var/www/virtual/fbn/html/wp-content/themes/_tmp-photographia
+    - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes/photographia /var/www/virtual/fbn/html/wp-content/themes/_old-photographia && mv /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographia /var/www/virtual/fbn/html/wp-content/themes/photographia"
+    - ssh -p22 fbn@horologium.uberspace.de "rm -rf /var/www/virtual/fbn/html/wp-content/themes/_old-photographia"
+    - ssh -p22 fbn@horologium.uberspace.de "zip -r photographia.zip /var/www/virtual/fbn/html/wp-content/themes/photographia"
+    - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes/photographia.zip /var/www/virtual/fbn/woocommerce-downloads/photographia.zip"
+  environment:
+    name: production
+  only:
+    - master
