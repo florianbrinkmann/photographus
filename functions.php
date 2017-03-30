@@ -169,6 +169,26 @@ function photographia_filter_header_classes( $classes ) {
 add_filter( 'photographia_additional_header_classes', 'photographia_filter_header_classes' );
 
 /**
+ * Add classes to the body, if needed
+ *
+ * @param string $classes empty default string.
+ *
+ * @return string
+ */
+function photographia_filter_body_classes( $classes ) {
+	/**
+	 * Add -no-sidebar class if we have no sidebar
+	 */
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[] .= ' -no-sidebar';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'photographia_filter_body_classes' );
+
+/**
  * Include template tags file.
  */
 require_once locate_template( 'inc/template-tags.php' );
