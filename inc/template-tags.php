@@ -45,3 +45,21 @@ if ( ! function_exists( 'photographia_the_title' ) ) {
 		}
 	}
 }
+
+
+if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
+	/**
+	 * Display a »Featured« box for sticky posts.
+	 *
+	 * @return void
+	 */
+	function photographia_the_sticky_label() {
+		if ( is_sticky() ) {
+			/* translators: String for the label of sticky posts. Displayed above the title */
+			printf(
+				'<p class="sticky-post-featured-string"><span>%s</span></p>',
+				__( 'Featured', 'photographia' )
+			);
+		}
+	}
+}
