@@ -24,8 +24,8 @@
 		<?php echo apply_filters( 'photographia_additional_header_classes', $classes = '' ); ?>" role="banner">
 		<div class="primary-header">
 			<div class="branding">
-				<?php include locate_template( 'partials/header-branding.php' ); ?>
+				<?php include locate_template( 'partials/header/branding.php' ); ?>
 			</div>
-			<?php include locate_template( 'partials/header-nav.php' ); ?>
+			<?php include locate_template( 'partials/header/nav.php' ); ?>
 		</div>
 	</header>
