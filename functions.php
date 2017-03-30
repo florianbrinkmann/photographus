@@ -155,4 +155,33 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'photographia_scripts_styles' );
 
+/**
+ * Add classes to the header, if needed
+ *
+ * @param string $classes empty default string.
+ *
+ * @return string
+ */
+function photographia_filter_header_classes( $classes ) {
+	/**
+	 * Add -wide-layout class if option for vertical header is not checked
+	 */
+	$alt_header_layout = get_theme_mod( 'photographia_header_layout', false );
+	if ( true !== $alt_header_layout ) {
+		$classes .= ' -wide-layout';
+	}
+
+	return $classes;
+}
+
+add_filter( 'photographia_additional_header_classes', 'photographia_filter_header_classes' );
+
+/**
+ * Include template tags file.
+ */
 require_once locate_template( 'inc/template-tags.php' );
+
+/**
+ * Include file with customizer settings.
+ */
+require_once locate_template( 'inc/customizer.php' );

@@ -20,7 +20,8 @@
 </head>
 <body <?php body_class(); ?>>
 <div class="wrapper">
-	<header class="site-header clearfix" role="banner">
+	<header class="site-header clearfix
+		<?php echo apply_filters( 'photographia_additional_header_classes', $classes = '' ); ?>" role="banner">
 		<div class="primary-header">
 			<div class="branding">
 				<?php include locate_template( 'partials/header-branding.php' ); ?>
