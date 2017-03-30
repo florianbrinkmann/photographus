@@ -21,3 +21,27 @@ if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'photographia_the_title' ) ) {
+	/**
+	 * Displays the title of a post wrapped with a heading and optionally with a link to the post.
+	 *
+	 * @param string $heading Type of heading.
+	 * @param bool   $link    If the title should be linked to the single view or not.
+	 *
+	 * @return void
+	 */
+	function photographia_the_title( $heading, $link = true ) {
+		if ( $link ) {
+			the_title( sprintf(
+				'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
+				$heading, esc_url( get_permalink() )
+			), sprintf( '</a></%s>', $heading ) );
+		} else {
+			the_title( sprintf(
+				'<%1$s class="entry-title">',
+				$heading, esc_url( get_permalink() )
+			), sprintf( '</%s>', $heading ) );
+		}
+	}
+}
