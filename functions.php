@@ -84,14 +84,12 @@ if ( ! function_exists( 'photographia_register_menus' ) ) {
 	 * @codeCoverageIgnore
 	 */
 	function photographia_register_menus() {
-		register_nav_menus(
-			[
-				/* translators: Name of menu position in the header */
-				'primary' => __( 'Primary Menu', 'schlicht' ),
-				/* translators: Name of menu position in the footer */
-				'footer'  => __( 'Footer Menu', 'schlicht' ),
-			]
-		);
+		register_nav_menus( [
+			/* translators: Name of menu position in the header */
+			'primary' => __( 'Primary Menu', 'schlicht' ),
+			/* translators: Name of menu position in the footer */
+			'footer'  => __( 'Footer Menu', 'schlicht' ),
+		] );
 	}
 }
 
