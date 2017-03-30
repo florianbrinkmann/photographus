@@ -12,8 +12,6 @@ if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
 	 * Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5
 	 *
 	 * @return string
-	 *
-	 * @codeCoverageIgnore
 	 */
 	function photographia_get_custom_logo() {
 		if ( function_exists( 'get_custom_logo' ) ) {
