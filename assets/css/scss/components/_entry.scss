@@ -74,6 +74,7 @@
 .entry-title > a {
     left: 0;
     position: relative;
+    transition: all .2s ease 0s;
 }
 
 .entry-title > a,
@@ -91,6 +92,7 @@
 
 .entry-title > a:focus {
     left: 4px;
+    transition: all .2s ease 0s;
 }
 
 .entry-title > a:focus,
