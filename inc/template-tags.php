@@ -68,7 +68,32 @@ if ( ! function_exists( 'photographia_the_entry_header_meta' ) ) {
 			'<p class="entry-meta -header">%s · %s</p>',
 			sprintf( /* translators: s = author name */
 				__( 'by %s', 'photographia' ), get_the_author()
-			), get_the_date() );
+			),
+			photographia_get_the_date()
+		);
+	}
+}
+
+if ( ! function_exists( 'photographia_get_the_date' ) ) {
+	/**
+	 * Returns get_the_date() with or without a link to the single view.
+	 *
+	 * @param bool $link If the date should link to the single view.
+	 *
+	 * @return string
+	 */
+	function photographia_get_the_date( $link = true ) {
+		if ( $link ) {
+			$date_markup = sprintf(
+				'<a href="%s">%s</a>',
+				get_the_permalink(),
+				get_the_date()
+			);
+		} else {
+			$date_markup = get_the_date();
+		}
+
+		return $date_markup;
 	}
 }
 
