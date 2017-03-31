@@ -61,7 +61,7 @@ if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 
 if ( ! function_exists( 'photographia_the_entry_header_meta' ) ) {
 	/**
-	 * Displays author and date of .
+	 * Displays author and date of the post.
 	 */
 	function photographia_the_entry_header_meta() {
 		printf(
