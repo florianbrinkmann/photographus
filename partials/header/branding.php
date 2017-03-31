@@ -10,7 +10,7 @@
 /**
  * Check if we have a custom logo from the customizer
  */
-if ( photographia_get_custom_logo() != '' ) {
+if ( '' != photographia_get_custom_logo() ) {
 
 	/**
 	 * Output an opening h1 tag if we are on the front page and it is the blog overview
