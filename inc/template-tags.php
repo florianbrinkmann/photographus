@@ -46,7 +46,6 @@ if ( ! function_exists( 'photographia_the_title' ) ) {
 	}
 }
 
-
 if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 	/**
 	 * Display a »Featured« box for sticky posts.
@@ -61,5 +60,20 @@ if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 				__( 'Featured', 'photographia' )
 			);
 		}
+	}
+}
+
+if ( ! function_exists( 'photographia_the_entry_header_meta' ) ) {
+	/**
+	 * Displays author and date of .
+	 *
+	 * @return void
+	 */
+	function photographia_the_entry_header_meta() {
+		printf(
+			'<p class="entry-meta -header">%s · %s</p>',
+			sprintf( /* translators: s = author name */
+				__( 'by %s', 'photographia' ), get_the_author()
+			), get_the_date() );
 	}
 }
