@@ -361,3 +361,30 @@ if ( ! function_exists( 'photographia_get_comments_by_type' ) ) {
 		return $comments_by_type;
 	}
 }
+
+
+if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
+	/**
+	 * Returns the post type template slug without templates/ dir and .php ending.
+	 *
+	 * @return string
+	 */
+	function photographia_get_post_type_template() {
+		$template_slug = get_page_template_slug();
+		if ( '' !== $template_slug ) {
+			/**
+			 * Remove templates/ from slug.
+			 */
+			$template_slug = str_replace( 'templates/', '', $template_slug );
+
+			/**
+			 * Remove .php file ending.
+			 */
+			$post_type = str_replace( '.php', '', $template_slug );
+
+			return $post_type;
+		} else {
+			return '';
+		}
+	}
+}
