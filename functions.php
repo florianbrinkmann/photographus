@@ -189,6 +189,29 @@ function photographia_filter_body_classes( $classes ) {
 add_filter( 'body_class', 'photographia_filter_body_classes' );
 
 /**
+ * Add classes to post_class() with post type template
+ *
+ * @param string $classes empty default string.
+ *
+ * @return string
+ */
+function photographia_filter_post_classes( $classes ) {
+	/**
+	 * Add -no-sidebar class if we have no sidebar
+	 */
+	$template_slug = get_page_template_slug();
+	if ( '' !== $template_slug ) {
+		$template_slug = str_replace( 'templates/', '', $template_slug );
+		$post_type     = str_replace( '.php', '', $template_slug );
+		$classes[]     .= "-$post_type-template";
+	}
+
+	return $classes;
+}
+
+add_filter( 'post_class', 'photographia_filter_post_classes' );
+
+/**
  * Include template tags file.
  */
 require_once locate_template( 'inc/template-tags.php' );
