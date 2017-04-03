@@ -199,11 +199,9 @@ function photographia_filter_post_classes( $classes ) {
 	/**
 	 * Add -no-sidebar class if we have no sidebar
 	 */
-	$template_slug = get_page_template_slug();
-	if ( '' !== $template_slug ) {
-		$template_slug = str_replace( 'templates/', '', $template_slug );
-		$post_type     = str_replace( '.php', '', $template_slug );
-		$classes[]     .= "-$post_type-template";
+	$post_type_template = photographia_get_post_type_template();
+	if ( '' !== $post_type_template ) {
+		$classes[] .= "-$post_type_template-template";
 	}
 
 	return $classes;
