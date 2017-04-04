@@ -388,3 +388,22 @@ if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'photographia_the_post_thumbnail' ) ) {
+	/**
+	 * Displays the post thumbnail
+	 */
+	function photographia_the_post_thumbnail() {
+		if ( has_post_thumbnail() ) {
+			$post_thumbnail_size = [
+				'large-featured-image-vertical' => 'full',
+				'large-featured-image'          => 'full',
+				''                              => 'large',
+			];
+
+			$post_type      = photographia_get_post_type_template();
+			$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
+			printf( '<figure class="post-thumbnail clearfix">%s</figure>', $post_thumbnail );
+		}
+	}
+}
