@@ -9,25 +9,7 @@
 
 ?>
 <article <?php post_class( 'clearfix' ); ?>>
-	<header class="entry-header">
-		<div>
-			<?php
-			/**
-			 * Display the post title as a h2 headline, linked to the post.
-			 */
-			photographia_the_title( 'h2' );
-
-			/**
-			 * Display a featured label if this is a sticky post.
-			 */
-			photographia_the_sticky_label();
-
-			/**
-			 * Display a featured label if this is a sticky post.
-			 */
-			photographia_the_entry_header_meta(); ?>
-		</div>
-	</header>
+	<?php photographia_the_entry_header( 'h2' ); ?>
 	<div class="entry-content">
 		<?php
 		/**
