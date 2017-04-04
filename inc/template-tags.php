@@ -22,40 +22,90 @@ if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_title' ) ) {
+if ( ! function_exists( 'photographia_the_entry_header' ) ) {
+	/**
+	 * Displays the post thumbnail
+	 */
+	function photographia_the_entry_header() {
+
+	}
+}
+
+if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
+	/**
+	 * Displays the post thumbnail
+	 *
+	 * @return string
+	 */
+	function photographia_get_the_post_thumbnail() {
+		if ( has_post_thumbnail() ) {
+			$post_thumbnail_size = [
+				'large-featured-image-vertical' => 'full',
+				'large-featured-image'          => 'full',
+				''                              => 'large',
+			];
+
+			$post_type             = photographia_get_post_type_template();
+			$post_thumbnail        = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
+			$post_thumbnail_markup = sprintf( '<figure class="post-thumbnail clearfix">%s</figure>', $post_thumbnail );
+		} else {
+			$post_thumbnail_markup = '';
+		}
+
+		return $post_thumbnail_markup;
+	}
+}
+
+if ( ! function_exists( 'photographia_get_the_title' ) ) {
 	/**
 	 * Displays the title of a post wrapped with a heading and optionally with a link to the post.
 	 *
 	 * @param string $heading Type of heading.
 	 * @param bool   $link    If the title should be linked to the single view or not.
+	 *
+	 * @return string
 	 */
-	function photographia_the_title( $heading, $link = true ) {
+	function photographia_get_the_title( $heading, $link = true ) {
 		if ( $link ) {
-			the_title( sprintf(
-				'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
-				$heading, esc_url( get_permalink() )
-			), sprintf( '</a></%s>', $heading ) );
+			$title_markup = the_title(
+				sprintf(
+					'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
+					$heading, esc_url( get_permalink() )
+				),
+				sprintf( '</a></%s>', $heading ),
+				false );
 		} else {
-			the_title( sprintf(
-				'<%1$s class="entry-title">',
-				$heading, esc_url( get_permalink() )
-			), sprintf( '</%s>', $heading ) );
+			$title_markup = the_title(
+				sprintf(
+					'<%1$s class="entry-title">',
+					$heading, esc_url( get_permalink() )
+				),
+				sprintf( '</%s>', $heading ),
+				false );
 		}
+
+		return $title_markup;
 	}
 }
 
 if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 	/**
 	 * Display a »Featured« box for sticky posts.
+	 *
+	 * @return string
 	 */
-	function photographia_the_sticky_label() {
+	function photographia_get_the_sticky_label() {
 		if ( is_sticky() ) {
 			/* translators: String for the label of sticky posts. Displayed above the title */
-			printf(
+			$sticky_label_markup = sprintf(
 				'<p class="sticky-post-featured-string"><span>%s</span></p>',
 				__( 'Featured', 'photographia' )
 			);
+		} else {
+			$sticky_label_markup = '';
 		}
+
+		return $sticky_label_markup;
 	}
 }
 
@@ -63,14 +113,16 @@ if ( ! function_exists( 'photographia_the_entry_header_meta' ) ) {
 	/**
 	 * Displays author and date of the post.
 	 */
-	function photographia_the_entry_header_meta() {
-		printf(
+	function photographia_get_the_entry_header_meta() {
+		$entry_header_meta_markup = sprintf(
 			'<p class="entry-meta -header">%s · %s</p>',
 			sprintf( /* translators: s = author name */
 				__( 'by %s', 'photographia' ), get_the_author()
 			),
 			photographia_get_the_date()
 		);
+
+		return $entry_header_meta_markup;
 	}
 }
 
@@ -385,25 +437,6 @@ if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
 			return $post_type;
 		} else {
 			return '';
-		}
-	}
-}
-
-if ( ! function_exists( 'photographia_the_post_thumbnail' ) ) {
-	/**
-	 * Displays the post thumbnail
-	 */
-	function photographia_the_post_thumbnail() {
-		if ( has_post_thumbnail() ) {
-			$post_thumbnail_size = [
-				'large-featured-image-vertical' => 'full',
-				'large-featured-image'          => 'full',
-				''                              => 'large',
-			];
-
-			$post_type      = photographia_get_post_type_template();
-			$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
-			printf( '<figure class="post-thumbnail clearfix">%s</figure>', $post_thumbnail );
 		}
 	}
 }
