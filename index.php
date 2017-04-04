@@ -8,38 +8,38 @@
  */
 
 get_header(); ?>
-<div class="content-wrapper clearfix">
-	<div class="main">
-		<main>
-			<?php
-			/**
-			 * Check if we have posts.
-			 */
-			if ( have_posts() ) {
+	<div class="content-wrapper clearfix">
+		<div class="main">
+			<main>
+				<?php
 				/**
-				 * Loop the posts.
+				 * Check if we have posts.
 				 */
-				while ( have_posts() ) {
+				if ( have_posts() ) {
 					/**
-					 * Setup the post data.
+					 * Loop the posts.
 					 */
-					the_post();
+					while ( have_posts() ) {
+						/**
+						 * Setup the post data.
+						 */
+						the_post();
 
+						/**
+						 * Get the template part file. Default file is partials/post/content.php.
+						 * If available, use post format specific files (for example
+						 * partials/post/content-gallery.php) for Gallery format.
+						 */
+						get_template_part( 'partials/post/content', get_post_format() );
+					}
+				} else {
 					/**
-					 * Get the template part file. Default file is partials/post/content.php.
-					 * If available, use post format specific files (for example
-					 * partials/post/content-gallery.php) for Gallery format.
+					 * Include partials/post/content-none.php if no posts were found.
 					 */
-					get_template_part( 'partials/post/content', get_post_format() );
+					get_template_part( 'partials/post/content', 'none' );
 				}
-			} else {
-				/**
-				 * Include partials/post/content-none.php if no posts were found.
-				 */
-				get_template_part( 'partials/post/content', 'none' );
-			}
-			?>
-		</main>
+				?>
+			</main>
+		</div>
 	</div>
-</div>
-<?php get_footer(); ?>
+<?php get_footer();
