@@ -86,15 +86,34 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 	 * @return string
 	 */
 	function photographia_get_the_post_thumbnail() {
+		/**
+		 * Check if post has a post thumbnail. If not, save empty string.
+		 */
 		if ( has_post_thumbnail() ) {
+			/**
+			 * Array to connect post thumbnail sizes with post type templates.
+			 * If no post type template, we want the large size.
+			 */
 			$post_thumbnail_size = [
 				'large-featured-image-vertical' => 'full',
 				'large-featured-image'          => 'full',
 				''                              => 'large',
 			];
 
-			$post_type             = photographia_get_post_type_template();
-			$post_thumbnail        = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
+			/**
+			 * Get the post type template of the post.
+			 * Is an empty string, if no post type template is set.
+			 */
+			$post_type = photographia_get_post_type_template();
+
+			/**
+			 * Get the post thumbnail markup.
+			 */
+			$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
+
+			/**
+			 * Wrap it inside a <figure> element.
+			 */
 			$post_thumbnail_markup = sprintf( '<figure class="post-thumbnail clearfix">%s</figure>', $post_thumbnail );
 		} else {
 			$post_thumbnail_markup = '';
@@ -114,7 +133,13 @@ if ( ! function_exists( 'photographia_get_the_title' ) ) {
 	 * @return string
 	 */
 	function photographia_get_the_title( $heading, $link = true ) {
+		/**
+		 * Check if the title should be a link.
+		 */
 		if ( $link ) {
+			/**
+			 * Build the title markup.
+			 */
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
@@ -123,6 +148,9 @@ if ( ! function_exists( 'photographia_get_the_title' ) ) {
 				sprintf( '</a></%s>', $heading ),
 				false );
 		} else {
+			/**
+			 * Build the title markup without a link.
+			 */
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title">',
