@@ -24,10 +24,58 @@ if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
 
 if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 	/**
-	 * Displays the post thumbnail
+	 * Displays the entry header
+	 *
+	 * @param string $heading Type of heading for entry title.
+	 * @param bool   $link    If the title should be linked to the single view or not.
 	 */
-	function photographia_the_entry_header() {
+	function photographia_the_entry_header( $heading, $link = true ) {
+		/**
+		 * Get the post type template.
+		 */
+		$post_type_template = photographia_get_post_type_template();
 
+		/**
+		 * Save the post title.
+		 */
+		$title = photographia_get_the_title( $heading, $link );
+
+		/**
+		 * If post is sticky, a label is saved. Otherwise empty string.
+		 */
+		$sticky_label = photographia_get_the_sticky_label();
+
+		/**
+		 * Save entry header meta. Author and date.
+		 */
+		$entry_header_meta = photographia_get_the_entry_header_meta();
+
+		/**
+		 * Save the post thumbnail markup.
+		 */
+		$post_thumbnail = photographia_get_the_post_thumbnail();
+
+		/**
+		 * We need to display the post thumbnail twice for posts with the
+		 * post format large featured image vertical.
+		 */
+		if ( 'large-featured-image-vertical' === $post_type_template ) {
+			printf(
+				'%1$s<div><header class="entry-header"><div>%s%s%s</div>%1$s</header></div>',
+				$post_thumbnail,
+				$title,
+				$sticky_label,
+				$entry_header_meta
+			);
+		} else {
+			printf(
+				'<header class="entry-header"><div>%s%s%s</div>%s</header>',
+				$title,
+				$sticky_label,
+				$entry_header_meta,
+				$post_thumbnail
+			);
+		}
 	}
 }
 
