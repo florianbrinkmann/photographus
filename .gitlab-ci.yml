@@ -24,7 +24,10 @@ deploy_staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - apt-get install rsync
+    - npm install --silent
+    - npm install --global gulp-cli
   script:
+    - gulp production
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographia"
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia"
     - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographia.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographia
@@ -47,7 +50,10 @@ deploy_production:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - apt-get install rsync zip
+    - npm install --silent
+    - npm install --global gulp-cli
   script:
+    - gulp production
     - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographia"
     - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/photographia"
     - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographia.css.map --delete-excluded ./ fbn@horologium.uberspace.de:/var/www/virtual/fbn/html/wp-content/themes/_tmp-photographia
