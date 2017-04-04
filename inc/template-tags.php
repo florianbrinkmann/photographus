@@ -171,7 +171,11 @@ if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 	 * @return string
 	 */
 	function photographia_get_the_sticky_label() {
-		if ( is_sticky() ) {
+		/**
+		 * Just display label if we have a sticky post and
+		 * are not on the single view of the post.
+		 */
+		if ( is_sticky() && ! is_single() ) {
 			/* translators: String for the label of sticky posts. Displayed above the title */
 			$sticky_label_markup = sprintf(
 				'<p class="sticky-post-featured-string"><span>%s</span></p>',
