@@ -189,17 +189,22 @@ function photographia_filter_body_classes( $classes ) {
 add_filter( 'body_class', 'photographia_filter_body_classes' );
 
 /**
- * Add classes to post_class() with post type template
+ * Add classes to post_class()
  *
- * @param string $classes empty default string.
+ * @param array $classes array with post classes.
  *
- * @return string
+ * @return array
  */
 function photographia_filter_post_classes( $classes ) {
 	/**
-	 * Add -no-sidebar class if we have no sidebar
+	 * Get the post type template name.
+	 * Empty string if no template is used.
 	 */
 	$post_type_template = photographia_get_post_type_template();
+
+	/**
+	 * Add post template class if post has a template
+	 */
 	if ( '' !== $post_type_template ) {
 		$classes[] .= "-$post_type_template-template";
 	}
