@@ -1,4 +1,4 @@
 @mixin padding-left-and-right($padding, $unit: 'rem') {
-    padding-left: add-unit($padding, $unit);
-    padding-right: add-unit($padding, $unit);
+	padding-left: add-unit($padding, $unit);
+	padding-right: add-unit($padding, $unit);
 }

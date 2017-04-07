@@ -51,18 +51,18 @@ $layout-max-width: 1200px;
  * Spacing Defaults
  */
 @mixin line-height-and-spaces($line-height) {
-    $line-height: $line-height !global;
-    $space: $line-height !global;
-    $space-three-quarters: $line-height * .75 !global;
-    $space-and-quarter: $line-height * 1.25 !global;
-    $space-and-half: $line-height * 1.5 !global;
-    $space-and-three-quarters: $line-height * 1.75 !global;
-    $space-double: $line-height * 2 !global;
-    $space-triple: $line-height * 3 !global;
-    $space-quad: $line-height * 4 !global;
-    $space-quintuple: $line-height * 5 !global;
-    $space-half: $line-height / 2 !global;
-    $space-quarter: $line-height / 4 !global;
+	$line-height: $line-height !global;
+	$space: $line-height !global;
+	$space-three-quarters: $line-height * .75 !global;
+	$space-and-quarter: $line-height * 1.25 !global;
+	$space-and-half: $line-height * 1.5 !global;
+	$space-and-three-quarters: $line-height * 1.75 !global;
+	$space-double: $line-height * 2 !global;
+	$space-triple: $line-height * 3 !global;
+	$space-quad: $line-height * 4 !global;
+	$space-quintuple: $line-height * 5 !global;
+	$space-half: $line-height / 2 !global;
+	$space-quarter: $line-height / 4 !global;
 }
 
 @include line-height-and-spaces(1.4);

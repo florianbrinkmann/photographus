@@ -6,7 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 gulp.task('sass', function () {
     return gulp.src('assets/css/scss/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({indentWidth: 4, outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sass({indentWidth: 1, outputStyle: 'expanded', indentType: 'tab'}).on('error', sass.logError))
         .pipe(autoprefixer({browsers: ['last 3 versions'],}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('assets/css'));

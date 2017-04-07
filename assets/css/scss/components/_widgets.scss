@@ -4,21 +4,21 @@
 
 .widget_calendar thead th,
 .widget_calendar tbody {
-    text-align: center;
+	text-align: center;
 }
 
 .widget > :last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .widget-title + * {
-    margin-top: add-unit($space-half, 'em');
+	margin-top: add-unit($space-half, 'em');
 
-    @media screen and (min-width: 50em) {
-        @include line-height-and-spaces(1.5);
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
 
-        margin-top: add-unit($space-half, 'em');
+		margin-top: add-unit($space-half, 'em');
 
-        @include line-height-and-spaces(1.4);
-    }
+		@include line-height-and-spaces(1.4);
+	}
 }

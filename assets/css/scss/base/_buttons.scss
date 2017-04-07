@@ -6,15 +6,15 @@
  * CTA
  */
 .cta {
-    border: 2px solid $color-tundora;
-    box-shadow: none;
-    padding: .2em add-unit($space-quarter, 'em');
+	border: 2px solid $color-tundora;
+	box-shadow: none;
+	padding: .2em add-unit($space-quarter, 'em');
 
-    &:hover,
-    &:active,
-    &:focus {
-        border-width: 1px;
-        box-shadow: none;
-        padding: calc(.2em + 1px) calc(#{add-unit($space-quarter, 'em')} + 1px);
-    }
+	&:hover,
+	&:active,
+	&:focus {
+		border-width: 1px;
+		box-shadow: none;
+		padding: calc(.2em + 1px) calc(#{add-unit($space-quarter, 'em')} + 1px);
+	}
 }

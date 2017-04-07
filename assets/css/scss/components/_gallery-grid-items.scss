@@ -3,50 +3,50 @@
   ========================================================================== */
 
 .gallery-grid-item {
-    margin: add-unit($space, 'em') auto 0;
-    text-align: left;
-    max-width: 350px;
-    width: 100%;
+	margin: add-unit($space, 'em') auto 0;
+	text-align: left;
+	max-width: 350px;
+	width: 100%;
 
-    a:hover .post-thumbnail,
-    a:focus .post-thumbnail,
-    a:active .post-thumbnail {
-        opacity: .7;
-    }
+	a:hover .post-thumbnail,
+	a:focus .post-thumbnail,
+	a:active .post-thumbnail {
+		opacity: .7;
+	}
 
-    .post-thumbnail,
-    .entry-title {
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
+	.post-thumbnail,
+	.entry-title {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
 
-    .post-thumbnail {
-        max-width: 100%;
+	.post-thumbnail {
+		max-width: 100%;
 
-        @media screen and (max-width: 720px) {
-            height: auto !important;
-        }
-    }
+		@media screen and (max-width: 720px) {
+			height: auto !important;
+		}
+	}
 
-    .entry-title {
-        font-size: 1em;
-        line-height: add-unit($space, 'em');
-        padding: 0 add-unit($space-quarter, 'em');
-        margin: add-unit($space-quarter, 'em') 0 0;
-    }
+	.entry-title {
+		font-size: 1em;
+		line-height: add-unit($space, 'em');
+		padding: 0 add-unit($space-quarter, 'em');
+		margin: add-unit($space-quarter, 'em') 0 0;
+	}
 
-    @media screen and (min-width: 50em) {
-        @include line-height-and-spaces(1.5);
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
 
-        margin: add-unit($space, 'em') auto 0;
+		margin: add-unit($space, 'em') auto 0;
 
-        .entry-title {
-            line-height: add-unit($space, 'em');
-            padding: 0 add-unit($space-quarter, 'em');
-            margin: add-unit($space-quarter, 'em') 0 0;
-        }
+		.entry-title {
+			line-height: add-unit($space, 'em');
+			padding: 0 add-unit($space-quarter, 'em');
+			margin: add-unit($space-quarter, 'em') 0 0;
+		}
 
-        @include line-height-and-spaces(1.4);
-    }
+		@include line-height-and-spaces(1.4);
+	}
 }
