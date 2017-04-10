@@ -96,7 +96,7 @@
 }
 
 .site-title {
-	font-size: 1.424rem;
+	font-size: 1.424em;
 	line-height: 1.24861;
 	margin: 0;
 }
@@ -115,6 +115,7 @@
 }
 
 @media screen and (min-width: 55em) {
+	@include line-height-and-spaces(1.5);
 	.site-header.-wide-layout .primary-header {
 		display: flex;
 		align-items: center;
@@ -122,6 +123,7 @@
 
 	.site-header.-wide-layout .branding {
 		float: left;
+		margin-right: add-unit($space, 'em');
 		text-align: left;
 	}
 
@@ -133,4 +135,5 @@
 	.site-header.-wide-layout .primary-nav {
 		margin-top: 0;
 	}
+	@include line-height-and-spaces(1.4);
 }
