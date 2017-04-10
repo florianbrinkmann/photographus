@@ -156,8 +156,7 @@ article {
 }
 
 @media screen and (min-width: 20em) {
-	.entry-meta,
-	ul.page-numbers {
+	.entry-meta {
 		margin-left: add-unit($space);
 	}
 }

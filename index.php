@@ -38,7 +38,7 @@ get_header(); ?>
 					 */
 					get_template_part( 'partials/post/content', 'none' );
 				}
-				?>
+				photographia_the_posts_pagination(); ?>
 			</main>
 		</div>
 	</div>

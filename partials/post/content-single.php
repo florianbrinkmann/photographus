@@ -15,7 +15,12 @@
 		/**
 		 * Displays the post content.
 		 */
-		photographia_the_content(); ?>
+		photographia_the_content();
+
+		/**
+		 * Display pagination if the post is paginated.
+		 */
+		photographia_wp_link_pages(); ?>
 	</div>
 	<footer class="entry-footer">
 		<?php

@@ -576,3 +576,32 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 		<?php
 	}
 }
+
+if ( ! function_exists( 'photographia_wp_link_pages' ) ) {
+	/**
+	 * Displays a pagination for paginated posts and pages
+	 */
+	function photographia_wp_link_pages() {
+		/* translators: Label for pagination of paginated posts and pages */
+		wp_link_pages( [
+			'before'    => '<ul class="page-numbers"><li><span>' . __( 'Pages:', 'photographia' ) . '</span></li><li>',
+			'after'     => '</li></ul>',
+			'separator' => '</li><li>',
+		] );
+	}
+}
+
+
+if ( ! function_exists( 'photographia_the_posts_pagination' ) ) {
+	/**
+	 * Displays a pagination for archive pages.
+	 */
+	function photographia_the_posts_pagination() {
+		/* translators: Label for pagination of paginated posts and pages */
+		the_posts_pagination( [
+			'type'      => 'list',
+			'prev_text' => __( 'Previous', 'photographia' ),
+			'next_text' => __( 'Next', 'photographia' ),
+		] );
+	}
+}
