@@ -2,8 +2,7 @@
   #ENTRY
   ========================================================================== */
 
-.post,
-.page {
+article {
 	margin: add-unit($space-triple, 'em') 0 0;
 
 	@media screen and (min-width: 50em) {
@@ -62,7 +61,7 @@
 	}
 }
 
-.main .post:first-of-type .entry-title::before {
+.main article:first-of-type .entry-title::before {
 	display: none;
 }
 
