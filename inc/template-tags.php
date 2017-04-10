@@ -494,7 +494,6 @@ if ( ! function_exists( 'photographia_get_comments_by_type' ) ) {
 	}
 }
 
-
 if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
 	/**
 	 * Returns the post type template slug without templates/ dir and .php ending.
@@ -512,11 +511,68 @@ if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
 			/**
 			 * Remove .php file ending.
 			 */
-			$post_type = str_replace( '.php', '', $template_slug );
+			$post_type_template = str_replace( '.php', '', $template_slug );
 
-			return $post_type;
+			return $post_type_template;
 		} else {
 			return '';
 		}
+	}
+}
+
+if ( ! function_exists( 'photographia_comments' ) ) {
+	/**
+	 * Callback function for displaying the comment list.
+	 *
+	 * @param object $comment WP_Comment object.
+	 * @param array  $args    Array of arguments.
+	 * @param int    $depth   Depth of comment.
+	 *
+	 * @return void
+	 */
+	function photographia_comments( $comment, $args, $depth ) { ?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+			<div class="comment-meta">
+				<?php echo get_avatar( $comment, 44 ); ?>
+				<p class="comment-author-date">
+					<?php comment_author_link(); ?> ·&nbsp;
+					<?php printf(
+						'<time datetime="%2$s"><a href="%1$s">%3$s</a></time>',
+						get_comment_link( $comment->comment_ID ),
+						get_comment_time( 'c' ),
+						sprintf( /* translators: 1=date 2=time */
+							__( '%1$s @ %2$s', 'photographia' ),
+							get_comment_date(),
+							get_comment_time()
+						)
+					);
+					edit_comment_link(
+						__( 'Edit', 'photographia' ),
+						' ·&nbsp;',
+						''
+					); ?>
+				</p>
+			</div>
+			<div class="comment-content-wrapper">
+				<div class="comment-content">
+					<?php if ( '0' === $comment->comment_approved ) { ?>
+						<p>
+							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographia' ); ?></strong>
+						</p>
+					<?php }
+					comment_text(); ?>
+				</div>
+			</div>
+
+			<div class="reply">
+				<?php comment_reply_link( [
+					'reply_text' => __( 'Reply', 'photographia' ),
+					'depth'      => $depth,
+					'max_depth'  => $args['max_depth'],
+				] ); ?>
+			</div>
+		</div>
+		<?php
 	}
 }

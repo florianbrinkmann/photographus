@@ -36,7 +36,7 @@ get_header(); ?>
 						 * Include comments template, if comments are open and/or we have comments.
 						 */
 						if ( comments_open() || get_comments_number() ) {
-							comments_template( '', true );
+							comments_template();
 						}
 					}
 				} else {
