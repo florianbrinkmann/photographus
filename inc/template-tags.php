@@ -331,9 +331,9 @@ if ( ! function_exists( 'photographia_get_categories_list' ) ) {
 		$categories = get_the_category();
 
 		/**
-		 * Check if we have a category array, otherwise return empty string.
+		 * Check if we have categories in the array. Otherwise return empty string.
 		 */
-		if ( is_array( $categories ) ) {
+		if ( ! empty( $categories ) ) {
 			/**
 			 * Build the markup.
 			 */
