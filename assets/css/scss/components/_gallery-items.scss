@@ -2,6 +2,36 @@
   #GALLERY ITEMS
   ========================================================================== */
 
+.gallery-item {
+	float: left;
+	margin: add-unit($space-half, 'em');
+	padding: 0;
+}
+
+.gallery-icon {
+	line-height: 0;
+
+	img {
+		line-height: $line-height;
+	}
+}
+
+.gallery-item > .gallery-caption {
+	display: none;
+}
+
 .gallery-item a {
 	@include no-link-style;
+}
+
+@media screen and (min-width: 50em) {
+	@include line-height-and-spaces(1.5);
+	.gallery-item {
+		margin: add-unit($space-half, 'em');
+	}
+
+	.gallery-icon img {
+		line-height: $line-height;
+	}
+	@include line-height-and-spaces(1.4);
 }

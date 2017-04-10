@@ -1,0 +1,40 @@
+/* ==========================================================================
+  #GALLERY
+  ========================================================================== */
+
+.gallery {
+	margin-left: -#{add-unit($space-half, 'em')};
+	margin-right: -#{add-unit($space-half, 'em')};
+
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
+
+		margin-left: -#{add-unit($space-half, 'em')};
+		margin-right: -#{add-unit($space-half, 'em')};
+
+		@include line-height-and-spaces(1.4);
+	}
+}
+
+.gallery-size-large .gallery-caption,
+.gallery-size-full .gallery-caption {
+	display: block;
+	font-size: $font-size-small;
+	margin-top: add-unit($space-quarter, 'em');
+
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
+
+		margin-top: add-unit($space-quarter, 'em');
+
+		@include line-height-and-spaces(1.4);
+	}
+}
+
+.gallery::after {
+	@include clearfix;
+}
+
+.gallery + * {
+	margin-top: 0;
+}
