@@ -142,6 +142,11 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 		 * Enqueue the Photographia stylesheet.
 		 */
 		wp_enqueue_style( 'photographia-style', get_theme_file_uri( 'assets/css/photographia.css' ), [], null );
+
+		/**
+		 * Enqueue the Photographia JavaScript functions.
+		 */
+		wp_enqueue_script( 'photographia-script', get_theme_file_uri( 'assets/js/functions.js' ), [], null, true );
 	}
 }
 

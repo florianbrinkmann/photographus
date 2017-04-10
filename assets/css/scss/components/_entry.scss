@@ -123,6 +123,10 @@ article {
 	}
 }
 
+article:not(.sticky) .sticky-post-featured-string {
+	display: none;
+}
+
 .sticky-post-featured-string {
 	margin-bottom: add-unit($space-half, 'em');
 	font-size: $font-size-small;
