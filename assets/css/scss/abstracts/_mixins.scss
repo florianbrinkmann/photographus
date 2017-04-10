@@ -21,3 +21,9 @@
 	announce broken words as they would appear visually */
 	word-wrap: normal !important;
 }
+
+@mixin clearfix() {
+	clear: both;
+	content: '';
+	display: block;
+}
