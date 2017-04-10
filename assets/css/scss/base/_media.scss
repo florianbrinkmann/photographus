@@ -9,8 +9,13 @@ figure {
 	line-height: 0;
 	margin: add-unit($space-half, 'em') 0 0;
 
-	> * {
+	> figcaption,
+	img {
 		line-height: $line-height;
+	}
+
+	a {
+		@include no-link-style;
 	}
 
 	@media screen and (min-width: 50em) {
@@ -18,7 +23,8 @@ figure {
 
 		margin: add-unit($space-half, 'em') 0 0;
 
-		> * {
+		> figcaption,
+		img {
 			line-height: $line-height;
 		}
 
@@ -38,12 +44,12 @@ img {
 .alignleft,
 .alignright {
 	margin-bottom: add-unit($space-half, 'em');
-	margin-top: 1.2em;
+	margin-top: .4em;
 }
 
-figure .alignleft,
-figure .alignright {
-	margin-top: .5em;
+figure.alignleft,
+figure.alignright {
+	margin-top: 1.2em;
 }
 
 .alignleft {
@@ -67,7 +73,6 @@ figure .alignright {
 	.alignleft,
 	.alignright {
 		margin-bottom: add-unit($space-half, 'em');
-		margin-top: 1.2em;
 	}
 
 	.alignleft {
