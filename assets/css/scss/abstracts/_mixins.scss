@@ -10,3 +10,14 @@
 		background: none;
 	}
 }
+
+@mixin visible-for-screenreaders() {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	/* many screen reader and browser combinations
+	announce broken words as they would appear visually */
+	word-wrap: normal !important;
+}
