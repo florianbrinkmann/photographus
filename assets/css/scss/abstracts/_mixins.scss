@@ -2,3 +2,11 @@
 	padding-left: add-unit($padding, $unit);
 	padding-right: add-unit($padding, $unit);
 }
+
+@mixin no-link-style() {
+	box-shadow: none;
+
+	&:focus {
+		background: none;
+	}
+}

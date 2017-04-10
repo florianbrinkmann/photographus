@@ -85,13 +85,7 @@ figure .alignright {
 
 /* Image links
    ========================================================================== */
-.linked-img {
-	box-shadow: none;
-
-	&:hover,
-	&:focus,
-	&:active {
-		background: none;
-		box-shadow: none;
-	}
+.linked-img,
+.attachment a {
+	@include no-link-style;
 }
