@@ -85,7 +85,7 @@ if ( post_password_required() ) {
 		 * of our separation. Otherwise, the navigation would also be displayed if
 		 * we should display 4 comments per page and have 3 comments and 2 trackbacks.
 		 */
-		if ( $trackback_number > $comment_args['number'] || $comment_number > $comment_args['number'] ) {
+		if ( ( isset( $trackback_number ) && $trackback_number > $comment_args['number'] ) || ( isset( $comment_number ) && $comment_number > $comment_args['number'] ) ) {
 			the_comments_navigation();
 		}
 		if ( ! comments_open() && get_comments_number() ) { ?>
