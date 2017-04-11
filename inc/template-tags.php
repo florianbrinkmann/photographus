@@ -59,9 +59,12 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 		 * We need to display the post thumbnail twice for posts with the
 		 * post format large featured image vertical.
 		 */
-		if ( 'large-featured-image-vertical' === $post_type_template ) {
+		if ( 'large-portrait-featured-image' === $post_type_template ) {
+			/**
+			 * Closing div is inserted in the partials files (for example content.php)
+			 */
 			printf(
-				'%1$s<div><header class="entry-header"><div>%s%s%s</div>%1$s</header></div>',
+				'%1$s<div><header class="entry-header"><div>%s%s%s</div>%1$s</header>',
 				$post_thumbnail,
 				$title,
 				$sticky_label,

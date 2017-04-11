@@ -29,4 +29,15 @@
 		 */
 		photographia_the_entry_footer_meta(); ?>
 	</footer>
+	<?php
+	/**
+	 * Closing div tag if we have a post with the template
+	 * large portrait featured image.
+	 *
+	 * Tag was opened in photographia_the_entry_header()
+	 */
+	$post_type_template = photographia_get_post_type_template();
+	if ( 'large-portrait-featured-image' === $post_type_template ) { ?>
+		</div>
+	<?php } ?>
 </article>
