@@ -95,7 +95,7 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 			 * If no post type template, we want the large size.
 			 */
 			$post_thumbnail_size = [
-				'large-featured-image-vertical' => 'full',
+				'large-portrait-featured-image' => 'full',
 				'large-featured-image'          => 'full',
 				''                              => 'large',
 			];
@@ -104,12 +104,16 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 			 * Get the post type template of the post.
 			 * Is an empty string, if no post type template is set.
 			 */
-			$post_type = photographia_get_post_type_template();
+			$post_type_template = photographia_get_post_type_template();
 
 			/**
 			 * Get the post thumbnail markup.
 			 */
-			$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type ] );
+			if ( array_key_exists( $post_type_template, $post_thumbnail_size ) ) {
+				$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type_template ] );
+			} else {
+				$post_thumbnail = get_the_post_thumbnail( null, 'large' );
+			}
 
 			/**
 			 * Wrap it inside a <figure> element.
