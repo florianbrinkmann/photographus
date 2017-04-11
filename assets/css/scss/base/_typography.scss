@@ -152,7 +152,8 @@ a {
 }
 
 a:active,
-a:hover {
+a:hover,
+.current-menu-item > a {
 	box-shadow: inset 0 -1px 0 transparent;
 	outline-width: 0;
 }
