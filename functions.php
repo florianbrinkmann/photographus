@@ -186,6 +186,8 @@ function photographia_filter_body_classes( $classes ) {
 	 */
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] .= ' -no-sidebar';
+	} else {
+		$classes[] .= ' -with-sidebar';
 	}
 
 	return $classes;

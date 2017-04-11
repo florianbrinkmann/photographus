@@ -135,8 +135,8 @@ svg:not(:root) {
  */
 
 button,
-input { /* 1 */
-	overflow: visible;
+input {
+	overflow: visible; /* 1 */
 }
 
 /**
@@ -145,8 +145,9 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
-	text-transform: none;
+select {
+	max-width: 100%;
+	text-transform: none; /* 1 */
 }
 
 /**

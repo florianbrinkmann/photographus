@@ -41,5 +41,6 @@ get_header(); ?>
 				photographia_the_posts_pagination(); ?>
 			</main>
 		</div>
+		<?php get_sidebar(); ?>
 	</div>
 <?php get_footer();
