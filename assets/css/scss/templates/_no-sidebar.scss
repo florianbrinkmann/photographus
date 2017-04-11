@@ -17,6 +17,10 @@
 		display: block;
 	}
 
+	.-no-sidebar .-large-portrait-featured-image-template > figure .wp-post-image {
+		margin-right: 0;
+	}
+
 	.-no-sidebar .-large-portrait-featured-image-template > div {
 		float: right;
 		padding-left: add-unit($space);

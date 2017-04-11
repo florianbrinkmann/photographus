@@ -64,7 +64,7 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
 			printf(
-				'%1$s<div><header class="entry-header"><div>%s%s%s</div>%1$s</header>',
+				'%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>',
 				$post_thumbnail,
 				$title,
 				$sticky_label,
