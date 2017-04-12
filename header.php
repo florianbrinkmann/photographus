@@ -20,13 +20,14 @@
 </head>
 <body <?php body_class(); ?>>
 <div class="wrapper">
-	<header class="site-header clearfix
-		<?php
-		/**
-		 * Adding possibility to add additional classes to the header via filter.
-		 */
-		echo apply_filters( 'photographia_additional_header_classes', $classes = '' ); ?>"
-	        role="banner">
+	<?php
+	/**
+	 * Adding possibility to add additional classes to the header via filter.
+	 *
+	 * @param string $header_classes string of additional classes.
+	 */
+	$header_classes = apply_filters( 'photographia_additional_header_classes', '' ); ?>
+	<header class="site-header clearfix <?php echo $header_classes; ?>" role="banner">
 		<div class="primary-header">
 			<div class="branding">
 				<?php
