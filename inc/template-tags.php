@@ -61,18 +61,47 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 		 */
 		if ( 'large-portrait-featured-image' === $post_type_template ) {
 			/**
+			 * We do not need the meta information (author and date) on pages,
+			 * so we check if we have a page and do not include the placeholder
+			 * %4$s.
+			 *
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
+			if ( is_page() ) {
+				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s</div>%1$s</header>';
+			} else {
+				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>';
+			}
+			
+			/**
+			 * Use $format and fill the placeholders.
+			 */
 			printf(
-				'%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>',
+				$format,
 				$post_thumbnail,
 				$title,
 				$sticky_label,
 				$entry_header_meta
 			);
 		} else {
+			/**
+			 * We do not need the meta information (author and date) on pages,
+			 * so we check if we have a page and do not include the placeholder
+			 * %3$s.
+			 *
+			 * Closing div is inserted in the partials files (for example content.php)
+			 */
+			if ( is_page() ) {
+				$format = '<header class="entry-header"><div>%1$s%2$s</div>%4$s</header>';
+			} else {
+				$format = '<header class="entry-header"><div>%1$s%2$s%3$s</div>%4$s</header>';
+			}
+
+			/**
+			 * Use $format and fill the placeholders.
+			 */
 			printf(
-				'<header class="entry-header"><div>%s%s%s</div>%s</header>',
+				$format,
 				$title,
 				$sticky_label,
 				$entry_header_meta,
