@@ -72,7 +72,7 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 			} else {
 				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>';
 			}
-			
+
 			/**
 			 * Use $format and fill the placeholders.
 			 */
