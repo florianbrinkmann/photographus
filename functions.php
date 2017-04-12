@@ -182,12 +182,25 @@ add_filter( 'photographia_additional_header_classes', 'photographia_filter_heade
  */
 function photographia_filter_body_classes( $classes ) {
 	/**
-	 * Add -no-sidebar class if we have no sidebar
+	 * Get the post type template name.
+	 * Empty string if no template is used.
 	 */
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] .= ' -no-sidebar';
+	$post_type_template = photographia_get_post_type_template();
+
+	/**
+	 * Add -no-sidebar class if we have no sidebar or are on a page
+	 * with the front page template.
+	 */
+	if ( ! is_active_sidebar( 'sidebar-1' ) || 'front-page' === $post_type_template ) {
+		$classes[] .= '-no-sidebar';
 	} else {
-		$classes[] .= ' -with-sidebar';
+		/**
+		 * Only add -with-sidebar class, if we are not on
+		 * a page with the page template front page.
+		 */
+		if ( 'front-page' !== $post_type_template ) {
+			$classes[] .= '-with-sidebar';
+		}
 	}
 
 	return $classes;
