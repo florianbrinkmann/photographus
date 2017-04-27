@@ -9,7 +9,7 @@
 
 ?>
 <article <?php post_class( 'clearfix' ); ?>>
-	<?php photographia_the_entry_header( $heading_element ); ?>
+	<?php photographia_the_entry_header( $heading_element, true, true ); ?>
 	<div class="entry-content">
 		<?php
 		/**

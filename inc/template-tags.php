@@ -26,10 +26,11 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 	/**
 	 * Displays the entry header
 	 *
-	 * @param string $heading Type of heading for entry title.
-	 * @param bool   $link    If the title should be linked to the single view or not.
+	 * @param string         $heading            Type of heading for entry title.
+	 * @param bool           $link               If the title should be linked to the single view or not.
+	 * @param        boolean $latest_posts_panel true if it is a call from the latest posts panel.
 	 */
-	function photographia_the_entry_header( $heading, $link = true ) {
+	function photographia_the_entry_header( $heading, $link = true, $latest_posts_panel = false ) {
 		/**
 		 * Get the post type template.
 		 */
@@ -67,7 +68,7 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 			 *
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
-			if ( is_page() ) {
+			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s</div>%1$s</header>';
 			} else {
 				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>';
@@ -91,7 +92,7 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 			 *
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
-			if ( is_page() ) {
+			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '<header class="entry-header"><div>%1$s%2$s</div>%4$s</header>';
 			} else {
 				$format = '<header class="entry-header"><div>%1$s%2$s%3$s</div>%4$s</header>';
