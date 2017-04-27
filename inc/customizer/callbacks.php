@@ -72,6 +72,13 @@ function photographia_sanitize_select( $input, $setting ) {
  */
 function photographia_is_page_panel( $control ) {
 	/**
+	 * Check if we are on the front page, otherwise we do not need the control.
+	 */
+	if ( ! photographia_is_static_front_page( $control ) ) {
+		return false;
+	}
+
+	/**
 	 * Get the panel number from the input_attrs array, defined in the add_control() call.
 	 */
 	$panel_number = $control->input_attrs['data-panel-number'];
@@ -99,6 +106,13 @@ function photographia_is_page_panel( $control ) {
  * @return bool
  */
 function photographia_is_post_panel( $control ) {
+	/**
+	 * Check if we are on the front page, otherwise we do not need the control.
+	 */
+	if ( ! photographia_is_static_front_page( $control ) ) {
+		return false;
+	}
+
 	/**
 	 * Get the panel number from the input_attrs array, defined in the add_control() call.
 	 */
@@ -128,6 +142,13 @@ function photographia_is_post_panel( $control ) {
  */
 function photographia_is_latest_posts_panel( $control ) {
 	/**
+	 * Check if we are on the front page, otherwise we do not need the control.
+	 */
+	if ( ! photographia_is_static_front_page( $control ) ) {
+		return false;
+	}
+
+	/**
 	 * Get the panel number from the input_attrs array, defined in the add_control() call.
 	 */
 	$panel_number = $control->input_attrs['data-panel-number'];
@@ -156,6 +177,13 @@ function photographia_is_latest_posts_panel( $control ) {
  */
 function photographia_is_post_grid_panel( $control ) {
 	/**
+	 * Check if we are on the front page, otherwise we do not need the control.
+	 */
+	if ( ! photographia_is_static_front_page( $control ) ) {
+		return false;
+	}
+
+	/**
 	 * Get the panel number from the input_attrs array, defined in the add_control() call.
 	 */
 	$panel_number = $control->input_attrs['data-panel-number'];
@@ -169,6 +197,25 @@ function photographia_is_post_grid_panel( $control ) {
 	 * Return true if the value is page.
 	 */
 	if ( 'post-grid' === $content_type ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+/**
+ * Check if we are on a static front page.
+ *
+ * @param WP_Customize_Control $control Control object.
+ *
+ * @return bool
+ */
+function photographia_is_static_front_page( $control ) {
+	/**
+	 * Return true if is static front page.
+	 */
+	if ( is_front_page() && is_page() ) {
 		return true;
 	} else {
 		return false;
