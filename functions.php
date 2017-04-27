@@ -242,4 +242,4 @@ require_once locate_template( 'inc/template-tags.php' );
 /**
  * Include file with customizer settings.
  */
-require_once locate_template( 'inc/customizer.php' );
+require_once locate_template( 'inc/customizer/register.php' );
