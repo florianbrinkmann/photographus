@@ -19,16 +19,41 @@ function photographia_customize_register( $wp_customize ) {
 		'title' => __( 'Theme options', 'photographia' ),
 	] );
 
+	/**
+	 * Add setting for alternative header layout.
+	 */
 	$wp_customize->add_setting( 'photographia_header_layout', [
 		'default'           => false,
 		'sanitize_callback' => 'photographia_sanitize_checkbox',
 	] );
 
+	/**
+	 * Add control for alternative header layout.
+	 */
 	$wp_customize->add_control( 'photographia_header_layout', [
 		'type'    => 'checkbox',
 		'section' => 'photographia_options',
 		'label'   => __( 'Alternative header layout', 'photographia' ),
 	] );
+
+	/**
+	 * Add setting for hiding the content of the static front page if panels are used.
+	 */
+	$wp_customize->add_setting( 'photographia_hide_static_front_page_content', [
+		'default'           => false,
+		'sanitize_callback' => 'photographia_sanitize_checkbox',
+	] );
+
+	/**
+	 * Add control for hiding the content of the static front page if panels are used.
+	 */
+	$wp_customize->add_control( 'photographia_hide_static_front_page_content', [
+		'type'            => 'checkbox',
+		'section'         => 'photographia_options',
+		'label'           => __( 'Hide the content of the static front page if panels are used.', 'photographia' ),
+		'active_callback' => 'photographia_is_static_front_page',
+	] );
+
 
 	/**
 	 * Front page panels. Inspired by https://core.trac.wordpress.org/browser/tags/4.7.3/src/wp-content/themes/twentyseventeen/inc/customizer.php#L88
@@ -103,17 +128,18 @@ function photographia_customize_register( $wp_customize ) {
 		 * Create control for content choice.
 		 */
 		$wp_customize->add_control( "photographia_panel_{$i}_content_type", [
-			/* translators: i = number of panel in customizer */
-			'label'   => __( "Panel $i", 'photographia' ),
-			'type'    => 'select',
-			'section' => 'photographia_options',
-			'choices' => [
+			/* translators: d = number of panel in customizer */
+			'label'           => sprintf( __( "Panel %d", 'photographia' ), $i ),
+			'type'            => 'select',
+			'section'         => 'photographia_options',
+			'choices'         => [
 				0              => __( '— Select —', 'photographia' ),
 				'page'         => __( 'Page', 'photographia' ),
 				'post'         => __( 'Post', 'photographia' ),
 				'latest-posts' => __( 'Latest Posts', 'photographia' ),
 				'post-grid'    => __( 'Post Grid', 'photographia' ),
 			],
+			'active_callback' => 'photographia_is_static_front_page',
 		] );
 
 		/**
@@ -153,7 +179,7 @@ function photographia_customize_register( $wp_customize ) {
 			 * Create setting for post.
 			 */
 			$wp_customize->add_setting( "photographia_panel_{$i}_post", [
-				'default'           => false,
+				'default'           => 0,
 				'sanitize_callback' => 'absint',
 			] );
 
