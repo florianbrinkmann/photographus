@@ -797,6 +797,11 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_latest_posts_number" );
 
 					/**
+					 * Check if we should only display the title and meta of the posts.
+					 */
+					$short_version = get_theme_mod( "photographia_panel_{$i}_latest_posts_short_version" );
+
+					/**
 					 * Build query.
 					 */
 					$latest_posts_query = new WP_Query( [
@@ -818,14 +823,25 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 							while ( $latest_posts_query->have_posts() ) {
 								$latest_posts_query->the_post();
 
-								/**
-								 * Get the template part file partials/front-page/content-latest-posts-panel.php.
-								 * Here we use include(locate_template()) to have access to the $latest_post_query object
-								 * in the partial.
-								 *
-								 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-								 */
-								include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
+								if ( $short_version ) {
+									/**
+									 * Get the template part file partials/front-page/content-latest-posts-panel-short-version.php.
+									 * Here we use include(locate_template()) to have access to the $latest_post_query object
+									 * in the partial.
+									 *
+									 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+									 */
+									include( locate_template( 'partials/front-page/content-latest-posts-panel-short-version.php' ) );
+								} else {
+									/**
+									 * Get the template part file partials/front-page/content-latest-posts-panel.php.
+									 * Here we use include(locate_template()) to have access to the $latest_post_query object
+									 * in the partial.
+									 *
+									 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+									 */
+									include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
+								}
 							} ?>
 						</section>
 					<?php }
