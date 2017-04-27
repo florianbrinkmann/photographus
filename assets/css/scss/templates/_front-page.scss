@@ -11,7 +11,18 @@
 }
 
 .frontpage-section {
+	margin-top: 0;
 	padding: add-unit($space-triple, 'em') 0;
+
+	> .entry-content {
+		margin-top: add-unit($space-double, 'em');
+
+		> :first-child,
+		&.-large-portrait-featured-image-template > :first-child,
+		&.-large-portrait-featured-image-template > div > :first-child {
+			margin-top: 0;
+		}
+	}
 
 	&::before {
 		background: #444;
@@ -28,6 +39,10 @@
 		@include line-height-and-spaces(1.5);
 
 		padding: add-unit($space-triple, 'em') 0;
+
+		> .entry-content {
+			margin-top: add-unit($space-double, 'em');
+		}
 
 		&:first-of-type {
 			padding-top: add-unit($space-quintuple, 'em');

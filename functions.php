@@ -217,16 +217,16 @@ add_filter( 'body_class', 'photographia_filter_body_classes' );
  */
 function photographia_filter_post_classes( $classes ) {
 	/**
-	 * Get the post type template name.
+	 * Get the post type template class.
 	 * Empty string if no template is used.
 	 */
-	$post_type_template = photographia_get_post_type_template();
+	$post_type_template_class = photographia_get_post_type_template_class();
 
 	/**
 	 * Add post template class if post has a template
 	 */
-	if ( '' !== $post_type_template ) {
-		$classes[] .= "-$post_type_template-template";
+	if ( '' !== $post_type_template_class ) {
+		$classes[] .= $post_type_template_class;
 	}
 
 	return $classes;

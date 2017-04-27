@@ -611,7 +611,7 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 		</div>
 		<?php
 	}
-}
+} // End if().
 
 if ( ! function_exists( 'photographia_wp_link_pages' ) ) {
 	/**
@@ -669,14 +669,14 @@ if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
 				case '0':
 					break;
 				case 'page':
-					$panel_page = get_theme_mod( "photographia_panel_{$i}_page" );
-					if ( 0 !== $panel_page ) {
+					$panel_page_id = get_theme_mod( "photographia_panel_{$i}_page" );
+					if ( 0 !== $panel_page_id ) {
 						$panel_count ++;
 					}
 					break;
 				case 'post':
-					$panel_post = get_theme_mod( "photographia_panel_{$i}_post" );
-					if ( 0 !== $panel_post ) {
+					$panel_post_id = get_theme_mod( "photographia_panel_{$i}_post" );
+					if ( 0 !== $panel_post_id ) {
 						$panel_count ++;
 					}
 					break;
@@ -686,9 +686,163 @@ if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
 				case 'post-grid':
 					$panel_count ++;
 					break;
-			}
-		}
+			} // End switch().
+		} // End for().
 
 		return $panel_count;
 	}
-}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
+	/**
+	 * Returns number of used front page panels.
+	 *
+	 * @param int $panel_count Number of active panels.
+	 *
+	 * @return int
+	 */
+	function photographia_the_front_page_panels( $panel_count ) {
+		/**
+		 * Filter number of front page sections in Photographia.
+		 *
+		 * @param int $num_sections Number of front page sections.
+		 */
+		$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
+		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
+			/**
+			 * Get the content type of the current panel.
+			 */
+			$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
+
+			switch ( $panel_content_type ) {
+				/**
+				 * No content type for panel is chosen.
+				 */
+				case '0':
+					/**
+					 * Display a placeholder for the panel (only if in customizer preview).
+					 */
+					photographia_the_customizer_panel_placeholder( $i );
+					break;
+
+				/**
+				 * The panel has the content type »page«.
+				 */
+				case 'page':
+					/**
+					 * Get the ID of the page.
+					 */
+					$panel_page_id = get_theme_mod( "photographia_panel_{$i}_page" );
+
+					/**
+					 * Check if the ID is not 0, which means we have a page to show.
+					 */
+					if ( 0 !== $panel_page_id ) {
+						global $post;
+						$post = get_post( $panel_page_id );
+						setup_postdata( $post );
+						/**
+						 * Get the template part file partials/front-page/content.php.
+						 */
+						get_template_part( 'partials/front-page/content' );
+
+						wp_reset_postdata();
+					} else {
+						/**
+						 * Display a placeholder for the panel (only if in customizer preview).
+						 */
+						photographia_the_customizer_panel_placeholder( $i );
+					}
+					break;
+
+				/**
+				 * The panel has the content type »post«.
+				 */
+				case 'post':
+					/**
+					 * Get the ID of the post.
+					 */
+					$panel_post_id = get_theme_mod( "photographia_panel_{$i}_post" );
+
+					/**
+					 * Check if the ID is not 0, which means we have a post to show.
+					 */
+					if ( 0 !== $panel_post_id ) {
+						global $post;
+						$post = get_post( $panel_post_id );
+						setup_postdata( $post );
+						/**
+						 * Get the template part file partials/front-page/content.php.
+						 */
+						get_template_part( 'partials/front-page/content' );
+
+						wp_reset_postdata();
+					} else {
+						/**
+						 * Display a placeholder for the panel (only if in customizer preview).
+						 */
+						photographia_the_customizer_panel_placeholder( $i );
+					}
+					break;
+
+				/**
+				 * The panel has the content type »lastest posts«.
+				 */
+				case 'latest-posts':
+					$panel_count ++;
+					break;
+
+				/**
+				 * The panel has the content type »post grid«.
+				 */
+				case 'post-grid':
+					$panel_count ++;
+					break;
+			} // End switch().
+		} // End for().
+
+		return $panel_count;
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_customizer_panel_placeholder' ) ) {
+	/**
+	 * Displays placeholders for empty panels if in customizer preview.
+	 *
+	 * @param int $panel_number Number of current panels.
+	 */
+	function photographia_the_customizer_panel_placeholder( $panel_number ) {
+		/**
+		 * Only display a placeholder if we are in the customizer preview.
+		 */
+		if ( is_customize_preview() ) {
+
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_get_post_type_template_class' ) ) {
+	/**
+	 * Returns post type template class string for layout purposes.
+	 *
+	 * @return string
+	 */
+	function photographia_get_post_type_template_class() {
+		/**
+		 * Get the post type template name.
+		 * Empty string if no template is used.
+		 */
+		$post_type_template = photographia_get_post_type_template();
+
+		/**
+		 * Add post template class if post has a template
+		 */
+		if ( '' !== $post_type_template ) {
+			$post_type_template_class = "-$post_type_template-template";
+		} else {
+			$post_type_template_class = '';
+		}
+
+		return $post_type_template_class;
+	}
+} // End if().
