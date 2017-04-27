@@ -31,10 +31,15 @@ get_header(); ?>
 						the_post();
 
 						if ( 0 !== $panel_count ) {
-							/**
-							 * Get the template part file partials/front-page/content.php.
-							 */
-							get_template_part( 'partials/front-page/content' );
+							$hide_front_page_content = get_theme_mod( 'photographia_hide_static_front_page_content' );
+							if ( true === $hide_front_page_content ) {
+
+							} else {
+								/**
+								 * Get the template part file partials/front-page/content.php.
+								 */
+								get_template_part( 'partials/front-page/content' );
+							}
 						} else {
 							/**
 							 * Get the template part file partials/post/content-single.php (link in page.php).
