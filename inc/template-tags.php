@@ -627,7 +627,6 @@ if ( ! function_exists( 'photographia_wp_link_pages' ) ) {
 	}
 }
 
-
 if ( ! function_exists( 'photographia_the_posts_pagination' ) ) {
 	/**
 	 * Displays a pagination for archive pages.
@@ -639,5 +638,57 @@ if ( ! function_exists( 'photographia_the_posts_pagination' ) ) {
 			'prev_text' => __( 'Previous', 'photographia' ),
 			'next_text' => __( 'Next', 'photographia' ),
 		] );
+	}
+}
+
+if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
+	/**
+	 * Returns number of used front page panels.
+	 *
+	 * @return int
+	 */
+	function photographia_front_page_panel_count() {
+		$panel_count = 0;
+		/**
+		 * Filter number of front page sections in Photographia.
+		 *
+		 * @param int $num_sections Number of front page sections.
+		 */
+		$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
+		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
+			/**
+			 * Get the content type of the current panel.
+			 */
+			$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
+
+			/**
+			 * We need to do additional tests for post and page panels, because it is possible
+			 * that the content type is selected without selecting a post or page.
+			 */
+			switch ( $panel_content_type ) {
+				case '0':
+					break;
+				case 'page':
+					$panel_page = get_theme_mod( "photographia_panel_{$i}_page" );
+					if ( 0 !== $panel_page ) {
+						$panel_count ++;
+					}
+					break;
+				case 'post':
+					$panel_post = get_theme_mod( "photographia_panel_{$i}_post" );
+					if ( 0 !== $panel_post ) {
+						$panel_count ++;
+					}
+					break;
+				case 'latest-posts':
+					$panel_count ++;
+					break;
+				case 'post-grid':
+					$panel_count ++;
+					break;
+			}
+		}
+
+		return $panel_count;
 	}
 }
