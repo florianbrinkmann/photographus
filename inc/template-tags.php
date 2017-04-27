@@ -567,7 +567,7 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 	 * @return void
 	 */
 	function photographia_comments( $comment, $args, $depth ) { ?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
 			<div class="comment-meta">
 				<?php echo get_avatar( $comment, 44 ); ?>
@@ -742,9 +742,9 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 						$post = get_post( $panel_page_id );
 						setup_postdata( $post );
 						/**
-						 * Get the template part file partials/front-page/content.php.
+						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
 						 */
-						get_template_part( 'partials/front-page/content' );
+						get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
 
 						wp_reset_postdata();
 					} else {
@@ -771,10 +771,11 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 						global $post;
 						$post = get_post( $panel_post_id );
 						setup_postdata( $post );
+
 						/**
-						 * Get the template part file partials/front-page/content.php.
+						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
 						 */
-						get_template_part( 'partials/front-page/content' );
+						get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
 
 						wp_reset_postdata();
 					} else {
@@ -789,7 +790,44 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 * The panel has the content type »lastest posts«.
 				 */
 				case 'latest-posts':
-					$panel_count ++;
+					/**
+					 * Get the number of posts which should be displayed.
+					 */
+					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_latest_posts_number" );
+
+					/**
+					 * Build query.
+					 */
+					$latest_posts_query = new WP_Query( [
+						'post_type'      => 'post',
+						'posts_per_page' => $number_of_posts,
+						'no_found_rows'  => true,
+					] );
+
+					if ( $latest_posts_query->have_posts() ) { ?>
+						<section class="frontpage-section clearfix">
+							<?php $section_title = get_theme_mod( "photographia_panel_{$i}_latest_posts_title", __( 'Latests posts', 'photographia' ) );
+							if ( '' !== $section_title ) {
+								$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
+								$heading_element = 'h3';
+							} else {
+								$heading_element = 'h2';
+							}
+							echo $section_title;
+							while ( $latest_posts_query->have_posts() ) {
+								$latest_posts_query->the_post();
+
+								/**
+								 * Get the template part file partials/front-page/content-latest-posts-panel.php.
+								 * Here we use include(locate_template()) to have access to the $latest_post_query object
+								 * in the partial.
+								 *
+								 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+								 */
+								include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
+							} ?>
+						</section>
+					<?php }
 					break;
 
 				/**

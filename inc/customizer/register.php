@@ -198,9 +198,30 @@ function photographia_customize_register( $wp_customize ) {
 			] );
 
 			/**
+			 * Create setting for latest posts section title.
+			 */
+			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_title", [
+				'default'           => __( 'Latests posts', 'photographia' ),
+				'sanitize_callback' => 'sanitize_text_field',
+			] );
+
+			/**
+			 * Create control for latest posts section title.
+			 */
+			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts_title", [
+				'label'           => __( 'Section title', 'photographia' ),
+				'section'         => 'photographia_options',
+				'type'            => 'text',
+				'active_callback' => 'photographia_is_latest_posts_panel',
+				'input_attrs'     => [
+					'data-panel-number' => $i,
+				],
+			] );
+
+			/**
 			 * Create setting for latest posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts", [
+			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_number", [
 				'default'           => 5,
 				'sanitize_callback' => 'absint',
 			] );
@@ -208,10 +229,10 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for latest posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts", [
+			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts_number", [
 				'label'           => __( 'Number of posts', 'photographia' ),
 				'section'         => 'photographia_options',
-				'type'            => 'text',
+				'type'            => 'number',
 				'active_callback' => 'photographia_is_latest_posts_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
@@ -240,17 +261,38 @@ function photographia_customize_register( $wp_customize ) {
 			] );
 
 			/**
-			 * Create setting for latest posts.
+			 * Create setting for post grid section title.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid", [
+			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_title", [
+				'default'           => __( 'Post grid', 'photographia' ),
+				'sanitize_callback' => 'sanitize_text_field',
+			] );
+
+			/**
+			 * Create control for post grid section title.
+			 */
+			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_title", [
+				'label'           => __( 'Section title', 'photographia' ),
+				'section'         => 'photographia_options',
+				'type'            => 'text',
+				'active_callback' => 'photographia_is_post_grid_panel',
+				'input_attrs'     => [
+					'data-panel-number' => $i,
+				],
+			] );
+
+			/**
+			 * Create setting for post grid number of posts.
+			 */
+			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_number", [
 				'default'           => 20,
 				'sanitize_callback' => 'absint',
 			] );
 
 			/**
-			 * Create control for latest posts.
+			 * Create control for post grid number of posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid", [
+			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_number", [
 				'label'           => __( 'Number of posts (skips posts without post thumbnail)', 'photographia' ),
 				'section'         => 'photographia_options',
 				'type'            => 'text',

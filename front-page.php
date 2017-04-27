@@ -36,9 +36,9 @@ get_header(); ?>
 
 							} else {
 								/**
-								 * Get the template part file partials/front-page/content.php.
+								 * Get the template part file partials/front-page/content-post-and-page-panel.php.
 								 */
-								get_template_part( 'partials/front-page/content' );
+								get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
 							}
 						} else {
 							/**
