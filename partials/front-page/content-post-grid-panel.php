@@ -28,7 +28,7 @@ $post_thumbnail = wp_get_attachment_image_src( $post_thumbnail_id, $size );
  * Get the post thumbnail img element with responsive images.
  */
 $post_thumbnail_img_element = wp_get_attachment_image( $post_thumbnail_id, $size ); ?>
-<article class="gallery-grid-item">
+<article class="gallery-grid-item" style="max-width: <?php echo $post_thumbnail[1]; ?>px;">
 	<a href="<?php the_permalink(); ?>">
 		<figure class="post-thumbnail" aria-hidden="true" width="<?php echo $post_thumbnail[1]; ?>"
 		        height="<?php echo $post_thumbnail[2]; ?>">

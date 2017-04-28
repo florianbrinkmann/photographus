@@ -940,31 +940,31 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					 */
 					if ( $post_grid_query->have_posts() ) { ?>
 						<section class="frontpage-section clearfix">
+							<?php
+							/**
+							 * Get the title for the panel.
+							 */
+							$section_title = get_theme_mod( "photographia_panel_{$i}_post_grid_title", __( 'Post grid', 'photographia' ) );
+
+							/**
+							 * Check if we have a title.
+							 */
+							if ( '' !== $section_title ) {
+								/**
+								 * Build the title markup and set h3 for the titles of the posts in the grid.
+								 */
+								$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
+								$heading_element = 'h3';
+							} else {
+								/**
+								 * We have no panel title, so we set the titles of the post grid posts to h2.
+								 */
+								$heading_element = 'h2';
+							}
+							echo $section_title; ?>
 							<div class="gallery-grid-wrapper clearfix">
 								<div class="gallery-grid">
 									<?php
-									/**
-									 * Get the title for the panel.
-									 */
-									$section_title = get_theme_mod( "photographia_panel_{$i}_post_grid_title", __( 'Post grid', 'photographia' ) );
-
-									/**
-									 * Check if we have a title.
-									 */
-									if ( '' !== $section_title ) {
-										/**
-										 * Build the title markup and set h3 for the titles of the posts in the grid.
-										 */
-										$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
-										$heading_element = 'h3';
-									} else {
-										/**
-										 * We have no panel title, so we set the titles of the post grid posts to h2.
-										 */
-										$heading_element = 'h2';
-									}
-									echo $section_title;
-
 									/**
 									 * Get the value of the option to hide the post titles in the grid.
 									 */
