@@ -6,6 +6,25 @@
  * @package Photographia
  */
 ;(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        /**
+         * Get the html element.
+         *
+         * @type {Element}
+         */
+        var root = document.documentElement;
+
+        /**
+         * Remove the no-js class
+         */
+        root.removeAttribute('class', 'no-js');
+
+        /**
+         * Set a js class.
+         */
+        root.setAttribute('class', 'js');
+    });
+
     /**
      * Get the images which live inside a link.
      *
