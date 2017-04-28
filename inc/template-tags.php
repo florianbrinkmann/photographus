@@ -650,6 +650,7 @@ if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
 	 */
 	function photographia_front_page_panel_count() {
 		$panel_count = 0;
+
 		/**
 		 * Filter number of front page sections in Photographia.
 		 *
@@ -805,24 +806,48 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					 * Build query.
 					 */
 					$latest_posts_query = new WP_Query( [
-						'post_type'      => 'post',
-						'posts_per_page' => $number_of_posts,
-						'no_found_rows'  => true,
+						'post_type'           => 'post',
+						'posts_per_page'      => $number_of_posts,
+						'no_found_rows'       => true,
+						'ignore_sticky_posts' => 1,
 					] );
 
 					if ( $latest_posts_query->have_posts() ) { ?>
 						<section class="frontpage-section clearfix">
-							<?php $section_title = get_theme_mod( "photographia_panel_{$i}_latest_posts_title", __( 'Latests posts', 'photographia' ) );
+							<?php
+							/**
+							 * Get the title for the panel.
+							 */
+							$section_title = get_theme_mod( "photographia_panel_{$i}_latest_posts_title", __( 'Latests posts', 'photographia' ) );
+
+							/**
+							 * Check if we have a title.
+							 */
 							if ( '' !== $section_title ) {
+								/**
+								 * If we have a title, build the title markup and set the heading element for the
+								 * latest posts to h3.
+								 */
 								$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
 								$heading_element = 'h3';
 							} else {
+								/**
+								 * If we have no panel title, set the heading element for the titles of the latest
+								 * posts to h2.
+								 */
 								$heading_element = 'h2';
 							}
 							echo $section_title;
+
+							/**
+							 * Loop through the latest posts.
+							 */
 							while ( $latest_posts_query->have_posts() ) {
 								$latest_posts_query->the_post();
 
+								/**
+								 * Check if we only need to display the short version.
+								 */
 								if ( $short_version ) {
 									/**
 									 * Get the template part file partials/front-page/content-latest-posts-panel-short-version.php.
@@ -851,7 +876,129 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 * The panel has the content type »post grid«.
 				 */
 				case 'post-grid':
-					$panel_count ++;
+					/**
+					 * Get the number of posts which should be displayed.
+					 */
+					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_number" );
+
+					/**
+					 * Get value of option only to show image and gallery posts.
+					 */
+					$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts" );
+
+					/**
+					 * Get value of option only to show posts from one category.
+					 */
+					$post_category = get_theme_mod( "photographia_panel_{$i}_post_grid_category" );
+
+					/**
+					 * Build $tax_query array
+					 */
+					$tax_query = [ 'relation' => 'AND' ];
+
+					if ( true === $only_gallery_and_image_posts ) {
+						$tax_query[] = [
+							'taxonomy' => 'post_format',
+							'field'    => 'slug',
+							'terms'    => [
+								'post-format-gallery',
+								'post-format-image'
+							],
+						];
+					}
+
+					if ( 0 !== $post_category ) {
+						$tax_query[] = [
+							'taxonomy' => 'category',
+							'field'    => 'term_id',
+							'terms'    => [
+								$post_category
+							],
+						];
+					}
+
+					/**
+					 * Build query.
+					 */
+					$post_grid_query = new WP_Query( [
+						'post_type'           => 'post',
+						'posts_per_page'      => $number_of_posts,
+						'no_found_rows'       => true,
+						'ignore_sticky_posts' => 1,
+						'meta_query'          => [
+							'relation' => 'AND',
+							[
+								'key'     => '_thumbnail_id',
+								'compare' => 'EXISTS',
+							]
+						],
+						'tax_query'           => $tax_query,
+					] );
+
+					/**
+					 * Check if we have posts.
+					 */
+					if ( $post_grid_query->have_posts() ) { ?>
+						<section class="frontpage-section clearfix">
+							<div class="gallery-grid-wrapper clearfix">
+								<div class="gallery-grid">
+									<?php
+									/**
+									 * Get the title for the panel.
+									 */
+									$section_title = get_theme_mod( "photographia_panel_{$i}_post_grid_title", __( 'Post grid', 'photographia' ) );
+
+									/**
+									 * Check if we have a title.
+									 */
+									if ( '' !== $section_title ) {
+										/**
+										 * Build the title markup and set h3 for the titles of the posts in the grid.
+										 */
+										$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
+										$heading_element = 'h3';
+									} else {
+										/**
+										 * We have no panel title, so we set the titles of the post grid posts to h2.
+										 */
+										$heading_element = 'h2';
+									}
+									echo $section_title;
+
+									/**
+									 * Get the value of the option to hide the post titles in the grid.
+									 */
+									$hide_gallery_titles = get_theme_mod( "photographia_panel_{$i}_post_grid_hide_title" );
+
+									/**
+									 * Build a small classes string, depending on if we should hide the titles
+									 * (with screen-reader-class) or not (without screen-reader-class).
+									 */
+									if ( true === $hide_gallery_titles ) {
+										$entry_title_div_class_string = 'entry-title screen-reader-text';
+									} else {
+										$entry_title_div_class_string = 'entry-title';
+									}
+
+									/**
+									 * Loop through the post grid posts.
+									 */
+									while ( $post_grid_query->have_posts() ) {
+										$post_grid_query->the_post();
+
+										/**
+										 * Get the template part file partials/front-page/content-latest-posts-panel.php.
+										 * Here we use include(locate_template()) to have access to the $latest_post_query object
+										 * in the partial.
+										 *
+										 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+										 */
+										include( locate_template( 'partials/front-page/content-post-grid-panel.php' ) );
+									} ?>
+								</div>
+							</div>
+						</section>
+					<?php }
 					break;
 			} // End switch().
 		} // End for().

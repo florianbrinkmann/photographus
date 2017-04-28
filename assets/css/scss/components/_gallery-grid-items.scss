@@ -8,10 +8,19 @@
 	max-width: 350px;
 	width: 100%;
 
-	a:hover .post-thumbnail,
-	a:focus .post-thumbnail,
-	a:active .post-thumbnail {
-		opacity: .7;
+	a > .post-thumbnail {
+		transition: opacity .2s ease 0s;
+	}
+
+	a:hover,
+	a:focus,
+	a:active {
+		color: inherit;
+
+		> .post-thumbnail {
+			opacity: .7;
+			transition: opacity .2s ease 0s;
+		}
 	}
 
 	.post-thumbnail,

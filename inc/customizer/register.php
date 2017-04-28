@@ -349,7 +349,7 @@ function photographia_customize_register( $wp_customize ) {
 			 * Create setting for post grid category.
 			 */
 			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_category", [
-				'default'           => false,
+				'default'           => 0,
 				'sanitize_callback' => 'absint',
 			] );
 
