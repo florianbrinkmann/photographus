@@ -189,22 +189,16 @@ function photographia_filter_body_classes( $classes ) {
 	 * Get the post type template name.
 	 * Empty string if no template is used.
 	 */
-	$post_type_template = photographia_get_post_type_template();
+	$front_page_panels = photographia_front_page_panel_count();
 
 	/**
 	 * Add -no-sidebar class if we have no sidebar or are on a page
 	 * with the front page template.
 	 */
-	if ( ! is_active_sidebar( 'sidebar-1' ) || 'front-page' === $post_type_template ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) ) {
 		$classes[] .= '-no-sidebar';
 	} else {
-		/**
-		 * Only add -with-sidebar class, if we are not on
-		 * a page with the page template front page.
-		 */
-		if ( 'front-page' !== $post_type_template ) {
-			$classes[] .= '-with-sidebar';
-		}
+		$classes[] .= '-with-sidebar';
 	}
 
 	return $classes;

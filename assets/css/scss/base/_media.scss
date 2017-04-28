@@ -128,3 +128,11 @@ figure.alignright {
 .attachment a {
 	@include no-link-style;
 }
+
+/* Full bleed images
+   ========================================================================== */
+.full-bleed-img {
+	display: block;
+	position: relative;
+	width: 100%;
+}
