@@ -1094,9 +1094,9 @@ add_action( 'wp_update_comment_count', 'photographia_refresh_latest_posts_cache'
 /**
  * Update the front page panel caches on post publish or update.
  *
- * @param $new_status
- * @param $old_status
- * @param $post
+ * @param string  $new_status New status of the post.
+ * @param string  $old_status Old status of the post.
+ * @param WP_Post $post       Post object.
  */
 function photographia_cache_update_on_post_update( $new_status, $old_status, $post ) {
 	if ( 'publish' === $new_status && 'post' === $post->post_type ) {
@@ -1109,6 +1109,10 @@ add_action( 'transition_post_status', 'photographia_cache_update_on_post_update'
 if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	/**
 	 * Returns post type template class string for layout purposes.
+	 *
+	 * @param int     $panel_number    Number of panels.
+	 * @param int     $number_of_posts Number of posts.
+	 * @param boolean $force_refresh   If cache should be refreshed.
 	 *
 	 * @return string
 	 */
