@@ -105,10 +105,10 @@
      *
      * @type {NodeList}
      */
-    var fullWidthImages = document.querySelectorAll('.-large-featured-image-template .wp-post-image');
+    var fullWidthImages = document.querySelectorAll('.-with-sidebar .-large-featured-image-template .wp-post-image');
 
     /**
-     * Add an inline style max-width to the images to not let them grow over their natural width.
+     * Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
      */
     if (fullWidthImages.length != 0) {
         for (var fullWidthImage of fullWidthImages) {
