@@ -286,7 +286,7 @@ function photographia_customize_register( $wp_customize ) {
 			 */
 			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_number", [
 				'default'           => 20,
-				'sanitize_callback' => 'absint',
+				'sanitize_callback' => 'photographia_sanitize_int_greater_null',
 			] );
 
 			/**
@@ -295,7 +295,7 @@ function photographia_customize_register( $wp_customize ) {
 			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_number", [
 				'label'           => __( 'Number of posts (skips posts without post thumbnail)', 'photographia' ),
 				'section'         => 'photographia_options',
-				'type'            => 'text',
+				'type'            => 'number',
 				'active_callback' => 'photographia_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,

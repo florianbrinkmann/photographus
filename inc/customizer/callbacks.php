@@ -64,6 +64,29 @@ function photographia_sanitize_select( $input, $setting ) {
 }
 
 /**
+ * Absolute number greater 0.
+ *
+ * @param string               $input   Slug to sanitize.
+ * @param WP_Customize_Setting $setting Setting instance.
+ *
+ * @see https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php#L217
+ *
+ * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
+ */
+function photographia_sanitize_int_greater_null( $input, $setting ) {
+	/**
+	 * Ensure $number is an absolute integer (whole number, zero or greater).
+	 */
+	$input = absint( $input );
+
+	if ( $input && $input > 0 ) {
+		return $input;
+	} else {
+		return $setting->default;
+	}
+}
+
+/**
  * Check if we need to display the dropdown-pages control for a panel.
  *
  * @param WP_Customize_Control $control Control object.
@@ -162,6 +185,8 @@ function photographia_is_latest_posts_panel( $control ) {
 	 * Return true if the value is page.
 	 */
 	if ( 'latest-posts' === $content_type ) {
+		photographia_refresh_latest_posts_cache( $panel_number );
+
 		return true;
 	} else {
 		return false;
