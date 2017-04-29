@@ -58,7 +58,7 @@ get_header(); ?>
 				 * Panels
 				 */
 				if ( 0 !== $panel_count ) {
-					photographia_the_front_page_panels( $panel_count );
+					photographia_the_front_page_panels();
 				} ?>
 			</main>
 		</div>

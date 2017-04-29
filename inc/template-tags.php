@@ -699,11 +699,9 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 	/**
 	 * Returns number of used front page panels.
 	 *
-	 * @param int $panel_count Number of active panels.
-	 *
-	 * @return int
+	 * @param WP_Customize_Control|null $partial Custoizer partial.
 	 */
-	function photographia_the_front_page_panels( $panel_count ) {
+	function photographia_the_front_page_panels( $partial = null ) {
 		/**
 		 * Filter number of front page sections in Photographia.
 		 *
@@ -745,8 +743,12 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 						setup_postdata( $post );
 						/**
 						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
+						 * Here we use include(locate_template()) to have access to the $i variable
+						 * in the partial.
+						 *
+						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
 						 */
-						get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
+						include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
 
 						wp_reset_postdata();
 					} else {
@@ -776,8 +778,12 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 
 						/**
 						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
+						 * Here we use include(locate_template()) to have access to the $i variable
+						 * in the partial.
+						 *
+						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
 						 */
-						get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
+						include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
 
 						wp_reset_postdata();
 					} else {
@@ -793,78 +799,9 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 */
 				case 'latest-posts':
 					/**
-					 * Get the number of posts which should be displayed.
+					 * Display the latest posts panel.
 					 */
-					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_latest_posts_number", 5 );
-
-					/**
-					 * Check if we should only display the title and meta of the posts.
-					 */
-					$short_version = get_theme_mod( "photographia_panel_{$i}_latest_posts_short_version", false );
-
-					/**
-					 * Build query.
-					 */
-					$latest_posts = photographia_get_latest_posts( $i, $number_of_posts );
-
-					if ( $latest_posts->have_posts() ) { ?>
-						<section class="frontpage-section clearfix">
-							<?php
-							/**
-							 * Get the title for the panel.
-							 */
-							$section_title = get_theme_mod( "photographia_panel_{$i}_latest_posts_title", __( 'Latests posts', 'photographia' ) );
-
-							/**
-							 * Check if we have a title.
-							 */
-							if ( '' !== $section_title ) {
-								/**
-								 * If we have a title, build the title markup and set the heading element for the
-								 * latest posts to h3.
-								 */
-								$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
-								$heading_element = 'h3';
-							} else {
-								/**
-								 * If we have no panel title, set the heading element for the titles of the latest
-								 * posts to h2.
-								 */
-								$heading_element = 'h2';
-							}
-							echo $section_title;
-
-							/**
-							 * Loop through the latest posts.
-							 */
-							while ( $latest_posts->have_posts() ) {
-								$latest_posts->the_post();
-
-								/**
-								 * Check if we only need to display the short version.
-								 */
-								if ( $short_version ) {
-									/**
-									 * Get the template part file partials/front-page/content-latest-posts-panel-short-version.php.
-									 * Here we use include(locate_template()) to have access to the $latest_post_query object
-									 * in the partial.
-									 *
-									 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-									 */
-									include( locate_template( 'partials/front-page/content-latest-posts-panel-short-version.php' ) );
-								} else {
-									/**
-									 * Get the template part file partials/front-page/content-latest-posts-panel.php.
-									 * Here we use include(locate_template()) to have access to the $latest_post_query object
-									 * in the partial.
-									 *
-									 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-									 */
-									include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
-								}
-							} ?>
-						</section>
-					<?php }
+					photographia_the_latest_posts_panel( null, $i );
 					break;
 
 				/**
@@ -872,91 +809,12 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 */
 				case 'post-grid':
 					/**
-					 * Get the number of posts which should be displayed.
+					 * Display the post grid panel.
 					 */
-					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_number", 20 );
-
-					/**
-					 * Get value of option only to show image and gallery posts.
-					 */
-					$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts", false );
-
-					/**
-					 * Get value of option only to show posts from one category.
-					 */
-					$post_category = get_theme_mod( "photographia_panel_{$i}_post_grid_category", 0 );
-
-					$post_grid_posts = photographia_get_post_grid_posts( $i, $number_of_posts, $only_gallery_and_image_posts, $post_category, false );
-
-					/**
-					 * Check if we have posts.
-					 */
-					if ( $post_grid_posts->have_posts() ) { ?>
-						<section class="frontpage-section clearfix">
-							<?php
-							/**
-							 * Get the title for the panel.
-							 */
-							$section_title = get_theme_mod( "photographia_panel_{$i}_post_grid_title", __( 'Post grid', 'photographia' ) );
-
-							/**
-							 * Check if we have a title.
-							 */
-							if ( '' !== $section_title ) {
-								/**
-								 * Build the title markup and set h3 for the titles of the posts in the grid.
-								 */
-								$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
-								$heading_element = 'h3';
-							} else {
-								/**
-								 * We have no panel title, so we set the titles of the post grid posts to h2.
-								 */
-								$heading_element = 'h2';
-							}
-							echo $section_title; ?>
-							<div class="gallery-grid-wrapper clearfix">
-								<div class="gallery-grid">
-									<?php
-									/**
-									 * Get the value of the option to hide the post titles in the grid.
-									 */
-									$hide_gallery_titles = get_theme_mod( "photographia_panel_{$i}_post_grid_hide_title" );
-
-									/**
-									 * Build a small classes string, depending on if we should hide the titles
-									 * (with screen-reader-class) or not (without screen-reader-class).
-									 */
-									if ( true === $hide_gallery_titles ) {
-										$entry_title_div_class_string = 'entry-title screen-reader-text';
-									} else {
-										$entry_title_div_class_string = 'entry-title';
-									}
-
-									/**
-									 * Loop through the post grid posts.
-									 */
-									while ( $post_grid_posts->have_posts() ) {
-										$post_grid_posts->the_post();
-
-										/**
-										 * Get the template part file partials/front-page/content-latest-posts-panel.php.
-										 * Here we use include(locate_template()) to have access to the $latest_post_query object
-										 * in the partial.
-										 *
-										 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-										 */
-										include( locate_template( 'partials/front-page/content-post-grid-panel.php' ) );
-									} ?>
-								</div>
-							</div>
-						</section>
-					<?php }
+					photographia_the_post_grid_panel( null, $i );
 					break;
 			} // End switch().
 		} // End for().
-
-		return $panel_count;
 	}
 } // End if().
 
@@ -1119,5 +977,197 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 		}
 
 		return $post_grid_posts;
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_latest_posts_panel' ) ) {
+	/**
+	 * Displays the latest posts panel.
+	 *
+	 * @param WP_Customize_Partial $partial      Customizer partial.
+	 * @param int                  $panel_number Number of posts.
+	 */
+	function photographia_the_latest_posts_panel( $partial = null, $panel_number = null ) {
+		/**
+		 * Get panel number if $panel_number is not a number
+		 */
+		if ( ! is_numeric( $panel_number ) ) {
+			$id           = $partial->id;
+			$panel_number = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
+		}
+
+		/**
+		 * Get the number of posts which should be displayed.
+		 */
+		$number_of_posts = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_number", 5 );
+
+		/**
+		 * Check if we should only display the title and meta of the posts.
+		 */
+		$short_version = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_short_version", false );
+
+		/**
+		 * Build query.
+		 */
+		$latest_posts = photographia_get_latest_posts( $panel_number, $number_of_posts );
+
+		if ( $latest_posts->have_posts() ) { ?>
+			<section id="frontpage-section-<?php echo $panel_number; ?>" class="frontpage-section clearfix">
+				<?php
+				/**
+				 * Get the title for the panel.
+				 */
+				$section_title = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_title", __( 'Latests posts', 'photographia' ) );
+
+				/**
+				 * Check if we have a title.
+				 */
+				if ( '' !== $section_title ) {
+					/**
+					 * If we have a title, build the title markup and set the heading element for the
+					 * latest posts to h3.
+					 */
+					$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
+					$heading_element = 'h3';
+				} else {
+					/**
+					 * If we have no panel title, set the heading element for the titles of the latest
+					 * posts to h2.
+					 */
+					$heading_element = 'h2';
+				}
+				echo $section_title;
+
+				/**
+				 * Loop through the latest posts.
+				 */
+				while ( $latest_posts->have_posts() ) {
+					$latest_posts->the_post();
+
+					/**
+					 * Check if we only need to display the short version.
+					 */
+					if ( $short_version ) {
+						/**
+						 * Get the template part file partials/front-page/content-latest-posts-panel-short-version.php.
+						 * Here we use include(locate_template()) to have access to the $latest_posts object
+						 * in the partial.
+						 *
+						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+						 */
+						include( locate_template( 'partials/front-page/content-latest-posts-panel-short-version.php' ) );
+					} else {
+						/**
+						 * Get the template part file partials/front-page/content-latest-posts-panel.php.
+						 * Here we use include(locate_template()) to have access to the $latest_posts object
+						 * in the partial.
+						 *
+						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+						 */
+						include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
+					}
+				} ?>
+			</section>
+		<?php } // End if().
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
+	/**
+	 * Displays the post grid panel.
+	 *
+	 * @param WP_Customize_Partial $partial      Customizer partial.
+	 * @param int                  $panel_number Number of posts.
+	 */
+	function photographia_the_post_grid_panel( $partial = null, $panel_number = null ) {
+		/**
+		 * Get panel number if $panel_number is not a number
+		 */
+		if ( ! is_numeric( $panel_number ) ) {
+			$id           = $partial->id;
+			$panel_number = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
+		}
+
+		/**
+		 * Get the number of posts which should be displayed.
+		 */
+		$number_of_posts = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_number", 20 );
+
+		/**
+		 * Get value of option only to show image and gallery posts.
+		 */
+		$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_only_gallery_and_image_posts", false );
+
+		/**
+		 * Get value of option only to show posts from one category.
+		 */
+		$post_category = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_category", 0 );
+
+		$post_grid_posts = photographia_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts, $post_category, false );
+
+		/**
+		 * Check if we have posts.
+		 */
+		if ( $post_grid_posts->have_posts() ) { ?>
+			<section id="frontpage-section-<?php echo $panel_number; ?>" class="frontpage-section clearfix">
+				<?php
+				/**
+				 * Get the title for the panel.
+				 */
+				$section_title = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_title", __( 'Post grid', 'photographia' ) );
+
+				/**
+				 * Check if we have a title.
+				 */
+				if ( '' !== $section_title ) {
+					/**
+					 * Build the title markup and set h3 for the titles of the posts in the grid.
+					 */
+					$section_title   = "<h2 class='frontpage-section-title'>$section_title</h2>";
+					$heading_element = 'h3';
+				} else {
+					/**
+					 * We have no panel title, so we set the titles of the post grid posts to h2.
+					 */
+					$heading_element = 'h2';
+				}
+				echo $section_title; ?>
+				<div class="gallery-grid-wrapper clearfix">
+					<div class="gallery-grid">
+						<?php
+						/**
+						 * Get the value of the option to hide the post titles in the grid.
+						 */
+						$hide_gallery_titles = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_hide_title" );
+
+						/**
+						 * Build a small classes string, depending on if we should hide the titles
+						 * (with screen-reader-class) or not (without screen-reader-class).
+						 */
+						if ( true === $hide_gallery_titles ) {
+							$entry_title_div_class_string = 'entry-title screen-reader-text';
+						} else {
+							$entry_title_div_class_string = 'entry-title';
+						}
+
+						/**
+						 * Loop through the post grid posts.
+						 */
+						while ( $post_grid_posts->have_posts() ) {
+							$post_grid_posts->the_post();
+
+							/**
+							 * Get the template part file partials/front-page/content-post-grid-panel.php.
+							 * Here we use include(locate_template()) to have access to the $post_grid_posts object
+							 * in the partial.
+							 *
+							 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+							 */
+							include( locate_template( 'partials/front-page/content-post-grid-panel.php' ) );
+						} ?>
+					</div>
+				</div>
+			</section>
+		<?php } // End if().
 	}
 } // End if().
