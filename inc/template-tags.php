@@ -1012,7 +1012,7 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	 * @param int     $number_of_posts Number of posts.
 	 * @param boolean $force_refresh   If cache should be refreshed.
 	 *
-	 * @return string
+	 * @return object
 	 */
 	function photographia_get_latest_posts( $panel_number, $number_of_posts, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
@@ -1057,7 +1057,7 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 	 * @param int     $post_category                Number of posts.
 	 * @param boolean $force_refresh                If cache should be refreshed.
 	 *
-	 * @return string
+	 * @return object
 	 */
 	function photographia_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts = false, $post_category = 0, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
