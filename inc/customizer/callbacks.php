@@ -78,7 +78,6 @@ function photographia_sanitize_int_greater_null( $input, $setting ) {
 	 * Ensure $number is an absolute integer (whole number, zero or greater).
 	 */
 	$input = absint( $input );
-
 	if ( $input && $input > 0 ) {
 		return $input;
 	} else {
@@ -185,8 +184,6 @@ function photographia_is_latest_posts_panel( $control ) {
 	 * Return true if the value is page.
 	 */
 	if ( 'latest-posts' === $content_type ) {
-		photographia_refresh_latest_posts_cache( $panel_number );
-
 		return true;
 	} else {
 		return false;

@@ -233,6 +233,11 @@ function photographia_filter_post_classes( $classes ) {
 add_filter( 'post_class', 'photographia_filter_post_classes' );
 
 /**
+ * Include file with functions for cache updates.
+ */
+require_once locate_template( 'inc/cache-functions.php' );
+
+/**
  * Include template tags file.
  */
 require_once locate_template( 'inc/template-tags.php' );

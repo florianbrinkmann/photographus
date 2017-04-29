@@ -1002,69 +1002,6 @@ if ( ! function_exists( 'photographia_get_post_type_template_class' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_refresh_latest_posts_cache' ) ) {
-	/**
-	 * Forces cache refresh for latest posts panels. If the params are null, a post was updated, so we need to
-	 * update the cache for all latest posts panels.
-	 *
-	 * @param int|null $panel_number    Number of the customizer panel.
-	 * @param int|null $number_of_posts Number of posts to display.
-	 *
-	 * @return string
-	 */
-	function photographia_refresh_latest_posts_cache( $panel_number = null, $number_of_posts = null ) {
-		/**
-		 * If $panel_number is null, we need to get the settings from all latest post panels.
-		 */
-		if ( null === $panel_number ) {
-			$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
-			for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
-				/**
-				 * Get the content type of the current panel.
-				 */
-				$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
-
-				if ( 'latests-posts' === $panel_content_type ) {
-					/**
-					 * Get the number of posts which should be displayed.
-					 */
-					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_latest_posts_number", 5 );
-
-					photographia_get_latest_posts( $i, $number_of_posts, true );
-				}
-			} // End for().
-		} else {
-			$panel_content_type = get_theme_mod( "photographia_panel_{$panel_number}_content_type" );
-
-			if ( 'latests-posts' === $panel_content_type ) {
-				/**
-				 * Get the number of posts which should be displayed.
-				 */
-				$number_of_posts = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_number", 5 );
-
-				photographia_get_latest_posts( $panel_number, $number_of_posts, true );
-			}
-		}
-	}
-} // End if().
-add_action( 'wp_update_comment_count', 'photographia_refresh_latest_posts_cache', 10, 3 );
-
-/**
- * Update the front page panel caches on post publish or update.
- *
- * @param string  $new_status New status of the post.
- * @param string  $old_status Old status of the post.
- * @param WP_Post $post       Post object.
- */
-function photographia_cache_update_on_post_update( $new_status, $old_status, $post ) {
-	if ( 'publish' === $new_status && 'post' === $post->post_type ) {
-		photographia_refresh_latest_posts_cache();
-		photographia_refresh_post_grid_posts_cache();
-	}
-}
-
-add_action( 'transition_post_status', 'photographia_cache_update_on_post_update', 10, 3 );
-
 if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	/**
 	 * Returns latests posts.
@@ -1079,8 +1016,8 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 		/**
 		 * Check if we already have a latests posts cache for this panel.
 		 */
-		$latest_posts = wp_cache_get( "photographia_latest_posts_panel_$panel_number", 'photographia_panel_cache' );
-		if ( true === $force_refresh || false === $latest_posts ) {
+		$latest_posts = get_transient( "photographia_latest_posts_panel_$panel_number" );
+		if ( true === $force_refresh || false === $latest_posts || is_customize_preview() ) {
 			/**
 			 * Get the latest posts.
 			 */
@@ -1092,77 +1029,11 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 			] );
 
 			if ( ! is_wp_error( $latest_posts ) && $latest_posts->have_posts() ) {
-				wp_cache_set( "photographia_latest_posts_panel_$panel_number", $latest_posts, 'photographia_panel_cache' );
+				set_transient( "photographia_latest_posts_panel_$panel_number", $latest_posts, WEEK_IN_SECONDS );
 			}
 		}
 
 		return $latest_posts;
-	}
-} // End if().
-
-if ( ! function_exists( 'photographia_refresh_post_grid_posts_cache' ) ) {
-	/**
-	 * Forces cache refresh for post grid posts panels. If the params are null, a post was updated, so we need to
-	 * update the cache for all latest posts panels.
-	 *
-	 * @param int|null $panel_number    Number of the customizer panel.
-	 * @param int|null $number_of_posts Number of posts to display.
-	 *
-	 * @return string
-	 */
-	function photographia_refresh_post_grid_posts_cache( $panel_number = null, $number_of_posts = null ) {
-		/**
-		 * If $panel_number is null, we need to get the settings from all latest post panels.
-		 */
-		if ( null === $panel_number ) {
-			$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
-			for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
-				/**
-				 * Get the content type of the current panel.
-				 */
-				$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
-
-				if ( 'post-grid' === $panel_content_type ) {
-					/**
-					 * Get the number of posts which should be displayed.
-					 */
-					$number_of_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_number", 20 );
-
-					/**
-					 * Get value of option only to show image and gallery posts.
-					 */
-					$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts", false );
-
-					/**
-					 * Get value of option only to show posts from one category.
-					 */
-					$post_category = get_theme_mod( "photographia_panel_{$i}_post_grid_category", 0 );
-
-					$post_grid_posts = photographia_get_post_grid_posts( $i, $number_of_posts, $only_gallery_and_image_posts, $post_category, true );
-				}
-			} // End for().
-		} else {
-			$panel_content_type = get_theme_mod( "photographia_panel_{$panel_number}_content_type" );
-
-			if ( 'post-grid' === $panel_content_type ) {
-				/**
-				 * Get the number of posts which should be displayed.
-				 */
-				$number_of_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_number", 20 );
-
-				/**
-				 * Get value of option only to show image and gallery posts.
-				 */
-				$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts", false );
-
-				/**
-				 * Get value of option only to show posts from one category.
-				 */
-				$post_category = get_theme_mod( "photographia_panel_{$i}_post_grid_category", 0 );
-
-				$post_grid_posts = photographia_get_post_grid_posts( $i, $number_of_posts, $only_gallery_and_image_posts, $post_category, true );
-			}
-		}
 	}
 } // End if().
 
@@ -1183,8 +1054,8 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 		/**
 		 * Check if we already have a post grid cache for this panel.
 		 */
-		$post_grid_posts = wp_cache_get( "photographia_post_grid_panel_$panel_number", 'photographia_panel_cache' );
-		if ( true === $force_refresh || false === $post_grid_posts ) {
+		$post_grid_posts = get_transient( "photographia_post_grid_panel_$panel_number" );
+		if ( true === $force_refresh || false === $post_grid_posts || is_customize_preview() ) {
 			/**
 			 * Build $tax_query array
 			 */
@@ -1230,7 +1101,7 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 			] );
 
 			if ( ! is_wp_error( $post_grid_posts ) && $post_grid_posts->have_posts() ) {
-				wp_cache_set( "photographia_latest_posts_panel_$panel_number", $post_grid_posts, 'photographia_panel_cache' );
+				set_transient( "photographia_post_grid_panel_$panel_number", $post_grid_posts, WEEK_IN_SECONDS );
 			}
 		}
 
