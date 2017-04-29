@@ -1006,6 +1006,8 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	/**
 	 * Returns latests posts.
 	 *
+	 * The routine for updating transients before they expire is from https://wordpress.org/support/topic/lightweight-use-of-transients/
+	 *
 	 * @param int     $panel_number    Number of panels.
 	 * @param int     $number_of_posts Number of posts.
 	 * @param boolean $force_refresh   If cache should be refreshed.
@@ -1013,11 +1015,15 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	 * @return string
 	 */
 	function photographia_get_latest_posts( $panel_number, $number_of_posts, $force_refresh = false ) {
+		$timeout_transient = 3 * WEEK_IN_SECONDS;
 		/**
-		 * Check if we already have a latests posts cache for this panel.
+		 * Check if we already have a latest posts cache for this panel.
 		 */
 		$latest_posts = get_transient( "photographia_latest_posts_panel_$panel_number" );
-		if ( true === $force_refresh || false === $latest_posts || is_customize_preview() ) {
+		if ( ! is_object( $latest_posts ) ) {
+			$latest_posts = new stdClass();
+		}
+		if ( true === $force_refresh || ! isset( $latest_posts->last_check ) || $timeout_transient < ( time() - $latest_posts->last_check ) || is_customize_preview() ) {
 			/**
 			 * Get the latest posts.
 			 */
@@ -1029,7 +1035,8 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 			] );
 
 			if ( ! is_wp_error( $latest_posts ) && $latest_posts->have_posts() ) {
-				set_transient( "photographia_latest_posts_panel_$panel_number", $latest_posts, WEEK_IN_SECONDS );
+				$latest_posts->last_check = time();
+				set_transient( "photographia_latest_posts_panel_$panel_number", $latest_posts, 5 * WEEK_IN_SECONDS );
 			}
 		}
 
@@ -1041,6 +1048,8 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 	/**
 	 * Returns latest posts for post grid.
 	 *
+	 * The routine for updating transients before they expire is from https://wordpress.org/support/topic/lightweight-use-of-transients/
+	 *
 	 * @param int     $panel_number                 Number of panels.
 	 * @param int     $number_of_posts              Number of posts.
 	 * @param boolean $only_gallery_and_image_posts If only posts with gallery and image post type should
@@ -1051,11 +1060,15 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 	 * @return string
 	 */
 	function photographia_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts = false, $post_category = 0, $force_refresh = false ) {
+		$timeout_transient = 3 * WEEK_IN_SECONDS;
 		/**
 		 * Check if we already have a post grid cache for this panel.
 		 */
 		$post_grid_posts = get_transient( "photographia_post_grid_panel_$panel_number" );
-		if ( true === $force_refresh || false === $post_grid_posts || is_customize_preview() ) {
+		if ( ! is_object( $post_grid_posts ) ) {
+			$post_grid_posts = new stdClass();
+		}
+		if ( true === $force_refresh || ! isset( $post_grid_posts->last_check ) || $timeout_transient < ( time() - $post_grid_posts->last_check ) || is_customize_preview() ) {
 			/**
 			 * Build $tax_query array
 			 */
@@ -1101,7 +1114,8 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 			] );
 
 			if ( ! is_wp_error( $post_grid_posts ) && $post_grid_posts->have_posts() ) {
-				set_transient( "photographia_post_grid_panel_$panel_number", $post_grid_posts, WEEK_IN_SECONDS );
+				$post_grid_posts->last_check = time();
+				set_transient( "photographia_post_grid_panel_$panel_number", $post_grid_posts, 5 * WEEK_IN_SECONDS );
 			}
 		}
 
