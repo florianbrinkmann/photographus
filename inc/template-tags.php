@@ -1106,9 +1106,8 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 				'meta_query'          => [
 					'relation' => 'AND',
 					[
-						'key'     => '_thumbnail_id',
-						'compare' => 'EXISTS',
-					]
+						'key' => '_thumbnail_id',
+					],
 				],
 				'tax_query'           => $tax_query,
 			] );
