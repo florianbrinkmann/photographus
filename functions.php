@@ -145,9 +145,15 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 		wp_enqueue_style( 'photographia-style', get_theme_file_uri( 'assets/css/photographia.css' ), [], null );
 
 		/**
+		 * Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
+		 * »imagesloaded« dependency which would be loaded if we would use the core masonry.
+		 */
+		wp_enqueue_script( 'photographia-masonry', get_theme_file_uri( 'assets/js/masonry.js' ), [], null, true );
+
+		/**
 		 * Enqueue the Photographia JavaScript functions.
 		 */
-		wp_enqueue_script( 'photographia-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'masonry' ], null, true );
+		wp_enqueue_script( 'photographia-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'photographia-masonry' ], null, true );
 
 		/**
 		 * Remove box shadow from links in admin bar.
