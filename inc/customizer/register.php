@@ -81,6 +81,8 @@ function photographia_customize_register( $wp_customize ) {
 		'post_type'      => 'post',
 		'posts_per_page' => $post_number,
 		'no_found_rows'  => true,
+		'post_status'    => 'publish',
+		'has_password'   => false,
 	] );
 
 	/**
