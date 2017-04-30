@@ -394,7 +394,7 @@ function photographia_customize_register( $wp_customize ) {
 					"photographia_panel_{$i}_post_grid_only_gallery_and_image_posts",
 					"photographia_panel_{$i}_post_grid_category",
 				],
-				'render_callback'     => 'photographia_the_front_page_panels',
+				'render_callback'     => 'photographia_the_post_grid_panel',
 				'container_inclusive' => true,
 			] );
 		} // End if().
