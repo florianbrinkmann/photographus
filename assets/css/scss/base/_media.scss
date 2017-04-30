@@ -108,7 +108,7 @@ figure.alignright {
 
 /* Image links
    ========================================================================== */
-.linked-img-wrapper {
+.img-link-wrapper {
 	line-height: 0;
 
 	img {
@@ -124,7 +124,7 @@ figure.alignright {
 	}
 }
 
-.linked-img,
+.img-link,
 .attachment a {
 	@include no-link-style;
 }
