@@ -730,33 +730,9 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 */
 				case 'page':
 					/**
-					 * Get the ID of the page.
+					 * Display the page.
 					 */
-					$panel_page_id = get_theme_mod( "photographia_panel_{$i}_page" );
-
-					/**
-					 * Check if the ID is not 0, which means we have a page to show.
-					 */
-					if ( 0 !== $panel_page_id ) {
-						global $post;
-						$post = get_post( $panel_page_id );
-						setup_postdata( $post );
-						/**
-						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
-						 * Here we use include(locate_template()) to have access to the $i variable
-						 * in the partial.
-						 *
-						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-						 */
-						include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
-
-						wp_reset_postdata();
-					} else {
-						/**
-						 * Display a placeholder for the panel (only if in customizer preview).
-						 */
-						photographia_the_customizer_panel_placeholder( $i );
-					}
+					photographia_the_page_panel( null, $i );
 					break;
 
 				/**
@@ -764,34 +740,9 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 				 */
 				case 'post':
 					/**
-					 * Get the ID of the post.
+					 * Display the post.
 					 */
-					$panel_post_id = get_theme_mod( "photographia_panel_{$i}_post" );
-
-					/**
-					 * Check if the ID is not 0, which means we have a post to show.
-					 */
-					if ( 0 !== $panel_post_id ) {
-						global $post;
-						$post = get_post( $panel_post_id );
-						setup_postdata( $post );
-
-						/**
-						 * Get the template part file partials/front-page/content-post-and-page-panel.php.
-						 * Here we use include(locate_template()) to have access to the $i variable
-						 * in the partial.
-						 *
-						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-						 */
-						include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
-
-						wp_reset_postdata();
-					} else {
-						/**
-						 * Display a placeholder for the panel (only if in customizer preview).
-						 */
-						photographia_the_customizer_panel_placeholder( $i );
-					}
+					photographia_the_post_panel( null, $i );
 					break;
 
 				/**
@@ -829,7 +780,7 @@ if ( ! function_exists( 'photographia_customizer_panel_placeholder' ) ) {
 		 * Only display a placeholder if we are in the customizer preview.
 		 */
 		if ( is_customize_preview() ) {
-
+			echo "<section id='frontpage-section-$panel_number'>Section placeholder</section>";
 		}
 	}
 } // End if().
@@ -1169,5 +1120,101 @@ if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
 				</div>
 			</section>
 		<?php } // End if().
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_post_panel' ) ) {
+	/**
+	 * Displays the post grid panel.
+	 *
+	 * @param WP_Customize_Partial $partial      Customizer partial.
+	 * @param int                  $panel_number Number of posts.
+	 */
+	function photographia_the_post_panel( $partial = null, $panel_number = null ) {
+		/**
+		 * Get panel number if $panel_number is not a number
+		 */
+		if ( ! is_numeric( $panel_number ) ) {
+			$id           = $partial->id;
+			$panel_number = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
+		}
+
+		/**
+		 * Get the ID of the post.
+		 */
+		$panel_post_id = get_theme_mod( "photographia_panel_{$panel_number}_post" );
+
+		/**
+		 * Check if the ID is not 0, which means we have a post to show.
+		 */
+		if ( 0 !== $panel_post_id ) {
+			global $post;
+			$post = get_post( $panel_post_id );
+			setup_postdata( $post );
+
+			/**
+			 * Get the template part file partials/front-page/content-post-and-page-panel.php.
+			 * Here we use include(locate_template()) to have access to the $i variable
+			 * in the partial.
+			 *
+			 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+			 */
+			include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+
+			wp_reset_postdata();
+		} else {
+			/**
+			 * Display a placeholder for the panel (only if in customizer preview).
+			 */
+			photographia_the_customizer_panel_placeholder( $panel_number );
+		} // End if().
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_page_panel' ) ) {
+	/**
+	 * Displays the post grid panel.
+	 *
+	 * @param WP_Customize_Partial $partial      Customizer partial.
+	 * @param int                  $panel_number Number of posts.
+	 */
+	function photographia_the_page_panel( $partial = null, $panel_number = null ) {
+		/**
+		 * Get panel number if $panel_number is not a number
+		 */
+		if ( ! is_numeric( $panel_number ) ) {
+			$id           = $partial->id;
+			$panel_number = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
+		}
+
+		/**
+		 * Get the ID of the post.
+		 */
+		$panel_post_id = get_theme_mod( "photographia_panel_{$panel_number}_page" );
+
+		/**
+		 * Check if the ID is not 0, which means we have a post to show.
+		 */
+		if ( 0 !== $panel_post_id ) {
+			global $post;
+			$post = get_post( $panel_post_id );
+			setup_postdata( $post );
+
+			/**
+			 * Get the template part file partials/front-page/content-post-and-page-panel.php.
+			 * Here we use include(locate_template()) to have access to the $i variable
+			 * in the partial.
+			 *
+			 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
+			 */
+			include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+
+			wp_reset_postdata();
+		} else {
+			/**
+			 * Display a placeholder for the panel (only if in customizer preview).
+			 */
+			photographia_the_customizer_panel_placeholder( $panel_number );
+		} // End if().
 	}
 } // End if().

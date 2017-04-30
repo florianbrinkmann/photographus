@@ -8,7 +8,7 @@
  */
 
 ?>
-<section id="frontpage-section-<?php echo $i; ?>" class="clearfix frontpage-section">
+<section id="frontpage-section-<?php echo $panel_number; ?>" class="clearfix frontpage-section">
 	<article>
 		<?php the_title( '<h2 class="frontpage-section-title">', '</h2>' ) ?>
 		<div class="entry-content <?php echo photographia_get_post_type_template_class(); ?>">

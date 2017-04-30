@@ -150,6 +150,7 @@ function photographia_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( "photographia_panel_{$i}_page", [
 			'default'           => false,
 			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
 		] );
 
 		/**
@@ -164,6 +165,15 @@ function photographia_customize_register( $wp_customize ) {
 			'input_attrs'     => [
 				'data-panel-number' => $i,
 			],
+		] );
+
+		$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_page_partial", [
+			'selector'            => "#frontpage-section-$i",
+			'settings'            => [
+				"photographia_panel_{$i}_page",
+			],
+			'render_callback'     => 'photographia_the_page_panel',
+			'container_inclusive' => true,
 		] );
 
 		/**
@@ -183,6 +193,7 @@ function photographia_customize_register( $wp_customize ) {
 			$wp_customize->add_setting( "photographia_panel_{$i}_post", [
 				'default'           => 0,
 				'sanitize_callback' => 'absint',
+				'transport'         => 'postMessage',
 			] );
 
 			/**
@@ -197,6 +208,15 @@ function photographia_customize_register( $wp_customize ) {
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
+			] );
+
+			$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_post_partial", [
+				'selector'            => "#frontpage-section-$i",
+				'settings'            => [
+					"photographia_panel_{$i}_post",
+				],
+				'render_callback'     => 'photographia_the_post_panel',
+				'container_inclusive' => true,
 			] );
 
 			/**
