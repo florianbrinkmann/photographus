@@ -62,5 +62,8 @@ get_header(); ?>
 				} ?>
 			</main>
 		</div>
+		<?php if ( 0 === $panel_count ) {
+			get_sidebar();
+		} ?>
 	</div>
 <?php get_footer();
