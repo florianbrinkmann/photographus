@@ -26,11 +26,6 @@ require_once locate_template( 'inc/cache-functions.php' );
 require_once locate_template( 'inc/template-tags.php' );
 
 /**
- * Include template functions file.
- */
-require_once locate_template( 'inc/template-functions.php' );
-
-/**
  * Include upgrade theme file.
  */
 require_once locate_template( 'inc/theme-updates.php' );
