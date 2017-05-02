@@ -72,58 +72,54 @@ function addClassToImageLinks() {
 }
 
 function buildMasonryGrid(hasSelectiveRefresh = false) {
-    /**
-     * Var for saving if we have a small window or not.
-     */
-    var smallWindow;
+    var msnry;
 
     /**
      * Get the gallery grids.
      *
      * @type {Element}
      */
-    var gridElem = document.querySelector('.gallery-grid');
+    var gridElem = document.querySelector(".gallery-grid");
 
     /**
      * Check if we have grid elements.
      */
-    if (gridElem !== null) {
+    if (!gridElem) {
+        return
+    }
+    /**
+     * Function for creating and destroying the masonry grids.
+     */
+    function masonryGrid() {
+        var w = Math.max(
+            document.documentElement.clientWidth,
+            window.innerWidth || 0
+        );
 
         /**
-         * Function for creating and destroying the masonry grids.
+         * Only init a grid if the window is greater or equal 730
          */
-        function masonryGrid() {
-            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-            /**
-             * Only init a grid if the window is greater or equal 730
-             */
-
-            if (w >= 730) {
-                new Masonry(gridElem, {
-                    itemSelector: '.gallery-grid-item',
-                    columnWidth: 1,
-                    gutter: 10,
-                    transitionDuration: 0,
-                    resize: true,
-                    fitWidth: true
-                });
-                smallWindow = false;
-            } else {
-                if (smallWindow === false) {
-                    var msnry = Masonry.data(gridElem);
-                    msnry.destroy();
-                }
-                smallWindow = true;
-            }
+        if (w >= 730 && !msnry) {
+            msnry = new Masonry(gridElem, {
+                itemSelector: ".gallery-grid-item",
+                columnWidth: 1,
+                gutter: 10,
+                transitionDuration: 0,
+                resize: true,
+                fitWidth: true
+            });
+        } else if (w < 730 && msnry) {
+            msnry.destroy();
+            msnry = null;
         }
-
-        if (hasSelectiveRefresh) {
-            window.setTimeout(masonryGrid, 1);
-        }
-        document.addEventListener('DOMContentLoaded', masonryGrid);
-        window.addEventListener('resize', masonryGrid);
     }
+
+    if (hasSelectiveRefresh) {
+        window.setTimeout(masonryGrid, 1);
+    }
+    document.addEventListener("DOMContentLoaded", masonryGrid);
+    window.addEventListener("resize", masonryGrid);
 }
 
 function fullWidthImages() {
