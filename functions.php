@@ -175,11 +175,19 @@ add_action( 'wp_enqueue_scripts', 'photographia_scripts_styles' );
  */
 function photographia_filter_header_classes( $classes ) {
 	/**
-	 * Add -wide-layout class if option for vertical header is not checked
+	 * Add -wide-layout class if option for vertical header is not checked and we do not need the compact layout for
+	 * the front page with header image.
 	 */
 	$alt_header_layout = get_theme_mod( 'photographia_header_layout', false );
-	if ( true !== $alt_header_layout ) {
+	if ( true !== $alt_header_layout && ( true !== photographia_is_front_page_with_panels() && ( ! has_header_image() || ! has_header_video() ) ) ) {
 		$classes .= ' -wide-layout';
+	}
+
+	/**
+	 * Add -with-header-image class if we are on the front page and have a header image or header video.
+	 */
+	if ( true === photographia_is_front_page_with_panels() && ( has_header_image() || has_header_video() ) ) {
+		$classes .= ' -with-header-image';
 	}
 
 	return $classes;

@@ -1218,3 +1218,56 @@ if ( ! function_exists( 'photographia_the_page_panel' ) ) {
 		} // End if().
 	}
 } // End if().
+
+if ( ! function_exists( 'photographia_is_front_page_with_panels' ) ) {
+	/**
+	 * Checks if we are on the front page with panels.
+	 *
+	 * @return boolean
+	 */
+	function photographia_is_front_page_with_panels() {
+		/**
+		 * Count the front page panels.
+		 */
+		$panel_count = photographia_front_page_panel_count();
+		if ( is_front_page() && is_page() && 0 !== $panel_count ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_front_page_header_image' ) ) {
+	/**
+	 * Displays header image as background image inside style tag, if we are on the front page
+	 * and have panels.
+	 */
+	function photographia_the_front_page_header_image() {
+		$header_image = get_header_image();
+		if ( true === photographia_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
+			echo 'style="background-image: linear-gradient( to right, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .6 ) ), url( ' . $header_image . ' );"';
+		} else {
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographia_the_scroll_arrow_icon' ) ) {
+	/**
+	 * Displays scroll down arrow link if we have a header image and are on the front page with panels.
+	 */
+	function photographia_the_scroll_arrow_icon() {
+		$header_image = get_header_image();
+		if ( true === photographia_is_front_page_with_panels() && has_header_image() && false !== $header_image ) { ?>
+			<p>
+				<a href="#main" class="scroll-link">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+					     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
+					     enable-background="new 0 0 16 16" xml:space="preserve"><polygon
+							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
+				</a>
+			</p>
+		<?php } else {
+		}
+	}
+} // End if().

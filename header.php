@@ -27,7 +27,8 @@
 	 * @param string $header_classes string of additional classes.
 	 */
 	$header_classes = apply_filters( 'photographia_additional_header_classes', '' ); ?>
-	<header class="site-header clearfix <?php echo $header_classes; ?>" role="banner">
+	<header class="site-header clearfix <?php echo $header_classes; ?>"
+	        role="banner" <?php photographia_the_front_page_header_image(); ?>>
 		<div class="primary-header">
 			<div class="branding">
 				<?php
@@ -42,4 +43,9 @@
 			 */
 			include locate_template( 'partials/header/nav.php' ); ?>
 		</div>
+		<?php
+		/**
+		 * Display a scroll down arrow if we have a header image.
+		 */
+		photographia_the_scroll_arrow_icon(); ?>
 	</header>

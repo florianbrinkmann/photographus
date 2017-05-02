@@ -9,7 +9,7 @@
 
 get_header(); ?>
 	<div class="content-wrapper clearfix">
-		<div class="main">
+		<div class="main" id="main">
 			<main>
 				<?php
 				/**
