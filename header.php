@@ -28,7 +28,14 @@
 	 */
 	$header_classes = apply_filters( 'photographia_additional_header_classes', '' ); ?>
 	<header class="site-header clearfix <?php echo $header_classes; ?>"
-	        role="banner" <?php photographia_the_front_page_header_image(); ?>>
+	        role="banner"
+		<?php
+		/**
+		 * Includes a inline style with header image as full background, if we are on the front page
+		 * with panels.
+		 */
+		photographia_the_front_page_header_image(); ?>
+	>
 		<div class="primary-header">
 			<div class="branding">
 				<?php
@@ -45,7 +52,7 @@
 		</div>
 		<?php
 		/**
-		 * Display a scroll down arrow if we have a header image.
+		 * Display a scroll down arrow if we have a header image and are on the front page with panels.
 		 */
 		photographia_the_scroll_arrow_icon(); ?>
 	</header>

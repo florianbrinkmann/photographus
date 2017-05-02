@@ -1271,3 +1271,25 @@ if ( ! function_exists( 'photographia_the_scroll_arrow_icon' ) ) {
 		}
 	}
 } // End if().
+
+if ( ! function_exists( 'photographia_is_login_page' ) ) {
+	/**
+	 * Check if we are on the login page
+	 *
+	 * @return bool
+	 */
+	function photographia_is_login_page() {
+		return in_array( $GLOBALS['pagenow'], [ 'wp-login.php', 'wp-register.php' ], true );
+	}
+}
+
+if ( ! function_exists( 'photographia_is_wp_comments_post' ) ) {
+	/**
+	 * Check if we are on the wp-comments-post.php
+	 *
+	 * @return bool
+	 */
+	function photographia_is_wp_comments_post() {
+		return in_array( $GLOBALS['pagenow'], [ 'wp-comments-post.php' ], true );
+	}
+}
