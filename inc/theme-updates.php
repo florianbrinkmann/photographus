@@ -98,7 +98,7 @@ add_filter( 'pre_set_site_transient_update_themes', 'photographia_theme_update' 
  * @return array|WP_Error
  */
 function photographia_fetch_data_of_latest_version() {
-	$request = wp_safe_remote_get( __( 'https://florianbrinkmann.com/en/wordpress-themes/photographia/upgrade-json/', 'photographia' ) );
+	$request = wp_safe_remote_get( 'https://florianbrinkmann.com/wordpress-themes/photographia/upgrade-json/' );
 
 	return $request;
 }
