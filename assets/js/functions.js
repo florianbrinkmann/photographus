@@ -83,7 +83,7 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
     /**
      * Check if we have grid elements.
      */
-    if (!gridElems) {
+    if (0 === gridElems.length) {
         return
     }
 
