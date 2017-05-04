@@ -73,20 +73,20 @@ function addClassToImageLinks() {
 
 function buildMasonryGrid(hasSelectiveRefresh = false) {
     var msnry;
-
     /**
      * Get the gallery grids.
      *
-     * @type {Element}
+     * @type {NodeList}
      */
-    var gridElem = document.querySelector(".gallery-grid");
+    var gridElems = document.querySelectorAll(".gallery-grid");
 
     /**
      * Check if we have grid elements.
      */
-    if (!gridElem) {
+    if (!gridElems) {
         return
     }
+
     /**
      * Function for creating and destroying the masonry grids.
      */
@@ -101,16 +101,21 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
          */
 
         if (w >= 730 && !msnry) {
-            msnry = new Masonry(gridElem, {
-                itemSelector: ".gallery-grid-item",
-                columnWidth: 1,
-                gutter: 10,
-                transitionDuration: 0,
-                resize: true,
-                fitWidth: true
-            });
+            for (var i = 0; i < gridElems.length; i++) {
+                msnry = new Masonry(gridElems[i], {
+                    itemSelector: ".gallery-grid-item",
+                    columnWidth: 1,
+                    gutter: 0,
+                    transitionDuration: 0,
+                    resize: true,
+                    fitWidth: true
+                });
+            }
         } else if (w < 730 && msnry) {
-            msnry.destroy();
+            for (var i = 0; i < gridElems.length; i++) {
+                msnry = Masonry.data(gridElems[i]);
+                msnry.destroy();
+            }
             msnry = null;
         }
     }

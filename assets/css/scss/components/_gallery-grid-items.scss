@@ -60,7 +60,20 @@
 	}
 }
 
-.no-js .gallery-grid-item {
+.no-js .gallery-grid {
+	display: flex;
+	flex-wrap: wrap;
 	margin-left: 5px;
 	margin-right: 5px;
+	justify-content: center;
+}
+
+/**
+ * Space in gallery grid.
+ */
+@media screen and (min-width: 730px) {
+	.gallery-grid-item {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
 }
