@@ -97,9 +97,8 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
         );
 
         /**
-         * Only init a grid if the window is greater or equal 730
+         * Only init masonry if the window is greater or equal 730px
          */
-
         if (w >= 730 && !msnry) {
             for (var i = 0; i < gridElems.length; i++) {
                 msnry = new Masonry(gridElems[i], {

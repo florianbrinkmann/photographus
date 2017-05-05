@@ -136,6 +136,11 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 		wp_enqueue_script( 'photographia-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'photographia-masonry' ], null, true );
 
 		/**
+		 * Enqueue the Photographia JavaScript functions.
+		 */
+		wp_enqueue_script( 'photographia-customize-preview-script', get_theme_file_uri( 'assets/js/customize-preview.js' ), [ 'photographia-script' ], null, true );
+
+		/**
 		 * Remove box shadow from links in admin bar.
 		 */
 		if ( is_admin_bar_showing() ) {

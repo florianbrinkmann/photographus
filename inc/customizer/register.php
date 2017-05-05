@@ -124,6 +124,7 @@ function photographia_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( "photographia_panel_{$i}_content_type", [
 			'default'           => 0,
 			'sanitize_callback' => 'photographia_sanitize_select',
+			'transport'         => 'postMessage',
 		] );
 
 		/**
@@ -142,6 +143,15 @@ function photographia_customize_register( $wp_customize ) {
 				'post-grid'    => __( 'Post Grid', 'photographia' ),
 			],
 			'active_callback' => 'photographia_is_static_front_page',
+		] );
+
+		$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_content_type_partial", [
+			'selector'            => "#frontpage-section-$i",
+			'settings'            => [
+				"photographia_panel_{$i}_content_type",
+			],
+			'render_callback'     => 'photographia_the_front_page_panels',
+			'container_inclusive' => true,
 		] );
 
 		/**
@@ -438,7 +448,7 @@ require_once locate_template( 'inc/customizer/callbacks.php' );
 
 
 /**
- * Include the file with the functions to print CSS.
+ * Include the file with the functions to print CSS and enqueue scripts.
  */
-require_once locate_template( 'inc/customizer/print-styles.php' );
+require_once locate_template( 'inc/customizer/scripts-and-styles.php' );
 

@@ -710,6 +710,15 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 		$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 			/**
+			 * Check if $partial is not null (so we have a customizer selective refresh)
+			 * and update the panel number.
+			 */
+			if ( $partial !== null ) {
+				$id = $partial->id;
+				$i  = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
+			}
+
+			/**
 			 * Get the content type of the current panel.
 			 */
 			$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
@@ -765,6 +774,13 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					photographia_the_post_grid_panel( null, $i );
 					break;
 			} // End switch().
+
+			/**
+			 * Break the for loop after first pass if $partial is not null.
+			 */
+			if ( $partial !== null ) {
+				break;
+			}
 		} // End for().
 	}
 } // End if().

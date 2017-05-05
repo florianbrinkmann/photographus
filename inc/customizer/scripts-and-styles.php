@@ -57,3 +57,12 @@ function photographia_customizer_styles() { ?>
 <?php }
 
 add_action( 'customize_controls_print_styles', 'photographia_customizer_styles', 999 );
+
+/**
+ * Prints styles inside the customizer view.
+ */
+function photographia_customizer_contols_script() {
+	wp_enqueue_script( 'photographia-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], null, true );
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'photographia_customizer_contols_script', 999 );

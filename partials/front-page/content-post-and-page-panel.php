@@ -9,7 +9,7 @@
 
 ?>
 <section id="frontpage-section-<?php echo $panel_number; ?>" class="clearfix frontpage-section">
-	<article>
+	<article style="margin-top: 0">
 		<?php the_title( '<h2 class="frontpage-section-title">', '</h2>' ) ?>
 		<div class="entry-content <?php echo photographia_get_post_type_template_class(); ?>">
 			<?php echo photographia_get_the_post_thumbnail(); ?>
