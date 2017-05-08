@@ -34,9 +34,9 @@ function photographia_customizer_css() {
 add_action( 'wp_head', 'photographia_customizer_css' );
 
 /**
- * Prints styles inside the customizer view.
+ * Prints styles for the customize controls.
  */
-function photographia_customizer_styles() { ?>
+function photographia_customize_controls_styles() { ?>
 	<style>
 		#sub-accordion-section-photographia_options [id*="_content_type"]::before {
 			background: #ddd;
@@ -56,7 +56,23 @@ function photographia_customizer_styles() { ?>
 	</style>
 <?php }
 
-add_action( 'customize_controls_print_styles', 'photographia_customizer_styles', 999 );
+add_action( 'customize_controls_print_styles', 'photographia_customize_controls_styles', 999 );
+
+/**
+ * Prints styles for the customize controls.
+ */
+function photographia_customize_preview_styles() {
+	if ( is_customize_preview() ) { ?>
+		<style>
+			span[class*="_content_type_partial"] {
+				left: 40px;
+			}
+		</style>
+		<?php
+	}
+}
+
+add_action( 'wp_head', 'photographia_customize_preview_styles', 999 );
 
 /**
  * Prints styles inside the customizer view.
