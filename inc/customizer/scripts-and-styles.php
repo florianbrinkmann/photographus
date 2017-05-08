@@ -36,9 +36,15 @@ add_action( 'wp_head', 'photographia_customizer_css' );
 /**
  * Prints styles for the customize controls.
  */
-function photographia_customize_controls_styles() { ?>
+function photographia_customize_controls_styles() {
+	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographia' ); ?>
 	<style>
-		#sub-accordion-section-photographia_options [id*="_content_type"]::before {
+		#customize-control-photographia_panel_1_content_type::before {
+			content: '<?php echo $panel_section_description; ?>';
+			display: block;
+		}
+
+		#sub-accordion-section-photographia_options [id*="_content_type"] > label::before {
 			background: #ddd;
 			content: '';
 			display: block;
@@ -49,7 +55,8 @@ function photographia_customize_controls_styles() { ?>
 			width: 100%;
 		}
 
-		#sub-accordion-section-photographia_options [id*="_content_type"] {
+		#sub-accordion-section-photographia_options [id*="_content_type"] > label {
+			display: block;
 			margin-top: 1em;
 			position: relative;
 		}
