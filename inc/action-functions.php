@@ -25,7 +25,9 @@ if ( ! function_exists( 'photographia_add_theme_support' ) ) {
 	 * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo
 	 */
 	function photographia_add_theme_support() {
-		add_theme_support( 'custom-header' );
+		add_theme_support( 'custom-header', [
+			'height' => 1000,
+		] );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-formats', [
