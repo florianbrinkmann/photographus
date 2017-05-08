@@ -796,7 +796,7 @@ if ( ! function_exists( 'photographia_customizer_panel_placeholder' ) ) {
 		 * Only display a placeholder if we are in the customizer preview.
 		 */
 		if ( is_customize_preview() ) {
-			echo "<section id='frontpage-section-$panel_number'>Section placeholder</section>";
+			echo "<section id='frontpage-section-$panel_number' class='frontpage-section frontpage-section-placeholder'>Section placeholder</section>";
 		}
 	}
 } // End if().

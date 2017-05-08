@@ -25,6 +25,36 @@
                 addClassToImageLinks();
 
                 fullWidthImages();
+
+                /**
+                 * Get the front page panels.
+                 * @type {NodeList}
+                 */
+                var panels = document.querySelectorAll('.frontpage-section');
+                /**
+                 * Check if we have panels.
+                 */
+                if (0 !== panels.length) {
+                    var panelsWithContent = 0;
+                    /**
+                     * Loop through them.
+                     */
+                    for (var i = 0; i < panels.length; i++) {
+                        /**
+                         * Check if it is a panel placeholder.
+                         */
+                        if (!panels[i].classList.contains('frontpage-section-placeholder')) {
+                            panelsWithContent++;
+                        }
+                    }
+                    /**
+                     * Refresh the preview if we have only panel placeholders, so the default homepage is displayed
+                     * correctly.
+                     */
+                    if (panelsWithContent === 0) {
+                        wp.customize.preview.send('refresh');
+                    }
+                }
             });
         }
     });
