@@ -54,6 +54,11 @@ function photographia_customize_register( $wp_customize ) {
 		'active_callback' => 'photographia_is_static_front_page',
 	] );
 
+	/**
+	 * Set active callback for the header image control.
+	 */
+	$wp_customize->get_control( 'header_image' )->active_callback = 'photographia_is_static_front_page';
+
 
 	/**
 	 * Front page panels. Inspired by https://core.trac.wordpress.org/browser/tags/4.7.3/src/wp-content/themes/twentyseventeen/inc/customizer.php#L88

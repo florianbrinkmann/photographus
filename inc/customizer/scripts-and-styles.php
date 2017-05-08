@@ -37,8 +37,14 @@ add_action( 'wp_head', 'photographia_customizer_css' );
  * Prints styles for the customize controls.
  */
 function photographia_customize_controls_styles() {
-	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographia' ); ?>
+	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographia' );
+	$header_image_description  = __( 'The header image is only displayed on the front page if you have panels with content.', 'photographia' ); ?>
 	<style>
+		#customize-control-header_image .customizer-section-intro::before {
+			content: '<?php echo $header_image_description; ?>';
+			display: block;
+		}
+
 		#customize-control-photographia_panel_1_content_type::before {
 			content: '<?php echo $panel_section_description; ?>';
 			display: block;
