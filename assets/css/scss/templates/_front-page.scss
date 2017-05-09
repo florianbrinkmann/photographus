@@ -15,9 +15,20 @@
 	padding: add-unit($space-triple, 'em') 0;
 
 	> .entry-content {
+		> :first-child {
+			margin-top: 0;
+		}
+	}
+
+	.entry-content.-large-portrait-featured-image-template {
+		max-width: 100%;
+
+		.wp-post-image.full-bleed-img {
+			width: 100%;
+		}
+
 		> :first-child,
-		&.-large-portrait-featured-image-template > :first-child,
-		&.-large-portrait-featured-image-template > div > :first-child {
+		> div > :first-child {
 			margin-top: 0;
 		}
 	}
@@ -105,71 +116,6 @@
 		.post:first-of-type,
 		> p {
 			margin-top: add-unit($space-double, 'em');
-		}
-
-		@include line-height-and-spaces(1.4);
-	}
-}
-
-.about-box {
-	max-width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: add-unit($space-double, 'em');
-
-	> figure {
-		img {
-			max-width: 300px;
-		}
-	}
-
-	@media screen and (min-width: 45em) {
-		display: flex;
-		align-items: center;
-
-		> figure {
-			float: left;
-			margin-top: 0;
-			padding-left: add-unit($space-double);
-			padding-right: add-unit($space);
-			width: 50%;
-		}
-
-		.wp-post-image {
-			float: right;
-		}
-
-		> div {
-			width: 50%;
-		}
-
-		.entry-content {
-			float: left;
-			padding-left: add-unit($space);
-			padding-right: add-unit($space-double);
-		}
-
-		.entry-content > * {
-			padding: 0;
-		}
-
-		.entry-content > :first-child {
-			margin-top: 0;
-		}
-	}
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-top: add-unit($space-double, 'em');
-
-		> figure {
-			padding-right: add-unit($space, 'em');
-		}
-
-		.entry-content {
-			padding-left: add-unit($space);
-			padding-right: add-unit($space-double);
 		}
 
 		@include line-height-and-spaces(1.4);
