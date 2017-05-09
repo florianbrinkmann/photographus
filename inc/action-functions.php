@@ -51,6 +51,97 @@ if ( ! function_exists( 'photographia_add_theme_support' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'custom-logo' );
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Create starter content for new sites.
+		 */
+		add_theme_support( 'starter-content', [
+			/**
+			 * Add attachments that are used by posts and pages.
+			 */
+			'attachments' => [
+				'featured-image-about-page' => [
+					'post_title' => 'Featured image for about page',
+					'file'       => 'assets/images/starter-content/featured-image-about-page.jpg',
+				],
+			],
+
+			/**
+			 * Create and modify posts and pages.
+			 */
+			'posts'       => [
+				'home'  => [
+					'post_content' => __( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
+					
+					The »Photographia« theme lets you use different areas for the front page, so-called »panels«. With that, you can display different content types on the front page: You can choose from a grid of your latest gallery and image posts, a list of your latest posts or a single page/post.
+					
+					To edit the panels you see here, just click on the pen icon on the left.', 'photographia' ),
+				],
+				'about' => [
+					'template'     => 'templates/large-portrait-featured-image.php',
+					'thumbnail'    => '{{featured-image-about-page}}',
+					'post_content' => __( 'Just introduce yourself! This page uses the template with a large portrait featured image. If you do not use a sidebar, the image is displayed next to the content on large viewports.', 'photographia' ),
+				],
+				'blog',
+			],
+
+			/**
+			 * Remove default core starter content widgets
+			 */
+			'widgets'     => [
+				'sidebar-1' => [
+					'search',
+					'text_about',
+				]
+			],
+
+			/**
+			 * Set options
+			 */
+			'options'     => [
+				'show_on_front'  => 'page',
+				'page_on_front'  => '{{home}}',
+				'page_for_posts' => '{{blog}}',
+				'header_image'   => get_theme_file_uri( 'assets/images/starter-content/featured-image-about-page.jpg' ),
+			],
+
+			/**
+			 * Fill nav menus
+			 */
+			'nav_menus'   => [
+				'primary' => [
+					'name'  => __( 'Primary menu', 'photographia' ),
+					'items' => [
+						'page_home',
+						'page_about',
+						'page_blog',
+					],
+				],
+			],
+
+			/**
+			 * Set values for theme mods
+			 */
+			'theme_mods'  => [
+				/**
+				 * Set the values for the first front page panel.
+				 */
+				'photographia_panel_1_content_type'               => 'latest-posts',
+				'photographia_panel_1_latest_posts_short_version' => true,
+
+				/**
+				 * Set the values for the second front page panel.
+				 */
+				'photographia_panel_2_content_type'               => 'page',
+				'photographia_panel_2_page'                       => '{{snowy-landscape}}',
+
+				/**
+				 * Set the values for the third front page panel.
+				 */
+				'photographia_panel_2_content_type'               => 'page',
+				'photographia_panel_2_page'                       => '{{about}}',
+			],
+		] );
 	}
 }
 
