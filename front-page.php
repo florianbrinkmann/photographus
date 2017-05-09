@@ -15,7 +15,7 @@ get_header(); ?>
 				/**
 				 * Count the front page panels.
 				 */
-				$panel_count = photographia_front_page_panel_count();
+				$panel_number = photographia_front_page_panel_count();
 
 				/**
 				 * Check if we have a front page.
@@ -30,15 +30,19 @@ get_header(); ?>
 						 */
 						the_post();
 
-						if ( 0 !== $panel_count ) {
+						if ( 0 !== $panel_number ) {
 							$hide_front_page_content = get_theme_mod( 'photographia_hide_static_front_page_content' );
 							if ( true === $hide_front_page_content ) {
 
 							} else {
 								/**
 								 * Get the template part file partials/front-page/content-post-and-page-panel.php.
+								 * Here we use include(locate_template()) to have access to the $panel_number var
+								 * in the partial.
+								 *
+								 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
 								 */
-								get_template_part( 'partials/front-page/content', 'post-and-page-panel' );
+								include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
 							}
 						} else {
 							/**
@@ -57,12 +61,12 @@ get_header(); ?>
 				/**
 				 * Panels
 				 */
-				if ( 0 !== $panel_count ) {
+				if ( 0 !== $panel_number ) {
 					photographia_the_front_page_panels();
 				} ?>
 			</main>
 		</div>
-		<?php if ( 0 === $panel_count ) {
+		<?php if ( 0 === $panel_number ) {
 			get_sidebar();
 		} ?>
 	</div>
