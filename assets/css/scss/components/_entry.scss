@@ -149,7 +149,8 @@ article:not(.sticky) .sticky-post-featured-string {
 	text-transform: uppercase;
 }
 
-.post > figure {
+.post > figure,
+.page > figure {
 	display: none;
 }
 
