@@ -50,10 +50,22 @@ function photographia_filter_body_classes( $classes ) {
 	$front_page_panels = photographia_front_page_panel_count();
 
 	/**
+	 * Get post type template.
+	 */
+	$post_type_template = photographia_get_post_type_template();
+
+	/**
+	 * Check if this is a page template which should hide the sidebar
+	 * (contains »no-sidebar«).
+	 * Returns false if no-sidebar cannot be found.
+	 */
+	$no_sidebar_pos = strpos( $post_type_template, 'no-sidebar' );
+
+	/**
 	 * Add -no-sidebar class if we have no sidebar or are on a page
 	 * with the front page template.
 	 */
-	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) || $no_sidebar_pos !== false ) {
 		$classes[] .= '-no-sidebar';
 	} else {
 		$classes[] .= '-with-sidebar';

@@ -60,7 +60,7 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 		 * We need to display the post thumbnail twice for posts with the
 		 * post format large featured image vertical.
 		 */
-		if ( 'large-portrait-featured-image' === $post_type_template ) {
+		if ( 'large-portrait-featured-image' === $post_type_template || 'large-portrait-featured-image-no-sidebar' === $post_type_template ) {
 			/**
 			 * We do not need the meta information (author and date) on pages,
 			 * so we check if we have a page and do not include the placeholder
@@ -128,9 +128,11 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 			 * If no post type template, we want the large size.
 			 */
 			$post_thumbnail_size = [
-				'large-portrait-featured-image' => 'full',
-				'large-featured-image'          => 'full',
-				''                              => 'large',
+				'large-portrait-featured-image'            => 'full',
+				'large-portrait-featured-image-no-sidebar' => 'full',
+				'large-featured-image'                     => 'full',
+				'large-featured-image-no-sidebar'          => 'full',
+				''                                         => 'large',
 			];
 
 			/**
@@ -813,6 +815,20 @@ if ( ! function_exists( 'photographia_get_post_type_template_class' ) ) {
 		 * Empty string if no template is used.
 		 */
 		$post_type_template = photographia_get_post_type_template();
+
+		/**
+		 * Check if this is a page template which should hide the sidebar
+		 * (contains »-no-sidebar«).
+		 * Returns false if no-sidebar cannot be found.
+		 */
+		$no_sidebar_pos = strpos( $post_type_template, '-no-sidebar' );
+
+		/**
+		 * Remove »-no-sidebar« part so the CSS styles will match
+		 */
+		if ( $no_sidebar_pos !== false ) {
+			$post_type_template = str_replace( '-no-sidebar', '', $post_type_template );
+		}
 
 		/**
 		 * Add post template class if post has a template
