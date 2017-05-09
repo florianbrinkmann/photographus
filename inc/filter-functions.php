@@ -45,8 +45,7 @@ add_filter( 'photographia_additional_header_classes', 'photographia_filter_heade
  */
 function photographia_filter_body_classes( $classes ) {
 	/**
-	 * Get the post type template name.
-	 * Empty string if no template is used.
+	 * Get front page panel number.
 	 */
 	$front_page_panels = photographia_front_page_panel_count();
 
