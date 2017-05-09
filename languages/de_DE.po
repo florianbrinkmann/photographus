@@ -1,0 +1,365 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Photographia\n"
+"POT-Creation-Date: 2017-05-09 18:53+0200\n"
+"PO-Revision-Date: 2017-05-09 18:57+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: comments.php:33
+#, php-format
+msgid "%1$s Comment on “%2$s”"
+msgid_plural "%1$s Comments on “%2$s”"
+msgstr[0] "%1$s Kommentar zu „%2$s“"
+msgstr[1] "%1$s Kommentare zu „%2$s“"
+
+#: comments.php:65
+#, php-format
+msgid "%1$s Trackback on “%2$s”"
+msgid_plural "%1$s Trackbacks on “%2$s”"
+msgstr[0] "%1$s Trackback zu „%2$s“"
+msgstr[1] "%1$s Trackbacks zu „%2$s“"
+
+#: comments.php:92
+msgid "Comments are closed."
+msgstr "Kommentare sind geschlossen."
+
+#: comments.php:96
+msgid "Submit Comment"
+msgstr "Kommentar abschicken"
+
+#: inc/action-functions.php:74
+msgid ""
+"Welcome to your site! This is your homepage, which is what most visitors "
+"will see when they come to your site for the first time.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tThe »Photographia« theme lets you use different areas for the "
+"front page, so-called »panels«. With that, you can display different content "
+"types on the front page: You can choose from a grid of your latest gallery "
+"and image posts, a list of your latest posts or a single page/post.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tTo edit the panels you see here, just click on the pen icon on the "
+"left."
+msgstr ""
+"Willkommen zu deiner Site! Das ist die Homepage, die die meisten Nutzer "
+"sehen werden, wenn sie zuerst auf deine Site kommen.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tDas »Photographia«-Theme lässt dich verschiedene Bereiche auf der "
+"Startseite nutzen, sogenannte »Panels«. Damit kannst du verschiedene Inhalts-"
+"Typen auf der Startseite anzeigen: Du kannst aus einem Grid deiner letzten "
+"Galerie- und Bild-Beiträge, einer Liste deiner neuesten Beiträge oder einem "
+"einzelnen Beitrag oder einer Seite wählen.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tUm die Panels zu bearbeiten, die du hier siehst, klicke einfach "
+"auf der Stift-Icon links."
+
+#: inc/action-functions.php:83
+msgid ""
+"Just introduce yourself! This page uses the template with a large portrait "
+"featured image. If you do not use a sidebar, the image is displayed next to "
+"the content on large viewports."
+msgstr ""
+"Stell dich vor! Diese Seite nutzt das Template mit dem großen Portrait-"
+"Beitragsbild. Wenn du keine Sidebar nutzt, wird das Bild auf großen "
+"Viewports neben dem Inhalt dargestellt."
+
+#. translators: Name of menu position in the header
+#: inc/action-functions.php:113 inc/action-functions.php:157
+msgid "Primary Menu"
+msgstr "Hauptmenü"
+
+#. translators: Name of menu position in the footer
+#: inc/action-functions.php:159
+msgid "Footer Menu"
+msgstr "Footer-Menü"
+
+#: inc/action-functions.php:175
+msgid "Main Sidebar"
+msgstr "Haupt-Sidebar"
+
+#: inc/action-functions.php:177
+msgid ""
+"Widgets in this area will be displayed on all posts and pages by default."
+msgstr ""
+"Widgets in diesem Bereich werden standardmäßig auf allen Beiträgen und "
+"Seiten angezeigt."
+
+#: inc/action-functions.php:188
+msgid "Footer Sidebar"
+msgstr "Footer-Sidebar"
+
+#: inc/action-functions.php:190
+msgid "Widgets will be displayed in the footer."
+msgstr "Widgets werden im Footer angezeigt."
+
+#: inc/customizer/register.php:19
+msgid "Theme options"
+msgstr "Theme-Optionen"
+
+#: inc/customizer/register.php:36
+msgid "Alternative header layout"
+msgstr "Alternatives Header-Layout"
+
+#: inc/customizer/register.php:53
+msgid "Hide the content of the static front page if panels are used."
+msgstr ""
+"Versteck den Inhalt der statischen Startseite, wenn Panels genutzt werden."
+
+#: inc/customizer/register.php:121 inc/customizer/register.php:146
+#: inc/customizer/register.php:204
+msgid "— Select —"
+msgstr "– Auswählen –"
+
+#. translators: d = number of panel in customizer
+#: inc/customizer/register.php:142
+#, php-format
+msgid "Panel %d"
+msgstr "Panel %d"
+
+#: inc/customizer/register.php:147
+msgid "Page"
+msgstr "Seite"
+
+#: inc/customizer/register.php:148
+msgid "Post"
+msgstr "Beitrag"
+
+#: inc/customizer/register.php:149 inc/customizer/register.php:243
+#: inc/template-tags.php:989
+msgid "Latest Posts"
+msgstr "Neueste Beiträge"
+
+#: inc/customizer/register.php:150 inc/customizer/register.php:320
+#: inc/template-tags.php:1086
+msgid "Post Grid"
+msgstr "Beitrags-Grid"
+
+#: inc/customizer/register.php:177
+msgid "Select page"
+msgstr "Seite auswählen"
+
+#: inc/customizer/register.php:220
+msgid "Select post"
+msgstr "Beitrag auswählen"
+
+#: inc/customizer/register.php:252 inc/customizer/register.php:329
+msgid "Section title"
+msgstr "Abschnitts-Titel"
+
+#: inc/customizer/register.php:274
+msgid "Number of posts"
+msgstr "Anzahl der Beiträge"
+
+#: inc/customizer/register.php:296
+msgid "Only show title and header meta of posts."
+msgstr "Nur Titel und Header-Meta der Beiträge anzeigen."
+
+#: inc/customizer/register.php:351
+msgid "Number of posts (skips posts without post thumbnail)"
+msgstr "Anzahl der Beiträge (Beiträge ohne Beitragsbild werden ignoriert)"
+
+#: inc/customizer/register.php:373
+msgid "Hide post titles."
+msgstr "Beitragstitel verbergen."
+
+#: inc/customizer/register.php:395
+msgid "Only display posts with post format »Gallery« or »Image«."
+msgstr "Nur Beiträge mit den Beitragsformaten »Galerie« und »Bild« anzeigen."
+
+#: inc/customizer/register.php:417
+msgid "Only show posts from one category:"
+msgstr "Nur Beiträge aus dieser Kategorie anzeigen:"
+
+#: inc/customizer/scripts-and-styles.php:40
+msgid ""
+"You can show different contents on the front page in so-called »panels«. You "
+"can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post "
+"Grid«."
+msgstr ""
+"Du kannst in sogenannten »Panels« verschiedene Inhalte auf der Startseite "
+"anzeigen. Du kannst aus den Inhalts-Typen »Seite«, »Beitrag«, »Neueste "
+"Beiträge« und »Post-Grid« wählen."
+
+#: inc/customizer/scripts-and-styles.php:41
+msgid ""
+"The header image is only displayed on the front page if you have panels with "
+"content."
+msgstr ""
+"Das Headerbild wird nur auf der Startseite angezeigt, wenn du Panels mit "
+"Inhalt hast."
+
+#: inc/template-tags.php:219
+msgid "Featured"
+msgstr "Featured"
+
+#. translators: s = author name
+#: inc/template-tags.php:237
+#, php-format
+msgid "by %s"
+msgstr "von %s"
+
+#: inc/template-tags.php:278
+msgid "Continue reading"
+msgstr "Weiterlesen"
+
+#. translators: continue reading text for screen reader users. s=post title
+#: inc/template-tags.php:280
+#, php-format
+msgid "Continue reading %s"
+msgstr "%s weiterlesen"
+
+#. translators: 1=category label; 2=category list
+#. translators: 1=tag label; 2=tag list
+#: inc/template-tags.php:378 inc/template-tags.php:419
+#, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: inc/template-tags.php:384
+msgid "Category"
+msgid_plural "Categories"
+msgstr[0] "Kategorie"
+msgstr[1] "Kategorien"
+
+#. translators: term delimiter
+#: inc/template-tags.php:389 inc/template-tags.php:430
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:425
+msgid "Tag"
+msgid_plural "Tags"
+msgstr[0] "Tag"
+msgstr[1] "Tags"
+
+#. translators: s=comment count
+#: inc/template-tags.php:462
+#, php-format
+msgid "Comments: %s"
+msgstr "Kommentare: %s"
+
+#. translators: s=trackback count
+#: inc/template-tags.php:499
+#, php-format
+msgid "Trackbacks: %s"
+msgstr "Trackbacks: %s"
+
+#. translators: 1=date 2=time
+#: inc/template-tags.php:582
+#, php-format
+msgid "%1$s @ %2$s"
+msgstr "%1$s @ %2$s"
+
+#: inc/template-tags.php:588
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: inc/template-tags.php:598
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Moderation."
+
+#: inc/template-tags.php:607
+msgid "Reply"
+msgstr "Antworten"
+
+#: inc/template-tags.php:624
+msgid "Pages:"
+msgstr ""
+
+#: inc/template-tags.php:639
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php:640
+msgid "Next"
+msgstr ""
+
+#: inc/theme-updates.php:27
+msgid ""
+"Paste your download link for »Photographia« to enable automatic theme "
+"updates."
+msgstr ""
+
+#: inc/theme-updates.php:77
+msgid ""
+"https://florianbrinkmann.com/en/wordpress-themes/photographia/changelog/"
+msgstr ""
+
+#. translators: hidden screen reader headline for the main navigation
+#: partials/footer/nav.php:14
+msgid "Footer navigation"
+msgstr ""
+
+#: partials/footer/theme-author.php:13
+#, php-format
+msgid "Theme: Photographia by %s"
+msgstr ""
+
+#. Author URI of the plugin/theme
+#: partials/footer/theme-author.php:16
+msgid "https://florianbrinkmann.com/en/"
+msgstr ""
+
+#. translators: hidden screen reader headline for the main navigation
+#: partials/header/nav.php:14
+msgid "Main navigation"
+msgstr ""
+
+#: partials/post/content-none.php:14
+msgid "Nothing found, sorry…"
+msgstr ""
+
+#: partials/post/content-none.php:18
+msgid ""
+"It seems that the content you requested cannot be found. Maybe searching "
+"helps?"
+msgstr ""
+
+#: search.php:20
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:43
+#, php-format
+msgid "Nothing found for: %s"
+msgstr ""
+
+#. translators: screen reader text for the sidebar
+#: sidebar.php:14
+msgid "Sidebar"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Photographia"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://florianbrinkmann.com/en/wordpress-themes/photographia/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A photo blogger theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Florian Brinkmann"
+msgstr ""
+
+#~ msgid "Primary menu"
+#~ msgstr "Hauptmenü"
