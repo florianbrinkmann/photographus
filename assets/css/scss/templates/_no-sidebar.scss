@@ -22,7 +22,6 @@
 
 	.-no-sidebar .-large-portrait-featured-image-template {
 		display: flex;
-		align-items: center;
 	}
 
 	.-no-sidebar .-large-portrait-featured-image-template > figure {
@@ -35,6 +34,8 @@
 
 	.-no-sidebar .-large-portrait-featured-image-template > div {
 		float: right;
+		margin-bottom: auto;
+		margin-top: auto;
 		padding-left: add-unit($space);
 		width: 50%;
 	}
