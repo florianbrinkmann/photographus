@@ -218,6 +218,11 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 		wp_enqueue_style( 'photographia-style', get_theme_file_uri( 'assets/css/photographia.css' ), [], null );
 
 		/**
+		 * Enqueue the PT Serif font from Google fonts.
+		 */
+		wp_enqueue_style( 'photographia-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i', [], null );
+
+		/**
 		 * Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
 		 * »imagesloaded« dependency which would be loaded if we would use the core masonry.
 		 */
