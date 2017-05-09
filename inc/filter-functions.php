@@ -20,7 +20,7 @@ function photographia_filter_header_classes( $classes ) {
 	 * the front page with header image.
 	 */
 	$alt_header_layout = get_theme_mod( 'photographia_header_layout', false );
-	if ( true !== $alt_header_layout && ( true !== photographia_is_front_page_with_panels() && ( ! has_header_image() || ! has_header_video() ) ) ) {
+	if ( false === $alt_header_layout && ( false === photographia_is_front_page_with_panels() || ! has_header_image() ) ) {
 		$classes .= ' -wide-layout';
 	}
 

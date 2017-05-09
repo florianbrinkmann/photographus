@@ -857,6 +857,7 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 				'posts_per_page'      => $number_of_posts,
 				'no_found_rows'       => true,
 				'ignore_sticky_posts' => 1,
+				'post_status'         => 'publish',
 			] );
 
 			if ( ! is_wp_error( $latest_posts ) && $latest_posts->have_posts() ) {
@@ -928,6 +929,7 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 				'posts_per_page'      => $number_of_posts,
 				'no_found_rows'       => true,
 				'ignore_sticky_posts' => 1,
+				'post_status'         => 'publish',
 				'meta_query'          => [
 					'relation' => 'AND',
 					[
@@ -1280,7 +1282,7 @@ if ( ! function_exists( 'photographia_the_scroll_arrow_icon' ) ) {
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
 					     enable-background="new 0 0 16 16" xml:space="preserve"><polygon
-							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
+								points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
 		<?php } else {
