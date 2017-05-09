@@ -37,8 +37,8 @@ function photographia_sanitize_checkbox( $checked ) {
  *
  * @link https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php
  *
- * @see  sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
- * @see  $wp_customize->get_control()
+ * @link  sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
+ * @link  $wp_customize->get_control()
  *       https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
  *
  * @param string               $input   Slug to sanitize.
@@ -69,7 +69,7 @@ function photographia_sanitize_select( $input, $setting ) {
  * @param string               $input   Slug to sanitize.
  * @param WP_Customize_Setting $setting Setting instance.
  *
- * @see https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php#L217
+ * @link https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php#L217
  *
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
