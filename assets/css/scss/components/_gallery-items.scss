@@ -8,6 +8,10 @@
 	padding: 0;
 }
 
+.gallery-size-full .gallery-item {
+	margin: add-unit($space, 'em') add-unit($space-half, 'em');
+}
+
 .gallery-item > .gallery-caption {
 	display: none;
 }
@@ -17,6 +21,11 @@
 
 	.gallery-item {
 		margin: add-unit($space-half, 'em');
+	}
+
+	.gallery-size-full .gallery-item,
+	.gallery-size-large .gallery-item {
+		margin: add-unit($space, 'em') add-unit($space-half, 'em');
 	}
 
 	@include line-height-and-spaces(1.4);
