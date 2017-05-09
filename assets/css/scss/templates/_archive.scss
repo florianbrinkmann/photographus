@@ -1,0 +1,22 @@
+/* ==========================================================================
+  #Archive template specific sryles
+  ========================================================================== */
+
+.archive-header {
+	max-width: $content-max-width;
+	margin-left: auto;
+	margin-right: auto;
+	@include padding-left-and-right($space);
+
+	@media screen and (min-width: 40em) {
+		@include padding-left-and-right($space-and-half);
+	}
+
+	@media screen and (min-width: 45em) {
+		@include padding-left-and-right($space-double);
+
+		.archive-title {
+			font-size: 2.281em;
+		}
+	}
+}
