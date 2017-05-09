@@ -2,6 +2,10 @@
   #NO-SIDEBAR TEMPLATE
   ========================================================================== */
 
+.-large-portrait-featured-image-template .full-bleed-img {
+	max-width: 100% !important;
+}
+
 @media screen and (min-width: 45em) {
 	.-no-sidebar .entry-content .full-bleed-img {
 		left: 50%;

@@ -137,12 +137,12 @@ function fullWidthImages() {
     /**
      * Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
      */
-    if (fullWidthImages.length != 0) {
-        for (var fullWidthImage of fullWidthImages) {
-            var naturalWidth = fullWidthImage.naturalWidth;
+    if (fullWidthImages.length !== 0) {
+        for (var i = 0; i < fullWidthImages.length; i++) {
+            var naturalWidth = fullWidthImages[i].naturalWidth;
             if (naturalWidth > 750) {
-                fullWidthImage.className += ' full-bleed-img';
-                fullWidthImage.style.maxWidth = naturalWidth + 'px';
+                fullWidthImages[i].classList.add('full-bleed-img');
+                fullWidthImages[i].style.maxWidth = naturalWidth + 'px';
             }
         }
     }
