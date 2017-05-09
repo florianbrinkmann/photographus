@@ -56,6 +56,8 @@ function photographia_customize_register( $wp_customize ) {
 
 	/**
 	 * Set active callback for the header image control.
+	 *
+	 * @see https://gist.github.com/pagelab/10406104
 	 */
 	$wp_customize->get_control( 'header_image' )->active_callback = 'photographia_is_static_front_page';
 

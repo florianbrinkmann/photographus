@@ -50,6 +50,8 @@
                     /**
                      * Refresh the preview if we have only panel placeholders, so the default homepage is displayed
                      * correctly.
+                     *
+                     * @see https://make.xwp.co/2015/12/08/implementing-selective-refresh-in-the-customizer/
                      */
                     if (panelsWithContent === 0) {
                         wp.customize.preview.send('refresh');
