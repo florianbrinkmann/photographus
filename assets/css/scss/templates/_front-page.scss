@@ -67,6 +67,14 @@
 
 		@include line-height-and-spaces(1.4);
 	}
+
+	@media screen and (min-width: 80em) {
+		.entry-content.-large-portrait-featured-image-template > div > * {
+			margin-left: 0;
+			max-width: 800px;
+			padding-left: 0;
+		}
+	}
 }
 
 .frontpage-section-title {
