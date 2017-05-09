@@ -110,7 +110,7 @@ if ( ! function_exists( 'photographia_add_theme_support' ) ) {
 			 */
 			'nav_menus'   => [
 				'primary' => [
-					'name'  => __( 'Primary menu', 'photographia' ),
+					'name'  => __( 'Primary Menu', 'photographia' ),
 					'items' => [
 						'page_home',
 						'page_about',

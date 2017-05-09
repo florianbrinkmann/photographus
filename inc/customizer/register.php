@@ -240,7 +240,7 @@ function photographia_customize_register( $wp_customize ) {
 			 * Create setting for latest posts section title.
 			 */
 			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_title", [
-				'default'           => __( 'Latests posts', 'photographia' ),
+				'default'           => __( 'Latest Posts', 'photographia' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			] );
@@ -317,7 +317,7 @@ function photographia_customize_register( $wp_customize ) {
 			 * Create setting for post grid section title.
 			 */
 			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_title", [
-				'default'           => __( 'Post grid', 'photographia' ),
+				'default'           => __( 'Post Grid', 'photographia' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			] );
