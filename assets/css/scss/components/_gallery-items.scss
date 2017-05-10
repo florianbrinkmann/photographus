@@ -8,15 +8,11 @@
 	padding: 0;
 }
 
-.gallery-size-full .gallery-item {
+.gallery-size-full .gallery-item,
+.gallery-size-large .gallery-item {
 	float: none;
 	margin: 0 add-unit($space-half, 'em');
 	padding: add-unit($space, 'em') 0;
-}
-
-.gallery-size-full .gallery-item::after {
-	content: '';
-	display: block;
 }
 
 .-no-sidebar .gallery-size-full .gallery-item {
@@ -24,7 +20,8 @@
 	margin-right: 0;
 }
 
-.gallery-size-full .gallery-item img {
+.gallery-size-full .gallery-item img,
+.gallery-size-large .gallery-item img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;

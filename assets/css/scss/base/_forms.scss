@@ -28,6 +28,7 @@ textarea {
 input,
 textarea {
 	box-shadow: inset 2px 0 0 transparent;
+	color: inherit;
 	transition: box-shadow .2s ease 0s;
 
 	&:hover,
