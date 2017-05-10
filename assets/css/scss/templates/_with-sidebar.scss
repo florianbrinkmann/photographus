@@ -39,8 +39,8 @@
 @media screen and (min-width: 80em) {
 	.-with-sidebar .full-bleed-img {
 		display: block;
+		float: right;
 		position: relative;
-		right: calc((100vw - 1200px - 2.8rem) / 4);
 		width: calc(100% + ((100vw - 1200px - 2.8rem) / 4));
 	}
 }
