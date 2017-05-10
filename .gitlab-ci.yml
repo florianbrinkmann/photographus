@@ -30,8 +30,8 @@ deploy_staging:
     - gulp production
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus"
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus"
-    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus
-    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus
+    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_mosules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus
+    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_mosules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus
   environment:
     name: staging
   only:
@@ -56,7 +56,7 @@ deploy_production:
     - gulp production
     - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus"
     - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes/photographus"
-    - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbn@horologium.uberspace.de:/var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus
+    - rsync -rav -e ssh --exclude='.git/' --exclude=node_mosules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbn@horologium.uberspace.de:/var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus
     - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes/photographus /var/www/virtual/fbn/html/wp-content/themes/_old-photographus && mv /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus /var/www/virtual/fbn/html/wp-content/themes/photographus"
     - ssh -p22 fbn@horologium.uberspace.de "rm -rf /var/www/virtual/fbn/html/wp-content/themes/_old-photographus"
     - ssh -p22 fbn@horologium.uberspace.de "cd /var/www/virtual/fbn/html/wp-content/themes/ && zip -r photographus.zip photographus/"
