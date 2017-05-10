@@ -17,7 +17,7 @@ get_header(); ?>
 				 */
 				if ( have_posts() ) { ?>
 					<div class="archive-header">
-						<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'schlicht' ), esc_html( get_search_query() ) ); ?></h1>
+						<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'photographus' ), esc_html( get_search_query() ) ); ?></h1>
 					</div>
 					<?php
 					/**
@@ -40,7 +40,7 @@ get_header(); ?>
 					<article>
 						<div class="entry-header">
 							<div>
-								<h1 class="entry-title"><?php printf( __( 'Nothing found for: %s', 'schlicht' ), esc_html( get_search_query() ) ); ?></h1>
+								<h1 class="entry-title"><?php printf( __( 'Nothing found for: %s', 'photographus' ), esc_html( get_search_query() ) ); ?></h1>
 							</div>
 						</div>
 						<div class="entry-content">

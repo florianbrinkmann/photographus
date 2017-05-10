@@ -154,9 +154,9 @@ if ( ! function_exists( 'photographus_register_menus' ) ) {
 	function photographus_register_menus() {
 		register_nav_menus( [
 			/* translators: Name of menu position in the header */
-			'primary' => __( 'Primary Menu', 'schlicht' ),
+			'primary' => __( 'Primary Menu', 'photographus' ),
 			/* translators: Name of menu position in the footer */
-			'footer'  => __( 'Footer Menu', 'schlicht' ),
+			'footer'  => __( 'Footer Menu', 'photographus' ),
 		] );
 	}
 }
