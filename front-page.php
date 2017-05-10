@@ -45,10 +45,17 @@ get_header(); ?>
 								include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
 							}
 						} else {
-							/**
-							 * Get the template part file partials/post/content-single.php (link in page.php).
-							 */
-							get_template_part( 'partials/post/content', 'single' );
+							if ( is_page() ) {
+								/**
+								 * Get the template part file partials/post/content-single.php (link in page.php).
+								 */
+								get_template_part( 'partials/post/content', 'single' );
+							} else {
+								/**
+								 * Get the template part file partials/post/content-single.php (link in page.php).
+								 */
+								get_template_part( 'partials/post/content', get_post_format() );
+							}
 						}
 					}
 				} else {
