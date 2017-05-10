@@ -81,19 +81,23 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 			 * Create and modify posts and pages.
 			 */
 			'posts'       => [
-				'home'  => [
+				'home'            => [
 					'post_content' => __( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
 					
 					The »Photographus« theme lets you use different areas for the front page, so-called »panels«. With that, you can display different content types on the front page: You can choose from a grid of your latest gallery and image posts, a list of your latest posts or a single page/post.
 					
 					To edit the panels you see here, just click on the pen icon on the left.', 'photographus' ),
 				],
-				'about' => [
+				'about'           => [
 					'template'     => 'templates/large-portrait-featured-image.php',
 					'thumbnail'    => '{{featured-image-about-page}}',
 					'post_content' => __( 'Just introduce yourself! This page uses the template with a large portrait featured image. If you do not use a sidebar, the image is displayed next to the content on large viewports.', 'photographus' ),
 				],
 				'blog',
+				'snowy-landscape' => [
+					'post_type'  => 'post',
+					'post_title' => 'Snowy Landscape',
+				],
 			],
 
 			/**
