@@ -139,8 +139,12 @@ function fullWidthImages() {
      */
     if (fullWidthImages.length !== 0) {
         for (var i = 0; i < fullWidthImages.length; i++) {
-            var naturalWidth = fullWidthImages[i].naturalWidth;
+            console.log(fullWidthImages[i]);
+            var naturalWidth = fullWidthImages[i].width;
             if (naturalWidth > 750) {
+                if ('P' === fullWidthImages[i].parentElement.nodeName) {
+                    fullWidthImages[i].parentElement.classList.add('full-bleed-img-paragraph');
+                }
                 fullWidthImages[i].classList.add('full-bleed-img');
                 fullWidthImages[i].style.maxWidth = naturalWidth + 'px';
             }
