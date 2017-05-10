@@ -37,6 +37,23 @@ function photographia_customize_register( $wp_customize ) {
 	] );
 
 	/**
+	 * Add setting for dark mode.
+	 */
+	$wp_customize->add_setting( 'photographia_dark_mode', [
+		'default'           => false,
+		'sanitize_callback' => 'photographia_sanitize_checkbox',
+	] );
+
+	/**
+	 * Add control for dark mode.
+	 */
+	$wp_customize->add_control( 'photographia_dark_mode', [
+		'type'    => 'checkbox',
+		'section' => 'photographia_options',
+		'label'   => __( 'Dark mode', 'photographia' ),
+	] );
+
+	/**
 	 * Add setting for hiding the content of the static front page if panels are used.
 	 */
 	$wp_customize->add_setting( 'photographia_hide_static_front_page_content', [

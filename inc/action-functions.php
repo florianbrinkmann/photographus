@@ -244,6 +244,17 @@ if ( ! function_exists( 'photographia_scripts_styles' ) ) {
 		if ( is_admin_bar_showing() ) {
 			wp_add_inline_style( 'photographia-style', '#wpadminbar a {box-shadow: none}' );
 		}
+
+		/**
+		 * Dark mode styles.
+		 */
+		$dark_mode = get_theme_mod( 'photographia_dark_mode', false );
+		if ( true === $dark_mode ) {
+			wp_add_inline_style( 'photographia-style', 'html{ background: #222; color: #eee } 
+		.sticky-post-featured-string > span { background: #eee; color: #222; }
+		.entry-title::before, .frontpage-section::before { background: #eee; }
+		a:focus { background: #eee; box-shadow: inset 0 -1px 0 #eee, 4px 0 0 #eee, -4px 0 0 #eee; color: #222; }' );
+		}
 	}
 }
 
