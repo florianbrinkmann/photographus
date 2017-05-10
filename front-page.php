@@ -53,9 +53,9 @@ get_header(); ?>
 					}
 				} else {
 					/**
-					 * Include partials/post/content-single-none.php if no posts were found.
+					 * Include partials/post/content-none.php if no posts were found.
 					 */
-					get_template_part( 'partials/post/content-single', 'none' );
+					get_template_part( 'partials/post/content', 'none' );
 				}
 
 				/**
