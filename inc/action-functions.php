@@ -20,6 +20,17 @@ if ( ! function_exists( 'photographus_load_translation' ) ) {
 
 add_action( 'after_setup_theme', 'photographus_load_translation' );
 
+if ( ! function_exists( 'photographus_set_content_width' ) ) {
+	/**
+	 * Set the content width.
+	 */
+	function photographus_set_content_width() {
+		$content_width = 751;
+	}
+}
+
+add_action( 'after_setup_theme', 'photographus_set_content_width' );
+
 if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 	/**
 	 * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo
