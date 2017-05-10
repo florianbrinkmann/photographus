@@ -4,16 +4,16 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
-if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
+if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 	/**
 	 * Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5
 	 *
 	 * @return string
 	 */
-	function photographia_get_custom_logo() {
+	function photographus_get_custom_logo() {
 		if ( function_exists( 'get_custom_logo' ) ) {
 			if ( has_custom_logo() ) {
 				return get_custom_logo();
@@ -22,7 +22,7 @@ if ( ! function_exists( 'photographia_get_custom_logo' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_entry_header' ) ) {
+if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 	/**
 	 * Displays the entry header
 	 *
@@ -30,31 +30,31 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 	 * @param bool           $link               If the title should be linked to the single view or not.
 	 * @param        boolean $latest_posts_panel true if it is a call from the latest posts panel.
 	 */
-	function photographia_the_entry_header( $heading, $link = true, $latest_posts_panel = false ) {
+	function photographus_the_entry_header( $heading, $link = true, $latest_posts_panel = false ) {
 		/**
 		 * Get the post type template.
 		 */
-		$post_type_template = photographia_get_post_type_template();
+		$post_type_template = photographus_get_post_type_template();
 
 		/**
 		 * Save the post title.
 		 */
-		$title = photographia_get_the_title( $heading, $link );
+		$title = photographus_get_the_title( $heading, $link );
 
 		/**
 		 * If post is sticky, a label is saved. Otherwise empty string.
 		 */
-		$sticky_label = photographia_get_the_sticky_label();
+		$sticky_label = photographus_get_the_sticky_label();
 
 		/**
 		 * Save entry header meta. Author and date.
 		 */
-		$entry_header_meta = photographia_get_the_entry_header_meta();
+		$entry_header_meta = photographus_get_the_entry_header_meta();
 
 		/**
 		 * Save the post thumbnail markup.
 		 */
-		$post_thumbnail = photographia_get_the_post_thumbnail();
+		$post_thumbnail = photographus_get_the_post_thumbnail();
 
 		/**
 		 * We need to display the post thumbnail twice for posts with the
@@ -112,13 +112,13 @@ if ( ! function_exists( 'photographia_the_entry_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
+if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 	/**
 	 * Displays the post thumbnail
 	 *
 	 * @return string
 	 */
-	function photographia_get_the_post_thumbnail() {
+	function photographus_get_the_post_thumbnail() {
 		/**
 		 * Check if post has a post thumbnail. If not, save empty string.
 		 */
@@ -139,7 +139,7 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 			 * Get the post type template of the post.
 			 * Is an empty string, if no post type template is set.
 			 */
-			$post_type_template = photographia_get_post_type_template();
+			$post_type_template = photographus_get_post_type_template();
 
 			/**
 			 * Get the post thumbnail markup.
@@ -162,7 +162,7 @@ if ( ! function_exists( 'photographia_get_the_post_thumbnail' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_the_title' ) ) {
+if ( ! function_exists( 'photographus_get_the_title' ) ) {
 	/**
 	 * Displays the title of a post wrapped with a heading and optionally with a link to the post.
 	 *
@@ -171,7 +171,7 @@ if ( ! function_exists( 'photographia_get_the_title' ) ) {
 	 *
 	 * @return string
 	 */
-	function photographia_get_the_title( $heading, $link = true ) {
+	function photographus_get_the_title( $heading, $link = true ) {
 		/**
 		 * Check if the title should be a link.
 		 */
@@ -203,13 +203,13 @@ if ( ! function_exists( 'photographia_get_the_title' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
+if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 	/**
 	 * Display a »Featured« box for sticky posts.
 	 *
 	 * @return string
 	 */
-	function photographia_get_the_sticky_label() {
+	function photographus_get_the_sticky_label() {
 		/**
 		 * Just display label if we have a sticky post and
 		 * are not on the single view of the post.
@@ -218,7 +218,7 @@ if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 			/* translators: String for the label of sticky posts. Displayed above the title */
 			$sticky_label_markup = sprintf(
 				'<p class="sticky-post-featured-string"><span>%s</span></p>',
-				__( 'Featured', 'photographia' )
+				__( 'Featured', 'photographus' )
 			);
 		} else {
 			$sticky_label_markup = '';
@@ -228,24 +228,24 @@ if ( ! function_exists( 'photographia_the_sticky_label' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_entry_header_meta' ) ) {
+if ( ! function_exists( 'photographus_the_entry_header_meta' ) ) {
 	/**
 	 * Displays author and date of the post.
 	 */
-	function photographia_get_the_entry_header_meta() {
+	function photographus_get_the_entry_header_meta() {
 		$entry_header_meta_markup = sprintf(
 			'<p class="entry-meta -header">%s · %s</p>',
 			sprintf( /* translators: s = author name */
-				__( 'by %s', 'photographia' ), get_the_author()
+				__( 'by %s', 'photographus' ), get_the_author()
 			),
-			photographia_get_the_date()
+			photographus_get_the_date()
 		);
 
 		return $entry_header_meta_markup;
 	}
 }
 
-if ( ! function_exists( 'photographia_get_the_date' ) ) {
+if ( ! function_exists( 'photographus_get_the_date' ) ) {
 	/**
 	 * Returns get_the_date() with or without a link to the single view.
 	 *
@@ -253,7 +253,7 @@ if ( ! function_exists( 'photographia_get_the_date' ) ) {
 	 *
 	 * @return string
 	 */
-	function photographia_get_the_date( $link = true ) {
+	function photographus_get_the_date( $link = true ) {
 		if ( $link ) {
 			$date_markup = sprintf(
 				'<a href="%s">%s</a>',
@@ -268,18 +268,18 @@ if ( ! function_exists( 'photographia_get_the_date' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_content' ) ) {
+if ( ! function_exists( 'photographus_the_content' ) ) {
 	/**
 	 * Displays the_content() with a more accessible more tag
 	 */
-	function photographia_the_content() {
+	function photographus_the_content() {
 		/* translators: visible text for the more tag */
 		the_content(
 			sprintf(
 				'<span aria-hidden="true">%1s</span><span class="screen-reader-text">%2s</span>',
-				__( 'Continue reading', 'photographia' ),
+				__( 'Continue reading', 'photographus' ),
 				sprintf( /* translators: continue reading text for screen reader users. s=post title */
-					__( 'Continue reading %s', 'photographia' ),
+					__( 'Continue reading %s', 'photographus' ),
 					the_title( '', '', false )
 				)
 			)
@@ -287,20 +287,20 @@ if ( ! function_exists( 'photographia_the_content' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_the_entry_footer_meta' ) ) {
+if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 	/**
 	 * Displays the_content() with a more accessible more tag.
 	 */
-	function photographia_the_entry_footer_meta() {
+	function photographus_the_entry_footer_meta() {
 		/**
 		 * Save the category markup. Empty string if post has no categories.
 		 */
-		$meta_markup = photographia_get_categories_list();
+		$meta_markup = photographus_get_categories_list();
 
 		/**
 		 * Get the tag markup. Empty string if post has no tags.
 		 */
-		$tags = photographia_get_tag_list();
+		$tags = photographus_get_tag_list();
 		if ( '' !== $tags ) {
 			/**
 			 * Add the tag markup to the $meta_markup string.
@@ -315,12 +315,12 @@ if ( ! function_exists( 'photographia_the_entry_footer_meta' ) ) {
 		/**
 		 * Get comments separated by type.
 		 */
-		$comments_by_type = photographia_get_comments_by_type();
+		$comments_by_type = photographus_get_comments_by_type();
 
 		/**
 		 * Get comments number text.
 		 */
-		$comments = photographia_get_comments_number_text( $comments_by_type );
+		$comments = photographus_get_comments_number_text( $comments_by_type );
 		if ( '' !== $comments ) {
 			/**
 			 * Add the comment number markup to the $meta_markup string.
@@ -335,7 +335,7 @@ if ( ! function_exists( 'photographia_the_entry_footer_meta' ) ) {
 		/**
 		 * Get trackback number text.
 		 */
-		$trackbacks = photographia_get_trackback_number_text( $comments_by_type );
+		$trackbacks = photographus_get_trackback_number_text( $comments_by_type );
 		if ( '' !== $trackbacks ) {
 			/**
 			 * Add the comment number markup to the $meta_markup string.
@@ -357,13 +357,13 @@ if ( ! function_exists( 'photographia_the_entry_footer_meta' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_categories_list' ) ) {
+if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 	/**
 	 * Returns list of categories for a post.
 	 *
 	 * @return string
 	 */
-	function photographia_get_categories_list() {
+	function photographus_get_categories_list() {
 		/**
 		 * Get array of post categories.
 		 */
@@ -377,7 +377,7 @@ if ( ! function_exists( 'photographia_get_categories_list' ) ) {
 			 * Build the markup.
 			 */
 			$categories_markup = sprintf( /* translators: 1=category label; 2=category list */
-				__( '%1$s: %2$s', 'photographia' ),
+				__( '%1$s: %2$s', 'photographus' ),
 
 				/**
 				 * Display singular or plural label based on the category count.
@@ -386,9 +386,9 @@ if ( ! function_exists( 'photographia_get_categories_list' ) ) {
 					'Category',
 					'Categories',
 					count( $categories ),
-					'photographia'
+					'photographus'
 				), /* translators: term delimiter */
-				get_the_category_list( __( ', ', 'photographia' ) )
+				get_the_category_list( __( ', ', 'photographus' ) )
 			);
 
 			return $categories_markup;
@@ -398,13 +398,13 @@ if ( ! function_exists( 'photographia_get_categories_list' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_tag_list' ) ) {
+if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 	/**
 	 * Returns list of tags for a post.
 	 *
 	 * @return string
 	 */
-	function photographia_get_tag_list() {
+	function photographus_get_tag_list() {
 		/**
 		 * Get tag array.
 		 */
@@ -418,7 +418,7 @@ if ( ! function_exists( 'photographia_get_tag_list' ) ) {
 			 * Build the markup.
 			 */
 			$tags_markup = sprintf( /* translators: 1=tag label; 2=tag list */
-				__( '%1$s: %2$s', 'photographia' ),
+				__( '%1$s: %2$s', 'photographus' ),
 
 				/**
 				 * Display singular or plural label based on tag count.
@@ -427,9 +427,9 @@ if ( ! function_exists( 'photographia_get_tag_list' ) ) {
 					'Tag',
 					'Tags',
 					count( $tags ),
-					'photographia'
+					'photographus'
 				), /* translators: term delimiter */
-				get_the_tag_list( '', __( ', ', 'photographia' ) )
+				get_the_tag_list( '', __( ', ', 'photographus' ) )
 			);
 
 			return $tags_markup;
@@ -439,7 +439,7 @@ if ( ! function_exists( 'photographia_get_tag_list' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_comments_number_text' ) ) {
+if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
 	/**
 	 * Returns string for the number of comments.
 	 *
@@ -447,7 +447,7 @@ if ( ! function_exists( 'photographia_get_comments_number_text' ) ) {
 	 *
 	 * @return string
 	 */
-	function photographia_get_comments_number_text( $comments_by_type ) {
+	function photographus_get_comments_number_text( $comments_by_type ) {
 		/**
 		 * Check if we have comments, otherwise return empty string.
 		 */
@@ -461,7 +461,7 @@ if ( ! function_exists( 'photographia_get_comments_number_text' ) ) {
 			 * Build the comments number text.
 			 */
 			$comments_number_text = sprintf( /* translators: s=comment count */
-				__( 'Comments: %s', 'photographia' ),
+				__( 'Comments: %s', 'photographus' ),
 				sprintf(
 					'<a href="%s#comments-title">%s</a>',
 					get_permalink(),
@@ -476,7 +476,7 @@ if ( ! function_exists( 'photographia_get_comments_number_text' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_trackback_number_text' ) ) {
+if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 	/**
 	 * Returns string for the number of trackbacks.
 	 *
@@ -484,7 +484,7 @@ if ( ! function_exists( 'photographia_get_trackback_number_text' ) ) {
 	 *
 	 * @return string
 	 */
-	function photographia_get_trackback_number_text( $comments_by_type ) {
+	function photographus_get_trackback_number_text( $comments_by_type ) {
 		/**
 		 * Check if we have pings, otherwise return empty string.
 		 */
@@ -498,7 +498,7 @@ if ( ! function_exists( 'photographia_get_trackback_number_text' ) ) {
 			 * Build the trackback number text.
 			 */
 			$trackback_number_text = sprintf( /* translators: s=trackback count */
-				__( 'Trackbacks: %s', 'photographia' ),
+				__( 'Trackbacks: %s', 'photographus' ),
 				sprintf(
 					'<a href="%s#trackbacks-title">%s</a>',
 					get_permalink(),
@@ -513,13 +513,13 @@ if ( ! function_exists( 'photographia_get_trackback_number_text' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_comments_by_type' ) ) {
+if ( ! function_exists( 'photographus_get_comments_by_type' ) ) {
 	/**
 	 * Returns the comments separated by type (comments and pingbacks)
 	 *
 	 * @return array
 	 */
-	function photographia_get_comments_by_type() {
+	function photographus_get_comments_by_type() {
 		$comment_args     = [
 			'order'   => 'ASC',
 			'orderby' => 'comment_date_gmt',
@@ -533,13 +533,13 @@ if ( ! function_exists( 'photographia_get_comments_by_type' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
+if ( ! function_exists( 'photographus_get_post_type_template' ) ) {
 	/**
 	 * Returns the post type template slug without templates/ dir and .php ending.
 	 *
 	 * @return string
 	 */
-	function photographia_get_post_type_template() {
+	function photographus_get_post_type_template() {
 		$template_slug = get_page_template_slug();
 		if ( '' !== $template_slug ) {
 			/**
@@ -559,7 +559,7 @@ if ( ! function_exists( 'photographia_get_post_type_template' ) ) {
 	}
 }
 
-if ( ! function_exists( 'photographia_comments' ) ) {
+if ( ! function_exists( 'photographus_comments' ) ) {
 	/**
 	 * Callback function for displaying the comment list.
 	 *
@@ -569,7 +569,7 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 	 *
 	 * @return void
 	 */
-	function photographia_comments( $comment, $args, $depth ) { ?>
+	function photographus_comments( $comment, $args, $depth ) { ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
 			<div class="comment-meta">
@@ -581,13 +581,13 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 						get_comment_link( $comment->comment_ID ),
 						get_comment_time( 'c' ),
 						sprintf( /* translators: 1=date 2=time */
-							__( '%1$s @ %2$s', 'photographia' ),
+							__( '%1$s @ %2$s', 'photographus' ),
 							get_comment_date(),
 							get_comment_time()
 						)
 					);
 					edit_comment_link(
-						__( 'Edit', 'photographia' ),
+						__( 'Edit', 'photographus' ),
 						' ·&nbsp;',
 						''
 					); ?>
@@ -597,7 +597,7 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 				<div class="comment-content">
 					<?php if ( '0' === $comment->comment_approved ) { ?>
 						<p>
-							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographia' ); ?></strong>
+							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); ?></strong>
 						</p>
 					<?php }
 					comment_text(); ?>
@@ -606,7 +606,7 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 
 			<div class="reply">
 				<?php comment_reply_link( [
-					'reply_text' => __( 'Reply', 'photographia' ),
+					'reply_text' => __( 'Reply', 'photographus' ),
 					'depth'      => $depth,
 					'max_depth'  => $args['max_depth'],
 				] ); ?>
@@ -616,54 +616,54 @@ if ( ! function_exists( 'photographia_comments' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_wp_link_pages' ) ) {
+if ( ! function_exists( 'photographus_wp_link_pages' ) ) {
 	/**
 	 * Displays a pagination for paginated posts and pages
 	 */
-	function photographia_wp_link_pages() {
+	function photographus_wp_link_pages() {
 		/* translators: Label for pagination of paginated posts and pages */
 		wp_link_pages( [
-			'before'    => '<ul class="page-numbers"><li><span>' . __( 'Pages:', 'photographia' ) . '</span></li><li>',
+			'before'    => '<ul class="page-numbers"><li><span>' . __( 'Pages:', 'photographus' ) . '</span></li><li>',
 			'after'     => '</li></ul>',
 			'separator' => '</li><li>',
 		] );
 	}
 }
 
-if ( ! function_exists( 'photographia_the_posts_pagination' ) ) {
+if ( ! function_exists( 'photographus_the_posts_pagination' ) ) {
 	/**
 	 * Displays a pagination for archive pages.
 	 */
-	function photographia_the_posts_pagination() {
+	function photographus_the_posts_pagination() {
 		/* translators: Label for pagination of paginated posts and pages */
 		the_posts_pagination( [
 			'type'      => 'list',
-			'prev_text' => __( 'Previous', 'photographia' ),
-			'next_text' => __( 'Next', 'photographia' ),
+			'prev_text' => __( 'Previous', 'photographus' ),
+			'next_text' => __( 'Next', 'photographus' ),
 		] );
 	}
 }
 
-if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
+if ( ! function_exists( 'photographus_front_page_panel_count' ) ) {
 	/**
 	 * Returns number of used front page panels.
 	 *
 	 * @return int
 	 */
-	function photographia_front_page_panel_count() {
+	function photographus_front_page_panel_count() {
 		$panel_count = 0;
 
 		/**
-		 * Filter number of front page sections in Photographia.
+		 * Filter number of front page sections in Photographus.
 		 *
 		 * @param int $num_sections Number of front page sections.
 		 */
-		$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
+		$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 			/**
 			 * Get the content type of the current panel.
 			 */
-			$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
+			$panel_content_type = get_theme_mod( "photographus_panel_{$i}_content_type" );
 
 			/**
 			 * We need to do additional tests for post and page panels, because it is possible
@@ -673,13 +673,13 @@ if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
 				case '0':
 					break;
 				case 'page':
-					$panel_page_id = get_theme_mod( "photographia_panel_{$i}_page" );
+					$panel_page_id = get_theme_mod( "photographus_panel_{$i}_page" );
 					if ( 0 !== $panel_page_id ) {
 						$panel_count ++;
 					}
 					break;
 				case 'post':
-					$panel_post_id = get_theme_mod( "photographia_panel_{$i}_post" );
+					$panel_post_id = get_theme_mod( "photographus_panel_{$i}_post" );
 					if ( 0 !== $panel_post_id ) {
 						$panel_count ++;
 					}
@@ -697,19 +697,19 @@ if ( ! function_exists( 'photographia_front_page_panel_count' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
+if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 	/**
 	 * Returns number of used front page panels.
 	 *
 	 * @param WP_Customize_Control|null $partial Custoizer partial.
 	 */
-	function photographia_the_front_page_panels( $partial = null ) {
+	function photographus_the_front_page_panels( $partial = null ) {
 		/**
-		 * Filter number of front page sections in Photographia.
+		 * Filter number of front page sections in Photographus.
 		 *
 		 * @param int $num_sections Number of front page sections.
 		 */
-		$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
+		$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 			/**
 			 * Check if $partial is not null (so we have a customizer selective refresh)
@@ -723,7 +723,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 			/**
 			 * Get the content type of the current panel.
 			 */
-			$panel_content_type = get_theme_mod( "photographia_panel_{$i}_content_type" );
+			$panel_content_type = get_theme_mod( "photographus_panel_{$i}_content_type" );
 
 			switch ( $panel_content_type ) {
 				/**
@@ -733,7 +733,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					/**
 					 * Display a placeholder for the panel (only if in customizer preview).
 					 */
-					photographia_the_customizer_panel_placeholder( $i );
+					photographus_the_customizer_panel_placeholder( $i );
 					break;
 
 				/**
@@ -743,7 +743,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					/**
 					 * Display the page.
 					 */
-					photographia_the_page_panel( null, $i );
+					photographus_the_page_panel( null, $i );
 					break;
 
 				/**
@@ -753,7 +753,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					/**
 					 * Display the post.
 					 */
-					photographia_the_post_panel( null, $i );
+					photographus_the_post_panel( null, $i );
 					break;
 
 				/**
@@ -763,7 +763,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					/**
 					 * Display the latest posts panel.
 					 */
-					photographia_the_latest_posts_panel( null, $i );
+					photographus_the_latest_posts_panel( null, $i );
 					break;
 
 				/**
@@ -773,7 +773,7 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 					/**
 					 * Display the post grid panel.
 					 */
-					photographia_the_post_grid_panel( null, $i );
+					photographus_the_post_grid_panel( null, $i );
 					break;
 			} // End switch().
 
@@ -787,13 +787,13 @@ if ( ! function_exists( 'photographia_the_front_page_panels' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_customizer_panel_placeholder' ) ) {
+if ( ! function_exists( 'photographus_customizer_panel_placeholder' ) ) {
 	/**
 	 * Displays placeholders for empty panels if in customizer preview.
 	 *
 	 * @param int $panel_number Number of current panels.
 	 */
-	function photographia_the_customizer_panel_placeholder( $panel_number ) {
+	function photographus_the_customizer_panel_placeholder( $panel_number ) {
 		/**
 		 * Only display a placeholder if we are in the customizer preview.
 		 */
@@ -803,18 +803,18 @@ if ( ! function_exists( 'photographia_customizer_panel_placeholder' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_get_post_type_template_class' ) ) {
+if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 	/**
 	 * Returns post type template class string for layout purposes.
 	 *
 	 * @return string
 	 */
-	function photographia_get_post_type_template_class() {
+	function photographus_get_post_type_template_class() {
 		/**
 		 * Get the post type template name.
 		 * Empty string if no template is used.
 		 */
-		$post_type_template = photographia_get_post_type_template();
+		$post_type_template = photographus_get_post_type_template();
 
 		/**
 		 * Check if this is a page template which should hide the sidebar
@@ -843,7 +843,7 @@ if ( ! function_exists( 'photographia_get_post_type_template_class' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
+if ( ! function_exists( 'photographus_get_latest_posts' ) ) {
 	/**
 	 * Returns latest posts.
 	 *
@@ -855,12 +855,12 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	 *
 	 * @return object
 	 */
-	function photographia_get_latest_posts( $panel_number, $number_of_posts, $force_refresh = false ) {
+	function photographus_get_latest_posts( $panel_number, $number_of_posts, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
 		/**
 		 * Check if we already have a latest posts cache for this panel.
 		 */
-		$latest_posts = get_transient( "photographia_latest_posts_panel_$panel_number" );
+		$latest_posts = get_transient( "photographus_latest_posts_panel_$panel_number" );
 		if ( ! is_object( $latest_posts ) ) {
 			$latest_posts = new stdClass();
 		}
@@ -878,7 +878,7 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 
 			if ( ! is_wp_error( $latest_posts ) && $latest_posts->have_posts() ) {
 				$latest_posts->last_check = time();
-				set_transient( "photographia_latest_posts_panel_$panel_number", $latest_posts, 5 * WEEK_IN_SECONDS );
+				set_transient( "photographus_latest_posts_panel_$panel_number", $latest_posts, 5 * WEEK_IN_SECONDS );
 			}
 		}
 
@@ -886,7 +886,7 @@ if ( ! function_exists( 'photographia_get_latest_posts' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
+if ( ! function_exists( 'photographus_get_post_grid_posts' ) ) {
 	/**
 	 * Returns latest posts for post grid.
 	 *
@@ -901,12 +901,12 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 	 *
 	 * @return object
 	 */
-	function photographia_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts = false, $post_category = 0, $force_refresh = false ) {
+	function photographus_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts = false, $post_category = 0, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
 		/**
 		 * Check if we already have a post grid cache for this panel.
 		 */
-		$post_grid_posts = get_transient( "photographia_post_grid_panel_$panel_number" );
+		$post_grid_posts = get_transient( "photographus_post_grid_panel_$panel_number" );
 		if ( ! is_object( $post_grid_posts ) ) {
 			$post_grid_posts = new stdClass();
 		}
@@ -957,7 +957,7 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 
 			if ( ! is_wp_error( $post_grid_posts ) && $post_grid_posts->have_posts() ) {
 				$post_grid_posts->last_check = time();
-				set_transient( "photographia_post_grid_panel_$panel_number", $post_grid_posts, 5 * WEEK_IN_SECONDS );
+				set_transient( "photographus_post_grid_panel_$panel_number", $post_grid_posts, 5 * WEEK_IN_SECONDS );
 			}
 		}
 
@@ -965,14 +965,14 @@ if ( ! function_exists( 'photographia_get_post_grid_posts' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_latest_posts_panel' ) ) {
+if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 	/**
 	 * Displays the latest posts panel.
 	 *
 	 * @param WP_Customize_Partial $partial      Customizer partial.
 	 * @param int                  $panel_number Number of posts.
 	 */
-	function photographia_the_latest_posts_panel( $partial = null, $panel_number = null ) {
+	function photographus_the_latest_posts_panel( $partial = null, $panel_number = null ) {
 		/**
 		 * Get panel number if $panel_number is not a number
 		 */
@@ -984,17 +984,17 @@ if ( ! function_exists( 'photographia_the_latest_posts_panel' ) ) {
 		/**
 		 * Get the number of posts which should be displayed.
 		 */
-		$number_of_posts = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_number", 5 );
+		$number_of_posts = get_theme_mod( "photographus_panel_{$panel_number}_latest_posts_number", 5 );
 
 		/**
 		 * Check if we should only display the title and meta of the posts.
 		 */
-		$short_version = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_short_version", false );
+		$short_version = get_theme_mod( "photographus_panel_{$panel_number}_latest_posts_short_version", false );
 
 		/**
 		 * Build query.
 		 */
-		$latest_posts = photographia_get_latest_posts( $panel_number, $number_of_posts );
+		$latest_posts = photographus_get_latest_posts( $panel_number, $number_of_posts );
 
 		if ( $latest_posts->have_posts() ) { ?>
 			<section id="frontpage-section-<?php echo $panel_number; ?>" class="frontpage-section clearfix">
@@ -1002,7 +1002,7 @@ if ( ! function_exists( 'photographia_the_latest_posts_panel' ) ) {
 				/**
 				 * Get the title for the panel.
 				 */
-				$section_title = get_theme_mod( "photographia_panel_{$panel_number}_latest_posts_title", __( 'Latest Posts', 'photographia' ) );
+				$section_title = get_theme_mod( "photographus_panel_{$panel_number}_latest_posts_title", __( 'Latest Posts', 'photographus' ) );
 
 				/**
 				 * Check if we have a title.
@@ -1057,14 +1057,14 @@ if ( ! function_exists( 'photographia_the_latest_posts_panel' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
+if ( ! function_exists( 'photographus_the_post_grid_panel' ) ) {
 	/**
 	 * Displays the post grid panel.
 	 *
 	 * @param WP_Customize_Partial $partial      Customizer partial.
 	 * @param int                  $panel_number Number of posts.
 	 */
-	function photographia_the_post_grid_panel( $partial = null, $panel_number = null ) {
+	function photographus_the_post_grid_panel( $partial = null, $panel_number = null ) {
 		/**
 		 * Get panel number if $panel_number is not a number
 		 */
@@ -1076,19 +1076,19 @@ if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
 		/**
 		 * Get the number of posts which should be displayed.
 		 */
-		$number_of_posts = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_number", 20 );
+		$number_of_posts = get_theme_mod( "photographus_panel_{$panel_number}_post_grid_number", 20 );
 
 		/**
 		 * Get value of option only to show image and gallery posts.
 		 */
-		$only_gallery_and_image_posts = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_only_gallery_and_image_posts", false );
+		$only_gallery_and_image_posts = get_theme_mod( "photographus_panel_{$panel_number}_post_grid_only_gallery_and_image_posts", false );
 
 		/**
 		 * Get value of option only to show posts from one category.
 		 */
-		$post_category = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_category", 0 );
+		$post_category = get_theme_mod( "photographus_panel_{$panel_number}_post_grid_category", 0 );
 
-		$post_grid_posts = photographia_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts, $post_category, false );
+		$post_grid_posts = photographus_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts, $post_category, false );
 
 		/**
 		 * Check if we have posts.
@@ -1099,7 +1099,7 @@ if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
 				/**
 				 * Get the title for the panel.
 				 */
-				$section_title = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_title", __( 'Post Grid', 'photographia' ) );
+				$section_title = get_theme_mod( "photographus_panel_{$panel_number}_post_grid_title", __( 'Post Grid', 'photographus' ) );
 
 				/**
 				 * Check if we have a title.
@@ -1123,7 +1123,7 @@ if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
 						/**
 						 * Get the value of the option to hide the post titles in the grid.
 						 */
-						$hide_gallery_titles = get_theme_mod( "photographia_panel_{$panel_number}_post_grid_hide_title" );
+						$hide_gallery_titles = get_theme_mod( "photographus_panel_{$panel_number}_post_grid_hide_title" );
 
 						/**
 						 * Build a small classes string, depending on if we should hide the titles
@@ -1157,14 +1157,14 @@ if ( ! function_exists( 'photographia_the_post_grid_panel' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_post_panel' ) ) {
+if ( ! function_exists( 'photographus_the_post_panel' ) ) {
 	/**
 	 * Displays the post grid panel.
 	 *
 	 * @param WP_Customize_Partial $partial      Customizer partial.
 	 * @param int                  $panel_number Number of posts.
 	 */
-	function photographia_the_post_panel( $partial = null, $panel_number = null ) {
+	function photographus_the_post_panel( $partial = null, $panel_number = null ) {
 		/**
 		 * Get panel number if $panel_number is not a number
 		 */
@@ -1176,7 +1176,7 @@ if ( ! function_exists( 'photographia_the_post_panel' ) ) {
 		/**
 		 * Get the ID of the post.
 		 */
-		$panel_post_id = get_theme_mod( "photographia_panel_{$panel_number}_post" );
+		$panel_post_id = get_theme_mod( "photographus_panel_{$panel_number}_post" );
 
 		/**
 		 * Check if the ID is not 0, which means we have a post to show.
@@ -1200,19 +1200,19 @@ if ( ! function_exists( 'photographia_the_post_panel' ) ) {
 			/**
 			 * Display a placeholder for the panel (only if in customizer preview).
 			 */
-			photographia_the_customizer_panel_placeholder( $panel_number );
+			photographus_the_customizer_panel_placeholder( $panel_number );
 		} // End if().
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_page_panel' ) ) {
+if ( ! function_exists( 'photographus_the_page_panel' ) ) {
 	/**
 	 * Displays the post grid panel.
 	 *
 	 * @param WP_Customize_Partial $partial      Customizer partial.
 	 * @param int                  $panel_number Number of posts.
 	 */
-	function photographia_the_page_panel( $partial = null, $panel_number = null ) {
+	function photographus_the_page_panel( $partial = null, $panel_number = null ) {
 		/**
 		 * Get panel number if $panel_number is not a number
 		 */
@@ -1224,7 +1224,7 @@ if ( ! function_exists( 'photographia_the_page_panel' ) ) {
 		/**
 		 * Get the ID of the post.
 		 */
-		$panel_post_id = get_theme_mod( "photographia_panel_{$panel_number}_page" );
+		$panel_post_id = get_theme_mod( "photographus_panel_{$panel_number}_page" );
 
 		/**
 		 * Check if the ID is not 0, which means we have a post to show.
@@ -1248,22 +1248,22 @@ if ( ! function_exists( 'photographia_the_page_panel' ) ) {
 			/**
 			 * Display a placeholder for the panel (only if in customizer preview).
 			 */
-			photographia_the_customizer_panel_placeholder( $panel_number );
+			photographus_the_customizer_panel_placeholder( $panel_number );
 		} // End if().
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_is_front_page_with_panels' ) ) {
+if ( ! function_exists( 'photographus_is_front_page_with_panels' ) ) {
 	/**
 	 * Checks if we are on the front page with panels.
 	 *
 	 * @return boolean
 	 */
-	function photographia_is_front_page_with_panels() {
+	function photographus_is_front_page_with_panels() {
 		/**
 		 * Count the front page panels.
 		 */
-		$panel_count = photographia_front_page_panel_count();
+		$panel_count = photographus_front_page_panel_count();
 		if ( is_front_page() && is_page() && 0 !== $panel_count ) {
 			return true;
 		} else {
@@ -1272,27 +1272,27 @@ if ( ! function_exists( 'photographia_is_front_page_with_panels' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_front_page_header_image' ) ) {
+if ( ! function_exists( 'photographus_the_front_page_header_image' ) ) {
 	/**
 	 * Displays header image as background image inside style tag, if we are on the front page
 	 * and have panels.
 	 */
-	function photographia_the_front_page_header_image() {
+	function photographus_the_front_page_header_image() {
 		$header_image = get_header_image();
-		if ( true === photographia_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
+		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
 			echo 'style="background-image: linear-gradient( to right, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .6 ) ), url( ' . $header_image . ' );"';
 		} else {
 		}
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_the_scroll_arrow_icon' ) ) {
+if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 	/**
 	 * Displays scroll down arrow link if we have a header image and are on the front page with panels.
 	 */
-	function photographia_the_scroll_arrow_icon() {
+	function photographus_the_scroll_arrow_icon() {
 		$header_image = get_header_image();
-		if ( true === photographia_is_front_page_with_panels() && has_header_image() && false !== $header_image ) { ?>
+		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) { ?>
 			<p>
 				<a href="#main" class="scroll-link">
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -1306,24 +1306,24 @@ if ( ! function_exists( 'photographia_the_scroll_arrow_icon' ) ) {
 	}
 } // End if().
 
-if ( ! function_exists( 'photographia_is_login_page' ) ) {
+if ( ! function_exists( 'photographus_is_login_page' ) ) {
 	/**
 	 * Check if we are on the login page
 	 *
 	 * @return bool
 	 */
-	function photographia_is_login_page() {
+	function photographus_is_login_page() {
 		return in_array( $GLOBALS['pagenow'], [ 'wp-login.php', 'wp-register.php' ], true );
 	}
 }
 
-if ( ! function_exists( 'photographia_is_wp_comments_post' ) ) {
+if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
 	/**
 	 * Check if we are on the wp-comments-post.php
 	 *
 	 * @return bool
 	 */
-	function photographia_is_wp_comments_post() {
+	function photographus_is_wp_comments_post() {
 		return in_array( $GLOBALS['pagenow'], [ 'wp-comments-post.php' ], true );
 	}
 }

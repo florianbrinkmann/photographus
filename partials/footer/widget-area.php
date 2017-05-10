@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 if ( is_active_sidebar( 'sidebar-footer' ) ) { ?>

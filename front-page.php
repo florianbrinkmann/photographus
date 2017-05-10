@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 get_header(); ?>
@@ -15,7 +15,7 @@ get_header(); ?>
 				/**
 				 * Count the front page panels.
 				 */
-				$panel_number = photographia_front_page_panel_count();
+				$panel_number = photographus_front_page_panel_count();
 
 				/**
 				 * Check if we have a front page.
@@ -31,7 +31,7 @@ get_header(); ?>
 						the_post();
 
 						if ( 0 !== $panel_number ) {
-							$hide_front_page_content = get_theme_mod( 'photographia_hide_static_front_page_content' );
+							$hide_front_page_content = get_theme_mod( 'photographus_hide_static_front_page_content' );
 							if ( true === $hide_front_page_content ) {
 
 							} else {
@@ -62,7 +62,7 @@ get_header(); ?>
 				 * Panels
 				 */
 				if ( 0 !== $panel_number ) {
-					photographia_the_front_page_panels();
+					photographus_the_front_page_panels();
 				} ?>
 			</main>
 		</div>

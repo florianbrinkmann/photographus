@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 if ( post_password_required() ) {
@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 		 *
 		 * Because of that, we use our own function to get the comments by type.
 		 */
-		$comments_by_type = photographia_get_comments_by_type();
+		$comments_by_type = photographus_get_comments_by_type();
 		if ( ! empty( $comments_by_type['comment'] ) ) {
 			/**
 			 * Save the comment count.
@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 						'%1$s Comment on “%2$s”',
 						'%1$s Comments on “%2$s”',
 						$comment_number,
-						'photographia'
+						'photographus'
 					),
 					number_format_i18n( $comment_number ),
 					get_the_title() ); ?>
@@ -47,7 +47,7 @@ if ( post_password_required() ) {
 				 * multiple pages.
 				 */
 				wp_list_comments( [
-					'callback' => 'photographia_comments',
+					'callback' => 'photographus_comments',
 					'style'    => 'ul',
 					'type'     => 'comment',
 					'per_page' => $comment_args['number'],
@@ -65,7 +65,7 @@ if ( post_password_required() ) {
 						'%1$s Trackback on “%2$s”',
 						'%1$s Trackbacks on “%2$s”',
 						$trackback_number,
-						'photographia'
+						'photographus'
 					),
 					number_format_i18n( $trackback_number ),
 					get_the_title() ); ?>
@@ -89,10 +89,10 @@ if ( post_password_required() ) {
 			the_comments_navigation();
 		}
 		if ( ! comments_open() && get_comments_number() ) { ?>
-			<p class="nocomments"><?php _e( 'Comments are closed.', 'photographia' ); ?></p>
+			<p class="nocomments"><?php _e( 'Comments are closed.', 'photographus' ); ?></p>
 		<?php }
 	}
 	comment_form( [
-		'label_submit' => __( 'Submit Comment', 'photographia' ),
+		'label_submit' => __( 'Submit Comment', 'photographus' ),
 	] ); ?>
 </aside>

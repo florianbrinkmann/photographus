@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 /**
@@ -19,7 +19,7 @@
  *
  * @return bool Whether the checkbox is checked.
  */
-function photographia_sanitize_checkbox( $checked ) {
+function photographus_sanitize_checkbox( $checked ) {
 	/**
 	 * Boolean check.
 	 */
@@ -46,7 +46,7 @@ function photographia_sanitize_checkbox( $checked ) {
  *
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function photographia_sanitize_select( $input, $setting ) {
+function photographus_sanitize_select( $input, $setting ) {
 	/**
 	 * Ensure input is a slug.
 	 */
@@ -73,7 +73,7 @@ function photographia_sanitize_select( $input, $setting ) {
  *
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function photographia_sanitize_int_greater_null( $input, $setting ) {
+function photographus_sanitize_int_greater_null( $input, $setting ) {
 	/**
 	 * Ensure $number is an absolute integer (whole number, zero or greater).
 	 */
@@ -92,11 +92,11 @@ function photographia_sanitize_int_greater_null( $input, $setting ) {
  *
  * @return bool
  */
-function photographia_is_page_panel( $control ) {
+function photographus_is_page_panel( $control ) {
 	/**
 	 * Check if we are on the front page, otherwise we do not need the control.
 	 */
-	if ( ! photographia_is_static_front_page( $control ) ) {
+	if ( ! photographus_is_static_front_page( $control ) ) {
 		return false;
 	}
 
@@ -108,7 +108,7 @@ function photographia_is_page_panel( $control ) {
 	/**
 	 * Get the value of the content type control.
 	 */
-	$content_type = $control->manager->get_setting( "photographia_panel_{$panel_number}_content_type" )->value();
+	$content_type = $control->manager->get_setting( "photographus_panel_{$panel_number}_content_type" )->value();
 
 	/**
 	 * Return true if the value is page.
@@ -127,11 +127,11 @@ function photographia_is_page_panel( $control ) {
  *
  * @return bool
  */
-function photographia_is_post_panel( $control ) {
+function photographus_is_post_panel( $control ) {
 	/**
 	 * Check if we are on the front page, otherwise we do not need the control.
 	 */
-	if ( ! photographia_is_static_front_page( $control ) ) {
+	if ( ! photographus_is_static_front_page( $control ) ) {
 		return false;
 	}
 
@@ -143,7 +143,7 @@ function photographia_is_post_panel( $control ) {
 	/**
 	 * Get the value of the content type control.
 	 */
-	$content_type = $control->manager->get_setting( "photographia_panel_{$panel_number}_content_type" )->value();
+	$content_type = $control->manager->get_setting( "photographus_panel_{$panel_number}_content_type" )->value();
 
 	/**
 	 * Return true if the value is page.
@@ -162,11 +162,11 @@ function photographia_is_post_panel( $control ) {
  *
  * @return bool
  */
-function photographia_is_latest_posts_panel( $control ) {
+function photographus_is_latest_posts_panel( $control ) {
 	/**
 	 * Check if we are on the front page, otherwise we do not need the control.
 	 */
-	if ( ! photographia_is_static_front_page( $control ) ) {
+	if ( ! photographus_is_static_front_page( $control ) ) {
 		return false;
 	}
 
@@ -178,7 +178,7 @@ function photographia_is_latest_posts_panel( $control ) {
 	/**
 	 * Get the value of the content type control.
 	 */
-	$content_type = $control->manager->get_setting( "photographia_panel_{$panel_number}_content_type" )->value();
+	$content_type = $control->manager->get_setting( "photographus_panel_{$panel_number}_content_type" )->value();
 
 	/**
 	 * Return true if the value is page.
@@ -197,11 +197,11 @@ function photographia_is_latest_posts_panel( $control ) {
  *
  * @return bool
  */
-function photographia_is_post_grid_panel( $control ) {
+function photographus_is_post_grid_panel( $control ) {
 	/**
 	 * Check if we are on the front page, otherwise we do not need the control.
 	 */
-	if ( ! photographia_is_static_front_page( $control ) ) {
+	if ( ! photographus_is_static_front_page( $control ) ) {
 		return false;
 	}
 
@@ -213,7 +213,7 @@ function photographia_is_post_grid_panel( $control ) {
 	/**
 	 * Get the value of the content type control.
 	 */
-	$content_type = $control->manager->get_setting( "photographia_panel_{$panel_number}_content_type" )->value();
+	$content_type = $control->manager->get_setting( "photographus_panel_{$panel_number}_content_type" )->value();
 
 	/**
 	 * Return true if the value is page.
@@ -233,7 +233,7 @@ function photographia_is_post_grid_panel( $control ) {
  *
  * @return bool
  */
-function photographia_is_static_front_page( $control ) {
+function photographus_is_static_front_page( $control ) {
 	/**
 	 * Return true if is static front page.
 	 */

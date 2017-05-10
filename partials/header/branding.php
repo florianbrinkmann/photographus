@@ -4,13 +4,13 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 /**
  * Check if we have a custom logo from the customizer
  */
-if ( '' != photographia_get_custom_logo() ) {
+if ( '' != photographus_get_custom_logo() ) {
 
 	/**
 	 * Output an opening h1 tag if we are on the front page and it is the blog overview
@@ -22,7 +22,7 @@ if ( '' != photographia_get_custom_logo() ) {
 	/**
 	 * Output the logo
 	 */
-	echo photographia_get_custom_logo();
+	echo photographus_get_custom_logo();
 
 	/**
 	 * Closing h1 tag if on front page with blog overview

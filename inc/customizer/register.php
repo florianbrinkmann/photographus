@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 /**
@@ -12,63 +12,63 @@
  *
  * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
-function photographia_customize_register( $wp_customize ) {
+function photographus_customize_register( $wp_customize ) {
 	$wp_customize->remove_control( 'header_textcolor' );
 
-	$wp_customize->add_section( 'photographia_options', [
-		'title' => __( 'Theme options', 'photographia' ),
+	$wp_customize->add_section( 'photographus_options', [
+		'title' => __( 'Theme options', 'photographus' ),
 	] );
 
 	/**
 	 * Add setting for alternative header layout.
 	 */
-	$wp_customize->add_setting( 'photographia_header_layout', [
+	$wp_customize->add_setting( 'photographus_header_layout', [
 		'default'           => false,
-		'sanitize_callback' => 'photographia_sanitize_checkbox',
+		'sanitize_callback' => 'photographus_sanitize_checkbox',
 	] );
 
 	/**
 	 * Add control for alternative header layout.
 	 */
-	$wp_customize->add_control( 'photographia_header_layout', [
+	$wp_customize->add_control( 'photographus_header_layout', [
 		'type'    => 'checkbox',
-		'section' => 'photographia_options',
-		'label'   => __( 'Alternative header layout', 'photographia' ),
+		'section' => 'photographus_options',
+		'label'   => __( 'Alternative header layout', 'photographus' ),
 	] );
 
 	/**
 	 * Add setting for dark mode.
 	 */
-	$wp_customize->add_setting( 'photographia_dark_mode', [
+	$wp_customize->add_setting( 'photographus_dark_mode', [
 		'default'           => false,
-		'sanitize_callback' => 'photographia_sanitize_checkbox',
+		'sanitize_callback' => 'photographus_sanitize_checkbox',
 	] );
 
 	/**
 	 * Add control for dark mode.
 	 */
-	$wp_customize->add_control( 'photographia_dark_mode', [
+	$wp_customize->add_control( 'photographus_dark_mode', [
 		'type'    => 'checkbox',
-		'section' => 'photographia_options',
-		'label'   => __( 'Dark mode', 'photographia' ),
+		'section' => 'photographus_options',
+		'label'   => __( 'Dark mode', 'photographus' ),
 	] );
 
 	/**
 	 * Add setting for hiding the content of the static front page if panels are used.
 	 */
-	$wp_customize->add_setting( 'photographia_hide_static_front_page_content', [
+	$wp_customize->add_setting( 'photographus_hide_static_front_page_content', [
 		'default'           => false,
-		'sanitize_callback' => 'photographia_sanitize_checkbox',
+		'sanitize_callback' => 'photographus_sanitize_checkbox',
 	] );
 
 	/**
 	 * Add control for hiding the content of the static front page if panels are used.
 	 */
-	$wp_customize->add_control( 'photographia_hide_static_front_page_content', [
+	$wp_customize->add_control( 'photographus_hide_static_front_page_content', [
 		'type'            => 'checkbox',
-		'section'         => 'photographia_options',
-		'label'           => __( 'Hide the content of the static front page if panels are used.', 'photographia' ),
-		'active_callback' => 'photographia_is_static_front_page',
+		'section'         => 'photographus_options',
+		'label'           => __( 'Hide the content of the static front page if panels are used.', 'photographus' ),
+		'active_callback' => 'photographus_is_static_front_page',
 	] );
 
 	/**
@@ -76,7 +76,7 @@ function photographia_customize_register( $wp_customize ) {
 	 *
 	 * @link https://gist.github.com/pagelab/10406104
 	 */
-	$wp_customize->get_control( 'header_image' )->active_callback = 'photographia_is_static_front_page';
+	$wp_customize->get_control( 'header_image' )->active_callback = 'photographus_is_static_front_page';
 
 
 	/**
@@ -84,11 +84,11 @@ function photographia_customize_register( $wp_customize ) {
 	 */
 
 	/**
-	 * Filter number of front page sections in Photographia.
+	 * Filter number of front page sections in Photographus.
 	 *
 	 * @param int $num_sections Number of front page sections.
 	 */
-	$num_sections = apply_filters( 'photographia_front_page_sections', 4 );
+	$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 
 
 	/**
@@ -96,7 +96,7 @@ function photographia_customize_register( $wp_customize ) {
 	 *
 	 * @param int $post_number Number of posts.
 	 */
-	$post_number = apply_filters( 'photographia_front_page_posts_number', 500 );
+	$post_number = apply_filters( 'photographus_front_page_posts_number', 500 );
 
 	/**
 	 * Get the last posts for the dropdown menu for post panels.
@@ -135,7 +135,7 @@ function photographia_customize_register( $wp_customize ) {
 	 * Add a value to the array so the user can choose a neutral value when he does not
 	 * want to show a post.
 	 */
-	$first_select_value = [ 0 => __( '— Select —', 'photographia' ) ];
+	$first_select_value = [ 0 => __( '— Select —', 'photographus' ) ];
 	$cats               = $first_select_value + $cats;
 
 	/**
@@ -145,43 +145,43 @@ function photographia_customize_register( $wp_customize ) {
 		/**
 		 * Create setting for saving the content type choice.
 		 */
-		$wp_customize->add_setting( "photographia_panel_{$i}_content_type", [
+		$wp_customize->add_setting( "photographus_panel_{$i}_content_type", [
 			'default'           => 0,
-			'sanitize_callback' => 'photographia_sanitize_select',
+			'sanitize_callback' => 'photographus_sanitize_select',
 			'transport'         => 'postMessage',
 		] );
 
 		/**
 		 * Create control for content choice.
 		 */
-		$wp_customize->add_control( "photographia_panel_{$i}_content_type", [
+		$wp_customize->add_control( "photographus_panel_{$i}_content_type", [
 			/* translators: d = number of panel in customizer */
-			'label'           => sprintf( __( "Panel %d", 'photographia' ), $i ),
+			'label'           => sprintf( __( "Panel %d", 'photographus' ), $i ),
 			'type'            => 'select',
-			'section'         => 'photographia_options',
+			'section'         => 'photographus_options',
 			'choices'         => [
-				0              => __( '— Select —', 'photographia' ),
-				'page'         => __( 'Page', 'photographia' ),
-				'post'         => __( 'Post', 'photographia' ),
-				'latest-posts' => __( 'Latest Posts', 'photographia' ),
-				'post-grid'    => __( 'Post Grid', 'photographia' ),
+				0              => __( '— Select —', 'photographus' ),
+				'page'         => __( 'Page', 'photographus' ),
+				'post'         => __( 'Post', 'photographus' ),
+				'latest-posts' => __( 'Latest Posts', 'photographus' ),
+				'post-grid'    => __( 'Post Grid', 'photographus' ),
 			],
-			'active_callback' => 'photographia_is_static_front_page',
+			'active_callback' => 'photographus_is_static_front_page',
 		] );
 
-		$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_content_type_partial", [
+		$wp_customize->selective_refresh->add_partial( "photographus_panel_{$i}_content_type_partial", [
 			'selector'            => "#frontpage-section-$i",
 			'settings'            => [
-				"photographia_panel_{$i}_content_type",
+				"photographus_panel_{$i}_content_type",
 			],
-			'render_callback'     => 'photographia_the_front_page_panels',
+			'render_callback'     => 'photographus_the_front_page_panels',
 			'container_inclusive' => true,
 		] );
 
 		/**
 		 * Create setting for page.
 		 */
-		$wp_customize->add_setting( "photographia_panel_{$i}_page", [
+		$wp_customize->add_setting( "photographus_panel_{$i}_page", [
 			'default'           => false,
 			'sanitize_callback' => 'absint',
 			'transport'         => 'postMessage',
@@ -190,23 +190,23 @@ function photographia_customize_register( $wp_customize ) {
 		/**
 		 * Create control for page.
 		 */
-		$wp_customize->add_control( "photographia_panel_{$i}_page", [
-			'label'           => __( 'Select page', 'photographia' ),
-			'section'         => 'photographia_options',
+		$wp_customize->add_control( "photographus_panel_{$i}_page", [
+			'label'           => __( 'Select page', 'photographus' ),
+			'section'         => 'photographus_options',
 			'type'            => 'dropdown-pages',
 			'allow_addition'  => true,
-			'active_callback' => 'photographia_is_page_panel',
+			'active_callback' => 'photographus_is_page_panel',
 			'input_attrs'     => [
 				'data-panel-number' => $i,
 			],
 		] );
 
-		$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_page_partial", [
+		$wp_customize->selective_refresh->add_partial( "photographus_panel_{$i}_page_partial", [
 			'selector'            => "#frontpage-section-$i",
 			'settings'            => [
-				"photographia_panel_{$i}_page",
+				"photographus_panel_{$i}_page",
 			],
-			'render_callback'     => 'photographia_the_page_panel',
+			'render_callback'     => 'photographus_the_page_panel',
 			'container_inclusive' => true,
 		] );
 
@@ -218,13 +218,13 @@ function photographia_customize_register( $wp_customize ) {
 			 * Add a value to the array so the user can choose a neutral value when he does not
 			 * want to show a post.
 			 */
-			$first_select_value = [ 0 => __( '— Select —', 'photographia' ) ];
+			$first_select_value = [ 0 => __( '— Select —', 'photographus' ) ];
 			$post_panel_choices = $first_select_value + $post_panel_choices;
 
 			/**
 			 * Create setting for post.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_post", [
 				'default'           => 0,
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
@@ -233,31 +233,31 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for post.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post", [
-				'label'           => __( 'Select post', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post", [
+				'label'           => __( 'Select post', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'select',
 				'choices'         => $post_panel_choices,
-				'active_callback' => 'photographia_is_post_panel',
+				'active_callback' => 'photographus_is_post_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
 			] );
 
-			$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_post_partial", [
+			$wp_customize->selective_refresh->add_partial( "photographus_panel_{$i}_post_partial", [
 				'selector'            => "#frontpage-section-$i",
 				'settings'            => [
-					"photographia_panel_{$i}_post",
+					"photographus_panel_{$i}_post",
 				],
-				'render_callback'     => 'photographia_the_post_panel',
+				'render_callback'     => 'photographus_the_post_panel',
 				'container_inclusive' => true,
 			] );
 
 			/**
 			 * Create setting for latest posts section title.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_title", [
-				'default'           => __( 'Latest Posts', 'photographia' ),
+			$wp_customize->add_setting( "photographus_panel_{$i}_latest_posts_title", [
+				'default'           => __( 'Latest Posts', 'photographus' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			] );
@@ -265,11 +265,11 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for latest posts section title.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts_title", [
-				'label'           => __( 'Section title', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_latest_posts_title", [
+				'label'           => __( 'Section title', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'text',
-				'active_callback' => 'photographia_is_latest_posts_panel',
+				'active_callback' => 'photographus_is_latest_posts_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -278,7 +278,7 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting for latest posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_number", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_latest_posts_number", [
 				'default'           => 5,
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
@@ -287,11 +287,11 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for latest posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts_number", [
-				'label'           => __( 'Number of posts', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_latest_posts_number", [
+				'label'           => __( 'Number of posts', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'number',
-				'active_callback' => 'photographia_is_latest_posts_panel',
+				'active_callback' => 'photographus_is_latest_posts_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -300,41 +300,41 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_latest_posts_short_version", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_latest_posts_short_version", [
 				'default'           => false,
-				'sanitize_callback' => 'photographia_sanitize_checkbox',
+				'sanitize_callback' => 'photographus_sanitize_checkbox',
 				'transport'         => 'postMessage',
 			] );
 
 			/**
 			 * Create control to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_latest_posts_short_version", [
-				'label'           => __( 'Only show title and header meta of posts.', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_latest_posts_short_version", [
+				'label'           => __( 'Only show title and header meta of posts.', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'checkbox',
-				'active_callback' => 'photographia_is_latest_posts_panel',
+				'active_callback' => 'photographus_is_latest_posts_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
 			] );
 
-			$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_latest_posts_partial", [
+			$wp_customize->selective_refresh->add_partial( "photographus_panel_{$i}_latest_posts_partial", [
 				'selector'            => "#frontpage-section-$i",
 				'settings'            => [
-					"photographia_panel_{$i}_latest_posts_title",
-					"photographia_panel_{$i}_latest_posts_number",
-					"photographia_panel_{$i}_latest_posts_short_version",
+					"photographus_panel_{$i}_latest_posts_title",
+					"photographus_panel_{$i}_latest_posts_number",
+					"photographus_panel_{$i}_latest_posts_short_version",
 				],
-				'render_callback'     => 'photographia_the_latest_posts_panel',
+				'render_callback'     => 'photographus_the_latest_posts_panel',
 				'container_inclusive' => true,
 			] );
 
 			/**
 			 * Create setting for post grid section title.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_title", [
-				'default'           => __( 'Post Grid', 'photographia' ),
+			$wp_customize->add_setting( "photographus_panel_{$i}_post_grid_title", [
+				'default'           => __( 'Post Grid', 'photographus' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			] );
@@ -342,11 +342,11 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for post grid section title.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_title", [
-				'label'           => __( 'Section title', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post_grid_title", [
+				'label'           => __( 'Section title', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'text',
-				'active_callback' => 'photographia_is_post_grid_panel',
+				'active_callback' => 'photographus_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -355,20 +355,20 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting for post grid number of posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_number", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_post_grid_number", [
 				'default'           => 20,
-				'sanitize_callback' => 'photographia_sanitize_int_greater_null',
+				'sanitize_callback' => 'photographus_sanitize_int_greater_null',
 				'transport'         => 'postMessage',
 			] );
 
 			/**
 			 * Create control for post grid number of posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_number", [
-				'label'           => __( 'Number of posts (skips posts without post thumbnail)', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post_grid_number", [
+				'label'           => __( 'Number of posts (skips posts without post thumbnail)', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'number',
-				'active_callback' => 'photographia_is_post_grid_panel',
+				'active_callback' => 'photographus_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -377,20 +377,20 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_hide_title", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_post_grid_hide_title", [
 				'default'           => false,
-				'sanitize_callback' => 'photographia_sanitize_checkbox',
+				'sanitize_callback' => 'photographus_sanitize_checkbox',
 				'transport'         => 'postMessage',
 			] );
 
 			/**
 			 * Create control to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_hide_title", [
-				'label'           => __( 'Hide post titles.', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post_grid_hide_title", [
+				'label'           => __( 'Hide post titles.', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'checkbox',
-				'active_callback' => 'photographia_is_post_grid_panel',
+				'active_callback' => 'photographus_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -399,20 +399,20 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_post_grid_only_gallery_and_image_posts", [
 				'default'           => false,
-				'sanitize_callback' => 'photographia_sanitize_checkbox',
+				'sanitize_callback' => 'photographus_sanitize_checkbox',
 				'transport'         => 'postMessage',
 			] );
 
 			/**
 			 * Create control to only show title and header meta of latest posts.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_only_gallery_and_image_posts", [
-				'label'           => __( 'Only display posts with post format »Gallery« or »Image«.', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post_grid_only_gallery_and_image_posts", [
+				'label'           => __( 'Only display posts with post format »Gallery« or »Image«.', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'checkbox',
-				'active_callback' => 'photographia_is_post_grid_panel',
+				'active_callback' => 'photographus_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
@@ -421,7 +421,7 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create setting for post grid category.
 			 */
-			$wp_customize->add_setting( "photographia_panel_{$i}_post_grid_category", [
+			$wp_customize->add_setting( "photographus_panel_{$i}_post_grid_category", [
 				'default'           => 0,
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
@@ -430,27 +430,27 @@ function photographia_customize_register( $wp_customize ) {
 			/**
 			 * Create control for post grid category.
 			 */
-			$wp_customize->add_control( "photographia_panel_{$i}_post_grid_category", [
-				'label'           => __( 'Only show posts from one category:', 'photographia' ),
-				'section'         => 'photographia_options',
+			$wp_customize->add_control( "photographus_panel_{$i}_post_grid_category", [
+				'label'           => __( 'Only show posts from one category:', 'photographus' ),
+				'section'         => 'photographus_options',
 				'type'            => 'select',
 				'choices'         => $cats,
-				'active_callback' => 'photographia_is_post_grid_panel',
+				'active_callback' => 'photographus_is_post_grid_panel',
 				'input_attrs'     => [
 					'data-panel-number' => $i,
 				],
 			] );
 
-			$wp_customize->selective_refresh->add_partial( "photographia_panel_{$i}_post_grid_partial", [
+			$wp_customize->selective_refresh->add_partial( "photographus_panel_{$i}_post_grid_partial", [
 				'selector'            => "#frontpage-section-$i",
 				'settings'            => [
-					"photographia_panel_{$i}_post_grid_title",
-					"photographia_panel_{$i}_post_grid_number",
-					"photographia_panel_{$i}_post_grid_hide_title",
-					"photographia_panel_{$i}_post_grid_only_gallery_and_image_posts",
-					"photographia_panel_{$i}_post_grid_category",
+					"photographus_panel_{$i}_post_grid_title",
+					"photographus_panel_{$i}_post_grid_number",
+					"photographus_panel_{$i}_post_grid_hide_title",
+					"photographus_panel_{$i}_post_grid_only_gallery_and_image_posts",
+					"photographus_panel_{$i}_post_grid_category",
 				],
-				'render_callback'     => 'photographia_the_post_grid_panel',
+				'render_callback'     => 'photographus_the_post_grid_panel',
 				'container_inclusive' => true,
 			] );
 		} // End if().
@@ -462,7 +462,7 @@ function photographia_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 }
 
-add_action( 'customize_register', 'photographia_customize_register', 11 );
+add_action( 'customize_register', 'photographus_customize_register', 11 );
 
 /**
  * Include the file with the callback functions (sanitize callbacks and

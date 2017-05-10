@@ -1,4 +1,4 @@
-# Photographia
+# Photographus
 
 **Contributors:** Florian Brinkmann  
 **Requires at least:** WordPress 4.7  
@@ -9,7 +9,7 @@
 
 ## Description
 
-Photographia is a theme meant photo bloggers or photographers.
+Photographus is a theme meant photo bloggers or photographers.
 
 ### Front page panels
 
@@ -33,8 +33,8 @@ of the header. The header image is only displayed on the front page with active 
 
 ## Copyright
 
-Photographia WordPress Theme, Copyright 2017 Florian Brinkmann
-Photographia is distributed under the terms of the GNU GPL
+Photographus WordPress Theme, Copyright 2017 Florian Brinkmann
+Photographus is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-**Photographia bundles the following third-party resources:**
+**Photographus bundles the following third-party resources:**
 
 Arrow down icon from Genericons, Copyright Automattic.com  
 License: GNU General Public License v2.0  

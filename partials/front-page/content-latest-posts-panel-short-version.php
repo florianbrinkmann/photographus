@@ -4,15 +4,15 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 ?>
 <article>
 	<header class="entry-header">
 		<div>
-			<?php echo photographia_get_the_title( $heading_element, true );
-			echo photographia_get_the_entry_header_meta(); ?>
+			<?php echo photographus_get_the_title( $heading_element, true );
+			echo photographus_get_the_entry_header_meta(); ?>
 		</div>
 	</header>
 </article>

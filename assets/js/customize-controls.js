@@ -3,7 +3,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 ;(function () {
     wp.customize.bind('ready', function () {
@@ -11,7 +11,7 @@
          * Get the content type controls for looping them.
          * @type {NodeList}
          */
-        var ContentTypeControls = document.querySelectorAll('#sub-accordion-section-photographia_options li[id$="content_type"]');
+        var ContentTypeControls = document.querySelectorAll('#sub-accordion-section-photographus_options li[id$="content_type"]');
         /**
          * Check if we have content type controls.
          */
@@ -20,7 +20,7 @@
              * Loop through them.
              */
             for (var i = 1; i < ContentTypeControls.length + 1; i++) {
-                wp.customize.control('photographia_panel_' + i + '_content_type', function (control) {
+                wp.customize.control('photographus_panel_' + i + '_content_type', function (control) {
                     /**
                      * Bind change of setting.
                      */
@@ -29,7 +29,7 @@
                          * Match the panel number in the control ID.
                          * @type {Array|null}
                          */
-                        var panelNumber = control.id.match(/photographia_panel_(\d)_content_type/);
+                        var panelNumber = control.id.match(/photographus_panel_(\d)_content_type/);
                         /**
                          * Check if we have a match.
                          */
@@ -62,7 +62,7 @@
                                      * Loop through the array and deactivate all controls.
                                      */
                                     controlsHideArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).deactivate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).deactivate();
                                     });
                                     break;
                                 /**
@@ -87,12 +87,12 @@
                                      * Loop through the array and deactivate all controls.
                                      */
                                     controlsHideArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).deactivate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).deactivate();
                                     });
                                     /**
                                      * Activate the post control.
                                      */
-                                    wp.customize.control('photographia_panel_' + panelNumber + '_post').activate();
+                                    wp.customize.control('photographus_panel_' + panelNumber + '_post').activate();
                                     break;
                                 /**
                                  * The content type was switched to »page«.
@@ -116,12 +116,12 @@
                                      * Loop through the array and deactivate all controls.
                                      */
                                     controlsHideArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).deactivate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).deactivate();
                                     });
                                     /**
                                      * Activate the page control.
                                      */
-                                    wp.customize.control('photographia_panel_' + panelNumber + '_page').activate();
+                                    wp.customize.control('photographus_panel_' + panelNumber + '_page').activate();
                                     break;
                                 /**
                                  * The content type was switched to »Latest Posts«.
@@ -143,7 +143,7 @@
                                      * Loop through the array and deactivate the controls.
                                      */
                                     controlsHideArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).deactivate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).deactivate();
                                     });
                                     /**
                                      * Build array with controls which needs to be activated.
@@ -158,7 +158,7 @@
                                      * Loop through the array and activate the controls.
                                      */
                                     controlsShowArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).activate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).activate();
                                     });
                                     break;
                                 /**
@@ -180,7 +180,7 @@
                                      * Loop through the array and deactivate the controls.
                                      */
                                     controlsHideArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).deactivate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).deactivate();
                                     });
                                     /**
                                      * Build array with controls which needs to be activated.
@@ -196,7 +196,7 @@
                                      * Loop through the array and activate the controls.
                                      */
                                     controlsShowArray.forEach(function (value, index, array) {
-                                        wp.customize.control('photographia_panel_' + panelNumber + value).activate();
+                                        wp.customize.control('photographus_panel_' + panelNumber + value).activate();
                                     });
                                     break;
                             }

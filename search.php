@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 get_header(); ?>
@@ -49,7 +49,7 @@ get_header(); ?>
 					</article>
 					<?php
 				}
-				photographia_the_posts_pagination(); ?>
+				photographus_the_posts_pagination(); ?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>

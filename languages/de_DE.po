@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Photographia\n"
+"Project-Id-Version: Photographus\n"
 "POT-Creation-Date: 2017-05-09 18:53+0200\n"
 "PO-Revision-Date: 2017-05-09 18:57+0200\n"
 "Last-Translator: \n"
@@ -48,7 +48,7 @@ msgid ""
 "Welcome to your site! This is your homepage, which is what most visitors "
 "will see when they come to your site for the first time.\n"
 "\t\t\t\t\t\n"
-"\t\t\t\t\tThe »Photographia« theme lets you use different areas for the "
+"\t\t\t\t\tThe »Photographus« theme lets you use different areas for the "
 "front page, so-called »panels«. With that, you can display different content "
 "types on the front page: You can choose from a grid of your latest gallery "
 "and image posts, a list of your latest posts or a single page/post.\n"
@@ -59,7 +59,7 @@ msgstr ""
 "Willkommen zu deiner Site! Das ist die Homepage, die die meisten Nutzer "
 "sehen werden, wenn sie zuerst auf deine Site kommen.\n"
 "\t\t\t\t\t\n"
-"\t\t\t\t\tDas »Photographia«-Theme lässt dich verschiedene Bereiche auf der "
+"\t\t\t\t\tDas »Photographus«-Theme lässt dich verschiedene Bereiche auf der "
 "Startseite nutzen, sogenannte »Panels«. Damit kannst du verschiedene Inhalts-"
 "Typen auf der Startseite anzeigen: Du kannst aus einem Grid deiner letzten "
 "Galerie- und Bild-Beiträge, einer Liste deiner neuesten Beiträge oder einem "
@@ -291,13 +291,13 @@ msgstr ""
 
 #: inc/theme-updates.php:27
 msgid ""
-"Paste your download link for »Photographia« to enable automatic theme "
+"Paste your download link for »Photographus« to enable automatic theme "
 "updates."
 msgstr ""
 
 #: inc/theme-updates.php:77
 msgid ""
-"https://florianbrinkmann.com/en/wordpress-themes/photographia/changelog/"
+"https://florianbrinkmann.com/en/wordpress-themes/photographus/changelog/"
 msgstr ""
 
 #. translators: hidden screen reader headline for the main navigation
@@ -307,7 +307,7 @@ msgstr ""
 
 #: partials/footer/theme-author.php:13
 #, php-format
-msgid "Theme: Photographia by %s"
+msgid "Theme: Photographus by %s"
 msgstr ""
 
 #. Author URI of the plugin/theme
@@ -346,11 +346,11 @@ msgid "Sidebar"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Photographia"
+msgid "Photographus"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://florianbrinkmann.com/en/wordpress-themes/photographia/"
+msgid "https://florianbrinkmann.com/en/wordpress-themes/photographus/"
 msgstr ""
 
 #. Description of the plugin/theme

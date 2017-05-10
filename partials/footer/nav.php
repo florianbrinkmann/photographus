@@ -4,14 +4,14 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 if ( has_nav_menu( 'footer' ) ) { ?>
 	<nav class="secondary-nav-container">
 		<h2 class="screen-reader-text">
 			<?php /* translators: hidden screen reader headline for the main navigation */
-			_e( 'Footer navigation', 'photographia' ); ?>
+			_e( 'Footer navigation', 'photographus' ); ?>
 		</h2>
 		<?php wp_nav_menu(
 			[

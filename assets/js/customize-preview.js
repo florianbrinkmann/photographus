@@ -3,7 +3,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 ;(function () {
     document.addEventListener('DOMContentLoaded', function () {

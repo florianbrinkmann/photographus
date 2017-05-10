@@ -4,14 +4,14 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 	<aside class="sidebar" role="complementary">
 		<h2 class="screen-reader-text">
 			<?php /* translators: screen reader text for the sidebar */
-			_e( 'Sidebar', 'photographia' ) ?></h2>
+			_e( 'Sidebar', 'photographus' ) ?></h2>
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</aside>
 <?php }

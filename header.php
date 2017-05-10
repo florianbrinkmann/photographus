@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 ?>
@@ -26,7 +26,7 @@
 	 *
 	 * @param string $header_classes string of additional classes.
 	 */
-	$header_classes = apply_filters( 'photographia_additional_header_classes', '' ); ?>
+	$header_classes = apply_filters( 'photographus_additional_header_classes', '' ); ?>
 	<header class="site-header clearfix <?php echo $header_classes; ?>"
 	        role="banner"
 		<?php
@@ -34,7 +34,7 @@
 		 * Includes a inline style with header image as full background, if we are on the front page
 		 * with panels.
 		 */
-		photographia_the_front_page_header_image(); ?>
+		photographus_the_front_page_header_image(); ?>
 	>
 		<div class="primary-header">
 			<div class="branding">
@@ -54,5 +54,5 @@
 		/**
 		 * Display a scroll down arrow if we have a header image and are on the front page with panels.
 		 */
-		photographia_the_scroll_arrow_icon(); ?>
+		photographus_the_scroll_arrow_icon(); ?>
 	</header>

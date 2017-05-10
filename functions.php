@@ -2,7 +2,7 @@
 /**
  * Functions file. Includes the different files with the functions.
  *
- * @package Photographia
+ * @package Photographus
  */
 
 /**

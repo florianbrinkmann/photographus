@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 get_header(); ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 					 */
 					get_template_part( 'partials/post/content', 'none' );
 				}
-				photographia_the_posts_pagination(); ?>
+				photographus_the_posts_pagination(); ?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>

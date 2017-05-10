@@ -4,16 +4,16 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 ?>
 <p class="theme-author">
 	<?php printf(
-		__( 'Theme: Photographia by %s', 'photographia' ),
+		__( 'Theme: Photographus by %s', 'photographus' ),
 		sprintf(
 			'<a rel="nofollow" href="%s">Florian Brinkmann</a>',
-			__( 'https://florianbrinkmann.com/en/', 'photographia' )
+			__( 'https://florianbrinkmann.com/en/', 'photographus' )
 		)
 	); ?>
 </p>

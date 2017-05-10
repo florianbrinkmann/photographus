@@ -1,10 +1,10 @@
 {
-  "name": "photographia",
+  "name": "photographus",
   "version": "1.0.0",
-  "description": "Photographia WordPress theme",
+  "description": "Photographus WordPress theme",
   "repository": {
     "type": "git",
-    "url": "https://florianbrinkmann@gitlab.com/florianbrinkmann/photographia.git"
+    "url": "https://florianbrinkmann@gitlab.com/florianbrinkmann/photographus.git"
   },
   "author": "Florian Brinkmann",
   "license": "GPLv2 or later",

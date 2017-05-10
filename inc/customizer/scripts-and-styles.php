@@ -4,13 +4,13 @@
  *
  * @version 1.0.0
  *
- * @package Photographia
+ * @package Photographus
  */
 
 /**
  * Prints CSS inside header
  */
-function photographia_customizer_css() {
+function photographus_customizer_css() {
 	/**
 	 * Check if Header text should be displayed. Otherwise hide it.
 	 */
@@ -31,26 +31,26 @@ function photographia_customizer_css() {
 	<?php }
 }
 
-add_action( 'wp_head', 'photographia_customizer_css' );
+add_action( 'wp_head', 'photographus_customizer_css' );
 
 /**
  * Prints styles for the customize controls.
  */
-function photographia_customize_controls_styles() {
-	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographia' );
-	$header_image_description  = __( 'The header image is only displayed on the front page if you have panels with content.', 'photographia' ); ?>
+function photographus_customize_controls_styles() {
+	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographus' );
+	$header_image_description  = __( 'The header image is only displayed on the front page if you have panels with content.', 'photographus' ); ?>
 	<style>
 		#customize-control-header_image .customizer-section-intro::before {
 			content: '<?php echo $header_image_description; ?>';
 			display: block;
 		}
 
-		#customize-control-photographia_panel_1_content_type::before {
+		#customize-control-photographus_panel_1_content_type::before {
 			content: '<?php echo $panel_section_description; ?>';
 			display: block;
 		}
 
-		#sub-accordion-section-photographia_options [id*="_content_type"] > label::before {
+		#sub-accordion-section-photographus_options [id*="_content_type"] > label::before {
 			background: #ddd;
 			content: '';
 			display: block;
@@ -61,7 +61,7 @@ function photographia_customize_controls_styles() {
 			width: 100%;
 		}
 
-		#sub-accordion-section-photographia_options [id*="_content_type"] > label {
+		#sub-accordion-section-photographus_options [id*="_content_type"] > label {
 			display: block;
 			margin-top: 1em;
 			position: relative;
@@ -69,12 +69,12 @@ function photographia_customize_controls_styles() {
 	</style>
 <?php }
 
-add_action( 'customize_controls_print_styles', 'photographia_customize_controls_styles', 999 );
+add_action( 'customize_controls_print_styles', 'photographus_customize_controls_styles', 999 );
 
 /**
  * Prints styles for the customize controls.
  */
-function photographia_customize_preview_styles() {
+function photographus_customize_preview_styles() {
 	if ( is_customize_preview() ) { ?>
 		<style>
 			span[class*="_content_type_partial"] {
@@ -85,13 +85,13 @@ function photographia_customize_preview_styles() {
 	}
 }
 
-add_action( 'wp_head', 'photographia_customize_preview_styles', 999 );
+add_action( 'wp_head', 'photographus_customize_preview_styles', 999 );
 
 /**
  * Prints styles inside the customizer view.
  */
-function photographia_customizer_contols_script() {
-	wp_enqueue_script( 'photographia-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], null, true );
+function photographus_customizer_contols_script() {
+	wp_enqueue_script( 'photographus-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], null, true );
 }
 
-add_action( 'customize_controls_enqueue_scripts', 'photographia_customizer_contols_script', 999 );
+add_action( 'customize_controls_enqueue_scripts', 'photographus_customizer_contols_script', 999 );
