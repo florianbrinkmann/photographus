@@ -65,7 +65,7 @@ function photographus_filter_body_classes( $classes ) {
 	 * Add -no-sidebar class if we have no sidebar or are on a page
 	 * with the front page template.
 	 */
-	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) || $no_sidebar_pos !== false ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) || ( is_singular() && $no_sidebar_pos !== false ) ) {
 		$classes[] .= '-no-sidebar';
 	} else {
 		$classes[] .= '-with-sidebar';
