@@ -36,11 +36,27 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 	 * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo
 	 */
 	function photographus_add_theme_support() {
+		/**
+		 * Add theme support for custom header image (only use height so that WordPress does not
+		 * show a recommended height of 0).
+		 */
 		add_theme_support( 'custom-header', [
 			'height' => 1000,
 		] );
+
+		/**
+		 * Add theme support for feed links (blog feed, comment feeds, …)
+		 */
 		add_theme_support( 'automatic-feed-links' );
+
+		/**
+		 * Add theme support for the title tag.
+		 */
 		add_theme_support( 'title-tag' );
+
+		/**
+		 * Add theme support for the post formats.
+		 */
 		add_theme_support( 'post-formats', [
 			'aside',
 			'link',
@@ -52,6 +68,10 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 			'audio',
 			'chat',
 		] );
+
+		/**
+		 * Add theme support for HTML5 markup in Core elements.
+		 */
 		add_theme_support( 'html5', [
 			'comment-list',
 			'comment-form',
@@ -59,8 +79,20 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 			'gallery',
 			'caption',
 		] );
+
+		/**
+		 * Add theme support for post thumbnails.
+		 */
 		add_theme_support( 'post-thumbnails' );
+
+		/**
+		 * Add theme support for the custom logo feature.
+		 */
 		add_theme_support( 'custom-logo' );
+
+		/**
+		 * Add theme support for selective refresh for widgets.
+		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
@@ -107,7 +139,7 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 				'sidebar-1' => [
 					'search',
 					'text_about',
-				]
+				],
 			],
 
 			/**
@@ -147,14 +179,8 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 				/**
 				 * Set the values for the second front page panel.
 				 */
-				'photographus_panel_2_content_type'               => 'page',
-				'photographus_panel_2_page'                       => '{{snowy-landscape}}',
-
-				/**
-				 * Set the values for the third front page panel.
-				 */
-				'photographus_panel_2_content_type'               => 'page',
-				'photographus_panel_2_page'                       => '{{about}}',
+				'photographus_panel_2_content_type'               => 'post',
+				'photographus_panel_2_post'                       => '{{snowy-landscape}}',
 			],
 		] );
 	}
