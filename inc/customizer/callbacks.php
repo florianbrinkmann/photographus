@@ -35,7 +35,7 @@ function photographus_sanitize_checkbox( $checked ) {
  * Sanitization callback for 'select' and 'radio' type controls. This callback sanitizes `$input`
  * as a slug, and then validates `$input` against the choices defined for the control.
  *
- * @link https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php
+ * @link  https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php
  *
  * @link  sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
  * @link  $wp_customize->get_control()

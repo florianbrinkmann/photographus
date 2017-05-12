@@ -188,6 +188,32 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 
 add_action( 'after_setup_theme', 'photographus_add_theme_support' );
 
+if ( ! function_exists( 'photographus_add_editor_style' ) ) {
+	/**
+	 * Adds editor styles for the backend editor.
+	 */
+	function photographus_add_editor_style() {
+		/**
+		 * Add stylesheet and font.
+		 */
+		if ( is_rtl() ) {
+			add_editor_style( [
+				'assets/css/editor-style-rtl.css',
+				photographus_fonts_url(),
+			] );
+		} else {
+			add_editor_style( [
+				'assets/css/editor-style.css',
+				photographus_fonts_url(),
+			] );
+		}
+
+	}
+}
+
+add_action( 'after_setup_theme', 'photographus_add_editor_style' );
+
+
 if ( ! function_exists( 'photographus_register_menus' ) ) {
 	/**
 	 * Register Menus
@@ -256,12 +282,16 @@ if ( ! function_exists( 'photographus_scripts_styles' ) ) {
 		/**
 		 * Enqueue the Photographus stylesheet.
 		 */
-		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], null );
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus-rtl.css' ), [], null );
+		} else {
+			wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], null );
+		}
 
 		/**
 		 * Enqueue the PT Serif font from Google fonts.
 		 */
-		wp_enqueue_style( 'photographus-font', 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i', [], null );
+		wp_enqueue_style( 'photographus-font', photographus_fonts_url(), [], null );
 
 		/**
 		 * Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the

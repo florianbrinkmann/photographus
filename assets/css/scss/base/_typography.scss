@@ -194,3 +194,16 @@ blockquote cite {
 
 	@include line-height-and-spaces(1.4);
 }
+
+/* Do not use strong and italic text.
+   ========================================================================== */
+
+em > strong {
+	font-weight: bold;
+	font-style: normal;
+}
+
+strong > em {
+	font-style: italic;
+	font-weight: normal;
+}

@@ -1,0 +1,47 @@
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "base/html";
+@import "base/reset";
+@import "base/normalize";
+@import "base/media";
+@import "base/typography";
+@import "base/buttons";
+@import "base/lists";
+@import "base/tables";
+
+html {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1.4rem;
+
+	@media screen and (min-width: 40em) {
+		padding-left: 2.1rem;
+		padding-right: 2.1rem;
+	}
+
+	@media screen and (min-width: 45em) {
+		padding-left: 2.8rem;
+		padding-right: 2.8rem;
+	}
+}
+
+body,
+.mce-content-body p, .mce-content-body div, .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.wp-caption-dd {
+	font-size: $font-size-small;
+	margin-top: add-unit($space-quarter, 'em');
+
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
+
+		margin-top: add-unit($space-quarter, 'em');
+
+		@include line-height-and-spaces(1.4);
+	}
+}
