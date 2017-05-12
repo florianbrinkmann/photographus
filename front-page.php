@@ -63,14 +63,15 @@ get_header(); ?>
 					 * Include partials/post/content-none.php if no posts were found.
 					 */
 					get_template_part( 'partials/post/content', 'none' );
-				}
+				} // End if().
 
 				/**
 				 * Panels
 				 */
 				if ( 0 !== $panel_number ) {
 					photographus_the_front_page_panels();
-				} ?>
+				}
+				photographus_the_posts_pagination(); ?>
 			</main>
 		</div>
 		<?php if ( 0 === $panel_number ) {
