@@ -14,7 +14,7 @@ Photographus is a theme meant photo bloggers or photographers.
 ### Front page panels
 
 If you have a static front page, you can display multiple content blocks inside so-called »panels«. 
-To do that, go into »Design« › »Customize« › »Theme options« after setting a static front page. 
+To do that, go to »Appearance« › »Customize« › »Theme options« after setting a static front page. 
 Important: The panel option in the customizer is only visible if you are previewing the static front page.
 
 After doing so, you can choose from the following options for each of the four front page panels:
