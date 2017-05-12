@@ -1298,7 +1298,7 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
 					     enable-background="new 0 0 16 16" xml:space="preserve"><polygon
-							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
+								points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
 		<?php } else {
@@ -1326,4 +1326,38 @@ if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
 	function photographus_is_wp_comments_post() {
 		return in_array( $GLOBALS['pagenow'], [ 'wp-comments-post.php' ], true );
 	}
+}
+
+/**
+ * Register custom fonts.#
+ *
+ * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
+ *
+ * @return string
+ */
+function photographus_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by PT Serif, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$pt_serif = __( 'on', 'photographus' );
+
+	if ( 'off' !== $pt_serif ) {
+		$font_families = [];
+
+		$font_families[] = 'PT Serif:400,400i,700';
+
+		$query_args = [
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			/* translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext */
+			'subset' => rawurlencode( __( 'latin,latin-ext', 'photographus' ) ),
+		];
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
 }
