@@ -130,7 +130,7 @@ function photographus_cache_update_on_post_update( $new_status, $old_status, $po
 		return;
 	}
 
-	if ( $new_status === $old_status ) {
+	if ( $new_status === $old_status && 'publish' !== $new_status ) {
 		return;
 	}
 	photographus_refresh_latest_posts_cache();
