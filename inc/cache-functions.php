@@ -126,10 +126,16 @@ if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
  * @param WP_Post $post       Post object.
  */
 function photographus_cache_update_on_post_update( $new_status, $old_status, $post ) {
+	/**
+	 * Check if neither the old post status nor the new status is publish. Return if that is true.
+	 */
 	if ( 'publish' !== $new_status && 'publish' !== $old_status ) {
 		return;
 	}
 
+	/**
+	 * Return if the new and old status are the same but not publish.
+	 */
 	if ( $new_status === $old_status && 'publish' !== $new_status ) {
 		return;
 	}
