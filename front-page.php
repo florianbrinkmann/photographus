@@ -36,6 +36,12 @@ get_header(); ?>
 
 							} else {
 								/**
+								 * Temporarily set the $panel_number to 0 so the section of the home page doesn
+								 * not get the same ID like the first front page panel.
+								 */
+								$panel_numner_tmp = $panel_number;
+								$panel_number     = 0;
+								/**
 								 * Get the template part file partials/front-page/content-post-and-page-panel.php.
 								 * Here we use include(locate_template()) to have access to the $panel_number var
 								 * in the partial.
@@ -43,6 +49,11 @@ get_header(); ?>
 								 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
 								 */
 								include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+
+								/**
+								 * Reset the $panel_number to the correct value.
+								 */
+								$panel_number = $panel_numner_tmp;
 							}
 						} else {
 							if ( is_page() ) {
