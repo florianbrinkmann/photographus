@@ -26,6 +26,12 @@ html {
 	}
 }
 
+body {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
 .wp-caption-dd {
 	font-size: $font-size-small;
 	margin-top: add-unit($space-quarter, 'em');
