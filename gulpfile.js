@@ -15,7 +15,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('sass-rtl', function () {
-	return gulp.src('assets/css/*.css')
+	return gulp.src(['assets/css/*.css', '!assets/css/*-rtl.css'])
 		.pipe(flipper())
 		.pipe(rename(
 			{suffix: "-rtl"}
@@ -31,7 +31,7 @@ gulp.task('sass-production', function () {
 });
 
 gulp.task('sass:watch', ['sass', 'sass-rtl'], function () {
-	gulp.watch('assets/css/scss/**/*.scss', ['sass']);
+	gulp.watch('assets/css/scss/**/*.scss', ['sass', 'sass-rtl']);
 });
 
 gulp.task('default', ['sass:watch']);
