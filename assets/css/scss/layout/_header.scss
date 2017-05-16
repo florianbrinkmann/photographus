@@ -72,7 +72,7 @@
 
 .primary-header {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: $layout-max-width;
 	text-align: center;
 	padding: add-unit($space-double, 'em') add-unit($space) 0;
 

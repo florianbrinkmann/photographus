@@ -11,7 +11,7 @@
 @import "base/tables";
 
 html {
-	max-width: 1200px;
+	max-width: $layout-max-width;
 	margin: 0 auto;
 	padding: 0 1.4rem;
 

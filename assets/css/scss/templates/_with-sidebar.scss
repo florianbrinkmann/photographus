@@ -9,14 +9,14 @@
 @media screen and (min-width: 60em) {
 	@include line-height-and-spaces(1.5);
 	.-with-sidebar .content-wrapper {
-		max-width: 1200px;
+		max-width: $layout-max-width;
 		margin: 0 auto;
 	}
 
 	.-with-sidebar .main {
 		float: left;
 		padding-right: add-unit($space, 'em');
-		width: 70%;
+		width: 68%;
 	}
 
 	.-with-sidebar .entry-header > div,
@@ -41,11 +41,11 @@
 		display: block;
 		float: right;
 		position: relative;
-		width: calc(100% + ((100vw - 1200px - 2.8rem) / 4));
+		width: calc(100% + ((100vw - #{$layout-max-width} - 2.8rem) / 4));
 	}
 
 	.-with-sidebar .entry-content .full-bleed-img {
-		width: calc(100% + ((100vw - 1200px - 2.8rem) / 4) + 1.3rem);
+		width: calc(100% + ((100vw - #{$layout-max-width} - 2.8rem) / 4) + 1.3rem);
 
 		&::after {
 			@include clearfix;

@@ -80,7 +80,7 @@
 .frontpage-section-title {
 	font-size: 1.802em;
 	line-height: line-height(1.802, 1.5);
-	max-width: 1200px;
+	max-width: $layout-max-width;
 	margin: 0 auto;
 	@include padding-left-and-right($space);
 	text-align: center;
