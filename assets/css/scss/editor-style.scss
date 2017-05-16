@@ -26,13 +26,6 @@ html {
 	}
 }
 
-body,
-.mce-content-body p, .mce-content-body div, .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-}
-
 .wp-caption-dd {
 	font-size: $font-size-small;
 	margin-top: add-unit($space-quarter, 'em');
