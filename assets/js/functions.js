@@ -107,7 +107,7 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
 					gutter: 0,
 					transitionDuration: 0,
 					resize: true,
-					fitWidth: true
+					fitWidth: true,
 				});
 			}
 		} else if (w < 730 && msnry) {

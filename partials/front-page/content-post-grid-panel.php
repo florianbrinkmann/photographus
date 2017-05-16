@@ -40,8 +40,8 @@ $post_thumbnail_img_element = wp_get_attachment_image( $post_thumbnail_id, $size
 <article class="gallery-grid-item<?php echo $gallery_grid_item_class; ?>"
          style="max-width: <?php echo $post_thumbnail[1]; ?>px;">
 	<a href="<?php the_permalink(); ?>">
-		<figure class="post-thumbnail" aria-hidden="true" width="<?php echo $post_thumbnail[1]; ?>"
-		        height="<?php echo $post_thumbnail[2]; ?>">
+		<figure class="post-thumbnail" aria-hidden="true"
+		        style="width:<?php echo $post_thumbnail[1]; ?>px; height:<?php echo $post_thumbnail[2]; ?>px;">
 			<?php echo $post_thumbnail_img_element ?>
 		</figure>
 		<div>
