@@ -29,7 +29,7 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 				 */
 				$panel_content_type = get_theme_mod( "photographus_panel_{$i}_content_type" );
 
-				if ( 'latests-posts' === $panel_content_type ) {
+				if ( 'latest-posts' === $panel_content_type ) {
 					/**
 					 * Get the number of posts which should be displayed.
 					 */
@@ -41,7 +41,7 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 		} else {
 			$panel_content_type = get_theme_mod( "photographus_panel_{$panel_number}_content_type" );
 
-			if ( 'latests-posts' === $panel_content_type ) {
+			if ( 'latest-posts' === $panel_content_type ) {
 				/**
 				 * Get the number of posts which should be displayed.
 				 */
