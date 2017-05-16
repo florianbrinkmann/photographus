@@ -126,10 +126,15 @@ if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
  * @param WP_Post $post       Post object.
  */
 function photographus_cache_update_on_post_update( $new_status, $old_status, $post ) {
-	if ( 'publish' === $new_status && 'post' === $post->post_type ) {
-		photographus_refresh_latest_posts_cache();
-		photographus_refresh_post_grid_posts_cache();
+	if ( 'publish' !== $new_status && 'publish' !== $old_status ) {
+		return;
 	}
+
+	if ( $new_status === $old_status ) {
+		return;
+	}
+	photographus_refresh_latest_posts_cache();
+	photographus_refresh_post_grid_posts_cache();
 }
 
 add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 3 );
