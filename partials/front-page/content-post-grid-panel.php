@@ -25,10 +25,20 @@ $size = apply_filters( 'photographus_post_grid_thumbnail_size', 'medium' );
 $post_thumbnail = wp_get_attachment_image_src( $post_thumbnail_id, $size );
 
 /**
+ * Add class to gallery grid item if the titles are hidden.
+ */
+if ( true === $hide_gallery_titles ) {
+	$gallery_grid_item_class = ' -hidden-title';
+} else {
+	$gallery_grid_item_class = '';
+}
+
+/**
  * Get the post thumbnail img element with responsive images.
  */
 $post_thumbnail_img_element = wp_get_attachment_image( $post_thumbnail_id, $size ); ?>
-<article class="gallery-grid-item" style="max-width: <?php echo $post_thumbnail[1]; ?>px;">
+<article class="gallery-grid-item<?php echo $gallery_grid_item_class; ?>"
+         style="max-width: <?php echo $post_thumbnail[1]; ?>px;">
 	<a href="<?php the_permalink(); ?>">
 		<figure class="post-thumbnail" aria-hidden="true" width="<?php echo $post_thumbnail[1]; ?>"
 		        height="<?php echo $post_thumbnail[2]; ?>">

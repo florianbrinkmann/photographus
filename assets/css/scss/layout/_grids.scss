@@ -5,23 +5,15 @@
 /* Gallery grid
    ========================================================================== */
 
-.gallery-grid-section.-without-post-title .gallery-grid {
-	margin-top: calc(#{add-unit($space-double, 'em')} - 10px);
-}
-
-.gallery-grid-section.-without-post-title .gallery-grid-item {
-	margin-top: 10px;
-}
-
 .gallery-grid-wrapper {
-	margin-top: add-unit($space, 'em');
+	margin-top: add-unit($space-double, 'em');
 	text-align: center;
 	@include padding-left-and-right($space);
 
 	@media screen and (min-width: 50em) {
 		@include line-height-and-spaces(1.5);
 
-		margin-top: add-unit($space, 'em');
+		margin-top: add-unit($space-double, 'em');
 
 		@include line-height-and-spaces(1.4);
 	}
@@ -30,14 +22,4 @@
 .gallery-grid {
 	margin-left: auto;
 	margin-right: auto;
-}
-
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	.without-post-title .gallery-grid {
-		margin-top: calc(#{add-unit($space-double, 'em')} - 10px);
-	}
-
-	@include line-height-and-spaces(1.4);
 }
