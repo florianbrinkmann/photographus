@@ -7,8 +7,7 @@
 }
 
 .-with-sidebar {
-	.gallery-size-full .full-bleed-img,
-	.gallery-size-large .full-bleed-img {
+	.entry-content .full-bleed-img {
 		width: calc(100% + ((100vw - 1200px - 2.8rem) / 4) + 1.3rem);
 	}
 }
