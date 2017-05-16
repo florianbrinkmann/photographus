@@ -14,8 +14,11 @@ h6 {
 	font-weight: 400;
 	margin: add-unit($space-and-half, 'em') 0 0;
 
-	+ * {
-		margin-top: add-unit($space-half, 'em') 0 0;
+	+ ul,
+	+ ol,
+	table,
+	dl {
+		margin-top: add-unit($space-half, 'em');
 	}
 }
 
@@ -54,6 +57,14 @@ h6 {
 	line-height: line-height(1, 1);
 }
 
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6 {
+	margin: add-unit($space-half, 'em') 0 0;
+}
+
 @media screen and (min-width: 50em) {
 	@include line-height-and-spaces(1.5);
 
@@ -65,8 +76,25 @@ h6 {
 	h6 {
 		margin: add-unit($space-and-half, 'em') 0 0;
 
-		+ * {
-			margin-top: add-unit($space-half, 'em') 0 0;
+		+ ul,
+		+ ol,
+		+ table,
+		+ dl {
+			margin-top: add-unit($space-half, 'em');
+		}
+	}
+
+	.entry-content,
+	.sidebar {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			+ * {
+				margin-top: add-unit($space-half, 'em') 0 0;
+			}
 		}
 	}
 
