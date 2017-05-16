@@ -19,7 +19,7 @@ Important: The panel option in the customizer is only visible if you are preview
 
 After doing so, you can choose from the following options for each of the four front page panels:
 
-* Display a grid of posts which has a post thumbnail. You can also hide the post titles, only show 
+* Display a grid of posts which has a post thumbnail. You can define the number of posts, hide the post titles, only show 
 posts with the post formats »Gallery« or »Image« and select a category.
 * Display the latest posts from your site. You can define the number of posts to show and optionally 
 show a short version, where only the header meta is displayed.
