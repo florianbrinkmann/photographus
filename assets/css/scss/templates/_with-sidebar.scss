@@ -6,6 +6,13 @@
 	width: 100%;
 }
 
+.-with-sidebar {
+	.gallery-size-full .full-bleed-img,
+	.gallery-size-large .full-bleed-img {
+		width: calc(100% + ((100vw - 1200px - 2.8rem) / 4) + 1.3rem);
+	}
+}
+
 @media screen and (min-width: 60em) {
 	@include line-height-and-spaces(1.5);
 	.-with-sidebar .content-wrapper {

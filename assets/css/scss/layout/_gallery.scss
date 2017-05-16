@@ -16,11 +16,18 @@
 	}
 }
 
-.gallery-size-large .gallery-item::after,
-.gallery-size-full .gallery-item::after {
-	clear: both;
-	content: '';
-	display: block;
+.gallery-size-large,
+.gallery-size-full {
+	margin: 0;
+}
+
+.gallery-size-large .gallery-item,
+.gallery-size-full .gallery-item {
+	margin: 0;
+
+	&::after {
+		@include clearfix;
+	}
 }
 
 .gallery-size-large .gallery-caption,
