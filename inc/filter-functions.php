@@ -7,6 +7,23 @@
  * @package Photographus
  */
 
+if ( ! function_exists( 'photographus_remove_more_link_scroll' ) ) {
+	/**
+	 * Removes the page jump after clicking on a read more link
+	 *
+	 * @param string $link Post permalink.
+	 *
+	 * @return string
+	 */
+	function photographus_remove_more_link_scroll( $link ) {
+		$link = preg_replace( '/#more-[0-9]+/', '', $link );
+
+		return $link;
+	}
+}
+
+add_filter( 'the_content_more_link', 'photographus_remove_more_link_scroll' );
+
 /**
  * Add classes to the header, if needed
  *
