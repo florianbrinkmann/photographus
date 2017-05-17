@@ -1,0 +1,30 @@
+/**
+ * It is a pity, but here come a few conditional styles for Edge (has render problems with the box-shadow on focus).
+ * @link: https://jeffclayton.wordpress.com/2015/04/07/css-hacks-for-windows-10-and-spartan-browser-preview/
+ */
+
+@supports (-ms-ime-align:auto) {
+	a {
+		box-shadow: inset 0 -1px 0 currentColor;
+		transition: none;
+
+		&:focus {
+			border-left: 4px solid $color-tundora;
+			border-right: 4px solid $color-tundora;
+			box-shadow: none;
+			margin-left: -4px;
+			margin-right: -4px;
+		}
+	}
+
+	.gallery-grid a:focus,
+	.img-link:focus {
+		border: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.img-link {
+		display: block;
+	}
+}
