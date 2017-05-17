@@ -28,3 +28,51 @@
 	content: '';
 	display: block;
 }
+
+@mixin ie_edge_link_fallback() {
+	a {
+		box-shadow: inset 0 -1px 0 currentColor;
+		transition: none;
+
+		&:focus {
+			border-left: 4px solid $color-tundora;
+			border-right: 4px solid $color-tundora;
+			box-shadow: none;
+			margin-left: -4px;
+			margin-right: -4px;
+		}
+	}
+
+	.gallery-grid a:focus,
+	.img-link:focus {
+		border: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.img-link {
+		display: block;
+	}
+
+	.entry-title > a {
+		transition: box-shadow .2s ease 0s;
+	}
+
+	.entry-title > a,
+	.entry-meta.-header > a {
+		box-shadow: inset 0 -1px 0 transparent;
+	}
+
+	.entry-title > a:active,
+	.entry-title > a:hover,
+	.entry-meta.-header > a:active,
+	.entry-meta.-header > a:hover {
+		box-shadow: inset 0 -1px 0 currentColor;
+	}
+
+	.entry-title > a:focus,
+	.entry-meta.-header > a:focus {
+		box-shadow: none;
+		transition: none;
+	}
+}
