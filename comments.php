@@ -72,7 +72,11 @@ if ( post_password_required() ) {
 			</h2>
 
 			<ul class="commentlist">
-				<?php wp_list_comments( [
+				<?php
+				/**
+				 * Display the pings in short version.
+				 */
+				wp_list_comments( [
 					'type'       => 'pings',
 					'short_ping' => true,
 					'per_page'   => $comment_args['number'],
@@ -88,10 +92,18 @@ if ( post_password_required() ) {
 		if ( ( isset( $trackback_number ) && $trackback_number > $comment_args['number'] ) || ( isset( $comment_number ) && $comment_number > $comment_args['number'] ) ) {
 			the_comments_navigation();
 		}
+
+		/**
+		 * Display comments closed hint if comments are closed but we already have comments.
+		 */
 		if ( ! comments_open() && get_comments_number() ) { ?>
 			<p class="nocomments"><?php _e( 'Comments are closed.', 'photographus' ); ?></p>
 		<?php }
-	}
+	} // End if().
+
+	/**
+	 * Display comment form with modified submit label.
+	 */
 	comment_form( [
 		'label_submit' => __( 'Submit Comment', 'photographus' ),
 	] ); ?>
