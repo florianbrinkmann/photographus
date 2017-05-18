@@ -2,7 +2,6 @@
  * It is a pity, but here come a few conditional styles for Edge (has render problems with the box-shadow on focus).
  * @link: https://jeffclayton.wordpress.com/2015/04/07/css-hacks-for-windows-10-and-spartan-browser-preview/
  */
-
 @supports (-ms-ime-align:auto) {
 	@include ie_edge_link_fallback;
 }

@@ -2,7 +2,6 @@
  * It is a pity, but here come a few conditional styles for IE (has render problems with the box-shadow on focus).
  * @link: https://jeffclayton.wordpress.com/2014/07/22/internet-explorer-css-hacks-collection/
  */
-
 @media screen\0 {
 	@include ie_edge_link_fallback;
 }
