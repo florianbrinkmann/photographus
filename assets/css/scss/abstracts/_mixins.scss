@@ -84,4 +84,13 @@
 		border-right: 4px solid $color-white;
 		box-shadow: none;
 	}
+
+	.-dark-mode {
+		a:focus {
+			background: #eee;
+			border-left: 4px solid #eee;
+			border-right: 4px solid #eee;
+			box-shadow: none;
+		}
+	}
 }
