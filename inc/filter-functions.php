@@ -88,6 +88,14 @@ function photographus_filter_body_classes( $classes ) {
 		$classes[] .= '-with-sidebar';
 	}
 
+	/**
+	 * Add .-dark-mode class if dark mode option is enabled.
+	 */
+	$dark_mode = get_theme_mod( 'photographus_dark_mode', false );
+	if ( true === $dark_mode ) {
+		$classes[] .= '-dark-mode';
+	}
+
 	return $classes;
 }
 
