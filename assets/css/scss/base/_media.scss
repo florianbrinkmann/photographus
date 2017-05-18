@@ -136,7 +136,7 @@ figcaption {
 }
 
 .img-link,
-.attachment a {
+figure[id^='attachment_'] > a {
 	@include no-link-style;
 }
 
