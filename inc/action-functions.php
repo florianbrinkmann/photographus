@@ -128,6 +128,7 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 				'blog',
 				'snowy-landscape' => [
 					'post_type'  => 'post',
+					'post_name'  => 'snowy-landscape',
 					'post_title' => 'Snowy Landscape',
 				],
 			],
