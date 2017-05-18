@@ -36,7 +36,7 @@
 		 */
 		photographus_the_front_page_header_image(); ?>
 	>
-		<div class="primary-header">
+		<div class="primary-header -inverted-link-style">
 			<div class="branding">
 				<?php
 				/**

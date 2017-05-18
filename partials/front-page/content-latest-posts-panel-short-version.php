@@ -9,7 +9,7 @@
 
 ?>
 <article>
-	<header class="entry-header">
+	<header class="entry-header -inverted-link-style">
 		<div>
 			<?php echo photographus_get_the_title( $heading_element, true );
 			echo photographus_get_the_entry_header_meta(); ?>

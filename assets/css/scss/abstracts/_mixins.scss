@@ -61,22 +61,28 @@
 		transition: box-shadow .2s ease 0s;
 	}
 
-	.entry-title > a,
-	.entry-meta.-header > a {
-		box-shadow: inset 0 -1px 0 transparent;
-	}
+	.-inverted-link-style {
+		a {
+			box-shadow: inset 0 -1px 0 transparent;
 
-	.entry-title > a:active,
-	.entry-title > a:hover,
-	.entry-meta.-header > a:active,
-	.entry-meta.-header > a:hover {
-		box-shadow: inset 0 -1px 0 currentColor;
-	}
+			&:active,
+			&:hover {
+				box-shadow: inset 0 -1px 0 currentColor;
+			}
 
-	.entry-title > a:focus,
-	.entry-meta.-header > a:focus {
-		box-shadow: none;
-		transition: none;
+			&:focus {
+				box-shadow: none;
+				transition: none;
+			}
+		}
+
+		.current-menu-item > a {
+			box-shadow: inset 0 -1px 0 currentColor;
+
+			&:focus {
+				box-shadow: inset 0 -1px 0 $color-tundora, 4px 0 0 $color-tundora, -4px 0 0 $color-tundora;
+			}
+		}
 	}
 
 	.site-header.-with-header-image .primary-nav a:focus {
@@ -88,13 +94,18 @@
 	.site-header.-with-header-image .scroll-link:focus {
 		border: none;
 	}
-	
+
 	.-dark-mode {
 		a:focus {
 			background: #eee;
 			border-left: 4px solid #eee;
 			border-right: 4px solid #eee;
 			box-shadow: none;
+		}
+
+		.-inverted-link-style a:focus {
+			box-shadow: none;
+			transition: none;
 		}
 	}
 }

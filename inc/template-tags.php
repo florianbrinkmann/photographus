@@ -69,9 +69,9 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
 			if ( is_page() && false === $latest_posts_panel ) {
-				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s</div>%1$s</header>';
+				$format = '%1$s<div><header class="entry-header -inverted-link-style"><div>%2$s%3$s</div>%1$s</header>';
 			} else {
-				$format = '%1$s<div><header class="entry-header"><div>%2$s%3$s%4$s</div>%1$s</header>';
+				$format = '%1$s<div><header class="entry-header -inverted-link-style"><div>%2$s%3$s%4$s</div>%1$s</header>';
 			}
 
 			/**
@@ -93,9 +93,9 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 			 * Closing div is inserted in the partials files (for example content.php)
 			 */
 			if ( is_page() && false === $latest_posts_panel ) {
-				$format = '<header class="entry-header"><div>%1$s%2$s</div>%4$s</header>';
+				$format = '<header class="entry-header -inverted-link-style"><div>%1$s%2$s</div>%4$s</header>';
 			} else {
-				$format = '<header class="entry-header"><div>%1$s%2$s%3$s</div>%4$s</header>';
+				$format = '<header class="entry-header -inverted-link-style"><div>%1$s%2$s%3$s</div>%4$s</header>';
 			}
 
 			/**
@@ -1298,7 +1298,7 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
 					     enable-background="new 0 0 16 16" xml:space="preserve"><polygon
-								points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
+							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
 		<?php } else {

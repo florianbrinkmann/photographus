@@ -76,27 +76,8 @@ article {
 	transition: left .2s ease 0s, box-shadow .2s ease 0s, background .2s ease 0s;
 }
 
-.entry-title > a,
-.entry-meta.-header > a {
-	box-shadow: inset 0 -1px 0 transparent;
-	box-shadow: inset 0 -1px 0 transparent, 4px 0 0 transparent, -4px 0 0 transparent;
-}
-
-.entry-title > a:active,
-.entry-title > a:hover,
-.entry-meta.-header > a:active,
-.entry-meta.-header > a:hover {
-	box-shadow: inset 0 -1px 0 currentColor;
-}
-
 .entry-title > a:focus {
 	left: 4px;
-}
-
-.entry-title > a:focus,
-.entry-meta.-header > a:focus {
-	box-shadow: inset 0 -3px 0 currentColor;
-	box-shadow: inset 0 -1px 0 $color-tundora, 4px 0 0 $color-tundora, -4px 0 0 $color-tundora;
 }
 
 .sticky .entry-header > div {

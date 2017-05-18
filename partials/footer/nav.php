@@ -8,7 +8,7 @@
  */
 
 if ( has_nav_menu( 'footer' ) ) { ?>
-	<nav class="secondary-nav-container">
+	<nav class="secondary-nav-container -inverted-link-style">
 		<h2 class="screen-reader-text">
 			<?php /* translators: hidden screen reader headline for the main navigation */
 			_e( 'Footer navigation', 'photographus' ); ?>
