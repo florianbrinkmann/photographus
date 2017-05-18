@@ -79,10 +79,18 @@ function photographus_filter_body_classes( $classes ) {
 	$no_sidebar_pos = strpos( $post_type_template, 'no-sidebar' );
 
 	/**
-	 * Add -no-sidebar class if we have no sidebar or are on a page
-	 * with the front page template.
+	 * Add -no-sidebar class in the following cases:
+	 * - if we have no sidebar.
+	 * - if we are on the static front page with panels.
+	 * - if we are on a single view with a no-sidebar template.
+	 * - if we are on a single view of an image attachment.
 	 */
-	if ( ! is_active_sidebar( 'sidebar-1' ) || ( is_front_page() && is_page() && 0 !== $front_page_panels ) || ( is_singular() && $no_sidebar_pos !== false ) ) {
+	if (
+		! is_active_sidebar( 'sidebar-1' )
+		|| ( is_front_page() && is_page() && 0 !== $front_page_panels )
+		|| ( is_singular() && false !== $no_sidebar_pos )
+		|| true === wp_attachment_is_image( get_the_ID() )
+	) {
 		$classes[] .= '-no-sidebar';
 	} else {
 		$classes[] .= '-with-sidebar';
