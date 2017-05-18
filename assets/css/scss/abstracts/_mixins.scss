@@ -85,6 +85,10 @@
 		box-shadow: none;
 	}
 
+	.site-header.-with-header-image .scroll-link:focus {
+		border: none;
+	}
+	
 	.-dark-mode {
 		a:focus {
 			background: #eee;
