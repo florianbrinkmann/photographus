@@ -20,7 +20,7 @@ if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 			}
 		}
 	}
-}
+} // End if().
 
 if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 	/**
@@ -880,7 +880,7 @@ if ( ! function_exists( 'photographus_get_latest_posts' ) ) {
 				$latest_posts->last_check = time();
 				set_transient( "photographus_latest_posts_panel_$panel_number", $latest_posts, 5 * WEEK_IN_SECONDS );
 			}
-		}
+		} // End if().
 
 		return $latest_posts;
 	}
@@ -959,7 +959,7 @@ if ( ! function_exists( 'photographus_get_post_grid_posts' ) ) {
 				$post_grid_posts->last_check = time();
 				set_transient( "photographus_post_grid_panel_$panel_number", $post_grid_posts, 5 * WEEK_IN_SECONDS );
 			}
-		}
+		} // End if().
 
 		return $post_grid_posts;
 	}
@@ -1050,8 +1050,8 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 						 * @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
 						 */
 						include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
-					}
-				} ?>
+					} // End if().
+				} // End while(). ?>
 			</section>
 		<?php } // End if().
 	}
