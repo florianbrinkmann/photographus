@@ -7,6 +7,14 @@
  * @package Photographus
  */
 
+add_filter( 'the_content_more_link', 'photographus_remove_more_link_scroll' );
+
+add_filter( 'photographus_additional_header_classes', 'photographus_filter_header_classes' );
+
+add_filter( 'body_class', 'photographus_filter_body_classes' );
+
+add_filter( 'post_class', 'photographus_filter_post_classes' );
+
 if ( ! function_exists( 'photographus_remove_more_link_scroll' ) ) {
 	/**
 	 * Removes the page jump after clicking on a read more link
@@ -21,8 +29,6 @@ if ( ! function_exists( 'photographus_remove_more_link_scroll' ) ) {
 		return $link;
 	}
 }
-
-add_filter( 'the_content_more_link', 'photographus_remove_more_link_scroll' );
 
 /**
  * Add classes to the header, if needed
@@ -50,8 +56,6 @@ function photographus_filter_header_classes( $classes ) {
 
 	return $classes;
 }
-
-add_filter( 'photographus_additional_header_classes', 'photographus_filter_header_classes' );
 
 /**
  * Add classes to the body, if needed
@@ -107,8 +111,6 @@ function photographus_filter_body_classes( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'photographus_filter_body_classes' );
-
 /**
  * Add classes to post_class()
  *
@@ -132,5 +134,3 @@ function photographus_filter_post_classes( $classes ) {
 
 	return $classes;
 }
-
-add_filter( 'post_class', 'photographus_filter_post_classes' );

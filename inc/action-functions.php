@@ -7,6 +7,20 @@
  * @package Photographus
  */
 
+add_action( 'after_setup_theme', 'photographus_load_translation' );
+
+add_action( 'after_setup_theme', 'photographus_set_content_width' );
+
+add_action( 'after_setup_theme', 'photographus_add_theme_support' );
+
+add_action( 'after_setup_theme', 'photographus_add_editor_style' );
+
+add_action( 'init', 'photographus_register_menus' );
+
+add_action( 'widgets_init', 'photographus_register_sidebars' );
+
+add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
+
 if ( ! function_exists( 'photographus_load_translation' ) ) {
 	/**
 	 * Load translation from languages directory
@@ -18,8 +32,6 @@ if ( ! function_exists( 'photographus_load_translation' ) ) {
 	}
 }
 
-add_action( 'after_setup_theme', 'photographus_load_translation' );
-
 if ( ! function_exists( 'photographus_set_content_width' ) ) {
 	/**
 	 * Set the content width.
@@ -28,8 +40,6 @@ if ( ! function_exists( 'photographus_set_content_width' ) ) {
 		$content_width = 751;
 	}
 }
-
-add_action( 'after_setup_theme', 'photographus_set_content_width' );
 
 if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 	/**
@@ -187,8 +197,6 @@ if ( ! function_exists( 'photographus_add_theme_support' ) ) {
 	}
 }
 
-add_action( 'after_setup_theme', 'photographus_add_theme_support' );
-
 if ( ! function_exists( 'photographus_add_editor_style' ) ) {
 	/**
 	 * Adds editor styles for the backend editor.
@@ -212,9 +220,6 @@ if ( ! function_exists( 'photographus_add_editor_style' ) ) {
 	}
 }
 
-add_action( 'after_setup_theme', 'photographus_add_editor_style' );
-
-
 if ( ! function_exists( 'photographus_register_menus' ) ) {
 	/**
 	 * Register Menus
@@ -228,8 +233,6 @@ if ( ! function_exists( 'photographus_register_menus' ) ) {
 		] );
 	}
 }
-
-add_action( 'init', 'photographus_register_menus' );
 
 if ( ! function_exists( 'photographus_register_sidebars' ) ) {
 	/**
@@ -263,8 +266,6 @@ if ( ! function_exists( 'photographus_register_sidebars' ) ) {
 		] );
 	}
 }
-
-add_action( 'widgets_init', 'photographus_register_sidebars' );
 
 if ( ! function_exists( 'photographus_scripts_styles' ) ) {
 	/**
@@ -327,5 +328,3 @@ if ( ! function_exists( 'photographus_scripts_styles' ) ) {
 		}
 	}
 }
-
-add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
