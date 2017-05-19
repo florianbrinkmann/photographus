@@ -1328,36 +1328,38 @@ if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
 	}
 }
 
-/**
- * Register custom fonts.#
- *
- * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
- *
- * @return string
- */
-function photographus_fonts_url() {
-	$fonts_url = '';
-
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by PT Serif, translate this to 'off'. Do not translate
-	 * into your own language.
+if ( ! function_exists( 'photographus_fonts_url' ) ) {
+	/**
+	 * Register custom fonts.
+	 *
+	 * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
+	 *
+	 * @return string
 	 */
-	$pt_serif = __( 'on', 'photographus' );
+	function photographus_fonts_url() {
+		$fonts_url = '';
 
-	if ( 'off' !== $pt_serif ) {
-		$font_families = [];
+		/*
+		 * Translators: If there are characters in your language that are not
+		 * supported by PT Serif, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$pt_serif = __( 'on', 'photographus' );
 
-		$font_families[] = 'PT Serif:400,400i,700';
+		if ( 'off' !== $pt_serif ) {
+			$font_families = [];
 
-		$query_args = [
-			'family' => rawurlencode( implode( '|', $font_families ) ),
-			/* translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext */
-			'subset' => rawurlencode( __( 'latin,latin-ext', 'photographus' ) ),
-		];
+			$font_families[] = 'PT Serif:400,400i,700';
 
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+			$query_args = [
+				'family' => rawurlencode( implode( '|', $font_families ) ),
+				/* translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext */
+				'subset' => rawurlencode( __( 'latin,latin-ext', 'photographus' ) ),
+			];
+
+			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		}
+
+		return esc_url_raw( $fonts_url );
 	}
-
-	return esc_url_raw( $fonts_url );
-}
+} // End if().
