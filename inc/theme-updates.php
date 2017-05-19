@@ -20,19 +20,19 @@ add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
  * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
 function photographus_update_customize_register( $wp_customize ) {
-	$wp_customize->add_setting( 'photographus_upgrade_url', array(
+	$wp_customize->add_setting( 'photographus_upgrade_url', [
 		'type'              => 'option',
 		'default'           => '',
 		'sanitize_callback' => 'photographus_esc_update_url',
-	) );
+	] );
 
 	if ( ! is_multisite() ) {
-		$wp_customize->add_control( 'photographus_upgrade_url', array(
+		$wp_customize->add_control( 'photographus_upgrade_url', [
 			'priority' => 1,
 			'type'     => 'url',
 			'section'  => 'photographus_options',
 			'label'    => __( 'Paste your download link for »Photographus« to enable automatic theme updates.', 'photographus' ),
-		) );
+		] );
 	}
 }
 
