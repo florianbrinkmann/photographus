@@ -15,19 +15,17 @@ add_filter( 'body_class', 'photographus_filter_body_classes' );
 
 add_filter( 'post_class', 'photographus_filter_post_classes' );
 
-if ( ! function_exists( 'photographus_remove_more_link_scroll' ) ) {
-	/**
-	 * Removes the page jump after clicking on a read more link
-	 *
-	 * @param string $link Post permalink.
-	 *
-	 * @return string
-	 */
-	function photographus_remove_more_link_scroll( $link ) {
-		$link = preg_replace( '/#more-[0-9]+/', '', $link );
+/**
+ * Removes the page jump after clicking on a read more link
+ *
+ * @param string $link Post permalink.
+ *
+ * @return string
+ */
+function photographus_remove_more_link_scroll( $link ) {
+	$link = preg_replace( '/#more-[0-9]+/', '', $link );
 
-		return $link;
-	}
+	return $link;
 }
 
 /**
