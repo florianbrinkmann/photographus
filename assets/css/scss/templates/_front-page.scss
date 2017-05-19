@@ -27,9 +27,14 @@
 			width: 100%;
 		}
 
-		> :first-child,
-		> div > :first-child {
+		> :first-child {
 			margin-top: 0;
+		}
+
+		> div > * {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 800px;
 		}
 	}
 
@@ -71,8 +76,11 @@
 	@media screen and (min-width: 80em) {
 		.entry-content.-large-portrait-featured-image-template > div > * {
 			margin-left: 0;
-			max-width: 800px;
 			padding-left: 0;
+		}
+
+		.entry-content.-large-portrait-featured-image-template > div > :first-child {
+			margin-top: 0;
 		}
 	}
 }
