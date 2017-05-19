@@ -7,6 +7,13 @@
  * @package Photographus
  */
 
+add_action( 'customize_register', 'photographus_update_customize_register', 12 );
+
+add_filter( 'pre_set_site_transient_update_themes', 'photographus_theme_update' );
+
+add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
+
+
 /**
  * Customizer settings for theme update
  *
@@ -29,12 +36,10 @@ function photographus_update_customize_register( $wp_customize ) {
 	}
 }
 
-add_action( 'customize_register', 'photographus_update_customize_register', 12 );
-
 /**
  * Escape URL and check if it matches a valid download format
  *
- * @param $url
+ * @param string $url Update URL from customizer control.
  *
  * @return string
  */
@@ -53,9 +58,9 @@ function photographus_esc_update_url( $url ) {
 /**
  * Checking for updates and updating the transient for theme updates
  *
- * @param $transient
+ * @param object $transient Transient object for theme updates.
  *
- * @return mixed
+ * @return object
  */
 function photographus_theme_update( $transient ) {
 	if ( empty( $transient->checked ) ) {
@@ -85,12 +90,10 @@ function photographus_theme_update( $transient ) {
 			} else {
 			}
 		}
-	}
+	} // End if().
 
 	return $transient;
 }
-
-add_filter( 'pre_set_site_transient_update_themes', 'photographus_theme_update' );
 
 /**
  * Fetch data of latest theme version
@@ -105,7 +108,7 @@ function photographus_fetch_data_of_latest_version() {
 
 /**
  * Remove upgrade URL option after switching the theme,
- * if the new theme is not photographus or a child theme of photographus
+ * if the new theme is not Photographus or a child theme of Photographus.
  */
 function photographus_remove_upgrade_url() {
 	$theme_object = wp_get_theme();
@@ -116,5 +119,3 @@ function photographus_remove_upgrade_url() {
 		delete_option( 'photographus_upgrade_url' );
 	}
 }
-
-add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
