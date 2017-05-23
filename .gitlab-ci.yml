@@ -32,10 +32,8 @@ deploy_staging:
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus"
     - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_modules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus
     - rsync -rav -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_modules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus
-    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes-for-docblock-parser"
-    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes-for-docblock-parser"
-    - ssh -p22 fbndev@aries.uberspace.de "cp -Rf /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus/ /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes-for-docblock-parser/photographus/"
-    - ssh -p22 fbndev@aries.uberspace.de "cp -Rf /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus/ /var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes-for-docblock-parser/photographus/"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser"
+    - ssh -p22 fbndev@aries.uberspace.de "cp -Rf /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus/ /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser/photographus/"
   environment:
     name: staging
   only:
