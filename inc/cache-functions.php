@@ -7,10 +7,6 @@
  * @package Photographus
  */
 
-add_action( 'wp_update_comment_count', 'photographus_refresh_latest_posts_cache', 10, 3 );
-
-add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 3 );
-
 if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 	/**
 	 * Forces cache refresh for latest posts panels. If the params are null, a post was updated, so we need to

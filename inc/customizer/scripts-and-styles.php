@@ -7,14 +7,6 @@
  * @package Photographus
  */
 
-add_action( 'wp_head', 'photographus_customizer_css' );
-
-add_action( 'customize_controls_print_styles', 'photographus_customize_controls_styles', 999 );
-
-add_action( 'wp_head', 'photographus_customize_preview_styles', 999 );
-
-add_action( 'customize_controls_enqueue_scripts', 'photographus_customizer_contols_script', 999 );
-
 /**
  * Prints CSS inside header.
  */

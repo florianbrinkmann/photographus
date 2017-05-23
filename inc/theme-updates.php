@@ -1,18 +1,11 @@
 <?php
 /**
- * Handling automatic theme updates
+ * Handling automatic theme updates.
  *
  * @version 1.0.0
  *
  * @package Photographus
  */
-
-add_action( 'customize_register', 'photographus_update_customize_register', 12 );
-
-add_filter( 'pre_set_site_transient_update_themes', 'photographus_theme_update' );
-
-add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
-
 
 /**
  * Customizer settings for theme update.

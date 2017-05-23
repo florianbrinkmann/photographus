@@ -7,8 +7,6 @@
  * @package Photographus
  */
 
-add_action( 'customize_register', 'photographus_customize_register', 11 );
-
 /**
  * Customizer settings
  *

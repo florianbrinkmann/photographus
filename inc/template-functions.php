@@ -1,25 +1,12 @@
 <?php
 /**
- * Theme functions that get hooked to actions.
+ * Functions that are not called from the template files
+ * and cannot be grouped together into another file.
  *
  * @version 1.0.0
  *
  * @package Photographus
  */
-
-add_action( 'after_setup_theme', 'photographus_load_translation' );
-
-add_action( 'after_setup_theme', 'photographus_set_content_width' );
-
-add_action( 'after_setup_theme', 'photographus_add_theme_support' );
-
-add_action( 'after_setup_theme', 'photographus_add_editor_style' );
-
-add_action( 'init', 'photographus_register_menus' );
-
-add_action( 'widgets_init', 'photographus_register_sidebars' );
-
-add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
 
 /**
  * Load translation from languages directory.
@@ -27,6 +14,28 @@ add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
 function photographus_load_translation() {
 	if ( ( ! defined( 'DOING_AJAX' ) && ! 'DOING_AJAX' ) || ! photographus_is_login_page() || ! photographus_is_wp_comments_post() ) {
 		load_theme_textdomain( 'photographus', get_template_directory() . '/languages' );
+	}
+}
+
+if ( ! function_exists( 'photographus_is_login_page' ) ) {
+	/**
+	 * Check if we are on the login page
+	 *
+	 * @return bool true if on login page, otherwise false.
+	 */
+	function photographus_is_login_page() {
+		return in_array( $GLOBALS['pagenow'], [ 'wp-login.php', 'wp-register.php' ], true );
+	}
+}
+
+if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
+	/**
+	 * Check if we are on the wp-comments-post.php
+	 *
+	 * @return bool true if on wp-comments-post.php, otherwise false.
+	 */
+	function photographus_is_wp_comments_post() {
+		return in_array( $GLOBALS['pagenow'], [ 'wp-comments-post.php' ], true );
 	}
 }
 
@@ -323,3 +332,243 @@ function photographus_scripts_styles() {
 		wp_add_inline_style( 'photographus-style', 'html{ background: #222; color: #eee } ' );
 	}
 }
+
+if ( ! function_exists( 'photographus_fonts_url' ) ) {
+	/**
+	 * Register custom fonts.
+	 *
+	 * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
+	 *
+	 * @return string Fonts URL.
+	 */
+	function photographus_fonts_url() {
+		$fonts_url = '';
+
+		/*
+		 * Translators: If there are characters in your language that are not
+		 * supported by PT Serif, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$pt_serif = __( 'on', 'photographus' );
+
+		if ( 'off' !== $pt_serif ) {
+			$font_families = [];
+
+			$font_families[] = 'PT Serif:400,400i,700';
+
+			$query_args = [
+				'family' => rawurlencode( implode( '|', $font_families ) ),
+				/* translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext */
+				'subset' => rawurlencode( __( 'latin,latin-ext', 'photographus' ) ),
+			];
+
+			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		}
+
+		return esc_url_raw( $fonts_url );
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
+	/**
+	 * Returns string for the number of trackbacks.
+	 *
+	 * @param array $comments_by_type array of type separated comments.
+	 *
+	 * @return string Trackback number text or empty string.
+	 */
+	function photographus_get_trackback_number_text( $comments_by_type ) {
+		/**
+		 * Check if we have pings, otherwise return empty string.
+		 */
+		if ( $comments_by_type['pings'] ) {
+			/**
+			 * Save the trackback count.
+			 */
+			$trackback_number = count( $comments_by_type['pings'] );
+
+			/**
+			 * Build the trackback number text.
+			 */
+			$trackback_number_text = sprintf( /* translators: s=trackback count */
+				__( 'Trackbacks: %s', 'photographus' ),
+				sprintf(
+					'<a href="%s#trackbacks-title">%s</a>',
+					get_permalink(),
+					number_format_i18n( $trackback_number )
+				)
+			);
+
+			return $trackback_number_text;
+		} else {
+			return '';
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
+	/**
+	 * Returns string for the number of comments.
+	 *
+	 * @param array $comments_by_type array of type separated comments.
+	 *
+	 * @return string Comments number text or empty string.
+	 */
+	function photographus_get_comments_number_text( $comments_by_type ) {
+		/**
+		 * Check if we have comments, otherwise return empty string.
+		 */
+		if ( $comments_by_type['comment'] ) {
+			/**
+			 * Save the comment count.
+			 */
+			$comment_number = count( $comments_by_type['comment'] );
+
+			/**
+			 * Build the comments number text.
+			 */
+			$comments_number_text = sprintf( /* translators: s=comment count */
+				__( 'Comments: %s', 'photographus' ),
+				sprintf(
+					'<a href="%s#comments-title">%s</a>',
+					get_permalink(),
+					number_format_i18n( $comment_number )
+				)
+			);
+
+			return $comments_number_text;
+		} else {
+			return '';
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_get_tag_list' ) ) {
+	/**
+	 * Returns list of tags for a post.
+	 *
+	 * @return string Tag list or empty string.
+	 */
+	function photographus_get_tag_list() {
+		/**
+		 * Get tag array.
+		 */
+		$tags = get_the_tags();
+
+		/**
+		 * Check if we have a tag array, otherwise return empty string.
+		 */
+		if ( is_array( $tags ) ) {
+			/**
+			 * Build the markup.
+			 */
+			$tags_markup = sprintf( /* translators: 1=tag label; 2=tag list */
+				__( '%1$s: %2$s', 'photographus' ),
+
+				/**
+				 * Display singular or plural label based on tag count.
+				 */
+				_n(
+					'Tag',
+					'Tags',
+					count( $tags ),
+					'photographus'
+				), /* translators: term delimiter */
+				get_the_tag_list( '', __( ', ', 'photographus' ) )
+			);
+
+			return $tags_markup;
+		} else {
+			return '';
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_get_categories_list' ) ) {
+	/**
+	 * Returns list of categories for a post.
+	 *
+	 * @return string Categories list or empty string.
+	 */
+	function photographus_get_categories_list() {
+		/**
+		 * Get array of post categories.
+		 */
+		$categories = get_the_category();
+
+		/**
+		 * Check if we have categories in the array. Otherwise return empty string.
+		 */
+		if ( ! empty( $categories ) ) {
+			/**
+			 * Build the markup.
+			 */
+			$categories_markup = sprintf( /* translators: 1=category label; 2=category list */
+				__( '%1$s: %2$s', 'photographus' ),
+
+				/**
+				 * Display singular or plural label based on the category count.
+				 */
+				_n(
+					'Category',
+					'Categories',
+					count( $categories ),
+					'photographus'
+				), /* translators: term delimiter */
+				get_the_category_list( __( ', ', 'photographus' ) )
+			);
+
+			return $categories_markup;
+		} else {
+			return '';
+		}
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_get_the_date' ) ) {
+	/**
+	 * Returns get_the_date() with or without a link to the single view.
+	 *
+	 * @param bool $link If the date should link to the single view.
+	 *
+	 * @return string Date markup.
+	 */
+	function photographus_get_the_date( $link = true ) {
+		if ( $link ) {
+			$date_markup = sprintf(
+				'<a href="%s">%s</a>',
+				get_the_permalink(),
+				get_the_date()
+			);
+		} else {
+			$date_markup = get_the_date();
+		}
+
+		return $date_markup;
+	}
+} // End if().
+
+if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
+	/**
+	 * Display a »Featured« box for sticky posts.
+	 *
+	 * @return string Sticky label markup.
+	 */
+	function photographus_get_the_sticky_label() {
+		/**
+		 * Just display label if we have a sticky post and
+		 * are not on the single view of the post.
+		 */
+		if ( is_sticky() && ! is_single() ) {
+			/* translators: String for the label of sticky posts. Displayed above the title */
+			$sticky_label_markup = sprintf(
+				'<p class="sticky-post-featured-string"><span>%s</span></p>',
+				__( 'Featured', 'photographus' )
+			);
+		} else {
+			$sticky_label_markup = '';
+		}
+
+		return $sticky_label_markup;
+	}
+} // End if().
