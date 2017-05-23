@@ -7,6 +7,8 @@
  * @package Photographus
  */
 
+add_action( 'customize_register', 'photographus_customize_register', 11 );
+
 /**
  * Customizer settings
  *
@@ -461,8 +463,6 @@ function photographus_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 }
-
-add_action( 'customize_register', 'photographus_customize_register', 11 );
 
 /**
  * Include the file with the callback functions (sanitize callbacks and

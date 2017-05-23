@@ -7,8 +7,16 @@
  * @package Photographus
  */
 
+add_action( 'wp_head', 'photographus_customizer_css' );
+
+add_action( 'customize_controls_print_styles', 'photographus_customize_controls_styles', 999 );
+
+add_action( 'wp_head', 'photographus_customize_preview_styles', 999 );
+
+add_action( 'customize_controls_enqueue_scripts', 'photographus_customizer_contols_script', 999 );
+
 /**
- * Prints CSS inside header
+ * Prints CSS inside header.
  */
 function photographus_customizer_css() {
 	/**
@@ -30,8 +38,6 @@ function photographus_customizer_css() {
 		</style>
 	<?php }
 }
-
-add_action( 'wp_head', 'photographus_customizer_css' );
 
 /**
  * Prints styles for the customize controls.
@@ -69,8 +75,6 @@ function photographus_customize_controls_styles() {
 	</style>
 <?php }
 
-add_action( 'customize_controls_print_styles', 'photographus_customize_controls_styles', 999 );
-
 /**
  * Prints styles for the customize controls.
  */
@@ -85,13 +89,9 @@ function photographus_customize_preview_styles() {
 	}
 }
 
-add_action( 'wp_head', 'photographus_customize_preview_styles', 999 );
-
 /**
  * Prints styles inside the customizer view.
  */
 function photographus_customizer_contols_script() {
 	wp_enqueue_script( 'photographus-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], null, true );
 }
-
-add_action( 'customize_controls_enqueue_scripts', 'photographus_customizer_contols_script', 999 );
