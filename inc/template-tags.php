@@ -1,6 +1,6 @@
 <?php
 /**
- * Template tags, used in template files
+ * Template tags, used in template files.
  *
  * @version 1.0.0
  *
@@ -11,7 +11,7 @@ if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 	/**
 	 * Get the custom logo.
 	 *
-	 * @return string
+	 * @return string Custom logo markup or empty string.
 	 */
 	function photographus_get_custom_logo() {
 		/**
@@ -38,11 +38,11 @@ if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 
 if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 	/**
-	 * Displays the entry header
+	 * Displays the entry header.
 	 *
-	 * @param string         $heading            Type of heading for entry title.
-	 * @param bool           $link               If the title should be linked to the single view or not.
-	 * @param        boolean $latest_posts_panel true if it is a call from the latest posts panel.
+	 * @param string  $heading            Type of heading for entry title.
+	 * @param bool    $link               If the title should be linked to the single view or not.
+	 * @param boolean $latest_posts_panel true if it is a call from the latest posts panel.
 	 */
 	function photographus_the_entry_header( $heading, $link = true, $latest_posts_panel = false ) {
 		/**
@@ -128,9 +128,9 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 
 if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 	/**
-	 * Displays the post thumbnail
+	 * Displays the post thumbnail.
 	 *
-	 * @return string
+	 * @return string Post thumbnail markup.
 	 */
 	function photographus_get_the_post_thumbnail() {
 		/**
@@ -183,7 +183,7 @@ if ( ! function_exists( 'photographus_get_the_title' ) ) {
 	 * @param string $heading Type of heading.
 	 * @param bool   $link    If the title should be linked to the single view or not.
 	 *
-	 * @return string
+	 * @return string Title markup.
 	 */
 	function photographus_get_the_title( $heading, $link = true ) {
 		/**
@@ -221,7 +221,7 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 	/**
 	 * Display a »Featured« box for sticky posts.
 	 *
-	 * @return string
+	 * @return string Sticky label markup.
 	 */
 	function photographus_get_the_sticky_label() {
 		/**
@@ -245,6 +245,8 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 if ( ! function_exists( 'photographus_the_entry_header_meta' ) ) {
 	/**
 	 * Displays author and date of the post.
+	 *
+	 * @return string Entry header markup.
 	 */
 	function photographus_get_the_entry_header_meta() {
 		$entry_header_meta_markup = sprintf(
@@ -265,7 +267,7 @@ if ( ! function_exists( 'photographus_get_the_date' ) ) {
 	 *
 	 * @param bool $link If the date should link to the single view.
 	 *
-	 * @return string
+	 * @return string Date markup.
 	 */
 	function photographus_get_the_date( $link = true ) {
 		if ( $link ) {
@@ -284,7 +286,7 @@ if ( ! function_exists( 'photographus_get_the_date' ) ) {
 
 if ( ! function_exists( 'photographus_the_content' ) ) {
 	/**
-	 * Displays the_content() with a more accessible more tag
+	 * Displays the_content() with a more accessible more tag.
 	 */
 	function photographus_the_content() {
 		/* translators: visible text for the more tag */
@@ -375,7 +377,7 @@ if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 	/**
 	 * Returns list of categories for a post.
 	 *
-	 * @return string
+	 * @return string Categories list or empty string.
 	 */
 	function photographus_get_categories_list() {
 		/**
@@ -416,7 +418,7 @@ if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 	/**
 	 * Returns list of tags for a post.
 	 *
-	 * @return string
+	 * @return string Tag list or empty string.
 	 */
 	function photographus_get_tag_list() {
 		/**
@@ -459,7 +461,7 @@ if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
 	 *
 	 * @param array $comments_by_type array of type separated comments.
 	 *
-	 * @return string
+	 * @return string Comments number text or empty string.
 	 */
 	function photographus_get_comments_number_text( $comments_by_type ) {
 		/**
@@ -496,7 +498,7 @@ if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 	 *
 	 * @param array $comments_by_type array of type separated comments.
 	 *
-	 * @return string
+	 * @return string Trackback number text or empty string.
 	 */
 	function photographus_get_trackback_number_text( $comments_by_type ) {
 		/**
@@ -529,9 +531,9 @@ if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 
 if ( ! function_exists( 'photographus_get_comments_by_type' ) ) {
 	/**
-	 * Returns the comments separated by type (comments and pingbacks)
+	 * Returns the comments separated by type (comments and pingbacks).
 	 *
-	 * @return array
+	 * @return array Post reactions reparated by type.
 	 */
 	function photographus_get_comments_by_type() {
 		$comment_args     = [
@@ -551,7 +553,7 @@ if ( ! function_exists( 'photographus_get_post_type_template' ) ) {
 	/**
 	 * Returns the post type template slug without templates/ dir and .php ending.
 	 *
-	 * @return string
+	 * @return string Post type template without file ending and templates/ dir.
 	 */
 	function photographus_get_post_type_template() {
 		$template_slug = get_page_template_slug();
@@ -654,7 +656,7 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 
 if ( ! function_exists( 'photographus_wp_link_pages' ) ) {
 	/**
-	 * Displays a pagination for paginated posts and pages
+	 * Displays a pagination for paginated posts and pages.
 	 */
 	function photographus_wp_link_pages() {
 		/* translators: Label for pagination of paginated posts and pages */
@@ -684,7 +686,7 @@ if ( ! function_exists( 'photographus_front_page_panel_count' ) ) {
 	/**
 	 * Returns number of used front page panels.
 	 *
-	 * @return int
+	 * @return int Front page panel count.
 	 */
 	function photographus_front_page_panel_count() {
 		$panel_count = 0;
@@ -843,7 +845,7 @@ if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 	/**
 	 * Returns post type template class string for layout purposes.
 	 *
-	 * @return string
+	 * @return string Post type template class.
 	 */
 	function photographus_get_post_type_template_class() {
 		/**
@@ -889,7 +891,7 @@ if ( ! function_exists( 'photographus_get_latest_posts' ) ) {
 	 * @param int     $number_of_posts Number of posts.
 	 * @param boolean $force_refresh   If cache should be refreshed.
 	 *
-	 * @return object
+	 * @return object WP_Query object of latest posts.
 	 */
 	function photographus_get_latest_posts( $panel_number, $number_of_posts, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
@@ -935,7 +937,7 @@ if ( ! function_exists( 'photographus_get_post_grid_posts' ) ) {
 	 * @param int     $post_category                Number of posts.
 	 * @param boolean $force_refresh                If cache should be refreshed.
 	 *
-	 * @return object
+	 * @return object WP_Query object of post grid posts.
 	 */
 	function photographus_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts = false, $post_category = 0, $force_refresh = false ) {
 		$timeout_transient = 3 * WEEK_IN_SECONDS;
@@ -1293,7 +1295,7 @@ if ( ! function_exists( 'photographus_is_front_page_with_panels' ) ) {
 	/**
 	 * Checks if we are on the front page with panels.
 	 *
-	 * @return boolean
+	 * @return boolean true if on front page with panels, false otherwise.
 	 */
 	function photographus_is_front_page_with_panels() {
 		/**
@@ -1317,7 +1319,6 @@ if ( ! function_exists( 'photographus_the_front_page_header_image' ) ) {
 		$header_image = get_header_image();
 		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
 			echo 'style="background-image: linear-gradient( to right, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .6 ) ), url( ' . $header_image . ' );"';
-		} else {
 		}
 	}
 } // End if().
@@ -1337,8 +1338,7 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
-		<?php } else {
-		}
+		<?php }
 	}
 } // End if().
 
@@ -1346,7 +1346,7 @@ if ( ! function_exists( 'photographus_is_login_page' ) ) {
 	/**
 	 * Check if we are on the login page
 	 *
-	 * @return bool
+	 * @return bool true if on login page, otherwise false.
 	 */
 	function photographus_is_login_page() {
 		return in_array( $GLOBALS['pagenow'], [ 'wp-login.php', 'wp-register.php' ], true );
@@ -1357,7 +1357,7 @@ if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
 	/**
 	 * Check if we are on the wp-comments-post.php
 	 *
-	 * @return bool
+	 * @return bool true if on wp-comments-post.php, otherwise false.
 	 */
 	function photographus_is_wp_comments_post() {
 		return in_array( $GLOBALS['pagenow'], [ 'wp-comments-post.php' ], true );
@@ -1370,7 +1370,7 @@ if ( ! function_exists( 'photographus_fonts_url' ) ) {
 	 *
 	 * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
 	 *
-	 * @return string
+	 * @return string Fonts URL.
 	 */
 	function photographus_fonts_url() {
 		$fonts_url = '';

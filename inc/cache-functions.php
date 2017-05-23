@@ -7,6 +7,10 @@
  * @package Photographus
  */
 
+add_action( 'wp_update_comment_count', 'photographus_refresh_latest_posts_cache', 10, 3 );
+
+add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 3 );
+
 if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 	/**
 	 * Forces cache refresh for latest posts panels. If the params are null, a post was updated, so we need to
@@ -14,8 +18,6 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 	 *
 	 * @param int|null $panel_number    Number of the customizer panel.
 	 * @param int|null $number_of_posts Number of posts to display.
-	 *
-	 * @return string
 	 */
 	function photographus_refresh_latest_posts_cache( $panel_number = null, $number_of_posts = null ) {
 		/**
@@ -52,7 +54,6 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 		}
 	}
 } // End if().
-add_action( 'wp_update_comment_count', 'photographus_refresh_latest_posts_cache', 10, 3 );
 
 if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
 	/**
@@ -142,5 +143,3 @@ function photographus_cache_update_on_post_update( $new_status, $old_status, $po
 	photographus_refresh_latest_posts_cache();
 	photographus_refresh_post_grid_posts_cache();
 }
-
-add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 3 );

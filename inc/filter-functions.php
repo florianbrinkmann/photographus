@@ -16,11 +16,11 @@ add_filter( 'body_class', 'photographus_filter_body_classes' );
 add_filter( 'post_class', 'photographus_filter_post_classes' );
 
 /**
- * Removes the page jump after clicking on a read more link
+ * Removes the page jump after clicking on a read more link.
  *
  * @param string $link Post permalink.
  *
- * @return string
+ * @return string URL without more hash.
  */
 function photographus_remove_more_link_scroll( $link ) {
 	$link = preg_replace( '/#more-[0-9]+/', '', $link );
@@ -29,11 +29,11 @@ function photographus_remove_more_link_scroll( $link ) {
 }
 
 /**
- * Add classes to the header, if needed
+ * Add classes to the header, if needed.
  *
  * @param string $classes empty default string.
  *
- * @return string
+ * @return string Class string.
  */
 function photographus_filter_header_classes( $classes ) {
 	/**
@@ -56,11 +56,11 @@ function photographus_filter_header_classes( $classes ) {
 }
 
 /**
- * Add classes to the body, if needed
+ * Add classes to the body, if needed.
  *
  * @param string $classes empty default string.
  *
- * @return string
+ * @return array Array of body classes.
  */
 function photographus_filter_body_classes( $classes ) {
 	/**
@@ -110,11 +110,11 @@ function photographus_filter_body_classes( $classes ) {
 }
 
 /**
- * Add classes to post_class()
+ * Add classes to post_class().
  *
  * @param array $classes array with post classes.
  *
- * @return array
+ * @return array Array of post classes.
  */
 function photographus_filter_post_classes( $classes ) {
 	/**

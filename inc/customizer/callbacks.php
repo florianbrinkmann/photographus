@@ -90,7 +90,7 @@ function photographus_sanitize_int_greater_null( $input, $setting ) {
  *
  * @param WP_Customize_Control $control Control object.
  *
- * @return bool
+ * @return bool true if the dropdown-pages control needs to be displayed, otherwise false.
  */
 function photographus_is_page_panel( $control ) {
 	/**
@@ -125,7 +125,7 @@ function photographus_is_page_panel( $control ) {
  *
  * @param WP_Customize_Control $control Control object.
  *
- * @return bool
+ * @return bool true if the posts control needs to be displayed, otherwise false.
  */
 function photographus_is_post_panel( $control ) {
 	/**
@@ -160,7 +160,7 @@ function photographus_is_post_panel( $control ) {
  *
  * @param WP_Customize_Control $control Control object.
  *
- * @return bool
+ * @return bool true if the latest posts control needs to be displayed, otherwise false.
  */
 function photographus_is_latest_posts_panel( $control ) {
 	/**
@@ -191,11 +191,11 @@ function photographus_is_latest_posts_panel( $control ) {
 }
 
 /**
- * Check if we need to display the latest posts control for a panel.
+ * Check if we need to display the post grid control for a panel.
  *
  * @param WP_Customize_Control $control Control object.
  *
- * @return bool
+ * @return bool true if the post grid control needs to be displayed, otherwise false.
  */
 function photographus_is_post_grid_panel( $control ) {
 	/**
@@ -231,7 +231,7 @@ function photographus_is_post_grid_panel( $control ) {
  *
  * @param WP_Customize_Control $control Control object.
  *
- * @return bool
+ * @return bool true if static front page, otherwise false.
  */
 function photographus_is_static_front_page( $control ) {
 	/**

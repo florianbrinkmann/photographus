@@ -15,7 +15,7 @@ add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
 
 
 /**
- * Customizer settings for theme update
+ * Customizer settings for theme update.
  *
  * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
@@ -46,11 +46,11 @@ function photographus_update_customize_register( $wp_customize ) {
 }
 
 /**
- * Escape URL and check if it matches a valid download format
+ * Escape URL and check if it matches a valid download format.
  *
  * @param string $url Update URL from customizer control.
  *
- * @return string
+ * @return string Escaped update URL or empty string.
  */
 function photographus_esc_update_url( $url ) {
 	/**
@@ -79,11 +79,11 @@ function photographus_esc_update_url( $url ) {
 }
 
 /**
- * Checking for updates and updating the transient for theme updates
+ * Checking for updates and updating the transient for theme updates.
  *
  * @param object $transient Transient object for theme updates.
  *
- * @return object
+ * @return object Theme update transient.
  */
 function photographus_theme_update( $transient ) {
 	if ( empty( $transient->checked ) ) {
@@ -162,9 +162,9 @@ function photographus_theme_update( $transient ) {
 }
 
 /**
- * Fetch data of latest theme version
+ * Fetch data of latest theme version.
  *
- * @return array|WP_Error
+ * @return array|WP_Error Array with data of the latest theme version or WP_Error.
  */
 function photographus_fetch_data_of_latest_version() {
 	$request = wp_safe_remote_get( 'https://florianbrinkmann.com/wordpress-themes/photographus/upgrade-json/' );

@@ -22,7 +22,7 @@ add_action( 'widgets_init', 'photographus_register_sidebars' );
 add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
 
 /**
- * Load translation from languages directory
+ * Load translation from languages directory.
  */
 function photographus_load_translation() {
 	if ( ( ! defined( 'DOING_AJAX' ) && ! 'DOING_AJAX' ) || ! photographus_is_login_page() || ! photographus_is_wp_comments_post() ) {
@@ -48,7 +48,7 @@ function photographus_set_content_width() {
 }
 
 /**
- * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo
+ * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo.
  */
 function photographus_add_theme_support() {
 	/**
@@ -149,7 +149,7 @@ function photographus_add_theme_support() {
 		],
 
 		/**
-		 * Remove default core starter content widgets
+		 * Remove default core starter content widgets.
 		 */
 		'widgets'     => [
 			'sidebar-1' => [
@@ -159,7 +159,7 @@ function photographus_add_theme_support() {
 		],
 
 		/**
-		 * Set options
+		 * Set options.
 		 */
 		'options'     => [
 			'show_on_front'  => 'page',
@@ -169,7 +169,7 @@ function photographus_add_theme_support() {
 		],
 
 		/**
-		 * Fill nav menus
+		 * Fill nav menus.
 		 */
 		'nav_menus'   => [
 			'primary' => [
@@ -183,7 +183,7 @@ function photographus_add_theme_support() {
 		],
 
 		/**
-		 * Set values for theme mods
+		 * Set values for theme mods.
 		 */
 		'theme_mods'  => [
 			/**
@@ -222,7 +222,7 @@ function photographus_add_editor_style() {
 }
 
 /**
- * Register Menus
+ * Register Menus.
  */
 function photographus_register_menus() {
 	register_nav_menus( [
@@ -234,7 +234,7 @@ function photographus_register_menus() {
 }
 
 /**
- * Register sidebars
+ * Register sidebars.
  */
 function photographus_register_sidebars() {
 	/**
@@ -265,7 +265,7 @@ function photographus_register_sidebars() {
 }
 
 /**
- * Adds the scripts and styles to the header
+ * Adds the scripts and styles to the header.
  */
 function photographus_scripts_styles() {
 	/**
