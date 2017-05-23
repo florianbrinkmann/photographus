@@ -38,8 +38,8 @@ deploy_staging:
     - php wp-cli.phar --info --allow-root
     - chmod +x wp-cli.phar
     - mv wp-cli.phar /usr/bin/wp
-    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=dev.florianbrinkmann.de --allow-root --ssh=fbndev@aries.uberspace.de/var/www/virtual/fbndev/html/
-    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=dev.florianbrinkmann.de/en --allow-root --ssh=fbndev@aries.uberspace.de/var/www/virtual/fbndev/html/
+    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=dev.florianbrinkmann.de --allow-root --ssh=fbndev@aries.uberspace.de/var/www/virtual/fbndev/html/ --quiet
+    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=dev.florianbrinkmann.de/en --allow-root --ssh=fbndev@aries.uberspace.de/var/www/virtual/fbndev/html/ --quiet
   environment:
     name: staging
   only:
@@ -75,8 +75,8 @@ deploy_production:
     - php wp-cli.phar --info --allow-root
     - chmod +x wp-cli.phar
     - mv wp-cli.phar /usr/bin/wp
-    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=florianbrinkmann.com --allow-root --ssh=fbn@horologium.uberspace.de/var/www/virtual/fbn/html/
-    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=florianbrinkmann.com/en --allow-root --ssh=fbn@horologium.uberspace.de/var/www/virtual/fbn/html/
+    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=florianbrinkmann.com --allow-root --ssh=fbn@horologium.uberspace.de/var/www/virtual/fbn/html/ --quiet
+    - wp parser create wp-content/themes-for-docblock-parser/ --user=florian --url=florianbrinkmann.com/en --allow-root --ssh=fbn@horologium.uberspace.de/var/www/virtual/fbn/html/ --quiet
   environment:
     name: production
   only:
