@@ -13,9 +13,17 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php if ( is_singular() && pings_open() ) { ?>
+	<?php
+	/**
+	 * Check if we are in a single view and the pings are open.
+	 */
+	if ( is_singular() && pings_open() ) { ?>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php }
+
+	/**
+	 * Fire wp_head action, which includes styles, scripts, et cetera, from core, themes, and plugins.
+	 */
 	wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

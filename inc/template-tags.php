@@ -9,16 +9,30 @@
 
 if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 	/**
-	 * Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5
+	 * Get the custom logo.
 	 *
 	 * @return string
 	 */
 	function photographus_get_custom_logo() {
+		/**
+		 * Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5.
+		 */
 		if ( function_exists( 'get_custom_logo' ) ) {
+			/**
+			 * Check if we have a custom logo.
+			 */
 			if ( has_custom_logo() ) {
+				/**
+				 * Return the custom logo.
+				 */
 				return get_custom_logo();
 			}
 		}
+
+		/**
+		 * Return empty string, if we do not have a custom logo or WordPress is older than 4.5.
+		 */
+		return '';
 	}
 } // End if().
 
@@ -566,8 +580,6 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 	 * @param object $comment WP_Comment object.
 	 * @param array  $args    Array of arguments.
 	 * @param int    $depth   Depth of comment.
-	 *
-	 * @return void
 	 */
 	function photographus_comments( $comment, $args, $depth ) { ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
@@ -575,8 +587,16 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 			<div class="comment-meta">
 				<?php echo get_avatar( $comment, 44 ); ?>
 				<p class="comment-author-date">
-					<?php comment_author_link(); ?> ·&nbsp;
-					<?php printf(
+					<?php
+					/**
+					 * Display the name of the comment author. Linked to the site he submitted in the Website field.
+					 */
+					comment_author_link(); ?> ·&nbsp;
+					<?php
+					/**
+					 * Display the comment date, linked to the comment’s permalink.
+					 */
+					printf(
 						'<time datetime="%2$s"><a href="%1$s">%3$s</a></time>',
 						get_comment_link( $comment->comment_ID ),
 						get_comment_time( 'c' ),
@@ -586,6 +606,10 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 							get_comment_time()
 						)
 					);
+
+					/**
+					 * Display the edit link (only visible for users with the right capabilities).
+					 */
 					edit_comment_link(
 						__( 'Edit', 'photographus' ),
 						' ·&nbsp;',
@@ -595,17 +619,29 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 			</div>
 			<div class="comment-content-wrapper">
 				<div class="comment-content">
-					<?php if ( '0' === $comment->comment_approved ) { ?>
+					<?php
+					/**
+					 * Check if the comment is not approved yet.
+					 */
+					if ( '0' === $comment->comment_approved ) { ?>
 						<p>
 							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); ?></strong>
 						</p>
 					<?php }
+
+					/**
+					 * Display the comment text.
+					 */
 					comment_text(); ?>
 				</div>
 			</div>
 
 			<div class="reply">
-				<?php comment_reply_link( [
+				<?php
+				/**
+				 * Display the reply link.
+				 */
+				comment_reply_link( [
 					'reply_text' => __( 'Reply', 'photographus' ),
 					'depth'      => $depth,
 					'max_depth'  => $args['max_depth'],

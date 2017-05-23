@@ -59,7 +59,7 @@ function photographus_esc_update_url( $url ) {
 	$url = esc_url_raw( $url );
 
 	/**
-	 * Possible Update URL patterns.
+	 * Possible update URL patterns.
 	 */
 	$pattern = '/^https:\/\/florianbrinkmann\.com\/(en\/)?\?download_file=|^https:\/\/(en\.)?florianbrinkmann\.de\/\?download_file=/';
 
@@ -154,7 +154,6 @@ function photographus_theme_update( $transient ) {
 			 */
 			if ( ! empty ( $matches ) ) {
 				$transient->response['photographus']['package'] = $theme_package;
-			} else {
 			}
 		}
 	} // End if().
@@ -191,9 +190,7 @@ function photographus_remove_upgrade_url() {
 	/**
 	 * Check if template is »photographus«.
 	 */
-	if ( 'photographus' === $template ) {
-
-	} else {
+	if ( 'photographus' !== $template ) {
 		delete_option( 'photographus_upgrade_url' );
 	}
 }

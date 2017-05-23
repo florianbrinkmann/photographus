@@ -13,11 +13,11 @@ if ( post_password_required() ) {
 <aside aria-labelledby="aside" class="comments-area">
 	<?php if ( have_comments() ) {
 		/**
-		 * We cannot use the second parameter to separate the comments,
-		 * because if the comments are broken on multiple pages,
-		 * the count() would only return the number of comments
-		 * and trackbacks which are displayed on the current page, not
-		 * the total.
+		 * We cannot use the second parameter from comments_template()
+		 * to separate the comments, because if the comments are
+		 * broken on multiple pages, the count() would only return
+		 * the number of comments and trackbacks which are displayed
+		 * on the current page, not the total.
 		 *
 		 * Because of that, we use our own function to get the comments by type.
 		 */

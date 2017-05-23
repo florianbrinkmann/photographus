@@ -219,7 +219,6 @@ function photographus_add_editor_style() {
 			photographus_fonts_url(),
 		] );
 	}
-
 }
 
 /**
