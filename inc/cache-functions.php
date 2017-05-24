@@ -20,6 +20,11 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 		 * If $panel_number is null, we need to get the settings from all latest post panels.
 		 */
 		if ( null === $panel_number ) {
+			/**
+			 * Filter number of front page sections in Photographus.
+			 *
+			 * @param int $num_sections Number of front page sections.
+			 */
 			$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 			for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 				/**
@@ -64,6 +69,11 @@ if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
 		 * If $panel_number is null, we need to get the settings from all latest post panels.
 		 */
 		if ( null === $panel_number ) {
+			/**
+			 * Filter number of front page sections in Photographus.
+			 *
+			 * @param int $num_sections Number of front page sections.
+			 */
 			$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 			for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 				/**
