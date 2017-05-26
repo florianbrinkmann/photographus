@@ -33,7 +33,10 @@ deploy_staging:
     - rsync -ravq -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_modules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus
     - rsync -ravq -e ssh --exclude='.git/' --exclude=tests/ --exclude=node_modules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbndev@aries.uberspace.de:/var/www/virtual/fbndev/stable-version.florianbrinkmann.de/wp-content/themes/photographus
     - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser"
-    - ssh -p22 fbndev@aries.uberspace.de "cp -Rf /var/www/virtual/fbndev/trunk-version.florianbrinkmann.de/wp-content/themes/photographus/ /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser/photographus/"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser-tmp"
+    - ssh -p22 fbndev@aries.uberspace.de "mkdir -p /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser/photographus"
+    - ssh -p22 fbndev@aries.uberspace.de "mv /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser/photographus /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser-tmp/_old-photographus && cp -Rf /var/www/virtual/fbndev/html/wp-content/themes/photographus /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser/photographus"
+    - ssh -p22 fbndev@aries.uberspace.de "rm -rf /var/www/virtual/fbndev/html/wp-content/themes-for-docblock-parser-tmp/_old-photographus"
     - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --silent
     - chmod +x wp-cli.phar
     - mv wp-cli.phar /usr/bin/wp
@@ -66,10 +69,13 @@ deploy_production:
     - rsync -ravq -e ssh --exclude='.git/' --exclude=node_modules/ --exclude=bin/ --exclude='.gitignore' --exclude=assets/css/scss/ --exclude='.gitlab-ci.yml' --exclude=gulpfile.js --exclude=package.json --exclude=assets/css/photographus.css.map --delete-excluded ./ fbn@horologium.uberspace.de:/var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus
     - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes/photographus /var/www/virtual/fbn/html/wp-content/themes/_old-photographus && mv /var/www/virtual/fbn/html/wp-content/themes/_tmp-photographus /var/www/virtual/fbn/html/wp-content/themes/photographus"
     - ssh -p22 fbn@horologium.uberspace.de "rm -rf /var/www/virtual/fbn/html/wp-content/themes/_old-photographus"
-    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser"
     - ssh -p22 fbn@horologium.uberspace.de "cd /var/www/virtual/fbn/html/wp-content/themes/ && zip -r photographus.zip photographus/"
     - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes/photographus.zip /var/www/virtual/fbn/woocommerce-downloads/photographus.zip"
-    - ssh -p22 fbn@horologium.uberspace.de "cp -Rf /var/www/virtual/fbn/html/wp-content/themes/photographus/ /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser/photographus/"
+    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser"
+    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser-tmp"
+    - ssh -p22 fbn@horologium.uberspace.de "mkdir -p /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser/photographus"
+    - ssh -p22 fbn@horologium.uberspace.de "mv /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser/photographus /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser-tmp/_old-photographus && cp -Rf /var/www/virtual/fbn/html/wp-content/themes/photographus /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser/photographus"
+    - ssh -p22 fbn@horologium.uberspace.de "rm -rf /var/www/virtual/fbn/html/wp-content/themes-for-docblock-parser-tmp/_old-photographus"
     - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --silent
     - chmod +x wp-cli.phar
     - mv wp-cli.phar /usr/bin/wp
