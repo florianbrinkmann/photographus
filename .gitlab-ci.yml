@@ -1,15 +1,5 @@
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  image: tetraweb/php:7.1
-  before_script:
-    - npm install --silent
-    - npm install --global gulp-cli
-  script:
-    - gulp production
 
 deploy_staging:
   stage: deploy
@@ -24,7 +14,7 @@ deploy_staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - rm /etc/apt/sources.list.d/additional.list
-    - apt-get update
+    - apt-get -qq update
     - apt-get -qq install rsync
     - npm install --silent
     - npm install --global gulp-cli
@@ -63,7 +53,7 @@ deploy_production:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - rm /etc/apt/sources.list.d/additional.list
-    - apt-get update
+    - apt-get -qq update
     - apt-get -qq install rsync zip
     - npm install --silent
     - npm install --global gulp-cli
