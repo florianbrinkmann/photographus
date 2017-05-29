@@ -4,6 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const flipper = require('gulp-css-flipper');
+const runSequence = require('run-sequence');
 
 gulp.task('sass', function () {
 	return gulp.src('assets/css/scss/*.scss')
@@ -30,9 +31,17 @@ gulp.task('sass-production', function () {
 		.pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('sass:watch', ['sass', 'sass-rtl'], function () {
+gulp.task('default', function () {
+	runSequence(
+		'sass',
+		'sass-rtl'
+	);
 	gulp.watch('assets/css/scss/**/*.scss', ['sass', 'sass-rtl']);
 });
 
-gulp.task('default', ['sass:watch']);
-gulp.task('production', ['sass-production', 'sass-rtl']);
+gulp.task('production', function () {
+	runSequence(
+		'sass-production',
+		'sass-rtl'
+	);
+});
