@@ -26,6 +26,8 @@ $post_thumbnail = wp_get_attachment_image_src( $post_thumbnail_id, $size );
 
 /**
  * Add class to gallery grid item if the titles are hidden.
+ * $hide_gallery_titles is specified in photographus_the_post_grid_panel()
+ * located in inc/front-page-panel-functions.php.
  */
 if ( true === $hide_gallery_titles ) {
 	$gallery_grid_item_class = ' -hidden-title';
@@ -42,15 +44,37 @@ $post_thumbnail_img_element = wp_get_attachment_image( $post_thumbnail_id, $size
 	<a href="<?php the_permalink(); ?>">
 		<figure class="post-thumbnail" aria-hidden="true"
 		        style="width:<?php echo $post_thumbnail[1]; ?>px; height:<?php echo $post_thumbnail[2]; ?>px;">
-			<?php echo $post_thumbnail_img_element ?>
+			<?php
+			/**
+			 * Display the post thumbnail which is visible
+			 * but hidden for screen readers.
+			 */
+			echo $post_thumbnail_img_element ?>
 		</figure>
 		<div>
 			<header class="entry-header">
-				<div class="<?php echo $entry_title_div_class_string; ?>">
-					<?php echo photographus_get_the_title( $heading_element, false ); ?>
+				<div class="<?php
+				/**
+				 * Outputs class string.
+				 * $entry_title_div_class_string is specified in photographus_the_post_grid_panel()
+				 * located in inc/front-page-panel-functions.php.
+				 */
+				echo $entry_title_div_class_string; ?>">
+					<?php
+					/**
+					 * Displays the title.
+					 * $heading_element is specified in photographus_the_post_grid_panel()
+					 * located in inc/front-page-panel-functions.php.
+					 */
+					echo photographus_get_the_title( $heading_element, false ); ?>
 				</div>
 				<figure class="post-thumbnail screen-reader-text">
-					<?php echo $post_thumbnail_img_element ?>
+					<?php
+					/**
+					 * Displays the post thumbnail which is visually hidden
+					 * but visible for screen readers.
+					 */
+					echo $post_thumbnail_img_element ?>
 				</figure>
 			</header>
 		</div>

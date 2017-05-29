@@ -16,6 +16,10 @@
 	</div>
 	<div class="entry-content">
 		<p><?php _e( 'It seems that the content you requested cannot be found. Maybe searching helps?', 'photographus' ); ?></p>
-		<?php get_search_form(); ?>
+		<?php
+		/**
+		 * Display the search form.
+		 */
+		get_search_form(); ?>
 	</div>
 </article>

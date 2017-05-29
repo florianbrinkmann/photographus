@@ -7,8 +7,15 @@
  * @package Photographus
  */
 
+/**
+ * Check if the footer widget area has widgets.
+ */
 if ( is_active_sidebar( 'sidebar-footer' ) ) { ?>
 	<aside class="site-footer-widget-area">
-		<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+		<?php
+		/**
+		 * Output the widgets.
+		 */
+		dynamic_sidebar( 'sidebar-footer' ); ?>
 	</aside>
 <?php } ?>

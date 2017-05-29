@@ -12,7 +12,7 @@
  */
 function photographus_customizer_css() {
 	/**
-	 * Check if Header text should be displayed. Otherwise hide it.
+	 * Check if header text should be displayed. Otherwise hide it.
 	 */
 	if ( display_header_text() ) {
 		return;

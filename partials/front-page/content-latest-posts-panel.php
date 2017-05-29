@@ -9,7 +9,11 @@
 
 ?>
 <article <?php post_class( 'clearfix' ); ?>>
-	<?php photographus_the_entry_header( $heading_element, true, true ); ?>
+	<?php
+	/**
+	 * Displays post header meta.
+	 */
+	photographus_the_entry_header( $heading_element, true, true ); ?>
 	<div class="entry-content">
 		<?php
 		/**
