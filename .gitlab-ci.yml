@@ -23,6 +23,8 @@ deploy_staging:
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - rm /etc/apt/sources.list.d/additional.list
+    - apt-get update
     - apt-get -qq install rsync
     - npm install --silent
     - npm install --global gulp-cli
@@ -60,6 +62,8 @@ deploy_production:
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - rm /etc/apt/sources.list.d/additional.list
+    - apt-get update
     - apt-get -qq install rsync zip
     - npm install --silent
     - npm install --global gulp-cli
