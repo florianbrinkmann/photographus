@@ -30,7 +30,10 @@ get_header(); ?>
 						 */
 						the_post();
 
-						if ( 0 !== $panel_number ) {
+						/**
+						 * Check if we have panels and the front page is set to a static page.
+						 */
+						if ( 0 !== $panel_number && 'page' === get_option( 'show_on_front' ) ) {
 							$hide_front_page_content = get_theme_mod( 'photographus_hide_static_front_page_content' );
 							if ( true === $hide_front_page_content ) {
 
@@ -79,7 +82,7 @@ get_header(); ?>
 				/**
 				 * Panels
 				 */
-				if ( 0 !== $panel_number ) {
+				if ( 0 !== $panel_number && 'page' === get_option( 'show_on_front' ) ) {
 					photographus_the_front_page_panels();
 				}
 				photographus_the_posts_pagination(); ?>
