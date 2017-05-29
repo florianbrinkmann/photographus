@@ -70,8 +70,9 @@ get_header(); ?>
 								 */
 								get_template_part( 'partials/post/content', get_post_format() );
 							}
-						}
-					}
+						} // End if().
+					} // End while().
+
 				} else {
 					/**
 					 * Include partials/post/content-none.php if no posts were found.

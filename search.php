@@ -47,8 +47,7 @@ get_header(); ?>
 							<?php get_search_form(); ?>
 						</div>
 					</article>
-					<?php
-				}
+				<?php } // End if().
 				photographus_the_posts_pagination(); ?>
 			</main>
 		</div>
