@@ -88,8 +88,6 @@ get_header(); ?>
 				photographus_the_posts_pagination(); ?>
 			</main>
 		</div>
-		<?php if ( 0 === $panel_number ) {
-			get_sidebar();
-		} ?>
+		<?php get_sidebar(); ?>
 	</div>
 <?php get_footer();
