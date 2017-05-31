@@ -1,0 +1,31 @@
+/**
+ * iOS 7 has problems with the vh unit (Hack from https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
+ */
+
+/**
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+	.site-header.-with-header-image {
+		min-height: 1024px;
+	}
+}
+
+/**
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+	.site-header.-with-header-image {
+		min-height: 1024px;
+	}
+}
+
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+	.site-header.-with-header-image {
+		min-height: 500px;
+	}
+}
