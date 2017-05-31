@@ -11,6 +11,14 @@
 	position: relative;
 }
 
+.admin-bar .site-header.-with-header-image {
+	min-height: calc(100vh - 46px);
+
+	@media screen and (min-width: 783px) {
+		min-height: calc(100vh - 32px);
+	}
+}
+
 .site-header.-with-header-image .primary-header {
 	padding-bottom: add-unit($space-double, 'em');
 	padding-top: add-unit($space-double, 'em');
