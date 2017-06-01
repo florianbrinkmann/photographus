@@ -15,7 +15,7 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('sass-rtl', function () {
+gulp.task('css-rtl', function () {
 	return gulp.src(['assets/css/*.css', '!assets/css/*-rtl.css'])
 		.pipe(flipper())
 		.pipe(rename(
@@ -34,14 +34,14 @@ gulp.task('sass-production', function () {
 gulp.task('default', function () {
 	runSequence(
 		'sass',
-		'sass-rtl'
+		'css-rtl'
 	);
-	gulp.watch('assets/css/scss/**/*.scss', ['sass', 'sass-rtl']);
+	gulp.watch('assets/css/scss/**/*.scss', ['sass', 'css-rtl']);
 });
 
 gulp.task('production', function () {
 	runSequence(
 		'sass-production',
-		'sass-rtl'
+		'css-rtl'
 	);
 });
