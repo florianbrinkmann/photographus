@@ -7,6 +7,7 @@
 }
 
 @media screen and (min-width: 45em) {
+	/*@noflip*/
 	.-no-sidebar .entry-content .full-bleed-img {
 		left: 50%;
 		transform: translateX(-50%);
