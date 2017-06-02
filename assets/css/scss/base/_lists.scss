@@ -1,10 +1,9 @@
 /* ==========================================================================
-   #LISTS base styles
+   #LISTS
    ========================================================================== */
 
-/* Definition Lists
+/* Definition lists.
    ========================================================================== */
-
 dl {
 	margin: add-unit($space, 'em') 0;
 }
@@ -35,9 +34,8 @@ dd {
 	@include line-height-and-spaces(1.4);
 }
 
-/* Ordered and unordered lists
+/* Ordered and unordered lists.
    ========================================================================== */
-
 ul,
 ol {
 	margin: add-unit($space, 'em') 0;

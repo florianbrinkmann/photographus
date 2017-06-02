@@ -1,3 +1,47 @@
+/**
+ * CONTENTS
+ *
+ * BASE
+ * HTML........................HTML element styles.
+ * Wrapper.....................Wrapper element styles.
+ * Reset.......................Style resets.
+ * Normalize...................Normalize.
+ * Media.......................Media element styles.
+ * Typography..................Typography styles.
+ * Buttons.....................Button styles.
+ * Lists.......................List styles.
+ * Tables......................Table styles.
+ * Forms.......................Form element styles.
+ * Global classes..............Global classes like .clearfix and .screen-reader-text.
+ *
+ * COMPONENTS
+ * Nav.........................Nav styles.
+ * Entry.......................Entry styles (post, page…)
+ * Comments....................Comments styles.
+ * Widgets.....................Widgets styles.
+ * Gallery items...............Styles for items of the default WordPress gallery.
+ * Gallery grid items..........Styles for items of the front page gallery grid feature.
+ *
+ * TEMPLATES
+ * Archive.....................Archive template styles (date archive, category archive…)
+ * Front page..................Front page styles.
+ * With sidebar................Styles for views with sidebar.
+ * No sidebar..................Styles for views without sidebar.
+ *
+ * LAYOUT
+ * Header......................Site header styles.
+ * Footer......................Site footer styles.
+ * Sidebar.....................Sidebar styles.
+ * Comments area...............Comments area styles.
+ * Gallery.....................WordPress gallery styles.
+ * Grids.......................Grid styes.
+ *
+ * CONDITIONALS
+ * Dark mode...................Styles for the dark mode feature.
+ * Edge........................MS Edge fixes.
+ * Internet Explorer...........MS IE fixes.
+ * iOS 7.......................iOS 7 fixes.
+ */
 @import "abstracts/variables";
 @import "abstracts/functions";
 @import "abstracts/mixins";

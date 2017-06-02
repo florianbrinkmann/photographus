@@ -18,8 +18,6 @@
 	overflow: hidden;
 	position: absolute !important;
 	width: 1px;
-	/* many screen reader and browser combinations
-	announce broken words as they would appear visually */
 	word-wrap: normal !important;
 }
 
@@ -29,9 +27,9 @@
 	display: block;
 }
 
-/**
- * Conditional styles for IE and Edge.
- */
+//
+// Conditional styles for IE and Edge.
+//
 @mixin ie_edge_link_fallback() {
 	a {
 		box-shadow: inset 0 -1px 0 currentColor;

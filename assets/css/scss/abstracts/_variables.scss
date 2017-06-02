@@ -1,9 +1,10 @@
-/*------------------------------------*
-    #VARIABLES
- *------------------------------------*/
+//
+//  #VARIABLES
+//
 
-/* Colors
-   ========================================================================== */
+//
+// Colors
+//
 
 $color-white: #fff;
 $color-tundora: #444;
@@ -11,45 +12,47 @@ $color-black: #000;
 
 $color-dim-60: rgba(0, 0, 0, 0.6);
 
-/*
- * Text Colors
- * 1) These are non-linked text colors, such as body copy.
- */
+//
+// Text Colors
+// 1) These are non-linked text colors, such as body copy.
+//
 $color-text: $color-tundora;
 
-/*
- * Heading Colors
- * 1) These are non-linked heading colors, such as h2, h3, etc.
- */
+//
+// Heading Colors
+// 1) These are non-linked heading colors, such as h2, h3, etc.
+//
 $color-heading: $color-tundora;
 
-/*
- * Text Link Colors
- * 1) These are for linked text, such as a link found within an article,
- *    navigation link, footer link, etc.
- */
+//
+// Text Link Colors
+// 1) These are for linked text, such as a link found within an article,
+//    navigation link, footer link, etc.
+//
 
-/*
- * Border Colors
- * 1) Border colors are used as decoration or dividers, such as as a seperator
- *    for navigation items, block borders, etc.
- */
+//
+// Border Colors
+// 1) Border colors are used as decoration or dividers, such as as a seperator
+//    for navigation items, block borders, etc.
+//
 $color-border: $color-tundora;
 
-/* Typography
-   ========================================================================== */
+//
+// Typography
+//
 
 $font-size-small: 0.889em;
 
-/* Layout
-   ========================================================================== */
+//
+// Layout
+//
 
 $content-max-width: calc(800px + 2.8rem);
 $layout-max-width: 1235px;
 
-/**
- * Spacing Defaults
- */
+//
+// Spacing Defaults
+//
 @mixin line-height-and-spaces($line-height) {
 	$line-height: $line-height !global;
 	$space: $line-height !global;
@@ -67,11 +70,12 @@ $layout-max-width: 1235px;
 
 @include line-height-and-spaces(1.4);
 
-/* Borders
-   ========================================================================== */
+//
+// Borders
+//
 
-/**
- * Border Width
- */
+//
+// Border Width
+//
 $border-med: 2px;
 $border-thick: 4px;

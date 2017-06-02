@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #GLOBAL CLASSES base styles
+   #GLOBAL CLASSES
    ========================================================================== */
 
 /**
@@ -10,7 +10,7 @@
 }
 
 /**
- * Visually hidden but visible for screen readers
+ * Visually hidden but visible for screen readers.
  */
 .screen-reader-text {
 	@include visible-for-screenreaders;

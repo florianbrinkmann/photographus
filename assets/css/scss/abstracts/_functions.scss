@@ -1,6 +1,6 @@
-/*------------------------------------*
-    #FUNCTIONS
- *------------------------------------*/
+//
+// #FUNCTIONS
+//
 @function line-height($font-size, $ratio-to-base-line-height, $base-line-height: $line-height, $relative-base-font-size: 1) {
 	$abs-font-size: $relative-base-font-size * 16;
 	$line-height: $base-line-height * $ratio-to-base-line-height;
@@ -11,8 +11,10 @@
 	@return $value + 0#{$unit};
 }
 
-// http://codepen.io/jakob-e/pen/doMoML
-//  Function to create an optimized svg url
+//
+// Function to create an optimized svg url.
+//
+// @link http://codepen.io/jakob-e/pen/doMoML
 //
 @function svg-url($svg) {
 	//
