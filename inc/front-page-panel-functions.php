@@ -181,7 +181,8 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 		$latest_posts = photographus_get_latest_posts( $panel_number, $number_of_posts );
 
 		if ( $latest_posts->have_posts() ) { ?>
-			<section id="frontpage-section-<?php echo $panel_number; ?>" class="frontpage-section clearfix">
+			<section id="frontpage-section-<?php echo $panel_number; ?>"
+			         class="frontpage-section latest-blog-posts-section clearfix">
 				<?php
 				/**
 				 * Get the title for the panel.
@@ -235,7 +236,22 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 						 */
 						include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
 					} // End if().
-				} // End while(). ?>
+				} // End while().
+
+				/**
+				 * Get the URL of the blog page.
+				 */
+				$blog_page_url = get_permalink( get_option( 'page_for_posts' ) );
+
+				/**
+				 * Check if we have a URL.
+				 */
+				if ( $blog_page_url ) { ?>
+					<p>
+						<a href="<?php echo $blog_page_url; ?>"
+						   class="cta"><?php _e( 'Go to blog', 'photographus' ); ?></a>
+					</p>
+				<?php } ?>
 			</section>
 		<?php } // End if().
 	}
