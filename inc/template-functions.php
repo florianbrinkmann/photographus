@@ -345,7 +345,7 @@ if ( ! function_exists( 'photographus_fonts_url' ) ) {
 		$fonts_url = '';
 
 		/*
-		 * Translators: If there are characters in your language that are not
+		 * translators: If there are characters in your language that are not
 		 * supported by PT Serif, translate this to 'off'. Do not translate
 		 * into your own language.
 		 */
