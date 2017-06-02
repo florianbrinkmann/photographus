@@ -11,6 +11,10 @@
 
 		&:first-of-type {
 			margin-top: 0;
+
+			.widget-title::before {
+				display: none;
+			}
 		}
 
 		@media screen and (min-width: 50em) {

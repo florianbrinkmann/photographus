@@ -22,3 +22,21 @@
 		@include line-height-and-spaces(1.4);
 	}
 }
+
+.widget-title::before {
+	background: #444;
+	content: '';
+	display: block;
+	height: 2px;
+	position: relative;
+	top: -#{line-height(1.424, .5)}em;
+	width: 50px;
+
+	@media screen and (min-width: 50em) {
+		@include line-height-and-spaces(1.5);
+
+		top: -#{line-height(1.424, .5)}em;
+
+		@include line-height-and-spaces(1.4);
+	}
+}
