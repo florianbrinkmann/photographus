@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Photographus\n"
-"POT-Creation-Date: 2017-05-10 12:40+0200\n"
-"PO-Revision-Date: 2017-05-10 12:44+0200\n"
+"POT-Creation-Date: 2017-06-02 16:15+0200\n"
+"PO-Revision-Date: 2017-06-02 16:16+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -35,77 +35,13 @@ msgid_plural "%1$s Trackbacks on “%2$s”"
 msgstr[0] "%1$s Trackback zu „%2$s“"
 msgstr[1] "%1$s Trackbacks zu „%2$s“"
 
-#: comments.php:92
+#: comments.php:100
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: comments.php:96
+#: comments.php:108
 msgid "Submit Comment"
 msgstr "Kommentar abschicken"
-
-#: inc/action-functions.php:74
-msgid ""
-"Welcome to your site! This is your homepage, which is what most visitors "
-"will see when they come to your site for the first time.\n"
-"\t\t\t\t\t\n"
-"\t\t\t\t\tThe »Photographus« theme lets you use different areas for the "
-"front page, so-called »panels«. With that, you can display different content "
-"types on the front page: You can choose from a grid of your latest gallery "
-"and image posts, a list of your latest posts or a single page/post.\n"
-"\t\t\t\t\t\n"
-"\t\t\t\t\tTo edit the panels you see here, just click on the pen icon on the "
-"left."
-msgstr ""
-"Willkommen zu deiner Site! Das ist die Homepage, die die meisten Nutzer "
-"sehen werden, wenn sie zuerst auf deine Site kommen.\n"
-"\t\t\t\t\t\n"
-"\t\t\t\t\tDas »Photographus«-Theme lässt dich verschiedene Bereiche auf der "
-"Startseite nutzen, sogenannte »Panels«. Damit kannst du verschiedene Inhalts-"
-"Typen auf der Startseite anzeigen: Du kannst aus einem Grid deiner letzten "
-"Galerie- und Bild-Beiträge, einer Liste deiner neuesten Beiträge oder einem "
-"einzelnen Beitrag oder einer Seite wählen.\n"
-"\t\t\t\t\t\n"
-"\t\t\t\t\tUm die Panels zu bearbeiten, die du hier siehst, klicke einfach "
-"auf der Stift-Icon links."
-
-#: inc/action-functions.php:83
-msgid ""
-"Just introduce yourself! This page uses the template with a large portrait "
-"featured image. If you do not use a sidebar, the image is displayed next to "
-"the content on large viewports."
-msgstr ""
-"Stell dich vor! Diese Seite nutzt das Template mit dem großen Portrait-"
-"Beitragsbild. Wenn du keine Sidebar nutzt, wird das Bild auf großen "
-"Viewports neben dem Inhalt dargestellt."
-
-#. translators: Name of menu position in the header
-#: inc/action-functions.php:113 inc/action-functions.php:157
-msgid "Primary Menu"
-msgstr "Hauptmenü"
-
-#. translators: Name of menu position in the footer
-#: inc/action-functions.php:159
-msgid "Footer Menu"
-msgstr "Footer-Menü"
-
-#: inc/action-functions.php:175
-msgid "Main Sidebar"
-msgstr "Haupt-Sidebar"
-
-#: inc/action-functions.php:177
-msgid ""
-"Widgets in this area will be displayed on all posts and pages by default."
-msgstr ""
-"Widgets in diesem Bereich werden standardmäßig auf allen Beiträgen und "
-"Seiten angezeigt."
-
-#: inc/action-functions.php:188
-msgid "Footer Sidebar"
-msgstr "Footer-Sidebar"
-
-#: inc/action-functions.php:190
-msgid "Widgets will be displayed in the footer."
-msgstr "Widgets werden im Footer angezeigt."
 
 #: inc/customizer/register.php:19
 msgid "Theme options"
@@ -144,12 +80,12 @@ msgid "Post"
 msgstr "Beitrag"
 
 #: inc/customizer/register.php:166 inc/customizer/register.php:260
-#: inc/template-tags.php:1005
+#: inc/front-page-panel-functions.php:190
 msgid "Latest Posts"
 msgstr "Neueste Beiträge"
 
 #: inc/customizer/register.php:167 inc/customizer/register.php:337
-#: inc/template-tags.php:1102
+#: inc/front-page-panel-functions.php:302
 msgid "Post Grid"
 msgstr "Beitrags-Grid"
 
@@ -189,7 +125,7 @@ msgstr "Nur Beiträge mit den Beitragsformaten »Galerie« und »Bild« anzeigen
 msgid "Only show posts from one category:"
 msgstr "Nur Beiträge aus dieser Kategorie anzeigen:"
 
-#: inc/customizer/scripts-and-styles.php:40
+#: inc/customizer/scripts-and-styles.php:38
 msgid ""
 "You can show different contents on the front page in so-called »panels«. You "
 "can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post "
@@ -199,7 +135,7 @@ msgstr ""
 "anzeigen. Du kannst aus den Inhalts-Typen »Seite«, »Beitrag«, »Neueste "
 "Beiträge« und »Post-Grid« wählen."
 
-#: inc/customizer/scripts-and-styles.php:41
+#: inc/customizer/scripts-and-styles.php:39
 msgid ""
 "The header image is only displayed on the front page if you have panels with "
 "content."
@@ -207,93 +143,174 @@ msgstr ""
 "Das Headerbild wird nur auf der Startseite angezeigt, wenn du Panels mit "
 "Inhalt hast."
 
-#: inc/template-tags.php:221
-msgid "Featured"
-msgstr "Featured"
+#: inc/front-page-panel-functions.php:252
+msgid "Go to blog"
+msgstr "Zum Blog"
 
-#. translators: s = author name
-#: inc/template-tags.php:239
+#: inc/template-functions.php:141
+msgid ""
+"Welcome to your site! This is your homepage, which is what most visitors "
+"will see when they come to your site for the first time.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tThe »Photographus« theme lets you use different areas for the "
+"front page, so-called »panels«. With that, you can display different content "
+"types on the front page: You can choose from a grid of your latest gallery "
+"and image posts, a list of your latest posts or a single page/post.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tTo edit the panels you see here, just click on the pen icon on the "
+"left."
+msgstr ""
+"Willkommen zu deiner Site! Das ist die Homepage, die die meisten Nutzer "
+"sehen werden, wenn sie zuerst auf deine Site kommen.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tDas »Photographus«-Theme lässt dich verschiedene Bereiche auf der "
+"Startseite nutzen, sogenannte »Panels«. Damit kannst du verschiedene Inhalts-"
+"Typen auf der Startseite anzeigen: Du kannst aus einem Grid deiner letzten "
+"Galerie- und Bild-Beiträge, einer Liste deiner neuesten Beiträge oder einem "
+"einzelnen Beitrag oder einer Seite wählen.\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t\tUm die Panels zu bearbeiten, die du hier siehst, klicke einfach "
+"auf der Stift-Icon links."
+
+#: inc/template-functions.php:150
+msgid ""
+"Just introduce yourself! This page uses the template with a large portrait "
+"featured image. If you do not use a sidebar, the image is displayed next to "
+"the content on large viewports."
+msgstr ""
+"Stell dich vor! Diese Seite nutzt das Template mit dem großen Portrait-"
+"Beitragsbild. Wenn du keine Sidebar nutzt, wird das Bild auf großen "
+"Viewports neben dem Inhalt dargestellt."
+
+#. translators: Name of menu position in the header
+#: inc/template-functions.php:185 inc/template-functions.php:239
+msgid "Primary Menu"
+msgstr "Hauptmenü"
+
+#. translators: Name of menu position in the footer
+#: inc/template-functions.php:241
+msgid "Footer Menu"
+msgstr "Footer-Menü"
+
+#: inc/template-functions.php:253
+msgid "Main Sidebar"
+msgstr "Haupt-Sidebar"
+
+#: inc/template-functions.php:255
+msgid ""
+"Widgets in this area will be displayed on all posts and pages by default."
+msgstr ""
+"Widgets in diesem Bereich werden standardmäßig auf allen Beiträgen und "
+"Seiten angezeigt."
+
+#: inc/template-functions.php:266
+msgid "Footer Sidebar"
+msgstr "Footer-Sidebar"
+
+#: inc/template-functions.php:268
+msgid "Widgets will be displayed in the footer."
+msgstr "Widgets werden im Footer angezeigt."
+
+#. translators: If there are characters in your language that are not
+#. supported by PT Serif, translate this to 'off'. Do not translate
+#. into your own language.
+#.
+#: inc/template-functions.php:352
+msgid "on"
+msgstr ""
+
+#. translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext
+#: inc/template-functions.php:362
+msgid "latin,latin-ext"
+msgstr ""
+
+#. translators: s=trackback count
+#: inc/template-functions.php:394
 #, php-format
-msgid "by %s"
-msgstr "von %s"
+msgid "Trackbacks: %s"
+msgstr "Trackbacks: %s"
 
-#: inc/template-tags.php:280
-msgid "Continue reading"
-msgstr "Weiterlesen"
-
-#. translators: continue reading text for screen reader users. s=post title
-#: inc/template-tags.php:282
+#. translators: s=comment count
+#: inc/template-functions.php:431
 #, php-format
-msgid "Continue reading %s"
-msgstr "%s weiterlesen"
+msgid "Comments: %s"
+msgstr "Kommentare: %s"
 
-#. translators: 1=category label; 2=category list
 #. translators: 1=tag label; 2=tag list
-#: inc/template-tags.php:380 inc/template-tags.php:421
+#. translators: 1=category label; 2=category list
+#: inc/template-functions.php:466 inc/template-functions.php:507
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: inc/template-tags.php:386
-msgid "Category"
-msgid_plural "Categories"
-msgstr[0] "Kategorie"
-msgstr[1] "Kategorien"
-
-#. translators: term delimiter
-#: inc/template-tags.php:391 inc/template-tags.php:432
-msgid ", "
-msgstr ", "
-
-#: inc/template-tags.php:427
+#: inc/template-functions.php:472
 msgid "Tag"
 msgid_plural "Tags"
 msgstr[0] "Tag"
 msgstr[1] "Tags"
 
-#. translators: s=comment count
-#: inc/template-tags.php:464
-#, php-format
-msgid "Comments: %s"
-msgstr "Kommentare: %s"
+#. translators: term delimiter
+#: inc/template-functions.php:477 inc/template-functions.php:518
+msgid ", "
+msgstr ", "
 
-#. translators: s=trackback count
-#: inc/template-tags.php:501
+#: inc/template-functions.php:513
+msgid "Category"
+msgid_plural "Categories"
+msgstr[0] "Kategorie"
+msgstr[1] "Kategorien"
+
+#: inc/template-functions.php:566
+msgid "Featured"
+msgstr "Featured"
+
+#. translators: s = author name
+#: inc/template-tags.php:230
 #, php-format
-msgid "Trackbacks: %s"
-msgstr "Trackbacks: %s"
+msgid "by %s"
+msgstr "von %s"
+
+#: inc/template-tags.php:248
+msgid "Continue reading"
+msgstr "Weiterlesen"
+
+#. translators: continue reading text for screen reader users. s=post title
+#: inc/template-tags.php:250
+#, php-format
+msgid "Continue reading %s"
+msgstr "%s weiterlesen"
 
 #. translators: 1=date 2=time
-#: inc/template-tags.php:584
+#: inc/template-tags.php:402
 #, php-format
 msgid "%1$s @ %2$s"
 msgstr "%1$s @ %2$s"
 
-#: inc/template-tags.php:590
+#: inc/template-tags.php:412
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: inc/template-tags.php:600
+#: inc/template-tags.php:426
 msgid "Your comment is awaiting moderation."
 msgstr "Dein Kommentar wartet auf Moderation."
 
-#: inc/template-tags.php:609
+#: inc/template-tags.php:443
 msgid "Reply"
 msgstr "Antworten"
 
-#: inc/template-tags.php:626
+#: inc/template-tags.php:460
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: inc/template-tags.php:641
+#: inc/template-tags.php:475
 msgid "Previous"
 msgstr "Neuere"
 
-#: inc/template-tags.php:642
+#: inc/template-tags.php:476
 msgid "Next"
 msgstr "Ältere"
 
-#: inc/theme-updates.php:27
+#: inc/theme-updates.php:36
 msgid ""
 "Paste your download link for »Photographus« to enable automatic theme "
 "updates."
@@ -301,13 +318,13 @@ msgstr ""
 "Füge deinen Download-Link für »Photographus« ein, um automatische Updates zu "
 "aktivieren."
 
-#: inc/theme-updates.php:77
+#: inc/theme-updates.php:124
 msgid ""
 "https://florianbrinkmann.com/en/wordpress-themes/photographus/changelog/"
 msgstr "https://florianbrinkmann.com/wordpress-themes/photographus/changelog/"
 
 #. translators: hidden screen reader headline for the main navigation
-#: partials/footer/nav.php:14
+#: partials/footer/nav.php:17
 msgid "Footer navigation"
 msgstr "Footer-Navigation"
 
@@ -322,7 +339,7 @@ msgid "https://florianbrinkmann.com/en/"
 msgstr "https://florianbrinkmann.com/"
 
 #. translators: hidden screen reader headline for the main navigation
-#: partials/header/nav.php:14
+#: partials/header/nav.php:17
 msgid "Main navigation"
 msgstr "Hauptnavigation"
 
@@ -349,7 +366,7 @@ msgid "Nothing found for: %s"
 msgstr "Nichts gefunden für: %s"
 
 #. translators: screen reader text for the sidebar
-#: sidebar.php:14
+#: sidebar.php:18
 msgid "Sidebar"
 msgstr "Sidebar"
 
@@ -362,12 +379,31 @@ msgid "https://florianbrinkmann.com/en/wordpress-themes/photographus/"
 msgstr "https://florianbrinkmann.com/wordpress-themes/photographus/"
 
 #. Description of the plugin/theme
-msgid "A photo blogger theme."
-msgstr "Ein Foto-Blogger-Theme."
+msgid ""
+"Photographus is meant for photo bloggers and photographers. It gives your "
+"images much space — they can go beyond the content area and be as wide as "
+"the browser window allows it. The theme comes with front page panels, which "
+"allow you to show, for example, a grid of your latest posts with featured "
+"images, a list of your latest posts, and the content of a specific post. "
+"Besides that, you can enable a dark mode and make use of the post type "
+"templates, which let you, among other things, display a featured image "
+"beside the content."
+msgstr ""
+"Photographus ist für Foto-Blogs gedacht. Es gibt euren Bildern viel Raum – "
+"sie können über den Inhaltsbereich hinausgehen und so breit dargestellt "
+"werden, wie das Browserfenster erlaubt. Das Theme kommt mit Startseiten-"
+"Panels, die es euch erlauben, beispielsweise ein Grid der letzten Beiträge "
+"mit Beitragsbildern, eine Liste der letzten Beiträge und einen bestimmten "
+"Beitrag anzuzeigen. Daneben könnt ihr einen Dark-Mode aktivieren und die "
+"verschiedenen Beitragstypen-Templates verwenden, die euch unter anderem ein "
+"Beitragsbild neben dem Inhalt anzeigen lassen."
 
 #. Author of the plugin/theme
 msgid "Florian Brinkmann"
 msgstr "Florian Brinkmann"
+
+#~ msgid "A photo blogger theme."
+#~ msgstr "Ein Foto-Blogger-Theme."
 
 #~ msgid "Primary menu"
 #~ msgstr "Hauptmenü"
