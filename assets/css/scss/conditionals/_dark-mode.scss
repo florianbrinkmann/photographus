@@ -30,4 +30,14 @@
 	[type="submit"]:hover, [type="submit"]:focus, [type="submit"]:active {
 		box-shadow: inset -2px 0 0 #eee, inset 2px 0 0 #eee;
 	}
+
+	.cta {
+		border-color: #eee;
+
+		&:focus,
+		&:active,
+		&hover {
+			box-shadow: none;
+		}
+	}
 }
