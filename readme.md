@@ -9,7 +9,7 @@
 
 ## Description
 
-Photographus is a theme meant photo bloggers or photographers.
+Photographus is meant for photo bloggers and photographers. It gives your images much space — they can go beyond the content area and be as wide as the browser window allows it. The theme comes with front page panels, which allow you to show, for example, a grid of your latest posts with featured images, a list of your latest posts, and the content of a specific post. Besides that, you can enable a dark mode and make use of the post type templates, which let you, among other things, display a featured image beside the content.
 
 ### Front page panels
 
@@ -73,5 +73,5 @@ Source:
 
 ## Changelog
 
-### 1.0 - 01.12.2016
+### 1.0 - 04.06.2017
 * Initial release
