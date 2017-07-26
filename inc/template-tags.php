@@ -327,9 +327,9 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 
 if ( ! function_exists( 'photographus_get_comments_by_type' ) ) {
 	/**
-	 * Returns the comments separated by type (comments and pingbacks).
+	 * Returns the post reactions by type (comments and pingbacks).
 	 *
-	 * @return array Post reactions reparated by type.
+	 * @return array Post reactions separated by type.
 	 */
 	function photographus_get_comments_by_type() {
 		$comment_args     = [

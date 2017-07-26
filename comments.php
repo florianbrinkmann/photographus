@@ -1,6 +1,6 @@
 <?php
 /**
- * Comments template
+ * Comments template.
  *
  * @version 1.0.0
  *
@@ -14,9 +14,9 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) {
 		/**
 		 * We cannot use the second parameter from comments_template()
-		 * to separate the comments, because if the comments are
+		 * to separate the reactions because if they are
 		 * broken on multiple pages, the count() would only return
-		 * the number of comments and trackbacks which are displayed
+		 * the number of comments and pings which are displayed
 		 * on the current page, not the total.
 		 *
 		 * Because of that, we use our own function to get the comments by type.
@@ -42,7 +42,7 @@ if ( post_password_required() ) {
 			<ul class="commentlist">
 				<?php
 				/**
-				 * We need to specify the per_page key, because otherwise
+				 * We need to specify the per_page key because otherwise
 				 * the separated reactions would not be broken correctly into
 				 * multiple pages.
 				 */
@@ -84,7 +84,7 @@ if ( post_password_required() ) {
 			</ul>
 		<?php }
 		/**
-		 * Only show the comments navigation, of one of the reaction counts
+		 * Only show the comments navigation if one of the reaction counts
 		 * is larger than the set number of comments per page. Necessary because
 		 * of our separation. Otherwise, the navigation would also be displayed if
 		 * we should display 4 comments per page and have 3 comments and 2 trackbacks.

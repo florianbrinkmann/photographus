@@ -1,0 +1,9 @@
+- .git/
+- node_modules/
+- photographus/
+- scripts/
+- package.json
+- gulpfile.js
+- photographus.zip
+- deploy_rsa.enc
+- .*
