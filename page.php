@@ -21,7 +21,7 @@ get_header(); ?>
 					 */
 					while ( have_posts() ) {
 						/**
-						 * Setup the post data.
+						 * Setup post.
 						 */
 						the_post();
 
