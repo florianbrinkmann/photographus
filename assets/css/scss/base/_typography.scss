@@ -13,18 +13,18 @@ h5,
 h6 {
 	font-weight: 400;
 	margin: add-unit($space-and-half, 'em') 0 0;
+}
 
-	.entry-content,
-	.sidebar {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			+ * {
-				margin-top: add-unit($space-half, 'em');
-			}
+.entry-content,
+.sidebar {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		+ * {
+			margin-top: add-unit($space-half, 'em');
 		}
 	}
 }

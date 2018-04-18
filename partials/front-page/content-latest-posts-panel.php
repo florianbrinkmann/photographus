@@ -2,7 +2,7 @@
 /**
  * Template part for displaying content of latest posts front page panel.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -10,36 +10,25 @@
 ?>
 <article <?php post_class( 'clearfix' ); ?>>
 	<?php
-	/**
-	 * Displays post header meta.
-	 */
+	// Displays post header meta.
 	photographus_the_entry_header( $heading_element, true, true ); ?>
 	<div class="entry-content">
 		<?php
-		/**
-		 * Displays the post content.
-		 */
+		// Displays the post content.
 		photographus_the_content();
 
-		/**
-		 * Display pagination if the post is paginated.
-		 */
+		// Display pagination if the post is paginated.
 		photographus_wp_link_pages(); ?>
 	</div>
 	<footer class="entry-footer">
 		<?php
-		/**
-		 * Displays the footer meta: categories, tags, comment count and trackback count.
-		 */
+		// Displays the footer meta: categories, tags, comment count and trackback count.
 		photographus_the_entry_footer_meta(); ?>
 	</footer>
 	<?php
-	/**
-	 * Closing div tag if we have a post with the template
-	 * large portrait featured image.
-	 *
-	 * Tag was opened in photographus_the_entry_header()
-	 */
+	// Closing div tag if we have a post with the template
+	// large portrait featured image.
+	// Tag was opened in photographus_the_entry_header()
 	$post_type_template = photographus_get_post_type_template();
 	if ( 'large-portrait-featured-image' === $post_type_template ) { ?>
 		</div>

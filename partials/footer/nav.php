@@ -2,14 +2,12 @@
 /**
  * Footer navigation.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
 
-/**
- * Check if the footer menu location has a menu with items.
- */
+// Check if the footer menu location has a menu with items.
 if ( has_nav_menu( 'footer' ) ) { ?>
 	<nav class="secondary-nav-container -inverted-link-style">
 		<h2 class="screen-reader-text">
@@ -17,9 +15,7 @@ if ( has_nav_menu( 'footer' ) ) { ?>
 			_e( 'Footer navigation', 'photographus' ); ?>
 		</h2>
 		<?php
-		/**
-		 * Display the menu.
-		 */
+		// Display the menu.
 		wp_nav_menu(
 			[
 				'theme_location' => 'footer',

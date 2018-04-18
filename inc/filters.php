@@ -2,32 +2,22 @@
 /**
  * All add_filter() calls.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
 
-/**
- * Removes the #more jump from more links.
- */
+// Removes the #more jump from more links.
 add_filter( 'the_content_more_link', 'photographus_remove_more_link_scroll' );
 
-/**
- * Filters the header classes.
- */
+// Filters the header classes.
 add_filter( 'photographus_additional_header_classes', 'photographus_filter_header_classes' );
 
-/**
- * Filters the body classes.
- */
+// Filters the body classes.
 add_filter( 'body_class', 'photographus_filter_body_classes' );
 
-/**
- * Filters the post classes.
- */
+// Filters the post classes.
 add_filter( 'post_class', 'photographus_filter_post_classes' );
 
-/**
- * Filters the theme update transient.
- */
+// Filters the theme update transient.
 add_filter( 'pre_set_site_transient_update_themes', 'photographus_theme_update' );

@@ -2,7 +2,7 @@
 /**
  * Functions which print styles from or in the customizer.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -11,9 +11,7 @@
  * Prints CSS inside header.
  */
 function photographus_customizer_css() {
-	/**
-	 * Check if header text should be displayed. Otherwise hide it.
-	 */
+	// Check if header text should be displayed. Otherwise hide it.
 	if ( display_header_text() ) {
 		return;
 	} else { ?>

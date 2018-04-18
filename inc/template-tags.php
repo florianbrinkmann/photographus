@@ -2,7 +2,7 @@
 /**
  * Template tags, used in template files.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -14,17 +14,11 @@ if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 	 * @return string Custom logo markup or empty string.
 	 */
 	function photographus_get_custom_logo() {
-		/**
-		 * Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5.
-		 */
+		// Wrap inside function_exists() to preserve back compat with WordPress versions older than 4.5.
 		if ( function_exists( 'get_custom_logo' ) ) {
-			/**
-			 * Check if we have a custom logo.
-			 */
+			// Check if we have a custom logo.
 			if ( has_custom_logo() ) {
-				/**
-				 * Return the custom logo.
-				 */
+				// Return the custom logo.
 				return get_custom_logo();
 			}
 		}
@@ -45,52 +39,35 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 	 * @param boolean $latest_posts_panel true if it is a call from the latest posts panel.
 	 */
 	function photographus_the_entry_header( $heading, $link = true, $latest_posts_panel = false ) {
-		/**
-		 * Get the post type template.
-		 */
+		// Get the post type template.
 		$post_type_template = photographus_get_post_type_template();
 
-		/**
-		 * Save the post title.
-		 */
+		// Save the post title.
 		$title = photographus_get_the_title( $heading, $link );
 
-		/**
-		 * If post is sticky, a label is saved. Otherwise empty string.
-		 */
+		// If post is sticky, a label is saved. Otherwise empty string.
 		$sticky_label = photographus_get_the_sticky_label();
 
-		/**
-		 * Save entry header meta. Author and date.
-		 */
+		// Save entry header meta. Author and date.
 		$entry_header_meta = photographus_get_the_entry_header_meta();
 
-		/**
-		 * Save the post thumbnail markup.
-		 */
+		// Save the post thumbnail markup.
 		$post_thumbnail = photographus_get_the_post_thumbnail();
 
-		/**
-		 * We need to display the post thumbnail twice for posts with the
-		 * post format large featured image vertical.
-		 */
+		// We need to display the post thumbnail twice for posts with the
+		// post format large featured image vertical.
 		if ( 'large-portrait-featured-image' === $post_type_template || 'large-portrait-featured-image-no-sidebar' === $post_type_template ) {
-			/**
-			 * We do not need the meta information (author and date) on pages,
-			 * so we check if we have a page and do not include the placeholder
-			 * %4$s.
-			 *
-			 * Closing div is inserted in the partials files (for example content.php)
-			 */
+			// We do not need the meta information (author and date) on pages,
+			// so we check if we have a page and do not include the placeholder
+			// %4$s.
+			// Closing div is inserted in the partials files (for example content.php)
 			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '%1$s<div><header class="entry-header -inverted-link-style"><div>%2$s%3$s</div>%1$s</header>';
 			} else {
 				$format = '%1$s<div><header class="entry-header -inverted-link-style"><div>%2$s%3$s%4$s</div>%1$s</header>';
 			}
 
-			/**
-			 * Use $format and fill the placeholders.
-			 */
+			// Use $format and fill the placeholders.
 			printf(
 				$format,
 				$post_thumbnail,
@@ -99,22 +76,17 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 				$entry_header_meta
 			);
 		} else {
-			/**
-			 * We do not need the meta information (author and date) on pages,
-			 * so we check if we have a page and do not include the placeholder
-			 * %3$s.
-			 *
-			 * Closing div is inserted in the partials files (for example content.php)
-			 */
+			// We do not need the meta information (author and date) on pages,
+			// so we check if we have a page and do not include the placeholder
+			// %3$s.
+			// Closing div is inserted in the partials files (for example content.php)
 			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '<header class="entry-header -inverted-link-style"><div>%1$s%2$s</div>%4$s</header>';
 			} else {
 				$format = '<header class="entry-header -inverted-link-style"><div>%1$s%2$s%3$s</div>%4$s</header>';
 			}
 
-			/**
-			 * Use $format and fill the placeholders.
-			 */
+			// Use $format and fill the placeholders.
 			printf(
 				$format,
 				$title,
@@ -133,14 +105,10 @@ if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 	 * @return string Post thumbnail markup.
 	 */
 	function photographus_get_the_post_thumbnail() {
-		/**
-		 * Check if post has a post thumbnail. If not, save empty string.
-		 */
+		// Check if post has a post thumbnail. If not, save empty string.
 		if ( has_post_thumbnail() ) {
-			/**
-			 * Array to connect post thumbnail sizes with post type templates.
-			 * If no post type template, we want the large size.
-			 */
+			// Array to connect post thumbnail sizes with post type templates.
+			// If no post type template, we want the large size.
 			$post_thumbnail_size = [
 				'large-portrait-featured-image'            => 'full',
 				'large-portrait-featured-image-no-sidebar' => 'full',
@@ -149,24 +117,18 @@ if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 				''                                         => 'large',
 			];
 
-			/**
-			 * Get the post type template of the post.
-			 * Is an empty string, if no post type template is set.
-			 */
+			// Get the post type template of the post.
+			// Is an empty string, if no post type template is set.
 			$post_type_template = photographus_get_post_type_template();
 
-			/**
-			 * Get the post thumbnail markup.
-			 */
+			// Get the post thumbnail markup.
 			if ( array_key_exists( $post_type_template, $post_thumbnail_size ) ) {
 				$post_thumbnail = get_the_post_thumbnail( null, $post_thumbnail_size[ $post_type_template ] );
 			} else {
 				$post_thumbnail = get_the_post_thumbnail( null, 'large' );
 			}
 
-			/**
-			 * Wrap it inside a <figure> element.
-			 */
+			// Wrap it inside a <figure> element.
 			$post_thumbnail_markup = sprintf( '<figure class="post-thumbnail clearfix">%s</figure>', $post_thumbnail );
 		} else {
 			$post_thumbnail_markup = '';
@@ -186,13 +148,9 @@ if ( ! function_exists( 'photographus_get_the_title' ) ) {
 	 * @return string Title markup.
 	 */
 	function photographus_get_the_title( $heading, $link = true ) {
-		/**
-		 * Check if the title should be a link.
-		 */
+		// Check if the title should be a link.
 		if ( $link ) {
-			/**
-			 * Build the title markup.
-			 */
+			// Build the title markup.
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
@@ -201,9 +159,7 @@ if ( ! function_exists( 'photographus_get_the_title' ) ) {
 				sprintf( '</a></%s>', $heading ),
 				false );
 		} else {
-			/**
-			 * Build the title markup without a link.
-			 */
+			// Build the title markup without a link.
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title">',
@@ -260,19 +216,13 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 	 * Displays the_content() with a more accessible more tag.
 	 */
 	function photographus_the_entry_footer_meta() {
-		/**
-		 * Save the category markup. Empty string if post has no categories.
-		 */
+		// Save the category markup. Empty string if post has no categories.
 		$meta_markup = photographus_get_categories_list();
 
-		/**
-		 * Get the tag markup. Empty string if post has no tags.
-		 */
+		// Get the tag markup. Empty string if post has no tags.
 		$tags = photographus_get_tag_list();
 		if ( '' !== $tags ) {
-			/**
-			 * Add the tag markup to the $meta_markup string.
-			 */
+			// Add the tag markup to the $meta_markup string.
 			if ( '' !== $meta_markup ) {
 				$meta_markup .= " · $tags";
 			} else {
@@ -280,19 +230,13 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 			}
 		}
 
-		/**
-		 * Get comments separated by type.
-		 */
+		// Get comments separated by type.
 		$comments_by_type = photographus_get_comments_by_type();
 
-		/**
-		 * Get comments number text.
-		 */
+		// Get comments number text.
 		$comments = photographus_get_comments_number_text( $comments_by_type );
 		if ( '' !== $comments ) {
-			/**
-			 * Add the comment number markup to the $meta_markup string.
-			 */
+			// Add the comment number markup to the $meta_markup string.
 			if ( '' !== $meta_markup ) {
 				$meta_markup .= " · $comments";
 			} else {
@@ -300,14 +244,10 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 			}
 		}
 
-		/**
-		 * Get trackback number text.
-		 */
+		// Get trackback number text.
 		$trackbacks = photographus_get_trackback_number_text( $comments_by_type );
 		if ( '' !== $trackbacks ) {
-			/**
-			 * Add the comment number markup to the $meta_markup string.
-			 */
+			// Add the comment number markup to the $meta_markup string.
 			if ( '' !== $meta_markup ) {
 				$meta_markup .= " · $trackbacks";
 			} else {
@@ -315,9 +255,7 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 			}
 		}
 
-		/**
-		 * Display the footer meta markup.
-		 */
+		// Display the footer meta markup.
 		printf(
 			'<p class="entry-meta -footer">%s</p>',
 			$meta_markup
@@ -354,14 +292,10 @@ if ( ! function_exists( 'photographus_get_post_type_template' ) ) {
 	function photographus_get_post_type_template() {
 		$template_slug = get_page_template_slug();
 		if ( '' !== $template_slug ) {
-			/**
-			 * Remove templates/ from slug.
-			 */
+			// Remove templates/ from slug.
 			$template_slug = str_replace( 'templates/', '', $template_slug );
 
-			/**
-			 * Remove .php file ending.
-			 */
+			// Remove .php file ending.
 			$post_type_template = str_replace( '.php', '', $template_slug );
 
 			return $post_type_template;
@@ -386,14 +320,10 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 				<?php echo get_avatar( $comment, 44 ); ?>
 				<p class="comment-author-date">
 					<?php
-					/**
-					 * Display the name of the comment author. Linked to the site he submitted in the Website field.
-					 */
+					// Display the name of the comment author. Linked to the site he submitted in the Website field.
 					comment_author_link(); ?> ·&nbsp;
 					<?php
-					/**
-					 * Display the comment date, linked to the comment’s permalink.
-					 */
+					// Display the comment date, linked to the comment’s permalink.
 					printf(
 						'<time datetime="%2$s"><a href="%1$s">%3$s</a></time>',
 						get_comment_link( $comment->comment_ID ),
@@ -405,9 +335,7 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 						)
 					);
 
-					/**
-					 * Display the edit link (only visible for users with the right capabilities).
-					 */
+					// Display the edit link (only visible for users with the right capabilities).
 					edit_comment_link(
 						__( 'Edit', 'photographus' ),
 						' ·&nbsp;',
@@ -418,27 +346,21 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 			<div class="comment-content-wrapper">
 				<div class="comment-content">
 					<?php
-					/**
-					 * Check if the comment is not approved yet.
-					 */
+					// Check if the comment is not approved yet.
 					if ( '0' === $comment->comment_approved ) { ?>
 						<p>
 							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); ?></strong>
 						</p>
 					<?php }
 
-					/**
-					 * Display the comment text.
-					 */
+					// Display the comment text.
 					comment_text(); ?>
 				</div>
 			</div>
 
 			<div class="reply">
 				<?php
-				/**
-				 * Display the reply link.
-				 */
+				// Display the reply link.
 				comment_reply_link( [
 					'reply_text' => __( 'Reply', 'photographus' ),
 					'depth'      => $depth,
@@ -494,15 +416,11 @@ if ( ! function_exists( 'photographus_front_page_panel_count' ) ) {
 		 */
 		$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
-			/**
-			 * Get the content type of the current panel.
-			 */
+			// Get the content type of the current panel.
 			$panel_content_type = get_theme_mod( "photographus_panel_{$i}_content_type" );
 
-			/**
-			 * We need to do additional tests for post and page panels, because it is possible
-			 * that the content type is selected without selecting a post or page.
-			 */
+			// We need to do additional tests for post and page panels, because it is possible
+			// that the content type is selected without selecting a post or page.
 			switch ( $panel_content_type ) {
 				case '0':
 					break;
@@ -545,44 +463,30 @@ if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 		 */
 		$num_sections = apply_filters( 'photographus_front_page_sections', 4 );
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
-			/**
-			 * Check if $partial is not null (so we have a customizer selective refresh)
-			 * and update the panel number.
-			 */
+			// Check if $partial is not null (so we have a customizer selective refresh)
+			// and update the panel number.
 			if ( $partial !== null ) {
 				$id = $partial->id;
 				$i  = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
 			}
 
-			/**
-			 * Get the content type of the current panel.
-			 */
+			// Get the content type of the current panel.
 			$panel_content_type = get_theme_mod( "photographus_panel_{$i}_content_type" );
 
 			switch ( $panel_content_type ) {
-				/**
-				 * No content type for panel is chosen.
-				 */
+				// No content type for panel is chosen.
 				case '0':
-					/**
-					 * Display a placeholder for the panel (only if in customizer preview).
-					 */
+					// Display a placeholder for the panel (only if in customizer preview).
 					photographus_the_customizer_panel_placeholder( $i );
 					break;
 
-				/**
-				 * The panel has the content type »page«.
-				 */
+				// The panel has the content type »page«.
 				case 'page':
-					/**
-					 * Display the page.
-					 */
+					// Display the page.
 					photographus_the_page_panel( null, $i );
 					break;
 
-				/**
-				 * The panel has the content type »post«.
-				 */
+				// The panel has the content type »post«.
 				case 'post':
 					/**
 					 * Display the post.
@@ -590,30 +494,20 @@ if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 					photographus_the_post_panel( null, $i );
 					break;
 
-				/**
-				 * The panel has the content type »lastest posts«.
-				 */
+				// The panel has the content type »lastest posts«.
 				case 'latest-posts':
-					/**
-					 * Display the latest posts panel.
-					 */
+					// Display the latest posts panel.
 					photographus_the_latest_posts_panel( null, $i );
 					break;
 
-				/**
-				 * The panel has the content type »post grid«.
-				 */
+				// The panel has the content type »post grid«.
 				case 'post-grid':
-					/**
-					 * Display the post grid panel.
-					 */
+					// Display the post grid panel.
 					photographus_the_post_grid_panel( null, $i );
 					break;
 			} // End switch().
 
-			/**
-			 * Break the for loop after first pass if $partial is not null.
-			 */
+			// Break the for loop after first pass if $partial is not null.
 			if ( $partial !== null ) {
 				break;
 			}
@@ -628,29 +522,21 @@ if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 	 * @return string Post type template class.
 	 */
 	function photographus_get_post_type_template_class() {
-		/**
-		 * Get the post type template name.
-		 * Empty string if no template is used.
-		 */
+		// Get the post type template name.
+		// Empty string if no template is used.
 		$post_type_template = photographus_get_post_type_template();
 
-		/**
-		 * Check if this is a page template which should hide the sidebar
-		 * (contains »-no-sidebar«).
-		 * Returns false if no-sidebar cannot be found.
-		 */
+		// Check if this is a page template which should hide the sidebar
+		// (contains »-no-sidebar«).
+		// Returns false if no-sidebar cannot be found.
 		$no_sidebar_pos = strpos( $post_type_template, '-no-sidebar' );
 
-		/**
-		 * Remove »-no-sidebar« part so the CSS styles will match
-		 */
+		// Remove »-no-sidebar« part so the CSS styles will match
 		if ( $no_sidebar_pos !== false ) {
 			$post_type_template = str_replace( '-no-sidebar', '', $post_type_template );
 		}
 
-		/**
-		 * Add post template class if post has a template
-		 */
+		// Add post template class if post has a template
 		if ( '' !== $post_type_template ) {
 			$post_type_template_class = "-$post_type_template-template";
 		} else {

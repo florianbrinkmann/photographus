@@ -1,7 +1,7 @@
 /**
  * Custom JavaScript functions.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -14,14 +14,10 @@
 		 */
 		var root = document.documentElement;
 
-		/**
-		 * Remove the no-js class
-		 */
+		// Remove the no-js class
 		root.removeAttribute('class', 'no-js');
 
-		/**
-		 * Set a js class.
-		 */
+		// Set a js class.
 		root.setAttribute('class', 'js');
 
 		/**
@@ -57,9 +53,7 @@ function addClassToImageLinks() {
 	 */
 	var linked_images = document.querySelectorAll('a > img');
 
-	/**
-	 * Loop through the images and add a class.
-	 */
+	// Loop through the images and add a class.
 	for (var i = 0; i < linked_images.length; i++) {
 		if (linked_images[i].parentElement.className == 'img-link') {
 		} else {
@@ -80,25 +74,19 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
 	 */
 	var gridElems = document.querySelectorAll(".gallery-grid");
 
-	/**
-	 * Check if we have grid elements.
-	 */
+	// Check if we have grid elements.
 	if (0 === gridElems.length) {
 		return
 	}
 
-	/**
-	 * Function for creating and destroying the masonry grids.
-	 */
+	// Function for creating and destroying the masonry grids.
 	function masonryGrid() {
 		var w = Math.max(
 			document.documentElement.clientWidth,
 			window.innerWidth || 0
 		);
 
-		/**
-		 * Only init masonry if the window is greater or equal 730px
-		 */
+		// Only init masonry if the window is greater or equal 730px
 		if (w >= 730 && !msnry) {
 			for (var i = 0; i < gridElems.length; i++) {
 				msnry = new Masonry(gridElems[i], {
@@ -134,9 +122,7 @@ function fullWidthImages() {
 	 */
 	var fullWidthImages = document.querySelectorAll('.-with-sidebar .-large-featured-image-template .wp-post-image, img.size-full');
 
-	/**
-	 * Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
-	 */
+	// Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
 	if (fullWidthImages.length !== 0) {
 		for (var i = 0; i < fullWidthImages.length; i++) {
 			if (fullWidthImages[i].hasAttribute('width')) {

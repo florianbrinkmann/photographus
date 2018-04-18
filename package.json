@@ -1,24 +1,24 @@
 {
-  "name": "photographus",
-  "version": "1.0.0",
-  "description": "Photographus WordPress theme",
-  "repository": {
-    "type": "git",
-    "url": "https://florianbrinkmann@gitlab.com/florianbrinkmann/photographus.git"
-  },
-  "author": "Florian Brinkmann",
-  "license": "GPLv2 or later",
-  "devDependencies": {
-    "gulp": "~3.9.1",
-    "gulp-autoprefixer": "~3.1.1",
-    "gulp-clean-css": "~3.0.4",
-    "gulp-css-flipper": "^1.0.2",
-    "gulp-cssmin": "~0.1.7",
-    "gulp-jshint": "~2.0.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "~3.1.0",
-    "gulp-sourcemaps": "~2.4.1",
-    "jshint": "~2.9.4",
-    "run-sequence": "^1.2.2"
-  }
+	"name": "photographus",
+	"version": "1.0.0",
+	"description": "Photographus WordPress theme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FlorianBrinkmann/photographus.git"
+	},
+	"author": "Florian Brinkmann",
+	"license": "GPLv2 or later",
+	"devDependencies": {
+		"gulp": "~3.9.1",
+		"gulp-autoprefixer": "~3.1.1",
+		"gulp-clean-css": "~3.0.4",
+		"gulp-css-flipper": "^1.0.2",
+		"gulp-cssmin": "~0.1.7",
+		"gulp-jshint": "~2.0.4",
+		"gulp-rename": "^1.2.2",
+		"gulp-sass": "~3.1.0",
+		"gulp-sourcemaps": "~2.4.1",
+		"jshint": "~2.9.4",
+		"run-sequence": "^1.2.2"
+	}
 }

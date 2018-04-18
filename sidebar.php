@@ -2,15 +2,13 @@
 /**
  * Template for displaying the sidebar
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
 
-/**
- * Check if we have widgets in the sidebar and are not on the front page
- * with panels.
- */
+// Check if we have widgets in the sidebar and are not on the front page
+// with panels.
 if ( is_active_sidebar( 'sidebar-1' ) && false === photographus_is_front_page_with_panels() ) { ?>
 	<aside class="sidebar" role="complementary">
 		<h2 class="screen-reader-text">

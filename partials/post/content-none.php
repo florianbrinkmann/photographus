@@ -2,7 +2,7 @@
 /**
  * Template part which is displayed if a query does not find anything.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -17,9 +17,7 @@
 	<div class="entry-content">
 		<p><?php _e( 'It seems that the content you requested cannot be found. Maybe searching helps?', 'photographus' ); ?></p>
 		<?php
-		/**
-		 * Display the search form.
-		 */
+		// Display the search form.
 		get_search_form(); ?>
 	</div>
 </article>

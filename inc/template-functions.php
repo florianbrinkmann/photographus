@@ -3,7 +3,7 @@
  * Functions that are not called from the template files
  * and cannot be grouped together into another file.
  *
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @package Photographus
  */
@@ -43,9 +43,7 @@ if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
  * Set the content width.
  */
 function photographus_set_content_width() {
-	/**
-	 * Set the content width to 751.
-	 */
+	// Set the content width to 751.
 	$content_width = 751;
 
 	/**
@@ -60,27 +58,19 @@ function photographus_set_content_width() {
  * Adds theme support for feed links, custom head, html5, post formats, post thumbnails, title element and custom logo.
  */
 function photographus_add_theme_support() {
-	/**
-	 * Add theme support for custom header image (only use height so that WordPress does not
-	 * show a recommended height of 0).
-	 */
+	// Add theme support for custom header image (only use height so that WordPress does not
+	// show a recommended height of 0).
 	add_theme_support( 'custom-header', [
 		'height' => 1000,
 	] );
 
-	/**
-	 * Add theme support for feed links (blog feed, comment feeds, …)
-	 */
+	// Add theme support for feed links (blog feed, comment feeds, …)
 	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Add theme support for the title tag.
-	 */
+	// Add theme support for the title tag.
 	add_theme_support( 'title-tag' );
 
-	/**
-	 * Add theme support for the post formats.
-	 */
+	// Add theme support for the post formats.
 	add_theme_support( 'post-formats', [
 		'aside',
 		'link',
@@ -93,9 +83,7 @@ function photographus_add_theme_support() {
 		'chat',
 	] );
 
-	/**
-	 * Add theme support for HTML5 markup in Core elements.
-	 */
+	// Add theme support for HTML5 markup in Core elements.
 	add_theme_support( 'html5', [
 		'comment-list',
 		'comment-form',
@@ -104,28 +92,18 @@ function photographus_add_theme_support() {
 		'caption',
 	] );
 
-	/**
-	 * Add theme support for post thumbnails.
-	 */
+	// Add theme support for post thumbnails.
 	add_theme_support( 'post-thumbnails' );
 
-	/**
-	 * Add theme support for the custom logo feature.
-	 */
+	// Add theme support for the custom logo feature.
 	add_theme_support( 'custom-logo' );
 
-	/**
-	 * Add theme support for selective refresh for widgets.
-	 */
+	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/**
-	 * Create starter content for new sites.
-	 */
+	// Create starter content for new sites.
 	add_theme_support( 'starter-content', [
-		/**
-		 * Add attachments that are used by posts and pages.
-		 */
+		// Add attachments that are used by posts and pages.
 		'attachments' => [
 			'featured-image-about-page' => [
 				'post_title' => 'Featured image for about page',
@@ -133,9 +111,7 @@ function photographus_add_theme_support() {
 			],
 		],
 
-		/**
-		 * Create and modify posts and pages.
-		 */
+		// Create and modify posts and pages.
 		'posts'       => [
 			'home'  => [
 				'post_content' => __( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
@@ -152,9 +128,7 @@ function photographus_add_theme_support() {
 			'blog',
 		],
 
-		/**
-		 * Remove default core starter content widgets.
-		 */
+		// Remove default core starter content widgets.
 		'widgets'     => [
 			'sidebar-1' => [
 				'search',
@@ -162,9 +136,7 @@ function photographus_add_theme_support() {
 			],
 		],
 
-		/**
-		 * Set options.
-		 */
+		// Set options.
 		'options'     => [
 			'show_on_front'  => 'page',
 			'page_on_front'  => '{{home}}',
@@ -172,9 +144,7 @@ function photographus_add_theme_support() {
 			'header_image'   => get_theme_file_uri( 'assets/images/starter-content/featured-image-about-page.jpg' ),
 		],
 
-		/**
-		 * Fill nav menus.
-		 */
+		// Fill nav menus.
 		'nav_menus'   => [
 			'primary' => [
 				'name'  => __( 'Primary Menu', 'photographus' ),
@@ -186,9 +156,7 @@ function photographus_add_theme_support() {
 			],
 		],
 
-		/**
-		 * Set values for theme mods.
-		 */
+		// Set values for theme mods.
 		'theme_mods'  => [
 			/**
 			 * Set the values for the second front page panel.
@@ -235,9 +203,7 @@ function photographus_register_menus() {
  * Register sidebars.
  */
 function photographus_register_sidebars() {
-	/**
-	 * Registering the main sidebar which is displayed next to the content on larger viewports
-	 */
+	// Registering the main sidebar which is displayed next to the content on larger viewports
 	register_sidebar( [
 		'name'          => __( 'Main Sidebar', 'photographus' ),
 		'id'            => 'sidebar-1',
@@ -248,9 +214,7 @@ function photographus_register_sidebars() {
 		'after_title'   => '</h3>',
 	] );
 
-	/**
-	 * Registering the widget area for the footer
-	 */
+	// Registering the widget area for the footer
 	register_sidebar( [
 		'name'          => __( 'Footer Sidebar', 'photographus' ),
 		'id'            => 'sidebar-footer',
@@ -266,56 +230,40 @@ function photographus_register_sidebars() {
  * Adds the scripts and styles to the header.
  */
 function photographus_scripts_styles() {
-	/**
-	 * Enqueue script so if a answer to a comment is written, the comment form appears
-	 * directly below this comment.
-	 * Only enqueue it if in single view with open comments and threaded comments enabled.
-	 */
+	// Enqueue script so if a answer to a comment is written, the comment form appears
+	// directly below this comment.
+	// Only enqueue it if in single view with open comments and threaded comments enabled.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	/**
-	 * Enqueue the Photographus stylesheet.
-	 */
+	// Enqueue the Photographus stylesheet.
 	if ( is_rtl() ) {
 		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus-rtl.css' ), [], null );
 	} else {
 		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], null );
 	}
 
-	/**
-	 * Enqueue the PT Serif font from Google fonts.
-	 */
+	// Enqueue the PT Serif font from Google fonts.
 	wp_enqueue_style( 'photographus-font', photographus_fonts_url(), [], null );
 
-	/**
-	 * Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
-	 * »imagesloaded« dependency which would be loaded if we would use the core masonry.
-	 */
+	// Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
+	// »imagesloaded« dependency which would be loaded if we would use the core masonry.
 	wp_enqueue_script( 'photographus-masonry', get_theme_file_uri( 'assets/js/masonry.js' ), [], null, true );
 
-	/**
-	 * Enqueue the Photographus JavaScript functions.
-	 */
+	// Enqueue the Photographus JavaScript functions.
 	wp_enqueue_script( 'photographus-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'photographus-masonry' ], null, true );
 
-	/**
-	 * Enqueue the Photographus JavaScript functions.
-	 */
+	// Enqueue the Photographus JavaScript functions.
 	wp_enqueue_script( 'photographus-customize-preview-script', get_theme_file_uri( 'assets/js/customize-preview.js' ), [ 'photographus-script' ], null, true );
 
-	/**
-	 * Remove box shadow from links in admin bar.
-	 */
+	// Remove box shadow from links in admin bar.
 	if ( is_admin_bar_showing() ) {
 		wp_add_inline_style( 'photographus-style', '#wpadminbar a {box-shadow: none}' );
 	}
 
-	/**
-	 * Adding dark mode styles for html inline, because the conditional .-dark-mode class
-	 * is on the body element.
-	 */
+	// Adding dark mode styles for html inline, because the conditional .-dark-mode class
+	// is on the body element.
 	$dark_mode = get_theme_mod( 'photographus_dark_mode', false );
 	if ( true === $dark_mode ) {
 		wp_add_inline_style( 'photographus-style', 'html{ background: #222; color: #eee } ' );
@@ -333,11 +281,7 @@ if ( ! function_exists( 'photographus_fonts_url' ) ) {
 	function photographus_fonts_url() {
 		$fonts_url = '';
 
-		/*
-		 * translators: If there are characters in your language that are not
-		 * supported by PT Serif, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
+		/* translators: If there are characters in your language that are not supported by PT Serif, translate this to 'off'. Do not translate into your own language. */
 		$pt_serif = __( 'on', 'photographus' );
 
 		if ( 'off' !== $pt_serif ) {
@@ -367,18 +311,12 @@ if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 	 * @return string Trackback number text or empty string.
 	 */
 	function photographus_get_trackback_number_text( $comments_by_type ) {
-		/**
-		 * Check if we have pings, otherwise return empty string.
-		 */
+		// Check if we have pings, otherwise return empty string.
 		if ( $comments_by_type['pings'] ) {
-			/**
-			 * Save the trackback count.
-			 */
+			// Save the trackback count.
 			$trackback_number = count( $comments_by_type['pings'] );
 
-			/**
-			 * Build the trackback number text.
-			 */
+			// Build the trackback number text.
 			$trackback_number_text = sprintf( /* translators: s=trackback count */
 				__( 'Trackbacks: %s', 'photographus' ),
 				sprintf(
@@ -404,18 +342,12 @@ if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
 	 * @return string Comments number text or empty string.
 	 */
 	function photographus_get_comments_number_text( $comments_by_type ) {
-		/**
-		 * Check if we have comments, otherwise return empty string.
-		 */
+		// Check if we have comments, otherwise return empty string.
 		if ( $comments_by_type['comment'] ) {
-			/**
-			 * Save the comment count.
-			 */
+			// Save the comment count.
 			$comment_number = count( $comments_by_type['comment'] );
 
-			/**
-			 * Build the comments number text.
-			 */
+			// Build the comments number text.
 			$comments_number_text = sprintf( /* translators: s=comment count */
 				__( 'Comments: %s', 'photographus' ),
 				sprintf(
@@ -439,24 +371,16 @@ if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 	 * @return string Tag list or empty string.
 	 */
 	function photographus_get_tag_list() {
-		/**
-		 * Get tag array.
-		 */
+		// Get tag array.
 		$tags = get_the_tags();
 
-		/**
-		 * Check if we have a tag array, otherwise return empty string.
-		 */
+		// Check if we have a tag array, otherwise return empty string.
 		if ( is_array( $tags ) ) {
-			/**
-			 * Build the markup.
-			 */
+			// Build the markup.
 			$tags_markup = sprintf( /* translators: 1=tag label; 2=tag list */
 				__( '%1$s: %2$s', 'photographus' ),
 
-				/**
-				 * Display singular or plural label based on tag count.
-				 */
+				// Display singular or plural label based on tag count.
 				_n(
 					'Tag',
 					'Tags',
@@ -480,24 +404,16 @@ if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 	 * @return string Categories list or empty string.
 	 */
 	function photographus_get_categories_list() {
-		/**
-		 * Get array of post categories.
-		 */
+		// Get array of post categories.
 		$categories = get_the_category();
 
-		/**
-		 * Check if we have categories in the array. Otherwise return empty string.
-		 */
+		// Check if we have categories in the array. Otherwise return empty string.
 		if ( ! empty( $categories ) ) {
-			/**
-			 * Build the markup.
-			 */
+			// Build the markup.
 			$categories_markup = sprintf( /* translators: 1=category label; 2=category list */
 				__( '%1$s: %2$s', 'photographus' ),
 
-				/**
-				 * Display singular or plural label based on the category count.
-				 */
+				// Display singular or plural label based on the category count.
 				_n(
 					'Category',
 					'Categories',
@@ -544,10 +460,8 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 	 * @return string Sticky label markup.
 	 */
 	function photographus_get_the_sticky_label() {
-		/**
-		 * Just display label if we have a sticky post and
-		 * are not on the single view of the post.
-		 */
+		// Just display label if we have a sticky post and
+		// are not on the single view of the post.
 		if ( is_sticky() && ! is_single() ) {
 			/* translators: String for the label of sticky posts. Displayed above the title */
 			$sticky_label_markup = sprintf(
