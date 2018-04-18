@@ -171,18 +171,14 @@ function photographus_add_theme_support() {
  * Adds editor styles for the backend editor.
  */
 function photographus_add_editor_style() {
-	/**
-	 * Add stylesheet and font.
-	 */
+	// Add stylesheet and font.
 	if ( is_rtl() ) {
 		add_editor_style( [
 			'assets/css/editor-style-rtl.css',
-			photographus_fonts_url(),
 		] );
 	} else {
 		add_editor_style( [
 			'assets/css/editor-style.css',
-			photographus_fonts_url(),
 		] );
 	}
 }
@@ -244,9 +240,6 @@ function photographus_scripts_styles() {
 		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], null );
 	}
 
-	// Enqueue the PT Serif font from Google fonts.
-	wp_enqueue_style( 'photographus-font', photographus_fonts_url(), [], null );
-
 	// Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
 	// »imagesloaded« dependency which would be loaded if we would use the core masonry.
 	wp_enqueue_script( 'photographus-masonry', get_theme_file_uri( 'assets/js/masonry.js' ), [], null, true );
@@ -269,38 +262,6 @@ function photographus_scripts_styles() {
 		wp_add_inline_style( 'photographus-style', 'html{ background: #222; color: #eee } ' );
 	}
 }
-
-if ( ! function_exists( 'photographus_fonts_url' ) ) {
-	/**
-	 * Register custom fonts.
-	 *
-	 * @link https://core.trac.wordpress.org/browser/tags/4.7.4/src/wp-content/themes/twentyseventeen/functions.php#L261
-	 *
-	 * @return string Fonts URL.
-	 */
-	function photographus_fonts_url() {
-		$fonts_url = '';
-
-		/* translators: If there are characters in your language that are not supported by PT Serif, translate this to 'off'. Do not translate into your own language. */
-		$pt_serif = __( 'on', 'photographus' );
-
-		if ( 'off' !== $pt_serif ) {
-			$font_families = [];
-
-			$font_families[] = 'PT Serif:400,400i,700';
-
-			$query_args = [
-				'family' => rawurlencode( implode( '|', $font_families ) ),
-				/* translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext */
-				'subset' => rawurlencode( __( 'latin,latin-ext', 'photographus' ) ),
-			];
-
-			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-		}
-
-		return esc_url_raw( $fonts_url );
-	}
-} // End if().
 
 if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 	/**
