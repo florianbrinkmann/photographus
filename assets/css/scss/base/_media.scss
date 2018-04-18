@@ -163,3 +163,14 @@ figure[id^='attachment_'] > a {
 .full-bleed-img-paragraph::after {
 	@include clearfix;
 }
+
+/* iFrames and video elements.
+   ========================================================================== */
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	max-width: 100%;
+}
