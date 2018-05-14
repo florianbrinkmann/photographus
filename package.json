@@ -9,7 +9,7 @@
 	"author": "Florian Brinkmann",
 	"license": "GPLv2 or later",
 	"devDependencies": {
-		"gulp": "~3.9.1",
+		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "~3.1.1",
 		"gulp-clean-css": "~3.0.4",
 		"gulp-css-flipper": "^1.0.2",
