@@ -107,3 +107,16 @@
 	padding-left: 0;
 	padding-right: 0;
 }
+
+.comment-form-cookies-consent {
+	display: flex;
+	align-items: baseline;
+
+	label {
+		margin-left: .5em;
+	}
+
+	input {
+		width: auto;
+	}
+}
