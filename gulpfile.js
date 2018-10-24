@@ -31,17 +31,18 @@ gulp.task('sass-production', function () {
 		.pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('default', function () {
-	runSequence(
+gulp.task('default', gulp.series(
 		'sass',
 		'css-rtl'
-	);
-	gulp.watch('assets/css/scss/**/*.scss', ['sass', 'css-rtl']);
-});
+	),
+	gulp.watch('assets/css/scss/**/*.scss', gulp.series(
+		'sass',
+		'css-rtl'
+	))
+);
 
-gulp.task('production', function () {
-	runSequence(
+gulp.task('production', gulp.series(
 		'sass-production',
 		'css-rtl'
-	);
-});
+	)
+);
