@@ -61,7 +61,10 @@ function photographus_add_theme_support() {
 	// Add theme support for custom header image (only use height so that WordPress does not
 	// show a recommended height of 0).
 	add_theme_support( 'custom-header', [
-		'height' => 1000,
+		'height'      => 1000,
+		'flex-height' => true,
+		'width'       => 1500,
+		'flex-width'  => true,
 	] );
 
 	// Add theme support for feed links (blog feed, comment feeds, …)
