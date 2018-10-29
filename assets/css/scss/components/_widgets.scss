@@ -40,3 +40,26 @@
 		@include line-height-and-spaces(1.4);
 	}
 }
+
+.widget_media_gallery {
+	.gallery-columns- {
+		&2,
+		&3 {
+			.gallery-item {
+				margin: .5em;
+			}
+		}
+
+		&2 {
+			.gallery-item {
+				width: calc(50% - 1em);
+			}
+		}
+
+		&3 {
+			.gallery-item {
+				width: calc(33.33% - 1em);
+			}
+		}
+	}
+}
