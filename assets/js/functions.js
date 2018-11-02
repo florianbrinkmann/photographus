@@ -120,7 +120,7 @@ function fullWidthImages() {
 	 *
 	 * @type {NodeList}
 	 */
-	var fullWidthImages = document.querySelectorAll('.-with-sidebar .-large-featured-image-template .wp-post-image, img.size-full');
+	var fullWidthImages = document.querySelectorAll('.-with-sidebar .-large-featured-image-template .wp-post-image, .entry-content img');
 
 	// Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
 	if (fullWidthImages.length !== 0) {
