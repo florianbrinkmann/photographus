@@ -168,6 +168,23 @@ function photographus_add_theme_support() {
 			'photographus_panel_2_page'         => '{{about}}',
 		],
 	] );
+
+	// Disable custom font sizes and colors in Gutenberg.
+	add_theme_support( 'disable-custom-font-sizes' );
+	add_theme_support( 'disable-custom-colors' );
+
+	add_theme_support( 'editor-styles' );
+
+	add_theme_support(
+		'editor-font-sizes',
+		[
+			[
+				'name' => __( 'Normal', 'photographus' ),
+				'size' => 16,
+				'slug' => 'normal',
+			],
+		]
+	);
 }
 
 /**
