@@ -10,11 +10,26 @@
 @import "base/buttons";
 @import "base/lists";
 @import "base/tables";
+@import "blocks/core/gallery/editor";
 
-html {
+#tinymce {
 	max-width: $layout-max-width;
 	margin: 0 auto;
 	padding: 1.4rem;
+
+	.wp-caption-dd {
+		font-size: $font-size-small;
+		margin-top: add-unit($space-quarter, 'em');
+	
+		@media screen and (min-width: 50em) {
+			@include line-height-and-spaces(1.5);
+	
+			margin-top: add-unit($space-quarter, 'em');
+	
+			@include line-height-and-spaces(1.4);
+		}
+	}
+	
 
 	@media screen and (min-width: 40em) {
 		padding-left: 2.1rem;
@@ -27,21 +42,62 @@ html {
 	}
 }
 
-body {
-	font-family: inherit;
+.wp-block {
+	max-width: calc(800px - 2rem);
+	
+	@media screen and (min-width: 40em) {
+		font-size: 1.1em;
+	}
+
+	@media screen and (min-width: 45em) {
+		font-size: 1.2em;
+	}
+}
+
+.wp-block .wp-block {
+	font-size: inherit;
+}
+
+p {
 	font-size: inherit;
 	line-height: inherit;
 }
 
-.wp-caption-dd {
-	font-size: $font-size-small;
-	margin-top: add-unit($space-quarter, 'em');
+.mce-content-body,
+.editor-rich-text__tinymce {
+	line-height: inherit;
+}
 
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
+.wp-block-heading h1.editor-rich-text__tinymce {
+	font-size: 1.802em;
+	line-height: line-height(1.802, 1.5);
+}
 
-		margin-top: add-unit($space-quarter, 'em');
+.wp-block-heading h2.editor-rich-text__tinymce {
+	font-size: 1.602em;
+	line-height: line-height(1.602, 1.5);
+}
 
-		@include line-height-and-spaces(1.4);
-	}
+.wp-block-heading h3.editor-rich-text__tinymce {
+	font-size: 1.424em;
+	line-height: line-height(1.424, 1.25);
+}
+
+.wp-block-heading h4.editor-rich-text__tinymce {
+	font-size: 1.266em;
+	line-height: line-height(1.266, 1.25);
+}
+
+.wp-block-heading h5.editor-rich-text__tinymce {
+	font-size: 1.125em;
+	line-height: line-height(1.125, 1);
+}
+
+.wp-block-heading h6.editor-rich-text__tinymce {
+	font-size: 1em;
+	line-height: line-height(1, 1);
+}
+
+button {
+	overflow: hidden;
 }
