@@ -11,6 +11,7 @@ html {
 	overflow-y: scroll;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	word-break: break-word;
 
 	@media screen and (min-width: 40em) {
 		font-size: 1.1em;
