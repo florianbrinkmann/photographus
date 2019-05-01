@@ -27,6 +27,13 @@
 	display: block;
 }
 
+@mixin button-link() {
+	@include no-link-style();
+	background-color: $color-tundora;
+	color: $color-white;
+	padding: #{$space / 3}em #{$space / 2}em;
+}
+
 //
 // Conditional styles for IE and Edge.
 //

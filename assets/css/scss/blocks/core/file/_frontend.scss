@@ -1,0 +1,18 @@
+.wp-block-file {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	margin: #{$space / 2}em 0 #{$space}em;
+
+	a {
+		margin-top: #{$space / 2}em;
+	}
+
+	> a:first-of-type {
+		margin-right: #{$space}rem;
+	}
+
+	.wp-block-file__button {
+		@include button-link();
+	}
+}
