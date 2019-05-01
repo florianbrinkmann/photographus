@@ -1,0 +1,22 @@
+.wp-block-quote {
+	&.is-style-large {
+		font-size: 1.266em;
+		line-height: line-height(1.266, 1.25);
+		margin-bottom: #{$space * 1.5}em;
+		margin-top: #{$space * 1.5}em;
+	}
+
+	&[style*="text-align:center"],
+	&[style*="text-align: center"] {
+		border-right: 2px solid;
+		padding-right: #{$space / 2}rem;
+	}
+
+	&[style*="text-align:right"],
+	&[style*="text-align: right"] {
+		border-left: 0;
+		border-right: 2px solid;
+		padding-left: 0;
+		padding-right: #{$space / 2}rem;
+	}
+}

@@ -1,0 +1,17 @@
+@import './frontend';
+.wp-block-quote {
+	&.is-style-large {
+		border-left: 2px solid;
+		font-style: normal;
+
+		&[style*="text-align:right"],
+		&[style*="text-align: right"] {
+			border-left: 0;
+		}
+	}
+
+	&[style*="text-align:center"],
+	&[style*="text-align: center"] {
+		border-left: 2px solid;
+	}
+}
