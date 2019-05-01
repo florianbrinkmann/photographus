@@ -54,3 +54,6 @@ add_action( 'customize_register', 'photographus_update_customize_register', 12 )
 
 // Remove upgrade URL after switching away from Photographus.
 add_action( 'switch_theme', 'photographus_remove_upgrade_url', 10, 2 );
+
+// Remove Gutenberg block styles.
+add_action( 'wp_print_styles', 'photographus_dequeue_gutenberg_block_styles' );
