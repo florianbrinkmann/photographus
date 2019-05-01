@@ -32,6 +32,13 @@
 	background-color: $color-tundora;
 	color: $color-white;
 	padding: #{$space / 3}em #{$space / 2}em;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $color-white;
+		color: $color-tundora;
+	}
 }
 
 //
