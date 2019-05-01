@@ -19,6 +19,9 @@ add_action( 'after_setup_theme', 'photographus_add_theme_support' );
 // Add editor stylesheet.
 add_action( 'after_setup_theme', 'photographus_add_editor_style' );
 
+// Add Gutenberg script.
+add_action( 'enqueue_block_editor_assets', 'photographus_enqueue_block_editor_assets' );
+
 // Register the menu locations.
 add_action( 'init', 'photographus_register_menus' );
 
