@@ -1,4 +1,7 @@
-.wp-block-archives-list {
+.wp-block-archives {
+	margin-bottom: #{$space}em;
+	margin-top: #{$space}em;
+	
 	&.alignleft,
 	&.alignright {
 		margin-top: 0;
