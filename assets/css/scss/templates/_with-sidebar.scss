@@ -7,7 +7,6 @@
 }
 
 @media screen and (min-width: 60em) {
-	@include line-height-and-spaces(1.5);
 	.-with-sidebar .content-wrapper {
 		max-width: $layout-max-width;
 		margin: 0 auto;
@@ -32,8 +31,6 @@
 	.-with-sidebar [class*="-large-featured-image"] .post-thumbnail {
 		padding-left: add-unit($space);
 	}
-
-	@include line-height-and-spaces(1.4);
 }
 
 @media screen and (min-width: 80em) {

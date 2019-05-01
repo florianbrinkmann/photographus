@@ -72,91 +72,11 @@ h5 + h6 {
 	margin: add-unit($space-half, 'em') 0 0;
 }
 
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin: add-unit($space-and-half, 'em') 0 0;
-	}
-
-	.entry-content,
-	.sidebar {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			+ * {
-				margin-top: add-unit($space-half, 'em');
-			}
-		}
-	}
-
-	h1,
-	.entry-title {
-		font-size: 1.802em;
-		line-height: line-height(1.802, 1.5);
-	}
-
-	.entry-title {
-		margin-top: 0;
-	}
-
-	h2 {
-		font-size: 1.602em;
-		line-height: line-height(1.602, 1.5);
-	}
-
-	h3 {
-		font-size: 1.424em;
-		line-height: line-height(1.424, 1.25);
-	}
-
-	h4 {
-		font-size: 1.266em;
-		line-height: line-height(1.266, 1.25);
-	}
-
-	h5 {
-		font-size: 1.125em;
-		line-height: line-height(1.125, 1);
-	}
-
-	h6 {
-		font-size: 1em;
-		line-height: line-height(1, 1);
-	}
-
-	h1 + h2,
-	h2 + h3,
-	h3 + h4,
-	h4 + h5,
-	h5 + h6 {
-		margin: add-unit($space-half, 'em') 0 0;
-	}
-
-	@include line-height-and-spaces(1.4);
-}
-
 /* Paragraphs
    ========================================================================== */
 
 p {
 	margin: add-unit($space-half, 'em') 0 0;
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin: add-unit($space-half, 'em') 0 0;
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 /* Links
@@ -224,29 +144,15 @@ a:focus {
 
 blockquote {
 	border-left: 2px solid;
-	margin: add-unit($space, 'em') add-unit($space-half, 'em');
-	padding-left: add-unit($space-half, 'em');
+	margin: #{$space}em #{$space / 2}em;
+	padding-left: #{$space / 2}em;
 }
 
 blockquote cite {
 	display: block;
+	font-size: $font-size-small;
 	font-style: italic;
-	margin: add-unit($space-quarter, 'em') 0 0;
-}
-
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	blockquote {
-		margin: add-unit($space, 'em') add-unit($space-half, 'em');
-		padding-left: add-unit($space-half);
-	}
-
-	blockquote cite {
-		margin: add-unit($space-quarter, 'em') 0 0;
-	}
-
-	@include line-height-and-spaces(1.4);
+	margin: #{$space / 4}em 0 0;
 }
 
 /* Do not use strong and italic text.

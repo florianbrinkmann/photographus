@@ -48,20 +48,6 @@
 		padding: 0 add-unit($space-quarter, 'em');
 		margin: add-unit($space-quarter, 'em') 0 0;
 	}
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-bottom: add-unit($space, 'em');
-
-		.entry-title {
-			line-height: add-unit($space, 'em');
-			padding: 0 add-unit($space-quarter, 'em');
-			margin: add-unit($space-quarter, 'em') 0 0;
-		}
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 .no-js .gallery-grid {

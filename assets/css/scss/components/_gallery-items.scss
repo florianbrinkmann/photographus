@@ -30,18 +30,3 @@
 .gallery-item > .gallery-caption {
 	display: none;
 }
-
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	.gallery-item {
-		margin: add-unit($space-half, 'em');
-	}
-
-	.gallery-size-full .gallery-item {
-		margin: 0 add-unit($space-half, 'em');
-		padding: add-unit($space, 'em') 0;
-	}
-
-	@include line-height-and-spaces(1.4);
-}

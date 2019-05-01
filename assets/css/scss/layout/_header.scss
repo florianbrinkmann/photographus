@@ -56,21 +56,6 @@
 	transition: all .2s ease 0s;
 }
 
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	.site-header.-with-header-image .primary-header {
-		padding-bottom: add-unit($space-double, 'em');
-		padding-top: add-unit($space-double, 'em');
-	}
-
-	.site-header.-with-header-image > p {
-		bottom: add-unit($space, 'em');
-	}
-
-	@include line-height-and-spaces(1.4);
-}
-
 .scroll-link svg {
 	fill: $color-white;
 	height: 1em;
@@ -91,16 +76,6 @@
 	@media screen and (min-width: 45em) {
 		@include padding-left-and-right($space-double);
 	}
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		.primary-header {
-			padding-top: add-unit($space-double, 'em');
-		}
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 .site-title {
@@ -113,17 +88,9 @@
 	margin: add-unit($space-quarter, 'em') 0 0;
 	font-size: 0.889rem;
 	font-style: italic;
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-top: add-unit($space-quarter, 'em');
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 @media screen and (min-width: 55em) {
-	@include line-height-and-spaces(1.5);
 	.site-header.-wide-layout .primary-header {
 		display: flex;
 		align-items: center;
@@ -144,5 +111,4 @@
 	.site-header.-wide-layout .primary-nav {
 		margin-top: 0;
 	}
-	@include line-height-and-spaces(1.4);
 }

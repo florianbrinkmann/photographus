@@ -4,14 +4,6 @@
 
 article {
 	margin: add-unit($space-triple, 'em') 0 0;
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-top: add-unit($space-triple, 'em');
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 .entry-header > div,
@@ -51,14 +43,6 @@ article {
 	position: relative;
 	top: -#{line-height(1.802, .5)}em;
 	width: 75px;
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		top: -#{line-height(1.802, .5)}em;
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 .main article:first-of-type .entry-title::before {
@@ -93,14 +77,6 @@ article {
 .entry-meta {
 	font-size: $font-size-small;
 	font-style: italic;
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-left: add-unit($space);
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 article:not(.sticky) .sticky-post-featured-string {
@@ -110,14 +86,6 @@ article:not(.sticky) .sticky-post-featured-string {
 .sticky-post-featured-string {
 	margin-bottom: add-unit($space-half, 'em');
 	font-size: $font-size-small;
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-bottom: add-unit($space-half, 'em');
-
-		@include line-height-and-spaces(1.4);
-	}
 }
 
 .sticky-post-featured-string > span {
@@ -162,20 +130,4 @@ article:not(.sticky) .sticky-post-featured-string {
 	.entry-footer {
 		@include padding-left-and-right($space-double);
 	}
-}
-
-@media screen and (min-width: 50em) {
-	@include line-height-and-spaces(1.5);
-
-	.entry-header .post-thumbnail,
-	.entry-content > :first-child,
-	.entry-meta.-footer {
-		margin-top: add-unit($space, 'em');
-	}
-
-	.entry-meta {
-		margin-left: add-unit($space);
-	}
-
-	@include line-height-and-spaces(1.4);
 }

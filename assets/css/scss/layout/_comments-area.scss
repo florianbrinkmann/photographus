@@ -16,12 +16,4 @@
 	@media screen and (min-width: 45em) {
 		@include padding-left-and-right($space-double);
 	}
-
-	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
-		margin-top: add-unit($space-triple, 'em');
-
-		@include line-height-and-spaces(1.4);
-	}
 }

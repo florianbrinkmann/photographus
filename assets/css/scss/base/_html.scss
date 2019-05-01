@@ -21,11 +21,6 @@ html {
 	}
 
 	@media screen and (min-width: 50em) {
-		@include line-height-and-spaces(1.5);
-
 		font-size: 1.3em;
-		line-height: $line-height;
-
-		@include line-height-and-spaces(1.4);
 	}
 }

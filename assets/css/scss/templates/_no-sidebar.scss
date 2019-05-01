@@ -16,7 +16,6 @@
 }
 
 @media screen and (min-width: 80em) {
-	@include line-height-and-spaces(1.5);
 	.-no-sidebar .-large-portrait-featured-image-template .entry-header figure {
 		@include visible-for-screenreaders;
 	}
@@ -57,6 +56,4 @@
 		max-width: 800px;
 		padding-left: 0;
 	}
-
-	@include line-height-and-spaces(1.4);
 }
