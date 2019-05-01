@@ -6,9 +6,19 @@
 }
 
 .wp-block-pullquote blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
-.wp-block-pullquote blockquote > .editor-rich-text p {
-	font-size: inherit;
-	line-height: inherit;
+.block-editor-block-list__block[data-type="core/pullquote"] .block-editor-rich-text p {
+		font-size: 1.266em !important;
+		line-height: line-height(1.266, 1.25) !important;
+}
+
+.wp-block-pullquote cite,
+.wp-block-pullquote footer,
+.wp-block-pullquote__citation {
+	display: block;
+	font-size: $font-size-small;
+	font-style: italic;
+	margin: #{$space / 4}em 0 0;
+	text-transform: inherit;
 }
 
 .editor-block-list__block[data-type="core/pullquote"] {
