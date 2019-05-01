@@ -15,3 +15,17 @@
 		margin-top: 1em;
 	}
 }
+
+[data-type="core/cover"] {
+	&[data-align="left"],
+	&[data-align="right"] {
+		.wp-block-cover {
+			margin-bottom: #{$space}em;
+			margin-top: .3em;
+		}
+	}
+
+	&[ata-align="right"] {
+		margin-top: 1em;
+	}
+}
