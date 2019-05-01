@@ -1,0 +1,22 @@
+.wp-block-table {
+	border-spacing: 0;
+	margin: #{$space}em 0;
+
+	td,
+	th {
+		border-bottom: 1px solid;
+		border-left: 0;
+		border-right: 0;
+		border-top: 0;
+		padding: #{$space / 4}em;
+	}
+
+	th {
+		border-bottom: 2px solid;
+		text-align: left;
+	}
+
+	table tr:last-of-type td {
+		border-bottom: none;
+	}
+}
