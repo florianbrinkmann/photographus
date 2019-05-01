@@ -1,0 +1,28 @@
+.wp-block-calendar {
+	&.alignleft {
+		margin-right: #{$space}rem;
+	}
+
+	&.alignright {
+		margin-left: #{$space}rem;
+	}
+
+	&.alignleft,
+	&.alignright {
+		margin-top: 0;
+
+		table {
+			margin-top: 0;
+		}
+	}
+
+	&.aligncenter {
+		display: flex;
+		justify-content: center;
+	}
+	
+	tbody td,
+	th {
+		text-align: center;
+	}
+}

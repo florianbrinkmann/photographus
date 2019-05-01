@@ -1,0 +1,32 @@
+@import './frontend';
+.wp-block-calendar {
+	@import '../../../base/tables';
+
+	table {
+		font-family: inherit;
+		width: auto;
+
+		th {
+			background: none;
+			border-left: 0 !important;
+			border-right: 0 !important;
+			border-top: 0 !important;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+
+	td {
+		border-left: 0 !important;
+		border-right: 0 !important;
+		border-top: 0 !important;
+	}
+
+	tfoot td {
+		text-align: left;
+
+		a {
+			color: inherit;
+		}
+	}
+}
