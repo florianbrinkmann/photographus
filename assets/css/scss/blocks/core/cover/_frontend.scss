@@ -1,0 +1,92 @@
+.wp-block-cover {
+	align-items: center;
+	background-size: cover;
+	box-sizing: border-box;
+	display: flex;
+	margin-bottom: #{$space * 1.5}em;
+	margin-top: #{$space * 1.5}em;
+	min-height: 15em;
+	justify-content: center;
+	padding: #{$space}em;
+	position: relative;
+
+	.wp-block-cover__inner-container {
+		color: $color-white;
+
+		> :first-child {
+			margin-top: 0;
+		}
+	
+		> * {
+			position: relative;
+		}
+	}
+
+	&.alignleft,
+	&.alignright {
+		margin-bottom: #{$space}em;
+		margin-top: .3em;
+		width: 50%;
+
+		@media screen and (max-width: 30em) {
+			float: none;
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	&.alignright {
+		margin-top: 1em;
+	}
+
+	&.has-background-dim {
+		&::before {
+			background-color: $color-text;
+			content: '';
+			height: 100%;
+			opacity: .5;
+			position: absolute;
+			width: 100%;
+		}
+
+		&-10::before {
+			opacity: .1;
+		}
+
+		&-20::before {
+			opacity: .2;
+		}
+
+		&-30::before {
+			opacity: .3;
+		}
+
+		&-40::before {
+			opacity: .4;
+		}
+
+		&-50::before {
+			opacity: .5;
+		}
+
+		&-60::before {
+			opacity: .6;
+		}
+
+		&-70::before {
+			opacity: .7;
+		}
+
+		&-80::before {
+			opacity: .8;
+		}
+
+		&-90::before {
+			opacity: .9;
+		}
+
+		&-100::before {
+			opacity: 1;
+		}
+	}
+}
