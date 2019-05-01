@@ -456,3 +456,11 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 		return $sticky_label_markup;
 	}
 } // End if().
+
+/**
+ * Dequeue default Gutenberg block styles.
+ */
+function photographus_dequeue_gutenberg_block_styles() {
+	wp_dequeue_style( 'wp-block-library' );
+	wp_deregister_style( 'wp-block-library' );
+}
