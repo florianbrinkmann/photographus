@@ -1,0 +1,33 @@
+@import 'frontend';
+.wp-block-latest-comments__comment {
+	font-size: inherit;
+	line-height: inherit;
+	margin-bottom: 0;
+}
+
+.wp-block-latest-comments__comment-date {
+	color: inherit;
+	display: inline;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta,
+.has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-excerpt {
+	margin-left: 0;
+}
+
+[data-type="core/latest-comments"]{
+	&[data-align="left"],
+	&[data-align="right"] {
+		> .editor-block-list__block-edit {
+			@media screen and (min-width: 45em) {
+				width: 50%;
+
+				.wp-block-latest-comments {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
