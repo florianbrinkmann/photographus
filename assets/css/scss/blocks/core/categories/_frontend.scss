@@ -1,0 +1,15 @@
+.wp-block-categories {
+	margin-bottom: #{$space}em;
+	margin-top: #{$space}em;
+
+	&.alignleft,
+	&.alignright {
+		margin-top: 0;
+	}
+
+	&.aligncenter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

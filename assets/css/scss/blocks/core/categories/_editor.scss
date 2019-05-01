@@ -1,0 +1,16 @@
+@import 'frontend';
+.editor-block-list__block[data-align="center"] {
+	.wp-block-categories__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.editor-block-list__block[data-align="left"],
+.editor-block-list__block[data-align="right"] {	
+	.wp-block-categories__list,
+	.wp-block-categories {
+		margin-top: 0;
+	}
+}
