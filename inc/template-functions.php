@@ -457,10 +457,26 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 	}
 } // End if().
 
-/**
- * Dequeue default Gutenberg block styles.
- */
-function photographus_dequeue_gutenberg_block_styles() {
-	wp_dequeue_style( 'wp-block-library' );
-	wp_deregister_style( 'wp-block-library' );
+if ( ! function_exists( 'photographus_dequeue_gutenberg_block_styles' ) ) {
+	/**
+	 * Dequeue default Gutenberg block styles.
+	 */
+	function photographus_dequeue_gutenberg_block_styles() {
+		wp_dequeue_style( 'wp-block-library' );
+		wp_deregister_style( 'wp-block-library' );
+	}
+}
+
+if ( ! function_exists( 'photographus_enqueue_block_editor_assets' ) ) {
+	/**
+	 * Add JS to block editor.
+	 */
+	function photographus_enqueue_block_editor_assets() {
+		// phpcs:ignore
+		wp_enqueue_script(
+			'photographus-gutenberg-block-editor-script',
+			get_theme_file_uri( '/assets/js/block-editor-script.js' ),
+			[ 'wp-blocks', 'wp-edit-post' ]
+		);
+	}
 }
