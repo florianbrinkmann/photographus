@@ -1,0 +1,44 @@
+.wp-block-pullquote {
+	line-height: inherit;
+	text-align: center;
+
+	p {
+		font-size: 1.266em;
+		line-height: line-height(1.266, 1.25);
+	}
+
+	blockquote {
+		border-right: 2px solid;
+		margin-right: #{$line-height / 2}rem;
+		padding-right: #{$line-height / 2}rem;
+	}
+
+	&.alignleft,
+	&.alignright {
+		margin-top: 0;
+
+		@media screen and (min-width: 35em) {
+			max-width: 45%;
+
+			blockquote {
+				margin-top: 1em;
+			}
+		}
+	}
+
+	&.alignleft {
+		text-align: left;
+
+		blockquote {
+			margin-left: 0;
+		}
+	}
+
+	&.alignright {
+		text-align: right;
+
+		blockquote {
+			margin-right: 0;
+		}
+	}
+}

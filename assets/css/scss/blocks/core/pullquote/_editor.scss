@@ -1,0 +1,38 @@
+@import './frontend';
+.wp-block-pullquote {
+	border-bottom: 0;
+	border-top: 0;
+	padding: 0;
+}
+
+.wp-block-pullquote blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
+.wp-block-pullquote blockquote > .editor-rich-text p {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.editor-block-list__block[data-type="core/pullquote"] {
+	&[data-align="left"],
+	&[data-align="right"] {
+		> .editor-block-list__block-edit {
+			max-width: 45%;
+
+			blockquote,
+			figure {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&[data-align="left"] {
+		.wp-block-pullquote {
+			text-align: left;
+		}
+	}
+
+	&[data-align="right"] {
+		.wp-block-pullquote {
+			text-align: right;
+		}
+	}
+}
