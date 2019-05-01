@@ -60,12 +60,15 @@ function photographus_set_content_width() {
 function photographus_add_theme_support() {
 	// Add theme support for custom header image (only use height so that WordPress does not
 	// show a recommended height of 0).
-	add_theme_support( 'custom-header', [
-		'height'      => 1000,
-		'flex-height' => true,
-		'width'       => 1500,
-		'flex-width'  => true,
-	] );
+	add_theme_support(
+		'custom-header',
+		[
+			'height'      => 1000,
+			'flex-height' => true,
+			'width'       => 1500,
+			'flex-width'  => true,
+		]
+	);
 
 	// Add theme support for feed links (blog feed, comment feeds, …)
 	add_theme_support( 'automatic-feed-links' );
@@ -74,26 +77,32 @@ function photographus_add_theme_support() {
 	add_theme_support( 'title-tag' );
 
 	// Add theme support for the post formats.
-	add_theme_support( 'post-formats', [
-		'aside',
-		'link',
-		'gallery',
-		'status',
-		'quote',
-		'image',
-		'video',
-		'audio',
-		'chat',
-	] );
+	add_theme_support(
+		'post-formats',
+		[
+			'aside',
+			'link',
+			'gallery',
+			'status',
+			'quote',
+			'image',
+			'video',
+			'audio',
+			'chat',
+		]
+	);
 
 	// Add theme support for HTML5 markup in Core elements.
-	add_theme_support( 'html5', [
-		'comment-list',
-		'comment-form',
-		'search-form',
-		'gallery',
-		'caption',
-	] );
+	add_theme_support(
+		'html5',
+		[
+			'comment-list',
+			'comment-form',
+			'search-form',
+			'gallery',
+			'caption',
+		]
+	);
 
 	// Add theme support for post thumbnails.
 	add_theme_support( 'post-thumbnails' );
@@ -105,69 +114,75 @@ function photographus_add_theme_support() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// Create starter content for new sites.
-	add_theme_support( 'starter-content', [
-		// Add attachments that are used by posts and pages.
-		'attachments' => [
-			'featured-image-about-page' => [
-				'post_title' => 'Featured image for about page',
-				'file'       => 'assets/images/starter-content/featured-image-about-page.jpg',
+	add_theme_support(
+		'starter-content',
+		[
+			// Add attachments that are used by posts and pages.
+			'attachments' => [
+				'featured-image-about-page' => [
+					'post_title' => 'Featured image for about page',
+					'file'       => 'assets/images/starter-content/featured-image-about-page.jpg',
+				],
 			],
-		],
 
-		// Create and modify posts and pages.
-		'posts'       => [
-			'home'  => [
-				'post_content' => __( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
+			// Create and modify posts and pages.
+			'posts'       => [
+				'home'  => [
+					'post_content' => __(
+						'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
 					
 					The »Photographus« theme lets you use different areas for the front page, so-called »panels«. With that, you can display different content types on the front page: You can choose from a grid of your latest gallery and image posts, a list of your latest posts or a single page/post.
 					
-					To edit the panels you see here, just click on the pen icon on the left.', 'photographus' ),
+					To edit the panels you see here, just click on the pen icon on the left.',
+						'photographus'
+					),
+				],
+				'about' => [
+					'template'     => 'templates/large-portrait-featured-image.php',
+					'thumbnail'    => '{{featured-image-about-page}}',
+					'post_content' => __( 'Just introduce yourself! This page uses the template with a large portrait featured image. If you do not use a sidebar, the image is displayed next to the content on large viewports.', 'photographus' ),
+				],
+				'blog',
 			],
-			'about' => [
-				'template'     => 'templates/large-portrait-featured-image.php',
-				'thumbnail'    => '{{featured-image-about-page}}',
-				'post_content' => __( 'Just introduce yourself! This page uses the template with a large portrait featured image. If you do not use a sidebar, the image is displayed next to the content on large viewports.', 'photographus' ),
-			],
-			'blog',
-		],
 
-		// Remove default core starter content widgets.
-		'widgets'     => [
-			'sidebar-1' => [
-				'search',
-				'text_about',
-			],
-		],
-
-		// Set options.
-		'options'     => [
-			'show_on_front'  => 'page',
-			'page_on_front'  => '{{home}}',
-			'page_for_posts' => '{{blog}}',
-			'header_image'   => get_theme_file_uri( 'assets/images/starter-content/featured-image-about-page.jpg' ),
-		],
-
-		// Fill nav menus.
-		'nav_menus'   => [
-			'primary' => [
-				'name'  => __( 'Primary Menu', 'photographus' ),
-				'items' => [
-					'page_home',
-					'page_about',
-					'page_blog',
+			// Remove default core starter content widgets.
+			'widgets'     => [
+				'sidebar-1' => [
+					'search',
+					'text_about',
 				],
 			],
-		],
 
-		// Set values for theme mods.
-		'theme_mods'  => [
-			/**
-			 * Set the values for the second front page panel.
-			 */
-			'photographus_panel_2_content_type' => 'page',
-			'photographus_panel_2_page'         => '{{about}}',
-		],
-	] );
+			// Set options.
+			'options'     => [
+				'show_on_front'  => 'page',
+				'page_on_front'  => '{{home}}',
+				'page_for_posts' => '{{blog}}',
+				'header_image'   => get_theme_file_uri( 'assets/images/starter-content/featured-image-about-page.jpg' ),
+			],
+
+			// Fill nav menus.
+			'nav_menus'   => [
+				'primary' => [
+					'name'  => __( 'Primary Menu', 'photographus' ),
+					'items' => [
+						'page_home',
+						'page_about',
+						'page_blog',
+					],
+				],
+			],
+
+			// Set values for theme mods.
+			'theme_mods'  => [
+				/**
+				 * Set the values for the second front page panel.
+				 */
+				'photographus_panel_2_content_type' => 'page',
+				'photographus_panel_2_page'         => '{{about}}',
+			],
+		]
+	);
 
 	// Disable custom font sizes and colors in Gutenberg.
 	add_theme_support( 'disable-custom-font-sizes' );
@@ -193,13 +208,17 @@ function photographus_add_theme_support() {
 function photographus_add_editor_style() {
 	// Add stylesheet and font.
 	if ( is_rtl() ) {
-		add_editor_style( [
-			'assets/css/editor-style-rtl.css',
-		] );
+		add_editor_style(
+			[
+				'assets/css/editor-style-rtl.css',
+			]
+		);
 	} else {
-		add_editor_style( [
-			'assets/css/editor-style.css',
-		] );
+		add_editor_style(
+			[
+				'assets/css/editor-style.css',
+			]
+		);
 	}
 }
 
@@ -207,12 +226,14 @@ function photographus_add_editor_style() {
  * Register Menus.
  */
 function photographus_register_menus() {
-	register_nav_menus( [
-		/* translators: Name of menu position in the header */
-		'primary' => __( 'Primary Menu', 'photographus' ),
-		/* translators: Name of menu position in the footer */
-		'footer'  => __( 'Footer Menu', 'photographus' ),
-	] );
+	register_nav_menus(
+		[
+			/* translators: Name of menu position in the header */
+			'primary' => __( 'Primary Menu', 'photographus' ),
+			/* translators: Name of menu position in the footer */
+			'footer'  => __( 'Footer Menu', 'photographus' ),
+		]
+	);
 }
 
 /**
@@ -220,26 +241,30 @@ function photographus_register_menus() {
  */
 function photographus_register_sidebars() {
 	// Registering the main sidebar which is displayed next to the content on larger viewports
-	register_sidebar( [
-		'name'          => __( 'Main Sidebar', 'photographus' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Widgets in this area will be displayed on all posts and pages by default.', 'photographus' ),
-		'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	] );
+	register_sidebar(
+		[
+			'name'          => __( 'Main Sidebar', 'photographus' ),
+			'id'            => 'sidebar-1',
+			'description'   => __( 'Widgets in this area will be displayed on all posts and pages by default.', 'photographus' ),
+			'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		]
+	);
 
 	// Registering the widget area for the footer
-	register_sidebar( [
-		'name'          => __( 'Footer Sidebar', 'photographus' ),
-		'id'            => 'sidebar-footer',
-		'description'   => __( 'Widgets will be displayed in the footer.', 'photographus' ),
-		'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	] );
+	register_sidebar(
+		[
+			'name'          => __( 'Footer Sidebar', 'photographus' ),
+			'id'            => 'sidebar-footer',
+			'description'   => __( 'Widgets will be displayed in the footer.', 'photographus' ),
+			'before_widget' => '<div id="%1$s" class="widget clearfix %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		]
+	);
 }
 
 /**
@@ -360,7 +385,6 @@ if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 			// Build the markup.
 			$tags_markup = sprintf( /* translators: 1=tag label; 2=tag list */
 				__( '%1$s: %2$s', 'photographus' ),
-
 				// Display singular or plural label based on tag count.
 				_n(
 					'Tag',
@@ -393,7 +417,6 @@ if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 			// Build the markup.
 			$categories_markup = sprintf( /* translators: 1=category label; 2=category list */
 				__( '%1$s: %2$s', 'photographus' ),
-
 				// Display singular or plural label based on the category count.
 				_n(
 					'Category',

@@ -13,7 +13,8 @@ get_header(); ?>
 			<main>
 				<?php
 				// Check if we have posts.
-				if ( have_posts() ) { ?>
+				if ( have_posts() ) {
+					?>
 					<div class="archive-header">
 						<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'photographus' ), esc_html( get_search_query() ) ); ?></h1>
 					</div>
@@ -28,7 +29,8 @@ get_header(); ?>
 						// partials/post/content-gallery.php) for Gallery format.
 						get_template_part( 'partials/post/content', get_post_format() );
 					}
-				} else { ?>
+				} else {
+					?>
 					<article>
 						<div class="entry-header">
 							<div>
@@ -39,10 +41,13 @@ get_header(); ?>
 							<?php get_search_form(); ?>
 						</div>
 					</article>
-				<?php } // End if().
-				photographus_the_posts_pagination(); ?>
+					<?php
+				} // End if().
+				photographus_the_posts_pagination();
+				?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>
 	</div>
-<?php get_footer();
+<?php
+get_footer();

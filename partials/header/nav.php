@@ -11,8 +11,10 @@
 if ( has_nav_menu( 'primary' ) ) { ?>
 	<nav class="primary-nav-container">
 		<h2 class="screen-reader-text">
-			<?php /* translators: hidden screen reader headline for the main navigation */
-			_e( 'Main navigation', 'photographus' ); ?>
+			<?php
+			/* translators: hidden screen reader headline for the main navigation */
+			_e( 'Main navigation', 'photographus' );
+			?>
 		</h2>
 		<?php
 		// Display the menu.
@@ -23,6 +25,8 @@ if ( has_nav_menu( 'primary' ) ) { ?>
 				'container'      => '',
 				'depth'          => 1,
 			]
-		); ?>
+		);
+		?>
 	</nav>
-<?php }
+	<?php
+}

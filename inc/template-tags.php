@@ -154,19 +154,23 @@ if ( ! function_exists( 'photographus_get_the_title' ) ) {
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title"><a href="%2$s" rel="bookmark">',
-					$heading, esc_url( get_permalink() )
+					$heading,
+					esc_url( get_permalink() )
 				),
 				sprintf( '</a></%s>', $heading ),
-				false );
+				false
+			);
 		} else {
 			// Build the title markup without a link.
 			$title_markup = the_title(
 				sprintf(
 					'<%1$s class="entry-title">',
-					$heading, esc_url( get_permalink() )
+					$heading,
+					esc_url( get_permalink() )
 				),
 				sprintf( '</%s>', $heading ),
-				false );
+				false
+			);
 		}
 
 		return $title_markup;
@@ -183,7 +187,8 @@ if ( ! function_exists( 'photographus_the_entry_header_meta' ) ) {
 		$entry_header_meta_markup = sprintf(
 			'<p class="entry-meta -header">%s · %s</p>',
 			sprintf( /* translators: s = author name */
-				__( 'by %s', 'photographus' ), get_the_author()
+				__( 'by %s', 'photographus' ),
+				get_the_author()
 			),
 			photographus_get_the_date()
 		);
@@ -321,7 +326,9 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 				<p class="comment-author-date">
 					<?php
 					// Display the name of the comment author. Linked to the site he submitted in the Website field.
-					comment_author_link(); ?> ·&nbsp;
+					comment_author_link();
+					?>
+					 ·&nbsp;
 					<?php
 					// Display the comment date, linked to the comment’s permalink.
 					printf(
@@ -340,32 +347,39 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 						__( 'Edit', 'photographus' ),
 						' ·&nbsp;',
 						''
-					); ?>
+					);
+					?>
 				</p>
 			</div>
 			<div class="comment-content-wrapper">
 				<div class="comment-content">
 					<?php
 					// Check if the comment is not approved yet.
-					if ( '0' === $comment->comment_approved ) { ?>
+					if ( '0' === $comment->comment_approved ) {
+						?>
 						<p>
 							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); ?></strong>
 						</p>
-					<?php }
+						<?php
+					}
 
 					// Display the comment text.
-					comment_text(); ?>
+					comment_text();
+					?>
 				</div>
 			</div>
 
 			<div class="reply">
 				<?php
 				// Display the reply link.
-				comment_reply_link( [
-					'reply_text' => __( 'Reply', 'photographus' ),
-					'depth'      => $depth,
-					'max_depth'  => $args['max_depth'],
-				] ); ?>
+				comment_reply_link(
+					[
+						'reply_text' => __( 'Reply', 'photographus' ),
+						'depth'      => $depth,
+						'max_depth'  => $args['max_depth'],
+					]
+				);
+				?>
 			</div>
 		</div>
 		<?php
@@ -378,11 +392,13 @@ if ( ! function_exists( 'photographus_wp_link_pages' ) ) {
 	 */
 	function photographus_wp_link_pages() {
 		/* translators: Label for pagination of paginated posts and pages */
-		wp_link_pages( [
-			'before'    => '<ul class="page-numbers"><li><span>' . __( 'Pages:', 'photographus' ) . '</span></li><li>',
-			'after'     => '</li></ul>',
-			'separator' => '</li><li>',
-		] );
+		wp_link_pages(
+			[
+				'before'    => '<ul class="page-numbers"><li><span>' . __( 'Pages:', 'photographus' ) . '</span></li><li>',
+				'after'     => '</li></ul>',
+				'separator' => '</li><li>',
+			]
+		);
 	}
 }
 
@@ -392,11 +408,13 @@ if ( ! function_exists( 'photographus_the_posts_pagination' ) ) {
 	 */
 	function photographus_the_posts_pagination() {
 		/* translators: Label for pagination of paginated posts and pages */
-		the_posts_pagination( [
-			'type'      => 'list',
-			'prev_text' => __( 'Previous', 'photographus' ),
-			'next_text' => __( 'Next', 'photographus' ),
-		] );
+		the_posts_pagination(
+			[
+				'type'      => 'list',
+				'prev_text' => __( 'Previous', 'photographus' ),
+				'next_text' => __( 'Next', 'photographus' ),
+			]
+		);
 	}
 }
 
@@ -566,15 +584,17 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 	 */
 	function photographus_the_scroll_arrow_icon() {
 		$header_image = get_header_image();
-		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) { ?>
+		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
+			?>
 			<p>
 				<a href="#main" class="scroll-link">
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-					     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
-					     enable-background="new 0 0 16 16" xml:space="preserve"><polygon
+						 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
+						 enable-background="new 0 0 16 16" xml:space="preserve"><polygon
 							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
-		<?php }
+			<?php
+		}
 	}
 } // End if().

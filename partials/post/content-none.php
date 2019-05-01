@@ -18,6 +18,7 @@
 		<p><?php _e( 'It seems that the content you requested cannot be found. Maybe searching helps?', 'photographus' ); ?></p>
 		<?php
 		// Display the search form.
-		get_search_form(); ?>
+		get_search_form();
+		?>
 	</div>
 </article>

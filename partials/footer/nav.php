@@ -11,8 +11,10 @@
 if ( has_nav_menu( 'footer' ) ) { ?>
 	<nav class="secondary-nav-container -inverted-link-style">
 		<h2 class="screen-reader-text">
-			<?php /* translators: hidden screen reader headline for the main navigation */
-			_e( 'Footer navigation', 'photographus' ); ?>
+			<?php
+			/* translators: hidden screen reader headline for the main navigation */
+			_e( 'Footer navigation', 'photographus' );
+			?>
 		</h2>
 		<?php
 		// Display the menu.
@@ -23,6 +25,8 @@ if ( has_nav_menu( 'footer' ) ) { ?>
 				'container'      => '',
 				'depth'          => 1,
 			]
-		); ?>
+		);
+		?>
 	</nav>
-<?php }
+	<?php
+}

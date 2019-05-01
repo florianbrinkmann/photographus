@@ -46,13 +46,15 @@ if ( ! function_exists( 'photographus_get_latest_posts' ) ) {
 		}
 		if ( true === $force_refresh || ! isset( $latest_posts->last_check ) || $timeout_transient < ( time() - $latest_posts->last_check ) || is_customize_preview() ) {
 			// Get the latest posts.
-			$latest_posts = new WP_Query( [
-				'post_type'           => 'post',
-				'posts_per_page'      => $number_of_posts,
-				'no_found_rows'       => true,
-				'ignore_sticky_posts' => 1,
-				'post_status'         => 'publish',
-			] );
+			$latest_posts = new WP_Query(
+				[
+					'post_type'           => 'post',
+					'posts_per_page'      => $number_of_posts,
+					'no_found_rows'       => true,
+					'ignore_sticky_posts' => 1,
+					'post_status'         => 'publish',
+				]
+			);
 
 			if ( ! is_wp_error( $latest_posts ) && $latest_posts->have_posts() ) {
 				$latest_posts->last_check = time();
@@ -97,7 +99,7 @@ if ( ! function_exists( 'photographus_get_post_grid_posts' ) ) {
 					'field'    => 'slug',
 					'terms'    => [
 						'post-format-gallery',
-						'post-format-image'
+						'post-format-image',
 					],
 				];
 			}
@@ -107,26 +109,28 @@ if ( ! function_exists( 'photographus_get_post_grid_posts' ) ) {
 					'taxonomy' => 'category',
 					'field'    => 'term_id',
 					'terms'    => [
-						$post_category
+						$post_category,
 					],
 				];
 			}
 
 			// Build query.
-			$post_grid_posts = new WP_Query( [
-				'post_type'           => 'post',
-				'posts_per_page'      => $number_of_posts,
-				'no_found_rows'       => true,
-				'ignore_sticky_posts' => 1,
-				'post_status'         => 'publish',
-				'meta_query'          => [
-					'relation' => 'AND',
-					[
-						'key' => '_thumbnail_id',
+			$post_grid_posts = new WP_Query(
+				[
+					'post_type'           => 'post',
+					'posts_per_page'      => $number_of_posts,
+					'no_found_rows'       => true,
+					'ignore_sticky_posts' => 1,
+					'post_status'         => 'publish',
+					'meta_query'          => [
+						'relation' => 'AND',
+						[
+							'key' => '_thumbnail_id',
+						],
 					],
-				],
-				'tax_query'           => $tax_query,
-			] );
+					'tax_query'           => $tax_query,
+				]
+			);
 
 			if ( ! is_wp_error( $post_grid_posts ) && $post_grid_posts->have_posts() ) {
 				$post_grid_posts->last_check = time();
@@ -163,7 +167,7 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 
 		if ( $latest_posts->have_posts() ) { ?>
 			<section id="frontpage-section-<?php echo $panel_number; ?>"
-			         class="frontpage-section latest-blog-posts-section clearfix">
+					 class="frontpage-section latest-blog-posts-section clearfix">
 				<?php
 				// Get the title for the panel.
 				$section_title = get_theme_mod( "photographus_panel_{$panel_number}_latest_posts_title", __( 'Latest Posts', 'photographus' ) );
@@ -191,13 +195,13 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 						// Here we use include(locate_template()) to have access to the $latest_posts object
 						// in the partial.
 						// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-						include( locate_template( 'partials/front-page/content-latest-posts-panel-short-version.php' ) );
+						include locate_template( 'partials/front-page/content-latest-posts-panel-short-version.php' );
 					} else {
 						// Get the template part file partials/front-page/content-latest-posts-panel.php.
 						// Here we use include(locate_template()) to have access to the $latest_posts object
 						// in the partial.
 						// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-						include( locate_template( 'partials/front-page/content-latest-posts-panel.php' ) );
+						include locate_template( 'partials/front-page/content-latest-posts-panel.php' );
 					} // End if().
 				} // End while().
 
@@ -205,14 +209,16 @@ if ( ! function_exists( 'photographus_the_latest_posts_panel' ) ) {
 				$blog_page_url = get_permalink( get_option( 'page_for_posts' ) );
 
 				// Check if we have a URL.
-				if ( $blog_page_url ) { ?>
+				if ( $blog_page_url ) {
+					?>
 					<p>
 						<a href="<?php echo $blog_page_url; ?>"
 						   class="cta"><?php _e( 'Go to blog', 'photographus' ); ?></a>
 					</p>
 				<?php } ?>
 			</section>
-		<?php } // End if().
+			<?php
+		} // End if().
 	}
 } // End if().
 
@@ -242,7 +248,8 @@ if ( ! function_exists( 'photographus_the_post_grid_panel' ) ) {
 		$post_grid_posts = photographus_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts, $post_category, false );
 
 		// Check if we have posts.
-		if ( $post_grid_posts->have_posts() ) { ?>
+		if ( $post_grid_posts->have_posts() ) {
+			?>
 			<section id="frontpage-section-<?php echo $panel_number; ?>" class="frontpage-section clearfix">
 				<?php
 				// Get the title for the panel.
@@ -257,7 +264,8 @@ if ( ! function_exists( 'photographus_the_post_grid_panel' ) ) {
 					// We have no panel title, so we set the titles of the post grid posts to h2.
 					$heading_element = 'h2';
 				}
-				echo $section_title; ?>
+				echo $section_title;
+				?>
 				<div class="gallery-grid-wrapper clearfix">
 					<div class="gallery-grid">
 						<?php
@@ -280,12 +288,14 @@ if ( ! function_exists( 'photographus_the_post_grid_panel' ) ) {
 							// Here we use include(locate_template()) to have access to the $post_grid_posts object
 							// in the partial.
 							// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-							include( locate_template( 'partials/front-page/content-post-grid-panel.php' ) );
-						} ?>
+							include locate_template( 'partials/front-page/content-post-grid-panel.php' );
+						}
+						?>
 					</div>
 				</div>
 			</section>
-		<?php } // End if().
+			<?php
+		} // End if().
 	}
 } // End if().
 
@@ -316,7 +326,7 @@ if ( ! function_exists( 'photographus_the_post_panel' ) ) {
 			// Here we use include(locate_template()) to have access to the $i variable
 			// in the partial.
 			// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-			include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+			include locate_template( 'partials/front-page/content-post-and-page-panel.php' );
 
 			wp_reset_postdata();
 		} else {
@@ -353,7 +363,7 @@ if ( ! function_exists( 'photographus_the_page_panel' ) ) {
 			// Here we use include(locate_template()) to have access to the $i variable
 			// in the partial.
 			// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-			include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+			include locate_template( 'partials/front-page/content-post-and-page-panel.php' );
 
 			wp_reset_postdata();
 		} else {

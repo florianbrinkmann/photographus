@@ -37,7 +37,7 @@ get_header(); ?>
 								// Here we use include(locate_template()) to have access to the $panel_number var
 								// in the partial.
 								// @link: http://keithdevon.com/passing-variables-to-get_template_part-in-wordpress/
-								include( locate_template( 'partials/front-page/content-post-and-page-panel.php' ) );
+								include locate_template( 'partials/front-page/content-post-and-page-panel.php' );
 
 								// Reset the $panel_number to the correct value.
 								$panel_number = $panel_numner_tmp;
@@ -52,7 +52,6 @@ get_header(); ?>
 							}
 						} // End if().
 					} // End while().
-
 				} else {
 					// Include partials/post/content-none.php if no posts were found.
 					get_template_part( 'partials/post/content', 'none' );
@@ -62,9 +61,11 @@ get_header(); ?>
 				if ( 0 !== $panel_number && 'page' === get_option( 'show_on_front' ) ) {
 					photographus_the_front_page_panels();
 				}
-				photographus_the_posts_pagination(); ?>
+				photographus_the_posts_pagination();
+				?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>
 	</div>
-<?php get_footer();
+<?php
+get_footer();

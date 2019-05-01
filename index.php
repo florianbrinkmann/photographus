@@ -16,11 +16,13 @@ get_header(); ?>
 				if ( have_posts() ) {
 					// Check if we are on the latest posts page but not on the front page.
 					// This means, a static site was chosen to display the latest posts.
-					if ( is_home() && ! is_front_page() ) { ?>
+					if ( is_home() && ! is_front_page() ) {
+						?>
 						<header>
 							<h1 class="screen-reader-text"><?php single_post_title(); ?></h1>
 						</header>
-					<?php }
+						<?php
+					}
 
 					// Loop the posts.
 					while ( have_posts() ) {
@@ -36,9 +38,11 @@ get_header(); ?>
 					// Include partials/post/content-none.php if no posts were found.
 					get_template_part( 'partials/post/content', 'none' );
 				} // End if().
-				photographus_the_posts_pagination(); ?>
+				photographus_the_posts_pagination();
+				?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>
 	</div>
-<?php get_footer();
+<?php
+get_footer();

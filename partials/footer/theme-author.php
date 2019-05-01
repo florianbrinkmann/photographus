@@ -9,11 +9,13 @@
 
 ?>
 <p class="theme-author">
-	<?php printf(
+	<?php
+	printf(
 		__( 'Theme: Photographus by %s', 'photographus' ),
 		sprintf(
 			'<a rel="nofollow" href="%s">Florian Brinkmann</a>',
 			__( 'https://florianbrinkmann.com/en/', 'photographus' )
 		)
-	); ?>
+	);
+	?>
 </p>

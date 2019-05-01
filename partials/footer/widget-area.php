@@ -12,6 +12,7 @@ if ( is_active_sidebar( 'sidebar-footer' ) ) { ?>
 	<aside class="site-footer-widget-area">
 		<?php
 		// Output the widgets.
-		dynamic_sidebar( 'sidebar-footer' ); ?>
+		dynamic_sidebar( 'sidebar-footer' );
+		?>
 	</aside>
 <?php } ?>

@@ -16,19 +16,25 @@ function photographus_update_customize_register( $wp_customize ) {
 	// Only add setting and control if we are not on a multisite.
 	if ( ! is_multisite() ) {
 		// Add setting for URL.
-		$wp_customize->add_setting( 'photographus_upgrade_url', [
-			'type'              => 'option',
-			'default'           => '',
-			'sanitize_callback' => 'photographus_esc_update_url',
-		] );
+		$wp_customize->add_setting(
+			'photographus_upgrade_url',
+			[
+				'type'              => 'option',
+				'default'           => '',
+				'sanitize_callback' => 'photographus_esc_update_url',
+			]
+		);
 
 		// Add control for update URL.
-		$wp_customize->add_control( 'photographus_upgrade_url', [
-			'priority' => 1,
-			'type'     => 'url',
-			'section'  => 'photographus_options',
-			'label'    => __( 'Paste your download link for »Photographus« to enable automatic theme updates.', 'photographus' ),
-		] );
+		$wp_customize->add_control(
+			'photographus_upgrade_url',
+			[
+				'priority' => 1,
+				'type'     => 'url',
+				'section'  => 'photographus_options',
+				'label'    => __( 'Paste your download link for »Photographus« to enable automatic theme updates.', 'photographus' ),
+			]
+		);
 	}
 }
 
@@ -50,7 +56,7 @@ function photographus_esc_update_url( $url ) {
 	preg_match( $pattern, $url, $matches );
 
 	// If match, return the URL. Otherwise an empty string.
-	if ( ! empty ( $matches ) ) {
+	if ( ! empty( $matches ) ) {
 		return $url;
 	} else {
 		return '';
@@ -99,7 +105,7 @@ function photographus_theme_update( $transient ) {
 		$theme_package = get_option( 'photographus_upgrade_url' );
 
 		// Check if we have a URL.
-		if ( ! empty ( $theme_package ) ) {
+		if ( ! empty( $theme_package ) ) {
 			// Upgrade URL pattern (this time with theme ID, not without like in the customizer).
 			$pattern = '/^https:\/\/florianbrinkmann\.com\/(en\/)?\?download_file=' . $theme_id . '|^https:\/\/(en\.)?florianbrinkmann\.de\/\?download_file=' . $theme_id . '/';
 
@@ -107,7 +113,7 @@ function photographus_theme_update( $transient ) {
 			preg_match( $pattern, $theme_package, $matches );
 
 			// If match, add the package. Otherwise do not.
-			if ( ! empty ( $matches ) ) {
+			if ( ! empty( $matches ) ) {
 				$transient->response['photographus']['package'] = $theme_package;
 			}
 		}

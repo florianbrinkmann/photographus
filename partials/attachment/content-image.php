@@ -11,10 +11,12 @@
 <article <?php post_class( 'clearfix' ); ?>>
 	<?php
 	// Display the header meta.
-	photographus_the_entry_header( 'h1' ); ?>
+	photographus_the_entry_header( 'h1' );
+	?>
 	<div class="entry-content">
 		<?php
 		// Displays the image.
-		echo wp_get_attachment_image( get_the_ID(), 'full' ); ?>
+		echo wp_get_attachment_image( get_the_ID(), 'full' );
+		?>
 	</div>
 </article>

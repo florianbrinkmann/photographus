@@ -26,7 +26,8 @@ function photographus_customizer_css() {
 				word-wrap: normal !important;
 			}
 		</style>
-	<?php }
+		<?php
+	}
 }
 
 /**
@@ -34,7 +35,8 @@ function photographus_customizer_css() {
  */
 function photographus_customize_controls_styles() {
 	$panel_section_description = __( 'You can show different contents on the front page in so-called »panels«. You can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post Grid«.', 'photographus' );
-	$header_image_description  = __( 'The header image is only displayed on the front page if you have panels with content.', 'photographus' ); ?>
+	$header_image_description  = __( 'The header image is only displayed on the front page if you have panels with content.', 'photographus' );
+	?>
 	<style>
 		#customize-control-header_image .customizer-section-intro::before {
 			content: '<?php echo $header_image_description; ?>';
@@ -63,13 +65,15 @@ function photographus_customize_controls_styles() {
 			position: relative;
 		}
 	</style>
-<?php }
+	<?php
+}
 
 /**
  * Prints styles for the customize controls.
  */
 function photographus_customize_preview_styles() {
-	if ( is_customize_preview() ) { ?>
+	if ( is_customize_preview() ) {
+		?>
 		<style>
 			span[class*="_content_type_partial"] {
 				left: 40px;

@@ -13,7 +13,8 @@ get_header(); ?>
 			<main>
 				<?php
 				// Check if we have posts.
-				if ( have_posts() ) { ?>
+				if ( have_posts() ) {
+					?>
 					<div class="archive-header">
 						<h1 class="archive-title"><?php the_archive_title(); ?></h1>
 						<?php the_archive_description(); ?>
@@ -33,9 +34,11 @@ get_header(); ?>
 					// Include partials/post/content-none.php if no posts were found.
 					get_template_part( 'partials/post/content', 'none' );
 				} // End if().
-				photographus_the_posts_pagination(); ?>
+				photographus_the_posts_pagination();
+				?>
 			</main>
 		</div>
 		<?php get_sidebar(); ?>
 	</div>
-<?php get_footer();
+<?php
+get_footer();

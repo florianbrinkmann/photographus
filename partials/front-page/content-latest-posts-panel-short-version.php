@@ -17,7 +17,8 @@
 			echo photographus_get_the_title( $heading_element, true );
 
 			// Displays the entry meta.
-			echo photographus_get_the_entry_header_meta(); ?>
+			echo photographus_get_the_entry_header_meta();
+			?>
 		</div>
 	</header>
 </article>
