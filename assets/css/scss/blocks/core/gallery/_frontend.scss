@@ -1,0 +1,175 @@
+.wp-block-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -#{$line-height / 2}rem;
+	margin-top: #{$line-height}rem;
+	padding: 0;
+
+	// Cropped
+	&.is-cropped:not(.columns-1) .blocks-gallery-item {
+		a,
+		img {
+			// IE11 doesn't support object-fit, so just make sure images aren't skewed.
+			// The following rules are for all browsers.
+			width: 100%;
+
+			// IE11 doesn't read rules inside this query. They are applied only to modern browsers.
+			@supports (position: sticky) {
+				height: 100%;
+				flex: 1;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&.columns-1 .blocks-gallery-item {
+		width: 100%;
+		margin-right: 0;
+	}
+
+	&:not(.columns-1) {
+		.blocks-gallery-item {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		figure {
+			// IE doesn't support flex so omit that.
+			@supports (position: sticky) {
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-start;
+			}
+		}
+		
+		// IE doesn't handle cropping, so we need an explicit width here.
+		img {
+			width: 100%;
+
+			// IE11 doesn't read rules inside this query. They are applied only to modern browsers.
+			@supports (position: sticky) {
+				width: auto;
+			}
+		}
+	
+		figcaption {
+			display: none;
+		}
+
+		@media screen and (min-width: 30em) {
+			margin-right: -#{$line-height / 2}rem;
+		}
+	}
+
+	+ p {
+		margin-top: #{$line-height}rem;
+	}
+
+	li {
+		&::before {
+			display: none;
+		}
+	}
+
+	.blocks-gallery-item {
+		margin: 0 #{$line-height / 2}rem #{$line-height / 2}rem 0;
+		position: relative;
+
+		@media screen and (min-width: 25em) {
+			width: calc( 50% - #{$line-height / 2}rem );
+		}
+	}
+
+	@for $i from 3 through 8 {
+		&.columns-#{ $i } .blocks-gallery-item {
+			@media screen and (min-width: 30em) {
+				width: calc(100% / 3 - #{$line-height / 2}rem);
+
+				// Rules inside this query are only run by Microsoft Edge.
+				// Edge miscalculates `calc`, so we have to add some buffer.
+				// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+				@supports (-ms-ime-align:auto) {
+					width: calc(100% / 3 - #{$line-height / 2}rem - 1px);
+				}
+			}
+
+			@if $i > 3 {
+				@media screen and (min-width: 35em) {
+					width: calc(25% - #{$line-height / 2}rem);
+	
+					// Rules inside this query are only run by Microsoft Edge.
+					// Edge miscalculates `calc`, so we have to add some buffer.
+					// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+					@supports (-ms-ime-align:auto) {
+						width: calc(25% - #{$line-height / 2}rem - 1px);
+					}
+				}
+			}
+
+			@if $i > 4 {
+				@media screen and (min-width: 40em) {
+					width: calc(20% - #{$line-height / 2}rem);
+	
+					// Rules inside this query are only run by Microsoft Edge.
+					// Edge miscalculates `calc`, so we have to add some buffer.
+					// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+					@supports (-ms-ime-align:auto) {
+						width: calc(20% - #{$line-height / 2}rem - 1px);
+					}
+				}
+			}
+
+			@if $i > 5 {
+				@media screen and (min-width: 45em) {
+					width: calc(100% / 6 - #{$line-height / 2}rem);
+	
+					// Rules inside this query are only run by Microsoft Edge.
+					// Edge miscalculates `calc`, so we have to add some buffer.
+					// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+					@supports (-ms-ime-align:auto) {
+						width: calc(100% / 6 - #{$line-height / 2}rem - 1px);
+					}
+				}
+			}
+
+			@if $i > 6 {
+				@media screen and (min-width: 50em) {
+					width: calc(100% / 7 - #{$line-height / 2}rem);
+	
+					// Rules inside this query are only run by Microsoft Edge.
+					// Edge miscalculates `calc`, so we have to add some buffer.
+					// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+					@supports (-ms-ime-align:auto) {
+						width: calc(100% / 7 - #{$line-height / 2}rem - 1px);
+					}
+				}
+			}
+
+			@if $i > 7 {
+				@media screen and (min-width: 55em) {
+					width: calc(100% / 8 - #{$line-height / 2}rem);
+	
+					// Rules inside this query are only run by Microsoft Edge.
+					// Edge miscalculates `calc`, so we have to add some buffer.
+					// See also https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15637241/
+					@supports (-ms-ime-align:auto) {
+						width: calc(100% / 8 - #{$line-height / 2}rem - 1px);
+					}
+				}
+			}
+		}
+	}
+
+	figure {
+		margin: 0;
+		height: 100%;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+}
