@@ -1,10 +1,12 @@
-;/**
+/**
  * Custom JavaScript functions.
  *
  * @version 1.0.1
  *
  * @package Photographus
- */(function () {
+ */
+
+(function () {
 	document.addEventListener(
 		'DOMContentLoaded',
 		function () {
@@ -15,7 +17,7 @@
 			 */
 			var root = document.documentElement;
 
-			// Remove the no-js class
+			// Remove the no-js class.
 			root.removeAttribute( 'class', 'no-js' );
 
 			// Set a js class.
@@ -57,15 +59,16 @@ function addClassToImageLinks() {
 	 *
 	 * @type {NodeList}
 	 */
-	var linked_images = document.querySelectorAll( 'a > img' );
+	var linkedImages = document.querySelectorAll( 'a > img' );
 
 	// Loop through the images and add a class.
-	for (var i = 0; i < linked_images.length; i++) {
-		if (linked_images[i].parentElement.className == 'img-link') {
+	var linkedImagesCount = linkedImages.length;
+	for (var i = 0; i < linkedImagesCount; i++) {
+		if (linkedImages[i].parentElement.className == 'img-link') {
 		} else {
-			linked_images[i].parentElement.classList.add( 'img-link' );
-			if (linked_images[i].parentElement.parentElement.children.length === 1) {
-				linked_images[i].parentElement.parentElement.classList.add( 'img-link-wrapper' );
+			linkedImages[i].parentElement.classList.add( 'img-link' );
+			if (linkedImages[i].parentElement.parentElement.children.length === 1) {
+				linkedImages[i].parentElement.parentElement.classList.add( 'img-link-wrapper' );
 			}
 		}
 	}
@@ -94,7 +97,8 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
 
 		// Only init masonry if the window is greater or equal 730px
 		if (w >= 730 && ! msnry) {
-			for (var i = 0; i < gridElems.length; i++) {
+			var gridElemsLength = gridElems.length;
+			for (var i = 0; i < gridElemsLength; i++) {
 				msnry = new Masonry(
 					gridElems[i],
 					{
@@ -108,7 +112,8 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
 				);
 			}
 		} else if (w < 730 && msnry) {
-			for (var i = 0; i < gridElems.length; i++) {
+			var gridElemsLength = gridElems.length;
+			for (var i = 0; i < gridElemsLength; i++) {
 				msnry = Masonry.data( gridElems[i] );
 				msnry.destroy();
 			}
@@ -133,7 +138,8 @@ function fullWidthImages() {
 
 	// Add an inline style max-width to the images to not let them grow over their natural width on sidebar templates.
 	if (fullWidthImages.length !== 0) {
-		for (var i = 0; i < fullWidthImages.length; i++) {
+		var fullWidthImagesLength = fullWidthImages.length;
+		for (var i = 0; i < fullWidthImagesLength; i++) {
 			if (fullWidthImages[i].hasAttribute( 'width' )) {
 				var naturalWidth = fullWidthImages[i].getAttribute( 'width' );
 				if (naturalWidth > 750) {

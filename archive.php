@@ -33,7 +33,7 @@ get_header(); ?>
 				} else {
 					// Include partials/post/content-none.php if no posts were found.
 					get_template_part( 'partials/post/content', 'none' );
-				} // End if().
+				}
 				photographus_the_posts_pagination();
 				?>
 			</main>

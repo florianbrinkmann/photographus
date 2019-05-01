@@ -1,10 +1,12 @@
-;/**
+/**
  * Custom JavaScript functions for the customizer preview.
  *
  * @version 1.0.1
  *
  * @package Photographus
- */(function () {
+ */
+
+ (function () {
 	document.addEventListener(
 		'DOMContentLoaded',
 		function () {
@@ -42,16 +44,16 @@
 							var panelsWithContent = 0;
 
 							// Loop through them.
-							for (var i = 0; i < panels.length; i++) {
+							var panelsLength = panels.length;
+							for (var i = 0; i < panelsLength; i++) {
 								// Check if it is a panel placeholder.
 								if ( ! panels[i].classList.contains( 'frontpage-section-placeholder' )) {
 									panelsWithContent++;
 								}
 							}
 
-							// Refresh the preview if we have only panel placeholders, so the default homepage is displayed
-							// correctly.
-							// @link https://make.xwp.co/2015/12/08/implementing-selective-refresh-in-the-customizer/
+							// Refresh the preview if we have only panel placeholders, so the default homepage is displayed correctly.
+							// @link https://make.xwp.co/2015/12/08/implementing-selective-refresh-in-the-customizer/.
 							if (panelsWithContent === 0) {
 								wp.customize.preview.send( 'refresh' );
 							}

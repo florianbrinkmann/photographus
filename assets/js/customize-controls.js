@@ -1,10 +1,12 @@
-;/**
+/**
  * Custom JavaScript functions for the customizer which change things in the customizer sidebar.
  *
  * @version 1.0.1
  *
  * @package Photographus
- */(function () {
+ */
+
+(function () {
 	wp.customize.bind(
 		'ready',
 		function () {
@@ -17,7 +19,8 @@
 			// Check if we have content type controls.
 			if (0 !== ContentTypeControls.length) {
 				// Loop through them.
-				for (var i = 1; i < ContentTypeControls.length + 1; i++) {
+				var ContentTypeControlsLength = ContentTypeControls.length;
+				for (var i = 1; i < ContentTypeControlsLength + 1; i++) {
 					wp.customize.control(
 						'photographus_panel_' + i + '_content_type',
 						function (control) {
@@ -35,7 +38,7 @@
 										// If match, the second value of the Array is the panel number.
 										panelNumber = panelNumber[1];
 										switch (value) {
-											// The content type was switched to the default »— Select —« state
+											// The content type was switched to the default »— Select —« state.
 											case '0':
 												/**
 												 * Build array with controls which needs to be deactivated.
