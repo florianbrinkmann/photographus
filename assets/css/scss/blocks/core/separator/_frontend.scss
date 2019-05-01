@@ -1,0 +1,28 @@
+.wp-block-separator {
+	background-color: $color-text;
+	border: none;
+	height: 1px;
+	margin: 1.6em auto;
+	width: 33%;
+
+	&.is-style-wide {
+		width: 100%;
+	}
+
+	&.is-style-dots {
+		background: none; // Override any background themes often set on the hr tag for this style.
+		border: none;
+		text-align: center;
+		max-width: none;
+		line-height: 0;
+		height: auto;
+
+		&::before {
+			content: "\00b7 \00b7 \00b7";
+			color: $color-text;
+			font-size: 1em;
+			letter-spacing: 2em;
+			padding-left: 2em;
+		}
+	}
+}
