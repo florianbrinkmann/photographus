@@ -91,7 +91,7 @@ a {
 	padding-top: .05em;
 	text-decoration: none;
 	-webkit-text-decoration-skip: objects;
-	transition: box-shadow .2s ease 0s, background .2s ease 0s;
+	transition: box-shadow .2s ease 0s, background .2s ease 0s, border .2s ease 0s;
 
 	@media screen and (min-width: 50em) {
 		padding-bottom: .1em;

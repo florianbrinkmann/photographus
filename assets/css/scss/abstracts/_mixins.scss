@@ -31,6 +31,7 @@
 	@include no-link-style();
 	background-color: $color-tundora;
 	color: $color-white;
+	display: inline-block;
 	padding: #{$space / 3}em #{$space / 2}em;
 
 	&:hover,
