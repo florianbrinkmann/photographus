@@ -1,0 +1,12 @@
+.wp-block-archives-list {
+	&.alignleft,
+	&.alignright {
+		margin-top: 0;
+	}
+	
+	&.aligncenter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
