@@ -1,0 +1,18 @@
+{
+    "name": "florianbrinkmann/photographus",
+    "description": "Photographus is meant for photo bloggers and photographers.",
+    "type": "wordpress-plugin",
+    "license": "GNU General Public License v2",
+    "authors": [
+        {
+            "name": "Florian Brinkmann",
+            "email": "kontakt@florianbrinkmann.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+        "phpcompatibility/phpcompatibility-wp": "^2.0",
+        "wp-coding-standards/wpcs": "^2.0"
+    }
+}

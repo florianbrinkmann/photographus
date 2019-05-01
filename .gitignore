@@ -1,6 +1,4 @@
 node_modules
-assets/css/photographus.css
-assets/css/photographus-rtl.css
-assets/css/editor-style.css
-assets/css/editor-style-rtl.css
+*.css
 *.map
+/vendor/
