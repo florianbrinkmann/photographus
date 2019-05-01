@@ -1,0 +1,34 @@
+.wp-block-media-text {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: #{$space}em;
+	margin-top: #{$space}em;
+
+	&.has-media-on-the-right {
+		flex-direction: row-reverse;
+	}
+
+	&.is-stacked-on-mobile {
+		@media screen and (max-width: 30em) {
+			flex-wrap: wrap;
+
+			> * {
+				width: 100%;
+
+				&:last-of-type {
+					margin-top: #{$space / 2}em;
+				}
+			}
+		}
+	}
+
+	> * {
+		width: calc(50% - #{$space / 2}rem);
+	}
+
+	> figure,
+	> div > :first-child {
+		margin-top: 0;
+	}
+}
