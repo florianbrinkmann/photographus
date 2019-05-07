@@ -5,10 +5,15 @@ addons:
   ssh_known_hosts:
   - "$STAGING_SERVER"
   - "$PRODUCTION_SERVER"
+before_install:
+  # Install CodeSniffer
+  - composer install
 before_script:
 - echo -e "Host $STAGING_SERVER\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - echo -e "Host $PRODUCTION_SERVER\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
+# run the PHPCS tests (also checks PHP compatibility).
+- vendor/bin/phpcs -p .
 - chmod +x ./scripts/deploy-production.sh
 - chmod +x ./scripts/deploy-staging.sh
 before_deploy:
