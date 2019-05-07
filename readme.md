@@ -3,7 +3,7 @@
 **Contributors:** Florian Brinkmann  
 **Requires at least:** WordPress 4.7  
 **Tested up to:** WordPress 4.9.6  
-**Version:** 1.0.2  
+**Version:** 1.1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -32,6 +32,18 @@ One more thing: If you choose a header image, it will be displayed full-screen a
 of the header. The header image is only displayed on the front page with active panels.
 
 ## Changelog
+
+### 1.1.0 - 07.05.2018
+
+*Tested with WordPress 5.2.*
+
+**Added**
+
+* Styles for Gutenberg blocks.
+
+**Fixed**
+
+* Coding standard issues.
 
 ### 1.0.2 - 14.05.2018
 
