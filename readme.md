@@ -40,6 +40,7 @@ of the header. The header image is only displayed on the front page with active 
 **Added**
 
 * Styles for Gutenberg blocks.
+* Call to new `wp_body_open()` theme hook.
 
 **Fixed**
 
