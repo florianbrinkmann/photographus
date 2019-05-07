@@ -81,10 +81,10 @@ function photographus_customize_register( $wp_customize ) {
 	);
 
 	// Set active callback for the header image control.
-	// @link https://gist.github.com/pagelab/10406104
+	// @link https://gist.github.com/pagelab/10406104.
 	$wp_customize->get_control( 'header_image' )->active_callback = 'photographus_is_static_front_page';
 
-	// Front page panels. Inspired by https://core.trac.wordpress.org/browser/tags/4.7.3/src/wp-content/themes/twentyseventeen/inc/customizer.php#L88
+	// Front page panels. Inspired by https://core.trac.wordpress.org/browser/tags/4.7.3/src/wp-content/themes/twentyseventeen/inc/customizer.php#L88.
 
 	/**
 	 * Filter number of front page sections in Photographus.
@@ -122,7 +122,7 @@ function photographus_customize_register( $wp_customize ) {
 	}
 
 	// Build the choices array for the post grid panel category.
-	// @link https://blog.josemcastaneda.com/2015/05/13/customizer-dropdown-category-selection/
+	// @link https://blog.josemcastaneda.com/2015/05/13/customizer-dropdown-category-selection/.
 	$cats = [];
 	foreach ( get_categories() as $categories => $category ) {
 		$cats[ $category->term_id ] = $category->name;
@@ -479,10 +479,10 @@ function photographus_customize_register( $wp_customize ) {
 					'container_inclusive' => true,
 				]
 			);
-		} // End if().
-	} // End for().
+		}
+	}
 
-	// Change transport to refresh
+	// Change transport to refresh.
 	$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 }
 

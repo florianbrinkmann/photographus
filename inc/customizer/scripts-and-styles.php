@@ -39,12 +39,12 @@ function photographus_customize_controls_styles() {
 	?>
 	<style>
 		#customize-control-header_image .customizer-section-intro::before {
-			content: '<?php echo $header_image_description; ?>';
+			content: '<?php echo $header_image_description; // phpcs:ignore ?>';
 			display: block;
 		}
 
 		#customize-control-photographus_panel_1_content_type::before {
-			content: '<?php echo $panel_section_description; ?>';
+			content: '<?php echo $panel_section_description; // phpcs:ignore ?>';
 			display: block;
 		}
 
@@ -87,5 +87,5 @@ function photographus_customize_preview_styles() {
  * Prints styles inside the customizer view.
  */
 function photographus_customizer_contols_script() {
-	wp_enqueue_script( 'photographus-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], null, true );
+	wp_enqueue_script( 'photographus-customize-controls-script', get_theme_file_uri( 'assets/js/customize-controls.js' ), [], filemtime( get_theme_file_path( 'assets/js/customize-controls.js' ) ), true );
 }

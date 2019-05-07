@@ -6,7 +6,7 @@
  * @package Photographus
  */
 
- (function () {
+(function () {
 	document.addEventListener(
 		'DOMContentLoaded',
 		function () {

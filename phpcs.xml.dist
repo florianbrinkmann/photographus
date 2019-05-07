@@ -40,13 +40,13 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="schlicht"/>
+			<property name="text_domain" type="array" value="photographus"/>
 		</properties>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="schlicht"/>
+			<property name="prefixes" type="array" value="photographus"/>
 		</properties>
 	</rule>
 

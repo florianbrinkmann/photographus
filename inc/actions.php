@@ -35,7 +35,7 @@ add_action( 'wp_enqueue_scripts', 'photographus_scripts_styles' );
 add_action( 'wp_update_comment_count', 'photographus_refresh_latest_posts_cache', 10, 3 );
 
 // Refresh cache of front page panels on post update.
-add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 3 );
+add_action( 'transition_post_status', 'photographus_cache_update_on_post_update', 10, 2 );
 
 // Register customizer controls and settings.
 add_action( 'customize_register', 'photographus_customize_register', 11 );

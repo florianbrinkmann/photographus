@@ -16,7 +16,7 @@ if ( '' !== photographus_get_custom_logo() ) {
 	}
 
 	// Display the logo.
-	echo photographus_get_custom_logo();
+	echo photographus_get_custom_logo(); // phpcs:ignore
 
 	// Closing h1 tag if on front page with blog overview.
 	if ( ( is_front_page() && is_home() ) ) {
@@ -64,10 +64,10 @@ if ( '' !== photographus_get_custom_logo() ) {
 	}
 
 	// Get blog description and display if not empty.
-	$description = get_bloginfo( 'description', 'display' );
-	if ( '' !== $description ) {
+	$photographus_description = get_bloginfo( 'description', 'display' );
+	if ( '' !== $photographus_description ) {
 		?>
-		<p class="site-description"><?php echo $description; ?></p>
+		<p class="site-description"><?php echo $photographus_description; // phpcs:ignore ?></p>
 		<?php
 	}
 }

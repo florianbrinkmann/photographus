@@ -13,7 +13,7 @@ if ( has_nav_menu( 'primary' ) ) { ?>
 		<h2 class="screen-reader-text">
 			<?php
 			/* translators: hidden screen reader headline for the main navigation */
-			_e( 'Main navigation', 'photographus' );
+			_e( 'Main navigation', 'photographus' ); // phpcs:ignore
 			?>
 		</h2>
 		<?php

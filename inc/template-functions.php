@@ -44,14 +44,14 @@ if ( ! function_exists( 'photographus_is_wp_comments_post' ) ) {
  */
 function photographus_set_content_width() {
 	// Set the content width to 751.
-	$content_width = 751;
+	$photographus_content_width = 751;
 
 	/**
 	 * Make the content width filterable.
 	 *
-	 * @param int $content_width Content width in pixels.
+	 * @param int $photographus_content_width Content width in pixels.
 	 */
-	$GLOBALS['content_width'] = apply_filters( 'photographus_content_width', $content_width );
+	$GLOBALS['content_width'] = apply_filters( 'photographus_content_width', $photographus_content_width ); // phpcs:ignore
 }
 
 /**
@@ -70,7 +70,7 @@ function photographus_add_theme_support() {
 		]
 	);
 
-	// Add theme support for feed links (blog feed, comment feeds, …)
+	// Add theme support for feed links (blog feed, comment feeds, …).
 	add_theme_support( 'automatic-feed-links' );
 
 	// Add theme support for the title tag.
@@ -240,7 +240,7 @@ function photographus_register_menus() {
  * Register sidebars.
  */
 function photographus_register_sidebars() {
-	// Registering the main sidebar which is displayed next to the content on larger viewports
+	// Registering the main sidebar which is displayed next to the content on larger viewports.
 	register_sidebar(
 		[
 			'name'          => __( 'Main Sidebar', 'photographus' ),
@@ -253,7 +253,7 @@ function photographus_register_sidebars() {
 		]
 	);
 
-	// Registering the widget area for the footer
+	// Registering the widget area for the footer.
 	register_sidebar(
 		[
 			'name'          => __( 'Footer Sidebar', 'photographus' ),
@@ -280,20 +280,20 @@ function photographus_scripts_styles() {
 
 	// Enqueue the Photographus stylesheet.
 	if ( is_rtl() ) {
-		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus-rtl.css' ), [], null );
+		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus-rtl.css' ), [], filemtime( get_theme_file_path( 'assets/css/photographus-rtl.css' ) ) );
 	} else {
-		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], null );
+		wp_enqueue_style( 'photographus-style', get_theme_file_uri( 'assets/css/photographus.css' ), [], filemtime( get_theme_file_path( 'assets/css/photographus.css' ) ) );
 	}
 
 	// Enqueue the Masonry script. This is a newer version than in core and additionally we do not need the
 	// »imagesloaded« dependency which would be loaded if we would use the core masonry.
-	wp_enqueue_script( 'photographus-masonry', get_theme_file_uri( 'assets/js/masonry.js' ), [], null, true );
+	wp_enqueue_script( 'photographus-masonry', get_theme_file_uri( 'assets/js/masonry.js' ), [], filemtime( get_theme_file_path( 'assets/js/masonry.js' ) ), true );
 
 	// Enqueue the Photographus JavaScript functions.
-	wp_enqueue_script( 'photographus-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'photographus-masonry' ], null, true );
+	wp_enqueue_script( 'photographus-script', get_theme_file_uri( 'assets/js/functions.js' ), [ 'photographus-masonry' ], filemtime( get_theme_file_path( 'assets/js/functions.js' ) ), true );
 
 	// Enqueue the Photographus JavaScript functions.
-	wp_enqueue_script( 'photographus-customize-preview-script', get_theme_file_uri( 'assets/js/customize-preview.js' ), [ 'photographus-script' ], null, true );
+	wp_enqueue_script( 'photographus-customize-preview-script', get_theme_file_uri( 'assets/js/customize-preview.js' ), [ 'photographus-script' ], filemtime( get_theme_file_path( 'assets/js/customize-preview.js' ) ), true );
 
 	// Remove box shadow from links in admin bar.
 	if ( is_admin_bar_showing() ) {
@@ -337,7 +337,7 @@ if ( ! function_exists( 'photographus_get_trackback_number_text' ) ) {
 			return '';
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
 	/**
@@ -368,7 +368,7 @@ if ( ! function_exists( 'photographus_get_comments_number_text' ) ) {
 			return '';
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 	/**
@@ -400,7 +400,7 @@ if ( ! function_exists( 'photographus_get_tag_list' ) ) {
 			return '';
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 	/**
@@ -432,7 +432,7 @@ if ( ! function_exists( 'photographus_get_categories_list' ) ) {
 			return '';
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_the_date' ) ) {
 	/**
@@ -455,7 +455,7 @@ if ( ! function_exists( 'photographus_get_the_date' ) ) {
 
 		return $date_markup;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 	/**
@@ -478,7 +478,7 @@ if ( ! function_exists( 'photographus_the_sticky_label' ) ) {
 
 		return $sticky_label_markup;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_dequeue_gutenberg_block_styles' ) ) {
 	/**
@@ -499,7 +499,8 @@ if ( ! function_exists( 'photographus_enqueue_block_editor_assets' ) ) {
 		wp_enqueue_script(
 			'photographus-gutenberg-block-editor-script',
 			get_theme_file_uri( '/assets/js/block-editor-script.js' ),
-			[ 'wp-blocks', 'wp-edit-post' ]
+			[ 'wp-blocks', 'wp-edit-post' ],
+			filemtime( get_theme_file_path( 'assets/js/block-editor-script.js' ) )
 		);
 	}
 }

@@ -14,10 +14,10 @@
 		<div>
 			<?php
 			// Displays the post title.
-			echo photographus_get_the_title( $heading_element, true );
+			echo photographus_get_the_title( $heading_element, true ); // phpcs:ignore
 
 			// Displays the entry meta.
-			echo photographus_get_the_entry_header_meta();
+			echo photographus_get_the_entry_header_meta(); // phpcs:ignore
 			?>
 		</div>
 	</header>

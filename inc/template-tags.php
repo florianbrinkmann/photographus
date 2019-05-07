@@ -28,7 +28,7 @@ if ( ! function_exists( 'photographus_get_custom_logo' ) ) {
 		 */
 		return '';
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 	/**
@@ -60,7 +60,7 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 			// We do not need the meta information (author and date) on pages,
 			// so we check if we have a page and do not include the placeholder
 			// %4$s.
-			// Closing div is inserted in the partials files (for example content.php)
+			// Closing div is inserted in the partials files (for example content.php).
 			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '%1$s<div><header class="entry-header -inverted-link-style"><div>%2$s%3$s</div>%1$s</header>';
 			} else {
@@ -68,18 +68,12 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 			}
 
 			// Use $format and fill the placeholders.
-			printf(
-				$format,
-				$post_thumbnail,
-				$title,
-				$sticky_label,
-				$entry_header_meta
-			);
+			printf(	$format, $post_thumbnail, $title, $sticky_label, $entry_header_meta ); // phpcs:ignore
 		} else {
 			// We do not need the meta information (author and date) on pages,
 			// so we check if we have a page and do not include the placeholder
 			// %3$s.
-			// Closing div is inserted in the partials files (for example content.php)
+			// Closing div is inserted in the partials files (for example content.php).
 			if ( is_page() && false === $latest_posts_panel ) {
 				$format = '<header class="entry-header -inverted-link-style"><div>%1$s%2$s</div>%4$s</header>';
 			} else {
@@ -87,16 +81,10 @@ if ( ! function_exists( 'photographus_the_entry_header' ) ) {
 			}
 
 			// Use $format and fill the placeholders.
-			printf(
-				$format,
-				$title,
-				$sticky_label,
-				$entry_header_meta,
-				$post_thumbnail
-			);
+			printf(	$format, $title, $sticky_label, $entry_header_meta, $post_thumbnail ); // phpcs:ignore
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 	/**
@@ -136,7 +124,7 @@ if ( ! function_exists( 'photographus_get_the_post_thumbnail' ) ) {
 
 		return $post_thumbnail_markup;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_the_title' ) ) {
 	/**
@@ -175,7 +163,7 @@ if ( ! function_exists( 'photographus_get_the_title' ) ) {
 
 		return $title_markup;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_entry_header_meta' ) ) {
 	/**
@@ -195,7 +183,7 @@ if ( ! function_exists( 'photographus_the_entry_header_meta' ) ) {
 
 		return $entry_header_meta_markup;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_content' ) ) {
 	/**
@@ -214,7 +202,7 @@ if ( ! function_exists( 'photographus_the_content' ) ) {
 			)
 		);
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 	/**
@@ -263,10 +251,10 @@ if ( ! function_exists( 'photographus_the_entry_footer_meta' ) ) {
 		// Display the footer meta markup.
 		printf(
 			'<p class="entry-meta -footer">%s</p>',
-			$meta_markup
+			$meta_markup // phpcs:ignore
 		);
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_comments_by_type' ) ) {
 	/**
@@ -327,10 +315,11 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 					<?php
 					// Display the name of the comment author. Linked to the site he submitted in the Website field.
 					comment_author_link();
-					?>
+					// phpcs:ignore ?>
 					 ·&nbsp;
 					<?php
 					// Display the comment date, linked to the comment’s permalink.
+					// phpcs:disable
 					printf(
 						'<time datetime="%2$s"><a href="%1$s">%3$s</a></time>',
 						get_comment_link( $comment->comment_ID ),
@@ -341,6 +330,7 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 							get_comment_time()
 						)
 					);
+					// phpcs:enable
 
 					// Display the edit link (only visible for users with the right capabilities).
 					edit_comment_link(
@@ -358,7 +348,7 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 					if ( '0' === $comment->comment_approved ) {
 						?>
 						<p>
-							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); ?></strong>
+							<strong><?php _e( 'Your comment is awaiting moderation.', 'photographus' ); // phpcs:ignore ?></strong>
 						</p>
 						<?php
 					}
@@ -384,7 +374,7 @@ if ( ! function_exists( 'photographus_comments' ) ) {
 		</div>
 		<?php
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_wp_link_pages' ) ) {
 	/**
@@ -460,12 +450,12 @@ if ( ! function_exists( 'photographus_front_page_panel_count' ) ) {
 				case 'post-grid':
 					$panel_count ++;
 					break;
-			} // End switch().
-		} // End for().
+			}
+		}
 
 		return $panel_count;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 	/**
@@ -483,7 +473,7 @@ if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 		for ( $i = 1; $i < ( 1 + $num_sections ); $i ++ ) {
 			// Check if $partial is not null (so we have a customizer selective refresh)
 			// and update the panel number.
-			if ( $partial !== null ) {
+			if ( null !== $partial ) {
 				$id = $partial->id;
 				$i  = filter_var( $id, FILTER_SANITIZE_NUMBER_INT );
 			}
@@ -523,15 +513,15 @@ if ( ! function_exists( 'photographus_the_front_page_panels' ) ) {
 					// Display the post grid panel.
 					photographus_the_post_grid_panel( null, $i );
 					break;
-			} // End switch().
+			}
 
 			// Break the for loop after first pass if $partial is not null.
-			if ( $partial !== null ) {
+			if ( null !== $partial ) {
 				break;
 			}
-		} // End for().
+		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 	/**
@@ -549,12 +539,12 @@ if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 		// Returns false if no-sidebar cannot be found.
 		$no_sidebar_pos = strpos( $post_type_template, '-no-sidebar' );
 
-		// Remove »-no-sidebar« part so the CSS styles will match
-		if ( $no_sidebar_pos !== false ) {
+		// Remove »-no-sidebar« part so the CSS styles will match.
+		if ( false !== $no_sidebar_pos ) {
 			$post_type_template = str_replace( '-no-sidebar', '', $post_type_template );
 		}
 
-		// Add post template class if post has a template
+		// Add post template class if post has a template.
 		if ( '' !== $post_type_template ) {
 			$post_type_template_class = "-$post_type_template-template";
 		} else {
@@ -563,7 +553,7 @@ if ( ! function_exists( 'photographus_get_post_type_template_class' ) ) {
 
 		return $post_type_template_class;
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_front_page_header_image' ) ) {
 	/**
@@ -573,10 +563,10 @@ if ( ! function_exists( 'photographus_the_front_page_header_image' ) ) {
 	function photographus_the_front_page_header_image() {
 		$header_image = get_header_image();
 		if ( true === photographus_is_front_page_with_panels() && has_header_image() && false !== $header_image ) {
-			echo 'style="background-image: linear-gradient( to right, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .6 ) ), url( ' . $header_image . ' );"';
+			echo 'style="background-image: linear-gradient( to right, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .6 ) ), url( ' . $header_image . ' );"'; // phpcs:ignore
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 	/**
@@ -589,12 +579,12 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 			<p>
 				<a href="#main" class="scroll-link">
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-						 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
-						 enable-background="new 0 0 16 16" xml:space="preserve"><polygon
+						xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
+						enable-background="new 0 0 16 16" xml:space="preserve"><polygon
 							points="8,12.7 1.3,6 2.7,4.6 8,9.9 13.3,4.6 14.7,6 "></polygon></svg>
 				</a>
 			</p>
 			<?php
 		}
 	}
-} // End if().
+}

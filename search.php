@@ -16,7 +16,14 @@ get_header(); ?>
 				if ( have_posts() ) {
 					?>
 					<div class="archive-header">
-						<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'photographus' ), esc_html( get_search_query() ) ); ?></h1>
+						<h1 class="archive-title">
+						<?php
+						printf( /* translators: s=search query string */
+							__( 'Search Results for: %s', 'photographus' ), // phpcs:ignore
+							esc_html( get_search_query() )
+						);
+						?>
+						</h1>
 					</div>
 					<?php
 					// Loop the posts.
@@ -34,7 +41,14 @@ get_header(); ?>
 					<article>
 						<div class="entry-header">
 							<div>
-								<h1 class="entry-title"><?php printf( __( 'Nothing found for: %s', 'photographus' ), esc_html( get_search_query() ) ); ?></h1>
+								<h1 class="entry-title">
+								<?php
+								printf( /* translators: s=search query string */
+									__( 'Nothing found for: %s', 'photographus' ), // phpcs:ignore
+									esc_html( get_search_query() )
+								);
+								?>
+								</h1>
 							</div>
 						</div>
 						<div class="entry-content">
@@ -42,7 +56,7 @@ get_header(); ?>
 						</div>
 					</article>
 					<?php
-				} // End if().
+				}
 				photographus_the_posts_pagination();
 				?>
 			</main>

@@ -117,7 +117,7 @@ function photographus_theme_update( $transient ) {
 				$transient->response['photographus']['package'] = $theme_package;
 			}
 		}
-	} // End if().
+	}
 
 	return $transient;
 }

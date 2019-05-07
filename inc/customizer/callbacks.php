@@ -191,7 +191,7 @@ function photographus_is_post_grid_panel( $control ) {
  *
  * @return bool true if static front page, otherwise false.
  */
-function photographus_is_static_front_page( $control ) {
+function photographus_is_static_front_page( $control ) { // phpcs:ignore
 	// Return true if is static front page.
 	if ( is_front_page() && is_page() ) {
 		return true;

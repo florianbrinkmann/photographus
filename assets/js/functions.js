@@ -95,7 +95,7 @@ function buildMasonryGrid(hasSelectiveRefresh = false) {
 			window.innerWidth || 0
 		);
 
-		// Only init masonry if the window is greater or equal 730px
+		// Only init masonry if the window is greater or equal 730px.
 		if (w >= 730 && ! msnry) {
 			var gridElemsLength = gridElems.length;
 			for (var i = 0; i < gridElemsLength; i++) {

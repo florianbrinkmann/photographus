@@ -14,7 +14,7 @@ if ( is_active_sidebar( 'sidebar-1' ) && false === photographus_is_front_page_wi
 		<h2 class="screen-reader-text">
 			<?php
 			/* translators: screen reader text for the sidebar */
-			_e( 'Sidebar', 'photographus' )
+			_e( 'Sidebar', 'photographus' ); // phpcs:ignore
 			?>
 			</h2>
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>

@@ -31,11 +31,11 @@
 	/**
 	 * Adding possibility to add additional classes to the header via filter.
 	 *
-	 * @param string $header_classes string of additional classes.
+	 * @param string $photographus_header_classes string of additional classes.
 	 */
-	$header_classes = apply_filters( 'photographus_additional_header_classes', '' );
+	$photographus_header_classes = apply_filters( 'photographus_additional_header_classes', '' );
 	?>
-	<header class="site-header clearfix <?php echo $header_classes; ?>"
+	<header class="site-header clearfix <?php echo esc_attr( $photographus_header_classes ); ?>"
 			role="banner"
 		<?php
 		// Includes a inline style with header image as full background, if we are on the front page

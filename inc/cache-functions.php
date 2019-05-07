@@ -34,7 +34,7 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 
 					photographus_get_latest_posts( $i, $number_of_posts, true );
 				}
-			} // End for().
+			}
 		} else {
 			$panel_content_type = get_theme_mod( "photographus_panel_{$panel_number}_content_type" );
 
@@ -46,7 +46,7 @@ if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
 			}
 		}
 	}
-} // End if().
+}
 
 if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
 	/**
@@ -81,7 +81,7 @@ if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
 
 					photographus_get_post_grid_posts( $i, $number_of_posts, $only_gallery_and_image_posts, $post_category, true );
 				}
-			} // End for().
+			}
 		} else {
 			$panel_content_type = get_theme_mod( "photographus_panel_{$panel_number}_content_type" );
 
@@ -97,18 +97,17 @@ if ( ! function_exists( 'photographus_refresh_post_grid_posts_cache' ) ) {
 
 				photographus_get_post_grid_posts( $panel_number, $number_of_posts, $only_gallery_and_image_posts, $post_category, true );
 			}
-		} // End if().
+		}
 	}
-} // End if().
+}
 
 /**
  * Update the front page panel caches on post publish or update.
  *
- * @param string  $new_status New status of the post.
- * @param string  $old_status Old status of the post.
- * @param WP_Post $post       Post object.
+ * @param string $new_status New status of the post.
+ * @param string $old_status Old status of the post.
  */
-function photographus_cache_update_on_post_update( $new_status, $old_status, $post ) {
+function photographus_cache_update_on_post_update( $new_status, $old_status ) {
 	// Check if neither the old post status nor the new status is publish. Return if that is true.
 	if ( 'publish' !== $new_status && 'publish' !== $old_status ) {
 		return;

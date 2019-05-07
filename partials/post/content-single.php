@@ -28,9 +28,9 @@
 	<?php
 	// Closing div tag if we have a post with the template
 	// large portrait featured image.
-	// Tag was opened in photographus_the_entry_header()
-	$post_type_template = photographus_get_post_type_template();
-	if ( 'large-portrait-featured-image' === $post_type_template ) {
+	// Tag was opened in photographus_the_entry_header().
+	$photographus_post_type_template = photographus_get_post_type_template();
+	if ( 'large-portrait-featured-image' === $photographus_post_type_template ) {
 		?>
 		</div>
 	<?php } ?>

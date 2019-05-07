@@ -8,7 +8,7 @@
  */
 
 ?>
-<section id="frontpage-section-<?php echo $panel_number; ?>" class="clearfix frontpage-section">
+<section id="frontpage-section-<?php echo $photographus_panel_number; // phpcs:ignore ?>" class="clearfix frontpage-section">
 	<article style="margin-top: 0">
 		<?php
 		// Displays the title inside a h2.
@@ -18,12 +18,12 @@
 		<?php
 		// Outputs post type template specific class for
 		// styling.
-		echo photographus_get_post_type_template_class();
+		echo photographus_get_post_type_template_class(); // phpcs:ignore
 		?>
 		">
 			<?php
 			// Displays the post thumbnail.
-			echo photographus_get_the_post_thumbnail();
+			echo photographus_get_the_post_thumbnail(); // phpcs:ignore
 			?>
 			<div>
 				<?php
