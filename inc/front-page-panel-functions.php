@@ -270,11 +270,11 @@ if ( ! function_exists( 'photographus_the_post_grid_panel' ) ) {
 					<div class="gallery-grid">
 						<?php
 						// Get the value of the option to hide the post titles in the grid.
-						$hide_gallery_titles = get_theme_mod( "photographus_panel_{$photographus_panel_number}_post_grid_hide_title" );
+						$photographus_hide_gallery_titles = get_theme_mod( "photographus_panel_{$photographus_panel_number}_post_grid_hide_title" );
 
 						// Build a small classes string, depending on if we should hide the titles
 						// (with screen-reader-class) or not (without screen-reader-class).
-						if ( true === $hide_gallery_titles ) {
+						if ( true === $photographus_hide_gallery_titles ) {
 							$entry_title_div_class_string = 'entry-title screen-reader-text';
 						} else {
 							$entry_title_div_class_string = 'entry-title';
