@@ -191,6 +191,22 @@ function photographus_add_theme_support() {
 	add_theme_support( 'editor-styles' );
 
 	add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => __( 'Dark grey', 'photographus' ),
+				'slug'  => 'dark-grey',
+				'color' => '#444',
+			],
+			[
+				'name'  => __( 'White', 'photographus' ),
+				'slug'  => 'white',
+				'color' => '#fff',
+			],
+		]
+	);
+
+	add_theme_support(
 		'editor-font-sizes',
 		[
 			[

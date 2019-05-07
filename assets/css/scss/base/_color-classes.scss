@@ -1,0 +1,21 @@
+.has-background {
+	padding: #{$line-height / 2}em #{$line-height / 1.5}rem;
+}
+
+.has {
+	&-white-color {
+		color: $color-white;
+	}
+
+	&-white-background-color {
+		background-color: $color-white;
+	}
+
+	&-dark-grey-color {
+		color: $color-tundora;
+	}
+
+	&-dark-grey-background-color {
+		background-color: $color-tundora;
+	}
+}
