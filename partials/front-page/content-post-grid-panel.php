@@ -2,9 +2,9 @@
 /**
  * Template part for displaying content of posts in the post grid.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Get the post thumbnail ID.

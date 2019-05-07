@@ -2,9 +2,9 @@
 /**
  * Search template file
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 get_header(); ?>

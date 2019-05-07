@@ -3,9 +3,9 @@
  * Template part for displaying content of latest posts
  * front page panel in short version (just title and meta).
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 ?>

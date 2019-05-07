@@ -2,9 +2,9 @@
 /**
  * Template part for displaying content of latest posts front page panel.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 ?>

@@ -2,9 +2,9 @@
 /**
  * Template for displaying the sidebar
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Check if we have widgets in the sidebar and are not on the front page

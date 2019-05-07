@@ -3,9 +3,9 @@
  * Functions that are not called from the template files
  * and cannot be grouped together into another file.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 /**

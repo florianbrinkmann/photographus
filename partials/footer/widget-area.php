@@ -2,9 +2,9 @@
 /**
  * Template part for displaying the footer widget area.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Check if the footer widget area has widgets.

@@ -2,9 +2,9 @@
 /**
  * All add_filter() calls.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Removes the #more jump from more links.

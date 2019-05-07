@@ -1,9 +1,9 @@
 /**
  * Custom JavaScript functions for the customizer which change things in the customizer sidebar.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 (function () {

@@ -2,9 +2,9 @@
 /**
  * Template tags, used in template files.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 if ( ! function_exists( 'photographus_get_custom_logo' ) ) {

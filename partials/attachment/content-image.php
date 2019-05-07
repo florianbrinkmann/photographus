@@ -2,9 +2,9 @@
 /**
  * Template part for displaying content image attachment pages.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 ?>

@@ -3,9 +3,9 @@
  * Functions which are not called by template files and have to do with
  * the front page panels feature.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 if ( ! function_exists( 'photographus_is_front_page_with_panels' ) ) {

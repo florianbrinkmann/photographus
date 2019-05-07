@@ -2,9 +2,9 @@
 /**
  * Template part which is displayed if a query does not find anything.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 ?>

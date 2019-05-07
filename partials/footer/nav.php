@@ -2,9 +2,9 @@
 /**
  * Footer navigation.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Check if the footer menu location has a menu with items.

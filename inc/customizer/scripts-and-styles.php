@@ -2,9 +2,9 @@
 /**
  * Functions which print styles from or in the customizer.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 /**

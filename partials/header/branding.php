@@ -2,9 +2,9 @@
 /**
  * Part of header with logo or title and description.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 // Check if we have a custom logo from the customizer.

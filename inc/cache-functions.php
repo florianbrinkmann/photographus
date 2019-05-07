@@ -2,9 +2,9 @@
 /**
  * Caching functions for the front page panels.
  *
- * @version 1.0.1
+ * @version 1.1.0
  *
- * @package Photographus
+ * @package photographus
  */
 
 if ( ! function_exists( 'photographus_refresh_latest_posts_cache' ) ) {
