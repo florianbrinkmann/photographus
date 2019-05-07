@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Photographus\n"
-"POT-Creation-Date: 2017-06-02 16:15+0200\n"
-"PO-Revision-Date: 2017-06-02 16:16+0200\n"
+"POT-Creation-Date: 2019-05-07 19:02+0200\n"
+"PO-Revision-Date: 2019-05-07 19:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -21,75 +21,75 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: comments.php:33
+#: comments.php:32
 #, php-format
 msgid "%1$s Comment on “%2$s”"
 msgid_plural "%1$s Comments on “%2$s”"
 msgstr[0] "%1$s Kommentar zu „%2$s“"
 msgstr[1] "%1$s Kommentare zu „%2$s“"
 
-#: comments.php:65
+#: comments.php:70
 #, php-format
 msgid "%1$s Trackback on “%2$s”"
 msgid_plural "%1$s Trackbacks on “%2$s”"
 msgstr[0] "%1$s Trackback zu „%2$s“"
 msgstr[1] "%1$s Trackbacks zu „%2$s“"
 
-#: comments.php:100
+#: comments.php:107
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: comments.php:108
+#: comments.php:115
 msgid "Submit Comment"
 msgstr "Kommentar abschicken"
 
-#: inc/customizer/register.php:19
+#: inc/customizer/register.php:21
 msgid "Theme options"
 msgstr "Theme-Optionen"
 
-#: inc/customizer/register.php:36
+#: inc/customizer/register.php:40
 msgid "Alternative header layout"
 msgstr "Alternatives Header-Layout"
 
-#: inc/customizer/register.php:53
+#: inc/customizer/register.php:59
 msgid "Dark mode"
 msgstr "Dark Mode"
 
-#: inc/customizer/register.php:70
+#: inc/customizer/register.php:78
 msgid "Hide the content of the static front page if panels are used."
 msgstr ""
 "Versteck den Inhalt der statischen Startseite, wenn Panels genutzt werden."
 
-#: inc/customizer/register.php:138 inc/customizer/register.php:163
-#: inc/customizer/register.php:221
+#: inc/customizer/register.php:133 inc/customizer/register.php:157
+#: inc/customizer/register.php:220
 msgid "— Select —"
 msgstr "– Auswählen –"
 
 #. translators: d = number of panel in customizer
-#: inc/customizer/register.php:159
+#: inc/customizer/register.php:153
 #, php-format
 msgid "Panel %d"
 msgstr "Panel %d"
 
-#: inc/customizer/register.php:164
+#: inc/customizer/register.php:158
 msgid "Page"
 msgstr "Seite"
 
-#: inc/customizer/register.php:165
+#: inc/customizer/register.php:159
 msgid "Post"
 msgstr "Beitrag"
 
-#: inc/customizer/register.php:166 inc/customizer/register.php:260
-#: inc/front-page-panel-functions.php:190
+#: inc/customizer/register.php:160 inc/customizer/register.php:264
+#: inc/front-page-panel-functions.php:173
 msgid "Latest Posts"
 msgstr "Neueste Beiträge"
 
-#: inc/customizer/register.php:167 inc/customizer/register.php:337
-#: inc/front-page-panel-functions.php:302
+#: inc/customizer/register.php:161 inc/customizer/register.php:350
+#: inc/front-page-panel-functions.php:256
 msgid "Post Grid"
 msgstr "Beitrags-Grid"
 
-#: inc/customizer/register.php:194
+#: inc/customizer/register.php:193
 msgid "Select page"
 msgstr "Seite auswählen"
 
@@ -97,35 +97,35 @@ msgstr "Seite auswählen"
 msgid "Select post"
 msgstr "Beitrag auswählen"
 
-#: inc/customizer/register.php:269 inc/customizer/register.php:346
+#: inc/customizer/register.php:274 inc/customizer/register.php:360
 msgid "Section title"
 msgstr "Abschnitts-Titel"
 
-#: inc/customizer/register.php:291
+#: inc/customizer/register.php:298
 msgid "Number of posts"
 msgstr "Anzahl der Beiträge"
 
-#: inc/customizer/register.php:313
+#: inc/customizer/register.php:322
 msgid "Only show title and header meta of posts."
 msgstr "Nur Titel und Header-Meta der Beiträge anzeigen."
 
-#: inc/customizer/register.php:368
+#: inc/customizer/register.php:384
 msgid "Number of posts (skips posts without post thumbnail)"
 msgstr "Anzahl der Beiträge (Beiträge ohne Beitragsbild werden ignoriert)"
 
-#: inc/customizer/register.php:390
+#: inc/customizer/register.php:408
 msgid "Hide post titles."
 msgstr "Beitragstitel verbergen."
 
-#: inc/customizer/register.php:412
+#: inc/customizer/register.php:432
 msgid "Only display posts with post format »Gallery« or »Image«."
 msgstr "Nur Beiträge mit den Beitragsformaten »Galerie« und »Bild« anzeigen."
 
-#: inc/customizer/register.php:434
+#: inc/customizer/register.php:456
 msgid "Only show posts from one category:"
 msgstr "Nur Beiträge aus dieser Kategorie anzeigen:"
 
-#: inc/customizer/scripts-and-styles.php:38
+#: inc/customizer/scripts-and-styles.php:37
 msgid ""
 "You can show different contents on the front page in so-called »panels«. You "
 "can choose from the content types »Page«, »Post«, »Latest Posts«, and »Post "
@@ -135,7 +135,7 @@ msgstr ""
 "anzeigen. Du kannst aus den Inhalts-Typen »Seite«, »Beitrag«, »Neueste "
 "Beiträge« und »Post-Grid« wählen."
 
-#: inc/customizer/scripts-and-styles.php:39
+#: inc/customizer/scripts-and-styles.php:38
 msgid ""
 "The header image is only displayed on the front page if you have panels with "
 "content."
@@ -143,11 +143,11 @@ msgstr ""
 "Das Headerbild wird nur auf der Startseite angezeigt, wenn du Panels mit "
 "Inhalt hast."
 
-#: inc/front-page-panel-functions.php:252
+#: inc/front-page-panel-functions.php:216
 msgid "Go to blog"
 msgstr "Zum Blog"
 
-#: inc/template-functions.php:141
+#: inc/template-functions.php:132
 msgid ""
 "Welcome to your site! This is your homepage, which is what most visitors "
 "will see when they come to your site for the first time.\n"
@@ -172,7 +172,7 @@ msgstr ""
 "\t\t\t\t\tUm die Panels zu bearbeiten, die du hier siehst, klicke einfach "
 "auf der Stift-Icon links."
 
-#: inc/template-functions.php:150
+#: inc/template-functions.php:143
 msgid ""
 "Just introduce yourself! This page uses the template with a large portrait "
 "featured image. If you do not use a sidebar, the image is displayed next to "
@@ -183,134 +183,133 @@ msgstr ""
 "Viewports neben dem Inhalt dargestellt."
 
 #. translators: Name of menu position in the header
-#: inc/template-functions.php:185 inc/template-functions.php:239
+#: inc/template-functions.php:167 inc/template-functions.php:248
 msgid "Primary Menu"
 msgstr "Hauptmenü"
 
+#: inc/template-functions.php:197
+msgid "Dark grey"
+msgstr "Dunkles Grau"
+
+#: inc/template-functions.php:202
+msgid "White"
+msgstr "Weiß"
+
+#: inc/template-functions.php:213
+msgid "Normal"
+msgstr "Normal"
+
 #. translators: Name of menu position in the footer
-#: inc/template-functions.php:241
+#: inc/template-functions.php:250
 msgid "Footer Menu"
 msgstr "Footer-Menü"
 
-#: inc/template-functions.php:253
+#: inc/template-functions.php:262
 msgid "Main Sidebar"
 msgstr "Haupt-Sidebar"
 
-#: inc/template-functions.php:255
+#: inc/template-functions.php:264
 msgid ""
 "Widgets in this area will be displayed on all posts and pages by default."
 msgstr ""
 "Widgets in diesem Bereich werden standardmäßig auf allen Beiträgen und "
 "Seiten angezeigt."
 
-#: inc/template-functions.php:266
+#: inc/template-functions.php:275
 msgid "Footer Sidebar"
 msgstr "Footer-Sidebar"
 
-#: inc/template-functions.php:268
+#: inc/template-functions.php:277
 msgid "Widgets will be displayed in the footer."
 msgstr "Widgets werden im Footer angezeigt."
 
-#. translators: If there are characters in your language that are not
-#. supported by PT Serif, translate this to 'off'. Do not translate
-#. into your own language.
-#.
-#: inc/template-functions.php:352
-msgid "on"
-msgstr ""
-
-#. translators: Fonts subsets. PT serif also supports cyrillic and cyrillic-ext
-#: inc/template-functions.php:362
-msgid "latin,latin-ext"
-msgstr ""
-
 #. translators: s=trackback count
-#: inc/template-functions.php:394
+#: inc/template-functions.php:343
 #, php-format
 msgid "Trackbacks: %s"
 msgstr "Trackbacks: %s"
 
 #. translators: s=comment count
-#: inc/template-functions.php:431
+#: inc/template-functions.php:374
 #, php-format
 msgid "Comments: %s"
 msgstr "Kommentare: %s"
 
 #. translators: 1=tag label; 2=tag list
 #. translators: 1=category label; 2=category list
-#: inc/template-functions.php:466 inc/template-functions.php:507
+#: inc/template-functions.php:403 inc/template-functions.php:435
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: inc/template-functions.php:472
+#: inc/template-functions.php:406
 msgid "Tag"
 msgid_plural "Tags"
 msgstr[0] "Tag"
 msgstr[1] "Tags"
 
 #. translators: term delimiter
-#: inc/template-functions.php:477 inc/template-functions.php:518
+#: inc/template-functions.php:411 inc/template-functions.php:443
 msgid ", "
 msgstr ", "
 
-#: inc/template-functions.php:513
+#: inc/template-functions.php:438
 msgid "Category"
 msgid_plural "Categories"
 msgstr[0] "Kategorie"
 msgstr[1] "Kategorien"
 
-#: inc/template-functions.php:566
+#: inc/template-functions.php:489
 msgid "Featured"
 msgstr "Featured"
 
 #. translators: s = author name
-#: inc/template-tags.php:230
+#: inc/template-tags.php:178
 #, php-format
 msgid "by %s"
 msgstr "von %s"
 
-#: inc/template-tags.php:248
+#: inc/template-tags.php:197
 msgid "Continue reading"
 msgstr "Weiterlesen"
 
 #. translators: continue reading text for screen reader users. s=post title
-#: inc/template-tags.php:250
+#: inc/template-tags.php:199
 #, php-format
 msgid "Continue reading %s"
 msgstr "%s weiterlesen"
 
 #. translators: 1=date 2=time
-#: inc/template-tags.php:402
+#: inc/template-tags.php:328
 #, php-format
 msgid "%1$s @ %2$s"
 msgstr "%1$s @ %2$s"
 
-#: inc/template-tags.php:412
+#: inc/template-tags.php:337
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: inc/template-tags.php:426
+#: inc/template-tags.php:351
 msgid "Your comment is awaiting moderation."
 msgstr "Dein Kommentar wartet auf Moderation."
 
-#: inc/template-tags.php:443
+#: inc/template-tags.php:367
 msgid "Reply"
 msgstr "Antworten"
 
-#: inc/template-tags.php:460
+#: inc/template-tags.php:387
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: inc/template-tags.php:475
+#: inc/template-tags.php:404
 msgid "Previous"
 msgstr "Neuere"
 
-#: inc/template-tags.php:476
+#: inc/template-tags.php:405
 msgid "Next"
 msgstr "Ältere"
 
-#: inc/theme-updates.php:36
+#: inc/theme-updates.php:35
 msgid ""
 "Paste your download link for »Photographus« to enable automatic theme "
 "updates."
@@ -318,28 +317,29 @@ msgstr ""
 "Füge deinen Download-Link für »Photographus« ein, um automatische Updates zu "
 "aktivieren."
 
-#: inc/theme-updates.php:124
+#: inc/theme-updates.php:102
 msgid ""
 "https://florianbrinkmann.com/en/wordpress-themes/photographus/changelog/"
 msgstr "https://florianbrinkmann.com/wordpress-themes/photographus/changelog/"
 
 #. translators: hidden screen reader headline for the main navigation
-#: partials/footer/nav.php:17
+#: partials/footer/nav.php:16
 msgid "Footer navigation"
 msgstr "Footer-Navigation"
 
-#: partials/footer/theme-author.php:13
+#. translators: s=linked name of theme author
+#: partials/footer/theme-author.php:15
 #, php-format
 msgid "Theme: Photographus by %s"
 msgstr "Theme: Photographus von %s"
 
 #. Author URI of the plugin/theme
-#: partials/footer/theme-author.php:16
+#: partials/footer/theme-author.php:18
 msgid "https://florianbrinkmann.com/en/"
 msgstr "https://florianbrinkmann.com/"
 
 #. translators: hidden screen reader headline for the main navigation
-#: partials/header/nav.php:17
+#: partials/header/nav.php:16
 msgid "Main navigation"
 msgstr "Hauptnavigation"
 
@@ -355,18 +355,20 @@ msgstr ""
 "Es scheint so, als könnte der angefragte Inhalt nicht gefunden werden. "
 "Vielleicht hilft eine Suche weiter?"
 
-#: search.php:20
+#. translators: s=search query string
+#: search.php:22
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-#: search.php:43
+#. translators: s=search query string
+#: search.php:47
 #, php-format
 msgid "Nothing found for: %s"
 msgstr "Nichts gefunden für: %s"
 
 #. translators: screen reader text for the sidebar
-#: sidebar.php:18
+#: sidebar.php:17
 msgid "Sidebar"
 msgstr "Sidebar"
 
