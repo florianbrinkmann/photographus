@@ -588,3 +588,16 @@ if ( ! function_exists( 'photographus_the_scroll_arrow_icon' ) ) {
 		}
 	}
 }
+
+// phpcs:disable
+if ( ! function_exists( 'wp_body_open' ) ) {
+	/**
+	 * For WordPress versions prior 5.2, shim new wp_body_open() function.
+	 * 
+	 * @link https://make.wordpress.org/core/2019/04/24/miscellaneous-developer-updates-in-5-2/
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+}
+// phpcs:enable
