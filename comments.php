@@ -51,7 +51,7 @@ if ( post_password_required() ) {
 						'callback' => 'photographus_comments',
 						'style'    => 'ul',
 						'type'     => 'comment',
-						'per_page' => $comment_args['number'],
+						'per_page' => isset( $comment_args['number'] ) ? $comment_args['number'] : '',
 					]
 				);
 				?>
@@ -86,7 +86,7 @@ if ( post_password_required() ) {
 					[
 						'type'       => 'pings',
 						'short_ping' => true,
-						'per_page'   => $comment_args['number'],
+						'per_page'   => isset( $comment_args['number'] ) ? $comment_args['number'] : '',
 					]
 				);
 				?>
@@ -97,7 +97,7 @@ if ( post_password_required() ) {
 		// is larger than the set number of comments per page. Necessary because
 		// of our separation. Otherwise, the navigation would also be displayed if
 		// we should display 4 comments per page and have 3 comments and 2 trackbacks.
-		if ( ( isset( $photographus_trackback_number ) && $photographus_trackback_number > $comment_args['number'] ) || ( isset( $photographus_comment_number ) && $photographus_comment_number > $comment_args['number'] ) ) {
+		if ( ( isset( $photographus_trackback_number ) && isset( $comment_args['number'] ) && $photographus_trackback_number > $comment_args['number'] ) || ( isset( $photographus_comment_number ) && isset( $comment_args['number'] ) && $photographus_comment_number > $comment_args['number'] ) ) {
 			the_comments_navigation();
 		}
 
