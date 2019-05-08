@@ -33,7 +33,7 @@ of the header. The header image is only displayed on the front page with active 
 
 ## Changelog
 
-### 1.1.0 - 07.05.2018
+### 1.1.0 - 07.05.2019
 
 *Tested with WordPress 5.2.*
 
